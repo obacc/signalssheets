@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animaciones personalizadas */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@layer base {
+  /* ============================================
+     INDICIUM SIGNALS - BASE STYLES
+     ============================================ */
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-neutral-50 text-neutral-900 antialiased;
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  * {
+    @apply border-neutral-200;
+  }
+  
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-400;
+  }
+}
+
+@layer components {
+  /* ============================================
+     COMPONENTES PERSONALIZADOS INDICIUM SIGNALS
+     ============================================ */
+  
+  /* Botones principales */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-700 px-6 py-3 rounded-lg font-semibold border-2 border-primary-600 hover:bg-primary-50 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-success {
+    @apply bg-success-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-success-600 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-warning {
+    @apply bg-warning-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-warning-600 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-danger {
+    @apply bg-danger-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-danger-600 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  /* Cards con glassmorphism */
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl shadow-glass;
+  }
+  
+  .card-trinity {
+    @apply bg-white border border-neutral-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  /* Inputs personalizados */
+  .input-primary {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200;
+  }
+  
+  /* Badges Trinity */
+  .badge-lynch {
+    @apply bg-lynch-100 text-lynch-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-oneil {
+    @apply bg-oneil-100 text-oneil-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-graham {
+    @apply bg-graham-100 text-graham-800 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Gradientes Trinity */
+  .gradient-trinity {
+    @apply bg-gradient-to-r from-lynch-500 via-oneil-500 to-graham-500;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800;
+  }
+  
+  /* Animaciones personalizadas */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transform hover:-translate-y-1 transition-all duration-200;
+  }
+  
+  .hover-glow {
+    @apply hover:shadow-trinity transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* ============================================
+     UTILIDADES PERSONALIZADAS INDICIUM SIGNALS
+     ============================================ */
+  
+  /* Texto con gradiente */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-trinity {
+    @apply bg-gradient-to-r from-lynch-500 via-oneil-500 to-graham-500 bg-clip-text text-transparent;
+  }
+  
+  /* Sombras personalizadas */
+  .shadow-trinity {
+    box-shadow: 0 4px 20px 0 rgba(30, 58, 138, 0.15);
+  }
+  
+  .shadow-success {
+    box-shadow: 0 4px 20px 0 rgba(16, 185, 129, 0.15);
+  }
+  
+  .shadow-warning {
+    box-shadow: 0 4px 20px 0 rgba(245, 158, 11, 0.15);
+  }
+  
+  .shadow-danger {
+    box-shadow: 0 4px 20px 0 rgba(239, 68, 68, 0.15);
+  }
+  
+  /* Bordes con gradiente */
+  .border-gradient-trinity {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6) border-box;
+  }
+  
+  /* Estados de señal */
+  .signal-buy {
+    @apply text-success-600 bg-success-50 border-success-200;
+  }
+  
+  .signal-hold {
+    @apply text-warning-600 bg-warning-50 border-warning-200;
+  }
+  
+  .signal-sell {
+    @apply text-danger-600 bg-danger-50 border-danger-200;
+  }
+  
+  /* Responsive helpers */
+  .container-indicium {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Focus states */
+  .focus-trinity {
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+}
