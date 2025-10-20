@@ -22,7 +22,7 @@ interface FilterState {
 
 export default function Dashboard(){
   const { data = [], isLoading } = useSignals()
-  const [minScore, setMinScore] = useState(0)
+  // const [minScore, setMinScore] = useState(0)
   const [filters, setFilters] = useState<FilterState>({
     search: '',
     signalTypes: [],
@@ -66,7 +66,7 @@ export default function Dashboard(){
   }, [data, filters]);
 
   // Mantener compatibilidad con filtro anterior
-  const filtered = filteredSignals.filter(s => s.trinityScore >= minScore)
+  // const filtered = filteredSignals.filter(s => s.trinityScore >= minScore)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
@@ -266,7 +266,7 @@ export default function Dashboard(){
           <main className="space-y-6">
             <section className="rounded-2xl border bg-white p-4">
               <h2 className="text-lg font-bold mb-3">Filtros Avanzados</h2>
-              <Filters onChange={(f)=> setMinScore(f.minScore)} />
+              <Filters onChange={(f)=> console.log('Min score:', f.minScore)} />
             </section>
             <section className="rounded-2xl border bg-white p-4">
               <h2 className="text-lg font-bold mb-3">Análisis Técnico</h2>

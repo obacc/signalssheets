@@ -1,15 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   TrendingUp, 
   Shield, 
   Zap, 
-  Target,
   CheckCircle,
   ArrowRight,
-  BarChart3,
-  BookOpen,
-  Users
+  BookOpen
 } from 'lucide-react';
 import Logo from '../components/brand/Logo';
 
