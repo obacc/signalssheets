@@ -32,24 +32,24 @@ const Top500 = () => {
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <div className="text-sm text-gray-600 mb-1">Buy Signals</div>
               <div className="text-3xl font-bold text-green-600">{buySignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{((buySignals/totalSignals)*100).toFixed(1)}% of total</div>
+              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((buySignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <div className="text-sm text-gray-600 mb-1">Hold Signals</div>
               <div className="text-3xl font-bold text-yellow-600">{holdSignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{((holdSignals/totalSignals)*100).toFixed(1)}% of total</div>
+              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((holdSignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <div className="text-sm text-gray-600 mb-1">Sell Signals</div>
               <div className="text-3xl font-bold text-red-600">{sellSignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{((sellSignals/totalSignals)*100).toFixed(1)}% of total</div>
+              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((sellSignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <div className="text-sm text-gray-600 mb-1">Avg Trinity Score</div>
-              <div className="text-3xl font-bold text-blue-600">{avgTrinityScore.toFixed(1)}</div>
+              <div className="text-3xl font-bold text-blue-600">{avgTrinityScore ? avgTrinityScore.toFixed(1) : '0.0'}</div>
               <div className="text-xs text-gray-500 mt-1">Weighted average</div>
             </div>
           </div>

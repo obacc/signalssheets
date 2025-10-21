@@ -465,7 +465,7 @@ export default function DailyTop10() {
                       </div>
                       <div>
                         <div className="text-sm text-gray-600">Volumen</div>
-                        <div className="font-semibold text-gray-900">{(signal.volume / 1000000).toFixed(1)}M</div>
+                        <div className="font-semibold text-gray-900">{signal.volume ? (signal.volume / 1000000).toFixed(1) : '0.0'}M</div>
                       </div>
                     </div>
                     

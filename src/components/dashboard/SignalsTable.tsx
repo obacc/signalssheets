@@ -82,11 +82,11 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
       signal.ticker,
       signal.companyName,
       signal.signal,
-      signal.trinityScore.toFixed(1),
+      signal.trinityScore ? signal.trinityScore.toFixed(1) : '0.0',
       signal.lynchScore,
       signal.oneilScore,
       signal.grahamScore,
-      signal.price.toFixed(2),
+      signal.price ? signal.price.toFixed(2) : '0.00',
       signal.targetPrice?.toFixed(2) || '-',
       signal.stopLoss?.toFixed(2) || '-',
       signal.expectedReturn?.toFixed(1) || '-',
@@ -356,7 +356,7 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
                       signal.trinityScore >= 60 ? 'text-warning-600 bg-warning-50' :
                       'text-neutral-600 bg-neutral-50'
                     }`}>
-                      {signal.trinityScore.toFixed(1)}
+                      {signal.trinityScore ? signal.trinityScore.toFixed(1) : '0.0'}
                     </div>
                   </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">
@@ -376,7 +376,7 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
                   </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">
                     <div className="text-neutral-900 font-medium">
-                      ${signal.price.toFixed(2)}
+                      ${signal.price ? signal.price.toFixed(2) : '0.00'}
                     </div>
                   </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">
@@ -391,7 +391,7 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
                   </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">
                     <div className="text-success-600 font-semibold">
-                      {signal.expectedReturn?.toFixed(1)}%
+                      {signal.expectedReturn ? signal.expectedReturn.toFixed(1) : '0.0'}%
                     </div>
                   </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">

@@ -42,7 +42,7 @@ export default function Watchlist() {
       ['Ticker', 'Score Trinity', 'Señal', 'Sector', 'Fecha'],
       ...watchlistSignals.map(s => [
         s.ticker,
-        s.trinityScore.toFixed(2),
+        s.trinityScore ? s.trinityScore.toFixed(2) : '0.00',
         s.signal,
         s.sector,
         s.date || new Date().toISOString().split('T')[0]
@@ -188,7 +188,7 @@ export default function Watchlist() {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="text-sm text-gray-600 mb-1">Score Promedio</div>
               <div className="text-3xl font-bold text-gray-900">
-                {stats.avgScore.toFixed(1)}/100
+                {stats.avgScore ? stats.avgScore.toFixed(1) : '0.0'}/100
               </div>
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function Watchlist() {
                             style={{ width: `${signal.trinityScore}%` }}
                           />
                         </div>
-                        <span className="text-sm font-semibold">{signal.trinityScore.toFixed(1)}</span>
+                        <span className="text-sm font-semibold">{signal.trinityScore ? signal.trinityScore.toFixed(1) : '0.0'}</span>
                       </div>
                     </td>
                     <td className="px-4 py-4 text-sm text-gray-600">{signal.sector}</td>

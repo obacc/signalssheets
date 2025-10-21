@@ -109,7 +109,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ signals }) => {
             Trinity Score Promedio
           </div>
           <div className="text-2xl font-bold text-primary-600">
-            {(signals.reduce((sum, s) => sum + s.trinityScore, 0) / signals.length).toFixed(1)}
+            {signals.length > 0 ? (signals.reduce((sum, s) => sum + s.trinityScore, 0) / signals.length).toFixed(1) : '0.0'}
           </div>
         </div>
 
@@ -119,7 +119,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ signals }) => {
             Retorno Esperado Promedio
           </div>
           <div className="text-2xl font-bold text-success-600">
-            {(signals.reduce((sum, s) => sum + (s.expectedReturn || 0), 0) / signals.length).toFixed(1)}%
+            {signals.length > 0 ? (signals.reduce((sum, s) => sum + (s.expectedReturn || 0), 0) / signals.length).toFixed(1) : '0.0'}%
           </div>
         </div>
 
@@ -129,7 +129,7 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ signals }) => {
             Confianza Promedio
           </div>
           <div className="text-2xl font-bold text-info-600">
-            {(signals.reduce((sum, s) => sum + s.confidence, 0) / signals.length).toFixed(0)}%
+            {signals.length > 0 ? (signals.reduce((sum, s) => sum + s.confidence, 0) / signals.length).toFixed(0) : '0'}%
           </div>
         </div>
 
