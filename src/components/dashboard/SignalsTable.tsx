@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowUpDown, ChevronLeft, ChevronRight, Download, Search } from 'lucide-react';
+import { ArrowUpDown, ChevronLeft, ChevronRight, Download, Search, Star } from 'lucide-react';
 import type { Signal } from '../../types';
+import { useWatchlistStore } from '../../store/watchlistStore';
 
 interface SignalsTableProps {
   signals: Signal[];
@@ -15,6 +16,7 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+  const { addTicker, removeTicker, isFavorite } = useWatchlistStore();
 
   // Filtrar y ordenar datos
   const filteredAndSortedSignals = useMemo(() => {
@@ -148,6 +150,9 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
           <table className="min-w-full divide-y divide-neutral-200">
             <thead className="bg-neutral-50">
               <tr>
+                <th className="px-3 py-3 text-center text-xs font-semibold text-neutral-700 uppercase tracking-wider whitespace-nowrap w-16">
+                  ⭐
+                </th>
                 <th className="px-3 py-3 text-left text-xs font-semibold text-neutral-700 uppercase tracking-wider whitespace-nowrap w-20">
                   <div className="flex items-center gap-2 cursor-pointer hover:bg-neutral-100" onClick={() => handleSort('ticker')}>
                     Ticker
@@ -305,8 +310,24 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-neutral-200">
-              {paginatedSignals.map((signal) => (
+              {paginatedSignals.map((signal) => {
+                const isStarred = isFavorite(signal.ticker);
+                return (
                 <tr key={signal.id} className="hover:bg-neutral-50 transition-colors">
+                  <td className="px-3 py-3 text-center">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        isStarred ? removeTicker(signal.ticker) : addTicker(signal.ticker);
+                      }}
+                      className="transition hover:scale-110"
+                      title={isStarred ? 'Remover de watchlist' : 'Agregar a watchlist'}
+                    >
+                      <Star 
+                        className={`w-5 h-5 ${isStarred ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                      />
+                    </button>
+                  </td>
                   <td className="px-3 py-3 text-sm whitespace-nowrap">
                     <div className="font-bold text-neutral-900">{signal.ticker}</div>
                   </td>
@@ -395,7 +416,8 @@ const SignalsTable: React.FC<SignalsTableProps> = ({ signals }) => {
                     <div className="text-xs text-neutral-600">{signal.riskProfile}</div>
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>
