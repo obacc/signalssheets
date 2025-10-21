@@ -1,112 +1,217 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { Search, ArrowUpDown } from 'lucide-react';
 import { mockSignals } from '../utils/mockData';
-import SignalsTable from '../components/dashboard/SignalsTable';
-import TrinityScoreCard from '../components/TrinityScoreCard';
 
-const Top500 = () => {
-  const [viewMode, setViewMode] = useState<'table' | 'cards'>('table');
-  
-  // Calculate stats
-  const totalSignals = mockSignals.length;
-  const buySignals = mockSignals.filter(s => s.signal === 'BUY').length;
-  const holdSignals = mockSignals.filter(s => s.signal === 'HOLD').length;
-  const sellSignals = mockSignals.filter(s => s.signal === 'SELL').length;
-  const avgTrinityScore = mockSignals.reduce((sum, s) => sum + s.trinityScore, 0) / totalSignals;
-  
+type SortField = 'trinityScore' | 'lynchScore' | 'oneilScore' | 'grahamScore' | 'ticker';
+type SortDirection = 'asc' | 'desc';
+
+export default function Top500() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortField, setSortField] = useState<SortField>('trinityScore');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+
+  // Filtrar y ordenar señales
+  const sortedSignals = useMemo(() => {
+    let filtered = mockSignals;
+
+    // Filtrar por búsqueda
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (s) =>
+          s.ticker.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          s.companyName.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Ordenar
+    return [...filtered].sort((a, b) => {
+      let aVal = a[sortField];
+      let bVal = b[sortField];
+
+      // Para strings (ticker)
+      if (typeof aVal === 'string' && typeof bVal === 'string') {
+        return sortDirection === 'asc' 
+          ? aVal.localeCompare(bVal)
+          : bVal.localeCompare(aVal);
+      }
+
+      // Para números - CON VALIDACIÓN
+      const aNum = typeof aVal === 'number' ? aVal : 0;
+      const bNum = typeof bVal === 'number' ? bVal : 0;
+      
+      return sortDirection === 'asc' ? aNum - bNum : bNum - aNum;
+    });
+  }, [searchTerm, sortField, sortDirection]);
+
+  const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('desc');
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Header con Stats */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">TOP 500 Signals</h1>
-          <p className="text-gray-600 mb-6">Comprehensive analysis of the top 500 investment opportunities</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Total Signals</div>
-              <div className="text-3xl font-bold text-gray-900">{totalSignals}</div>
-              <div className="text-xs text-gray-500 mt-1">Active opportunities</div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <h1 className="text-3xl font-bold text-gray-900">TOP 500 Tickers</h1>
+          <p className="text-gray-600 mt-2">
+            Ranking completo de los mejores tickers según Trinity Method
+          </p>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Search Bar */}
+        <div className="bg-white rounded-lg shadow-sm p-4 mb-6 border border-gray-200">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Buscar por ticker o nombre de empresa..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+          </div>
+        </div>
+
+        {/* Stats Summary */}
+        <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <p className="text-sm text-gray-600 mb-1">Total Tickers</p>
+              <p className="text-3xl font-bold text-gray-900">{sortedSignals.length}</p>
             </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Buy Signals</div>
-              <div className="text-3xl font-bold text-green-600">{buySignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((buySignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
+            <div>
+              <p className="text-sm text-gray-600 mb-1">Score Promedio</p>
+              <p className="text-3xl font-bold text-primary-600">
+                {sortedSignals.length > 0 
+                  ? (sortedSignals.reduce((acc, s) => acc + s.trinityScore, 0) / sortedSignals.length).toFixed(1)
+                  : '0.0'}
+              </p>
             </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Hold Signals</div>
-              <div className="text-3xl font-bold text-yellow-600">{holdSignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((holdSignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Sell Signals</div>
-              <div className="text-3xl font-bold text-red-600">{sellSignals}</div>
-              <div className="text-xs text-gray-500 mt-1">{totalSignals > 0 ? ((sellSignals/totalSignals)*100).toFixed(1) : '0.0'}% of total</div>
-            </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <div className="text-sm text-gray-600 mb-1">Avg Trinity Score</div>
-              <div className="text-3xl font-bold text-blue-600">{avgTrinityScore ? avgTrinityScore.toFixed(1) : '0.0'}</div>
-              <div className="text-xs text-gray-500 mt-1">Weighted average</div>
+            <div>
+              <p className="text-sm text-gray-600 mb-1">Mejor Score</p>
+              <p className="text-3xl font-bold text-success">
+                {sortedSignals.length > 0 
+                  ? Math.max(...sortedSignals.map(s => s.trinityScore)).toFixed(1)
+                  : '0.0'}
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Toggle View */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="text-sm text-gray-600">
-            Showing {totalSignals} signals • Last updated: {new Date().toLocaleDateString()}
+        {/* Table */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th className="px-6 py-4 text-left">
+                    <button
+                      onClick={() => handleSort('ticker')}
+                      className="flex items-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-primary-600"
+                    >
+                      Ticker
+                      <ArrowUpDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                    Empresa
+                  </th>
+                  <th className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleSort('trinityScore')}
+                      className="flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-primary-600 w-full"
+                    >
+                      Trinity Score
+                      <ArrowUpDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                  <th className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleSort('lynchScore')}
+                      className="flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-primary-600 w-full"
+                    >
+                      Lynch
+                      <ArrowUpDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                  <th className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleSort('oneilScore')}
+                      className="flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-primary-600 w-full"
+                    >
+                      O'Neil
+                      <ArrowUpDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                  <th className="px-6 py-4 text-center">
+                    <button
+                      onClick={() => handleSort('grahamScore')}
+                      className="flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-primary-600 w-full"
+                    >
+                      Graham
+                      <ArrowUpDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                    Sector
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {sortedSignals.map((signal, index) => (
+                  <tr key={signal.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-semibold text-gray-500">#{index + 1}</span>
+                        <span className="text-sm font-bold text-gray-900">{signal.ticker}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="text-sm text-gray-700">{signal.companyName}</span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-primary-100 text-primary-800">
+                        {signal.trinityScore.toFixed(0)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="text-sm font-medium text-gray-900">
+                        {signal.lynchScore.toFixed(0)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="text-sm font-medium text-gray-900">
+                        {signal.oneilScore.toFixed(0)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="text-sm font-medium text-gray-900">
+                        {signal.grahamScore.toFixed(0)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="text-sm text-gray-600">{signal.sector}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          
-          <div className="flex bg-gray-100 rounded-lg p-1">
-            <button 
-              onClick={() => setViewMode('table')} 
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                viewMode === 'table' 
-                  ? 'bg-white text-blue-600 shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              Table View
-            </button>
-            <button 
-              onClick={() => setViewMode('cards')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                viewMode === 'cards' 
-                  ? 'bg-white text-blue-600 shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              Card View
-            </button>
-          </div>
-        </div>
 
-        {/* Content */}
-        {viewMode === 'table' ? (
-          <SignalsTable signals={mockSignals} />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {mockSignals.map(signal => (
-              <TrinityScoreCard 
-                key={signal.id} 
-                lynchScore={signal.lynchScore}
-                oneilScore={signal.oneilScore}
-                grahamScore={signal.grahamScore}
-                trinityScore={signal.trinityScore}
-                dominantAuthor={signal.author as 'Lynch' | 'O\'Neil' | 'Graham'}
-                ticker={signal.ticker}
-                companyName={signal.companyName}
-              />
-            ))}
-          </div>
-        )}
+          {sortedSignals.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">No se encontraron resultados</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
-};
-
-export default Top500;
+}
