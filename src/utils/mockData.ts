@@ -1,5 +1,23 @@
 // src/utils/mockData.ts
-import { Signal, MarketRegimeData } from '../types';
+import { Signal } from '../types';
+
+interface MarketRegimeData {
+  date: string;
+  vix: number;
+  put_call_ratio: number;
+  high_low_index: number;
+  advance_decline: number;
+  overall_regime: 'BULLISH' | 'BEARISH' | 'NEUTRAL' | 'VOLATILE';
+  regime_strength: number;
+  recommendation: string;
+  indicators: {
+    vix_signal: 'BULLISH' | 'NEUTRAL' | 'BEARISH';
+    pcr_signal: 'BULLISH' | 'NEUTRAL' | 'BEARISH';
+    hli_signal: 'BULLISH' | 'NEUTRAL' | 'BEARISH';
+    ad_signal: 'BULLISH' | 'NEUTRAL' | 'BEARISH';
+  };
+  trend: 'IMPROVING' | 'STABLE' | 'DETERIORATING';
+}
 
 /**
  * Mock Data Realista para IndiciumSignals
