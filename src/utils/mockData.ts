@@ -1,6 +1,6 @@
-// src/utils/mockData.ts
-import { Signal } from '../types';
+import type { Signal } from '../types';
 
+// Define MarketRegimeData locally since it's not exported from types
 interface MarketRegimeData {
   date: string;
   vix: number;
@@ -19,16 +19,7 @@ interface MarketRegimeData {
   trend: 'IMPROVING' | 'STABLE' | 'DETERIORATING';
 }
 
-/**
- * Mock Data Realista para IndiciumSignals
- * 60 señales EOD distribuidas realísticamente:
- * - 24 BUY (40%)
- * - 27 HOLD (45%)
- * - 9 SELL (15%)
- * 
- * 10 Sectores representados
- * 3 Autores balanceados: Lynch 35%, O'Neil 35%, Graham 30%
- */
+// Resto del archivo continúa...
 
 export const mockSignals: Signal[] = [
   // ========== BUY SIGNALS (24 total) ==========
@@ -1884,27 +1875,27 @@ export const marketRegimeHistory: MarketRegimeData[] = [
   // Últimos 30 días de régimen de mercado
   {
     date: new Date(Date.now() - 0 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 78,
     vixLevel: 14.2,
     breadth: 0.65,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 76,
     vixLevel: 14.8,
     breadth: 0.63,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 74,
     vixLevel: 15.1,
     breadth: 0.61,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1912,7 +1903,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 65,
     vixLevel: 16.2,
     breadth: 0.52,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1920,47 +1911,47 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 68,
     vixLevel: 15.8,
     breadth: 0.54,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 72,
     vixLevel: 15.3,
     breadth: 0.58,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 75,
     vixLevel: 14.9,
     breadth: 0.60,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 77,
     vixLevel: 14.5,
     breadth: 0.64,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 79,
     vixLevel: 13.8,
     breadth: 0.67,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 80,
     vixLevel: 13.5,
     breadth: 0.68,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1968,7 +1959,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 62,
     vixLevel: 16.8,
     breadth: 0.50,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 11 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1976,7 +1967,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 64,
     vixLevel: 16.4,
     breadth: 0.51,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1984,7 +1975,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 71,
     vixLevel: 19.2,
     breadth: 0.38,
-    trend: 'Downtrend'
+    trend: 'DETERIORATING'
   },
   {
     date: new Date(Date.now() - 13 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -1992,7 +1983,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 73,
     vixLevel: 20.1,
     breadth: 0.35,
-    trend: 'Downtrend'
+    trend: 'DETERIORATING'
   },
   {
     date: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2000,7 +1991,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 75,
     vixLevel: 21.3,
     breadth: 0.32,
-    trend: 'Downtrend'
+    trend: 'DETERIORATING'
   },
   {
     date: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2008,7 +1999,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 66,
     vixLevel: 17.5,
     breadth: 0.48,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2016,39 +2007,39 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 68,
     vixLevel: 17.1,
     breadth: 0.49,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 17 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 70,
     vixLevel: 16.2,
     breadth: 0.56,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 73,
     vixLevel: 15.4,
     breadth: 0.59,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 19 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 76,
     vixLevel: 14.8,
     breadth: 0.62,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 78,
     vixLevel: 14.2,
     breadth: 0.65,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2056,7 +2047,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 63,
     vixLevel: 17.0,
     breadth: 0.50,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 22 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2064,7 +2055,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 65,
     vixLevel: 16.6,
     breadth: 0.52,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 23 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2072,7 +2063,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 70,
     vixLevel: 18.9,
     breadth: 0.40,
-    trend: 'Downtrend'
+    trend: 'DETERIORATING'
   },
   {
     date: new Date(Date.now() - 24 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2080,7 +2071,7 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 72,
     vixLevel: 19.8,
     breadth: 0.37,
-    trend: 'Downtrend'
+    trend: 'DETERIORATING'
   },
   {
     date: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -2088,39 +2079,39 @@ export const marketRegimeHistory: MarketRegimeData[] = [
     confidence: 67,
     vixLevel: 17.3,
     breadth: 0.49,
-    trend: 'Sideways'
+    trend: 'STABLE'
   },
   {
     date: new Date(Date.now() - 26 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 71,
     vixLevel: 16.0,
     breadth: 0.57,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 27 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 74,
     vixLevel: 15.2,
     breadth: 0.60,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 77,
     vixLevel: 14.6,
     breadth: 0.63,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   },
   {
     date: new Date(Date.now() - 29 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-    regime: 'Bull',
+    overall_regime: 'BULLISH',
     confidence: 79,
     vixLevel: 14.0,
     breadth: 0.66,
-    trend: 'Uptrend'
+    trend: 'IMPROVING'
   }
 ];
 
