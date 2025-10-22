@@ -3,7 +3,7 @@ import type { Signal, MarketRegimeData, SignalType } from '../types';
 import { mockSignals as signals, marketRegimeHistory } from '../utils/mockData';
 import { Search, Download, TrendingUp, TrendingDown, Minus, AlertCircle } from 'lucide-react';
 
-export function Top500() {
+export default function Top500() {
   const [filteredSignals, setFilteredSignals] = useState<Signal[]>(signals);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAuthor, setSelectedAuthor] = useState<'ALL' | 'Lynch' | 'O\'Neil' | 'Graham'>('ALL');

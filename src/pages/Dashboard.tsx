@@ -6,7 +6,7 @@ import type { Signal, SignalFilters, MarketRegimeData } from '../types';
 import { mockSignals as signals, marketRegimeHistory } from '../utils/mockData';
 import { TrendingUp, Activity, DollarSign } from 'lucide-react';
 
-export function Dashboard() {
+export default function Dashboard() {
   const [filteredSignals, setFilteredSignals] = useState<Signal[]>(signals);
   const [filters, setFilters] = useState<SignalFilters>({});
   const [currentRegime, setCurrentRegime] = useState<MarketRegimeData | null>(null);
