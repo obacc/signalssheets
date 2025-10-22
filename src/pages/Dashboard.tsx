@@ -1,140 +1,169 @@
-import { useState } from 'react';
-import { TrendingUp, TrendingDown, Minus, BarChart3 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import SignalsTable from '../components/dashboard/SignalsTable';
 import Filters from '../components/dashboard/Filters';
-import { Signal, SignalFilters } from '../types';
-import { mockSignals } from '../utils/mockData';
+import Chart from '../components/dashboard/Chart';
+import type { Signal, SignalFilters, MarketRegimeData } from '../types';
+import { mockSignals as signals, marketRegimeHistory } from '../utils/mockData';
+import { TrendingUp, Activity, DollarSign } from 'lucide-react';
 
-export default function Dashboard() {
-  const [filters, setFilters] = useState<SignalFilters>({
-    search: '',
-    signal: 'ALL',
-    author: 'ALL',
-    riskProfile: 'ALL',
-    sector: 'ALL',
-    minTrinityScore: 0,
-    maxTrinityScore: 100,
-  });
+export function Dashboard() {
+  const [filteredSignals, setFilteredSignals] = useState<Signal[]>(signals);
+  const [filters, setFilters] = useState<SignalFilters>({});
+  const [currentRegime, setCurrentRegime] = useState<MarketRegimeData | null>(null);
 
-  // Filtrar señales según criterios
-  const filteredSignals = mockSignals.filter((signal) => {
-    if (filters.search && !signal.ticker.toLowerCase().includes(filters.search.toLowerCase()) &&
-        !signal.companyName.toLowerCase().includes(filters.search.toLowerCase())) {
-      return false;
+  useEffect(() => {
+    if (marketRegimeHistory && marketRegimeHistory.length > 0) {
+      setCurrentRegime(marketRegimeHistory[0]);
     }
-    if (filters.signal !== 'ALL' && signal.signal !== filters.signal) return false;
-    if (filters.author !== 'ALL' && signal.author !== filters.author) return false;
-    if (filters.riskProfile !== 'ALL' && signal.riskProfile !== filters.riskProfile) return false;
-    if (filters.sector !== 'ALL' && signal.sector !== filters.sector) return false;
-    if (signal.trinityScore < filters.minTrinityScore || signal.trinityScore > filters.maxTrinityScore) {
-      return false;
-    }
-    return true;
-  });
+  }, []);
 
-  // Calcular estadísticas - CON VALIDACIÓN
-  const buySignals = filteredSignals.filter(s => s.signal === 'BUY').length;
-  const sellSignals = filteredSignals.filter(s => s.signal === 'SELL').length;
-  const holdSignals = filteredSignals.filter(s => s.signal === 'HOLD').length;
-  
-  // CRÍTICO: Validar antes de calcular promedio
-  const avgScore = filteredSignals.length > 0 
-    ? (filteredSignals.reduce((acc, s) => acc + s.trinityScore, 0) / filteredSignals.length)
-    : 0;
+  useEffect(() => {
+    let result = [...signals];
+    
+    if (filters.search) {
+      result = result.filter(s => 
+        s.ticker.toLowerCase().includes(filters.search!.toLowerCase()) ||
+        s.companyName.toLowerCase().includes(filters.search!.toLowerCase())
+      );
+    }
+    
+    if (filters.signalType && filters.signalType !== 'ALL') {
+      result = result.filter(s => s.signal === filters.signalType);
+    }
+    
+    if (filters.author && filters.author !== 'ALL') {
+      result = result.filter(s => s.dominantAuthor === filters.author);
+    }
+    
+    if (filters.sector) {
+      result = result.filter(s => s.sector === filters.sector);
+    }
+    
+    if (filters.minScore) {
+      result = result.filter(s => s.strength >= filters.minScore!);
+    }
+    
+    setFilteredSignals(result);
+  }, [filters]);
+
+  // Calcular estadísticas con null checks
+  const stats = {
+    totalSignals: filteredSignals.length,
+    buySignals: filteredSignals.filter(s => s.signal === 'BUY').length,
+    avgScore: filteredSignals.length > 0 
+      ? filteredSignals.reduce((acc, s) => acc + (s.strength || 0), 0) / filteredSignals.length 
+      : 0,
+    topGainer: filteredSignals.reduce((max, s) => 
+      (s.change || 0) > (max?.change || 0) ? s : max, 
+      filteredSignals[0]
+    )
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Dashboard Trinity Method</h1>
-              <p className="text-sm text-gray-500 mt-1">
-                Señales activas del TOP 500 tickers
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-600">
-                Última actualización: {new Date().toLocaleDateString('es-ES')}
-              </span>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-gray-600">Trinity Method Trading Signals</p>
+        </div>
+
+        {/* Market Regime Indicator */}
+        {currentRegime && (
+          <div className="mb-6 bg-white rounded-lg shadow p-6">
+            <h3 className="text-lg font-semibold mb-4">Market Regime</h3>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+              <div>
+                <span className="text-sm text-gray-600">Overall</span>
+                <p className={`text-xl font-bold ${
+                  currentRegime.overall_regime === 'BULLISH' ? 'text-green-600' : 
+                  currentRegime.overall_regime === 'BEARISH' ? 'text-red-600' : 
+                  'text-yellow-600'
+                }`}>
+                  {currentRegime.overall_regime}
+                </p>
+              </div>
+              <div>
+                <span className="text-sm text-gray-600">VIX</span>
+                <p className="text-xl font-bold">{currentRegime.vix?.toFixed(2) || 'N/A'}</p>
+              </div>
+              <div>
+                <span className="text-sm text-gray-600">Put/Call</span>
+                <p className="text-xl font-bold">{currentRegime.put_call_ratio?.toFixed(2) || 'N/A'}</p>
+              </div>
+              <div>
+                <span className="text-sm text-gray-600">High/Low</span>
+                <p className="text-xl font-bold">{currentRegime.high_low_index?.toFixed(1) || 'N/A'}%</p>
+              </div>
+              <div>
+                <span className="text-sm text-gray-600">Strength</span>
+                <p className="text-xl font-bold">{currentRegime.regime_strength?.toFixed(0) || 0}%</p>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Stats Cards */}
+        {/* Estadísticas */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          {/* Total Señales */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Señales</p>
-                <p className="text-3xl font-bold text-gray-900">{filteredSignals.length}</p>
+                <p className="text-sm text-gray-600">Total Signals</p>
+                <p className="text-2xl font-bold">{stats.totalSignals}</p>
               </div>
-              <BarChart3 className="w-10 h-10 text-primary-500" />
+              <Activity className="h-8 w-8 text-blue-500" />
             </div>
           </div>
-
-          {/* BUY Signals */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          
+          <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Señales BUY</p>
-                <p className="text-3xl font-bold text-success">{buySignals}</p>
+                <p className="text-sm text-gray-600">Buy Signals</p>
+                <p className="text-2xl font-bold text-green-600">{stats.buySignals}</p>
               </div>
-              <TrendingUp className="w-10 h-10 text-success" />
+              <TrendingUp className="h-8 w-8 text-green-500" />
             </div>
           </div>
-
-          {/* SELL Signals */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          
+          <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Señales SELL</p>
-                <p className="text-3xl font-bold text-danger">{sellSignals}</p>
+                <p className="text-sm text-gray-600">Avg Trinity Score</p>
+                <p className="text-2xl font-bold">{stats.avgScore.toFixed(1)}</p>
               </div>
-              <TrendingDown className="w-10 h-10 text-danger" />
+              <Activity className="h-8 w-8 text-purple-500" />
             </div>
           </div>
-
-          {/* HOLD Signals */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          
+          <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Señales HOLD</p>
-                <p className="text-3xl font-bold text-warning">{holdSignals}</p>
+                <p className="text-sm text-gray-600">Top Gainer</p>
+                <p className="text-lg font-bold">{stats.topGainer?.ticker || 'N/A'}</p>
+                <p className="text-sm text-green-600">
+                  +{stats.topGainer?.change?.toFixed(1) || 0}%
+                </p>
               </div>
-              <Minus className="w-10 h-10 text-warning" />
+              <DollarSign className="h-8 w-8 text-green-500" />
             </div>
           </div>
         </div>
 
-        {/* Average Trinity Score */}
-        <div className="bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg shadow-lg p-6 mb-8 text-white">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-primary-100 text-sm mb-2">Trinity Score Promedio</p>
-              <p className="text-5xl font-bold">{avgScore.toFixed(1)}/100</p>
-            </div>
-            <div className="text-right">
-              <p className="text-primary-100 text-sm mb-1">Calidad de Señales</p>
-              <p className="text-2xl font-semibold">
-                {avgScore >= 80 ? 'Excelente' : avgScore >= 60 ? 'Buena' : 'Moderada'}
-              </p>
-            </div>
+        <Filters onChange={(filters) => {
+          setFilters({
+            author: filters.strategy === 'all' ? 'ALL' : 
+                   filters.strategy === 'lynch' ? 'Lynch' :
+                   filters.strategy === 'oneil' ? 'O\'Neil' : 'Graham',
+            minScore: filters.minScore
+          });
+        }} />
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+          <div className="lg:col-span-2">
+            <SignalsTable signals={filteredSignals} />
           </div>
-        </div>
-
-        {/* Filters */}
-        <div className="mb-6">
-          <Filters filters={filters} onFiltersChange={setFilters} />
-        </div>
-
-        {/* Signals Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <SignalsTable signals={filteredSignals} />
+          <div>
+            <Chart />
+          </div>
         </div>
       </div>
     </div>
