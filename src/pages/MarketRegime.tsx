@@ -1,124 +1,149 @@
-import { mockMarketRegime } from '../utils/mockMarketRegime';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { Card } from '../components/ui/Card';
+import { Badge } from '../components/ui/Badge';
+import { mockMarketRegime } from '../lib/mockData';
+import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 
 const MarketRegime = () => {
-  const { current, indicators, historical } = mockMarketRegime;
-  
-  // Gauge visual simple
-  const getRegimeColor = (regime: string) => {
-    if (regime === 'BULL') return 'bg-green-500';
-    if (regime === 'BEAR') return 'bg-red-500';
-    return 'bg-yellow-500';
+  const { current, vix, breadth, yieldCurve, dollarStrength, commodities, weights } = mockMarketRegime;
+
+  const getRegimeColor = () => {
+    if (current === 'BULLISH') return 'bg-buy';
+    if (current === 'BEARISH') return 'bg-sell';
+    return 'bg-hold';
   };
 
-  const getRegimeTextColor = (regime: string) => {
-    if (regime === 'BULL') return 'text-green-600';
-    if (regime === 'BEAR') return 'text-red-600';
-    return 'text-yellow-600';
+  const getRegimeIcon = () => {
+    if (current === 'BULLISH') return <TrendingUp className="w-8 h-8" />;
+    if (current === 'BEARISH') return <TrendingDown className="w-8 h-8" />;
+    return <Minus className="w-8 h-8" />;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Header />
+
+      <main className="flex-1 container mx-auto px-4 py-8">
+        {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Market Regime Analysis</h1>
-          <p className="text-gray-600">Current market conditions and historical trends</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Market Regime Analysis</h1>
+          <p className="text-slate-600">Current market conditions and historical trends</p>
         </div>
 
-        {/* Hero Gauge */}
-        <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Current Market Regime</h2>
-              <div className="flex items-center gap-4">
-                <div className={`w-24 h-24 rounded-full ${getRegimeColor(current.regime)} flex items-center justify-center`}>
-                  <span className="text-white font-bold text-lg">{current.regime}</span>
-                </div>
-                <div>
-                  <div className={`text-3xl font-bold ${getRegimeTextColor(current.regime)}`}>
-                    {current.regime}
-                  </div>
-                  <div className="text-gray-600">VIX: {current.vix}</div>
-                  <div className="text-gray-600">Breadth: {current.breadth}%</div>
-                </div>
-              </div>
+        {/* Current Regime Card */}
+        <Card className="mb-8">
+          <div className="flex items-center gap-6 mb-6">
+            <div className={'w-24 h-24 rounded-full flex items-center justify-center text-white ' + getRegimeColor()}>
+              {getRegimeIcon()}
             </div>
-            
-            {/* Trinity Weights */}
-            <div className="flex-1 max-w-md">
-              <h3 className="text-lg font-semibold mb-4">Trinity Weights</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Lynch</span>
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{width: `${current.trinityWeights.lynch}%`}}></div>
-                  </div>
-                  <span className="text-sm font-medium">{current.trinityWeights.lynch}%</span>
+            <div className="flex-1">
+              <p className="text-sm text-slate-600 mb-1">Current Market Regime</p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-2">{current}</h2>
+              <p className="text-slate-600">
+                VIX: <span className="font-semibold">{vix}</span> |
+                Breadth: <span className="font-semibold">{breadth}%</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Trinity Weights */}
+          <div className="pt-6 border-t border-slate-200">
+            <h3 className="text-lg font-semibold text-slate-900 mb-4">Trinity Method Weights</h3>
+            <p className="text-sm text-slate-600 mb-4">
+              Current market conditions determine how much weight each strategy receives
+            </p>
+            <div className="space-y-3">
+              {/* Lynch Weight */}
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-sm font-medium text-slate-700">Lynch</span>
+                <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-lynch"
+                    style={{ width: weights.lynch + '%' }}
+                  />
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">O'Neil</span>
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-600 h-2 rounded-full" style={{width: `${current.trinityWeights.oneil}%`}}></div>
-                  </div>
-                  <span className="text-sm font-medium">{current.trinityWeights.oneil}%</span>
+                <Badge variant="lynch" size="sm">{weights.lynch}%</Badge>
+              </div>
+
+              {/* O'Neil Weight */}
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-sm font-medium text-slate-700">O'Neil</span>
+                <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-oneil"
+                    style={{ width: weights.oneil + '%' }}
+                  />
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Graham</span>
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-purple-600 h-2 rounded-full" style={{width: `${current.trinityWeights.graham}%`}}></div>
-                  </div>
-                  <span className="text-sm font-medium">{current.trinityWeights.graham}%</span>
+                <Badge variant="oneil" size="sm">{weights.oneil}%</Badge>
+              </div>
+
+              {/* Graham Weight */}
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-sm font-medium text-slate-700">Graham</span>
+                <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-graham"
+                    style={{ width: weights.graham + '%' }}
+                  />
                 </div>
+                <Badge variant="graham" size="sm">{weights.graham}%</Badge>
               </div>
             </div>
           </div>
-        </div>
+        </Card>
 
-        {/* Grid Indicadores */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {indicators.map((indicator, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">{indicator.name}</h3>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                  indicator.trend === 'up' ? 'bg-green-100 text-green-800' :
-                  indicator.trend === 'down' ? 'bg-red-100 text-red-800' :
-                  'bg-gray-100 text-gray-800'
-                }`}>
-                  {indicator.trend}
-                </span>
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{indicator.value}</div>
-              <p className="text-sm text-gray-600">{indicator.description}</p>
+        {/* Metrics Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card>
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-slate-900">VIX</h3>
+              <TrendingDown className="w-5 h-5 text-buy" />
             </div>
-          ))}
-        </div>
+            <p className="text-3xl font-bold text-slate-900 mb-1">{vix}</p>
+            <p className="text-sm text-slate-600">Fear index below 20 indicates low volatility</p>
+          </Card>
 
-        {/* Historical Chart */}
-        <div className="bg-white rounded-xl p-8 shadow-lg">
-          <h3 className="text-2xl font-semibold mb-6">Historical VIX & Regime</h3>
-          <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={historical}>
-                <XAxis dataKey="month" />
-                <YAxis />
-                <Tooltip 
-                  formatter={(value, name) => [value, name === 'vix' ? 'VIX' : 'Regime']}
-                  labelFormatter={(label) => `Month: ${label}`}
-                />
-                <Area 
-                  type="monotone" 
-                  dataKey="vix" 
-                  stroke="#8884d8" 
-                  fill="#8884d8" 
-                  fillOpacity={0.3}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          <Card>
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-slate-900">Breadth</h3>
+              <TrendingUp className="w-5 h-5 text-buy" />
+            </div>
+            <p className="text-3xl font-bold text-slate-900 mb-1">{breadth}%</p>
+            <p className="text-sm text-slate-600">Percentage of stocks above 50-day MA</p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-slate-900">Yield Curve</h3>
+              <Minus className="w-5 h-5 text-hold" />
+            </div>
+            <p className="text-3xl font-bold text-slate-900 mb-1">{yieldCurve}</p>
+            <p className="text-sm text-slate-600">10Y-2Y spread in basis points</p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-slate-900">Dollar Strength</h3>
+              <TrendingUp className="w-5 h-5 text-buy" />
+            </div>
+            <p className="text-3xl font-bold text-slate-900 mb-1">{dollarStrength}</p>
+            <p className="text-sm text-slate-600">DXY index showing dollar strength</p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-semibold text-slate-900">Commodities</h3>
+              <TrendingDown className="w-5 h-5 text-sell" />
+            </div>
+            <p className="text-3xl font-bold text-slate-900 mb-1">{commodities}</p>
+            <p className="text-sm text-slate-600">CRB index performance</p>
+          </Card>
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

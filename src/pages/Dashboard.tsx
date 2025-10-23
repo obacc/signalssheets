@@ -1,171 +1,167 @@
-import { useState, useEffect } from 'react';
-import SignalsTable from '../components/dashboard/SignalsTable';
-import Filters from '../components/dashboard/Filters';
-import Chart from '../components/dashboard/Chart';
-import type { Signal, SignalFilters, MarketRegimeData } from '../types';
-import { mockSignals as signals, marketRegimeHistory } from '../utils/mockData';
-import { TrendingUp, Activity, DollarSign } from 'lucide-react';
+import React from 'react';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { Card } from '../components/ui/Card';
+import { Badge } from '../components/ui/Badge';
+import { SignalBadge } from '../components/ui/SignalBadge';
+import { AuthorBadge } from '../components/ui/AuthorBadge';
+import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
+import { mockKPIs, mockMarketRegime, mockSignals } from '../lib/mockData';
+import { TrendingUp, Activity, BarChart3 } from 'lucide-react';
 
-export default function Dashboard() {
-  const [filteredSignals, setFilteredSignals] = useState<Signal[]>(signals);
-  const [filters, setFilters] = useState<SignalFilters>({});
-  const [currentRegime, setCurrentRegime] = useState<MarketRegimeData | null>(null);
-
-  useEffect(() => {
-    if (marketRegimeHistory && marketRegimeHistory.length > 0) {
-      setCurrentRegime(marketRegimeHistory[0]);
-    }
-  }, []);
-
-  useEffect(() => {
-    let result = [...signals];
-    
-    if (filters.search) {
-      result = result.filter(s => 
-        s.ticker.toLowerCase().includes(filters.search!.toLowerCase()) ||
-        s.companyName.toLowerCase().includes(filters.search!.toLowerCase())
-      );
-    }
-    
-    if (filters.signalType && filters.signalType !== 'ALL') {
-      result = result.filter(s => s.signal === filters.signalType);
-    }
-    
-    if (filters.author && filters.author !== 'ALL') {
-      result = result.filter(s => s.dominantAuthor === filters.author);
-    }
-    
-    if (filters.sector) {
-      result = result.filter(s => s.sector === filters.sector);
-    }
-    
-    if (filters.minScore) {
-      result = result.filter(s => s.strength >= filters.minScore!);
-    }
-    
-    setFilteredSignals(result);
-  }, [filters]);
-
-  // Calcular estadísticas con null checks
-  const stats = {
-    totalSignals: filteredSignals.length,
-    buySignals: filteredSignals.filter(s => s.signal === 'BUY').length,
-    avgScore: filteredSignals.length > 0 
-      ? filteredSignals.reduce((acc, s) => acc + (s.strength || 0), 0) / filteredSignals.length 
-      : 0,
-    topGainer: filteredSignals.reduce((max, s) => 
-      (s.change || 0) > (max?.change || 0) ? s : max, 
-      filteredSignals[0]
-    )
-  };
+const Dashboard = () => {
+  const top10 = mockSignals.slice(0, 10);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Header />
+
+      <main className="flex-1 container mx-auto px-4 py-8">
+        {/* Page Title */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600">Trinity Method Trading Signals</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Dashboard</h1>
+          <p className="text-slate-600">Trinity Method Trading Signals</p>
         </div>
 
-        {/* Market Regime Indicator */}
-        {currentRegime && (
-          <div className="mb-6 bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-4">Market Regime</h3>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        {/* Market Regime Banner */}
+        <Card className="mb-8 bg-gradient-to-r from-amber-50 to-amber-100 border-amber-200">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-hold flex items-center justify-center">
+                <span className="text-xl font-bold text-white">
+                  {mockMarketRegime.current === 'NEUTRAL' ? '⏸️' :
+                   mockMarketRegime.current === 'BULLISH' ? '📈' : '📉'}
+                </span>
+              </div>
               <div>
-                <span className="text-sm text-gray-600">Overall</span>
-                <p className={`text-xl font-bold ${
-                  currentRegime.overall_regime === 'BULLISH' ? 'text-green-600' : 
-                  currentRegime.overall_regime === 'BEARISH' ? 'text-red-600' : 
-                  'text-yellow-600'
-                }`}>
-                  {currentRegime.overall_regime}
+                <h2 className="text-xl font-bold text-slate-900">
+                  Current Market Regime: <span className="text-hold">{mockMarketRegime.current}</span>
+                </h2>
+                <p className="text-sm text-slate-600">
+                  VIX: {mockMarketRegime.vix} | Breadth: {mockMarketRegime.breadth}%
                 </p>
               </div>
-              <div>
-                <span className="text-sm text-gray-600">VIX</span>
-                <p className="text-xl font-bold">{currentRegime.vix?.toFixed(2) || 'N/A'}</p>
-              </div>
-              <div>
-                <span className="text-sm text-gray-600">Put/Call</span>
-                <p className="text-xl font-bold">{currentRegime.put_call_ratio?.toFixed(2) || 'N/A'}</p>
-              </div>
-              <div>
-                <span className="text-sm text-gray-600">High/Low</span>
-                <p className="text-xl font-bold">{currentRegime.high_low_index?.toFixed(1) || 'N/A'}%</p>
-              </div>
-              <div>
-                <span className="text-sm text-gray-600">Strength</span>
-                <p className="text-xl font-bold">{currentRegime.regime_strength?.toFixed(0) || 0}%</p>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-slate-600 mb-2">Trinity Weights:</p>
+              <div className="flex gap-3">
+                <Badge variant="lynch" size="sm">{mockMarketRegime.weights.lynch}%</Badge>
+                <Badge variant="oneil" size="sm">{mockMarketRegime.weights.oneil}%</Badge>
+                <Badge variant="graham" size="sm">{mockMarketRegime.weights.graham}%</Badge>
               </div>
             </div>
           </div>
-        )}
+        </Card>
 
-        {/* Estadísticas */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
+        {/* KPI Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <Card>
+            <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-gray-600">Total Signals</p>
-                <p className="text-2xl font-bold">{stats.totalSignals}</p>
+                <p className="text-sm text-slate-600 mb-1">Total Signals</p>
+                <p className="text-3xl font-bold text-slate-900">{mockKPIs.totalSignals}</p>
               </div>
-              <Activity className="h-8 w-8 text-blue-500" />
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-primary" />
+              </div>
             </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
+            <p className="text-sm text-slate-600">Active signals in portfolio</p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-gray-600">Buy Signals</p>
-                <p className="text-2xl font-bold text-green-600">{stats.buySignals}</p>
+                <p className="text-sm text-slate-600 mb-1">Buy Signals</p>
+                <p className="text-3xl font-bold text-buy">{mockKPIs.buySignals}</p>
               </div>
-              <TrendingUp className="h-8 w-8 text-green-500" />
+              <div className="w-12 h-12 rounded-lg bg-buy/10 flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-buy" />
+              </div>
             </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
+            <p className="text-sm text-slate-600">Positive momentum opportunities</p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-gray-600">Avg Trinity Score</p>
-                <p className="text-2xl font-bold">{stats.avgScore.toFixed(1)}</p>
+                <p className="text-sm text-slate-600 mb-1">Avg Trinity Score</p>
+                <p className="text-3xl font-bold text-slate-900">{mockKPIs.avgTrinityScore}</p>
               </div>
-              <Activity className="h-8 w-8 text-purple-500" />
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Top Gainer</p>
-                <p className="text-lg font-bold">{stats.topGainer?.ticker || 'N/A'}</p>
-                <p className="text-sm text-green-600">
-                  +{stats.topGainer?.change?.toFixed(1) || 0}%
-                </p>
+              <div className="w-12 h-12 rounded-lg bg-oneil/10 flex items-center justify-center">
+                <Activity className="w-6 h-6 text-oneil" />
               </div>
-              <DollarSign className="h-8 w-8 text-green-500" />
             </div>
-          </div>
+            <p className="text-sm text-slate-600">
+              Top: <span className="font-semibold">{mockKPIs.topGainer.ticker}</span> +{mockKPIs.topGainer.change}%
+            </p>
+          </Card>
         </div>
 
-        <Filters onChange={(filters) => {
-          setFilters({
-            author: filters.strategy === 'all' ? 'ALL' : 
-                   filters.strategy === 'lynch' ? 'Lynch' :
-                   filters.strategy === 'oneil' ? 'O\'Neil' : 'Graham',
-            minScore: filters.minScore
-          });
-        }} />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          <div className="lg:col-span-2">
-            <SignalsTable signals={filteredSignals} />
+        {/* TOP 10 Signals Table */}
+        <Card>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-slate-900">Daily TOP 10 Signals</h2>
+            <a
+              href="/daily-top10"
+              className="text-primary hover:text-primary/80 text-sm font-medium"
+            >
+              View All →
+            </a>
           </div>
-          <div>
-            <Chart />
+
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-slate-200">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Ticker</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Company</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Signal</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Trinity Score</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Author</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Price</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                {top10.map((signal) => (
+                  <tr key={signal.id} className="border-b border-slate-100 hover:bg-slate-50">
+                    <td className="py-3 px-4">
+                      <span className="font-bold text-slate-900">{signal.ticker}</span>
+                    </td>
+                    <td className="py-3 px-4 text-sm text-slate-600">
+                      {signal.company}
+                    </td>
+                    <td className="py-3 px-4">
+                      <SignalBadge signal={signal.signal} />
+                    </td>
+                    <td className="py-3 px-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-32">
+                          <TrinityScoreBar score={signal.trinityScore} showLabel={false} />
+                        </div>
+                        <span className="text-xs text-slate-600">{signal.trinityScore}</span>
+                      </div>
+                    </td>
+                    <td className="py-3 px-4">
+                      <AuthorBadge author={signal.dominantAuthor} />
+                    </td>
+                    <td className="py-3 px-4 text-right font-medium text-slate-900">
+                      ${signal.price.toFixed(2)}
+                    </td>
+                    <td className="py-3 px-4 text-right font-medium text-buy">
+                      ${signal.targetPrice.toFixed(2)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
+        </Card>
+      </main>
+
+      <Footer />
     </div>
   );
-}
+};
+
+export default Dashboard;
