@@ -6,6 +6,7 @@ import { Badge } from '../components/ui/Badge';
 import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
+import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart';
 import { mockKPIs, mockMarketRegime, mockSignals } from '../lib/mockData';
 import { TrendingUp, Activity, BarChart3 } from 'lucide-react';
 
@@ -25,8 +26,8 @@ const Dashboard = () => {
 
         {/* Market Regime Banner */}
         <Card className="mb-8 bg-gradient-to-r from-amber-50 to-amber-100 border-amber-200">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between gap-8">
+            <div className="flex items-center gap-4 flex-1">
               <div className="w-16 h-16 rounded-full bg-hold flex items-center justify-center">
                 <span className="text-xl font-bold text-white">
                   {mockMarketRegime.current === 'NEUTRAL' ? '⏸️' :
@@ -40,15 +41,20 @@ const Dashboard = () => {
                 <p className="text-sm text-slate-600">
                   VIX: {mockMarketRegime.vix} | Breadth: {mockMarketRegime.breadth}%
                 </p>
+                <div className="flex gap-3 mt-2">
+                  <Badge variant="lynch" size="sm">{mockMarketRegime.weights.lynch}%</Badge>
+                  <Badge variant="oneil" size="sm">{mockMarketRegime.weights.oneil}%</Badge>
+                  <Badge variant="graham" size="sm">{mockMarketRegime.weights.graham}%</Badge>
+                </div>
               </div>
             </div>
-            <div className="text-right">
-              <p className="text-sm text-slate-600 mb-2">Trinity Weights:</p>
-              <div className="flex gap-3">
-                <Badge variant="lynch" size="sm">{mockMarketRegime.weights.lynch}%</Badge>
-                <Badge variant="oneil" size="sm">{mockMarketRegime.weights.oneil}%</Badge>
-                <Badge variant="graham" size="sm">{mockMarketRegime.weights.graham}%</Badge>
-              </div>
+            <div className="flex-shrink-0">
+              <TrinityTriangleChart
+                lynch={mockMarketRegime.weights.lynch}
+                oneil={mockMarketRegime.weights.oneil}
+                graham={mockMarketRegime.weights.graham}
+                size="md"
+              />
             </div>
           </div>
         </Card>

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { Logo } from '../components/brand/Logo';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { useAuthStore } from '../store/authStore';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -9,7 +14,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { register } = useAuth();
+  const register = useAuthStore(state => state.register);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -24,8 +29,8 @@ const Register = () => {
       return;
     }
 
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters');
+    if (password.length < 3) {
+      setError('Password must be at least 3 characters');
       setIsLoading(false);
       return;
     }
@@ -36,42 +41,62 @@ const Register = () => {
       return;
     }
 
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    const success = register(name, email, password);
-    if (success) {
-      navigate('/dashboard');
-    } else {
-      setError('An account with this email already exists');
+    if (name.length === 0) {
+      setError('Please enter your name');
+      setIsLoading(false);
+      return;
     }
-    
-    setIsLoading(false);
+
+    try {
+      const success = await register(email, password, name);
+      if (success) {
+        navigate('/dashboard');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
-            Create your account
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Or{' '}
-            <Link
-              to="/login"
-              className="font-medium text-blue-600 hover:text-blue-500"
-            >
-              sign in to your existing account
-            </Link>
-          </p>
-        </div>
-        
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-            <div className="space-y-4">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Header />
+
+      <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <div className="max-w-md w-full">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <Logo variant="full" size="lg" />
+          </div>
+
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">
+              Create your account
+            </h1>
+            <p className="text-slate-600">
+              Or{' '}
+              <Link
+                to="/login"
+                className="font-semibold text-primary hover:text-primary/80"
+              >
+                sign in to your existing account
+              </Link>
+            </p>
+          </div>
+
+          {/* Register Form */}
+          <Card>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Full Name
                 </label>
                 <input
@@ -82,13 +107,17 @@ const Register = () => {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder="Enter your full name"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                  placeholder="John Doe"
                 />
               </div>
-              
+
+              {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Email address
                 </label>
                 <input
@@ -99,13 +128,17 @@ const Register = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                  placeholder="Enter your email"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                  placeholder="you@example.com"
                 />
               </div>
-              
+
+              {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -116,13 +149,17 @@ const Register = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                   placeholder="Create a password"
                 />
               </div>
-              
+
+              {/* Confirm Password */}
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-slate-700 mb-2"
+                >
                   Confirm Password
                 </label>
                 <input
@@ -133,54 +170,60 @@ const Register = () => {
                   required
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                   placeholder="Confirm your password"
                 />
               </div>
-            </div>
 
-            {error && (
-              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-600">{error}</p>
-              </div>
-            )}
+              {/* Error Message */}
+              {error && (
+                <div className="p-3 bg-danger/10 border border-danger/20 rounded-lg">
+                  <p className="text-sm text-danger">{error}</p>
+                </div>
+              )}
 
-            <div className="mt-6">
-              <button
+              {/* Submit Button */}
+              <Button
                 type="submit"
+                variant="primary"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full"
               >
                 {isLoading ? 'Creating account...' : 'Create account'}
-              </button>
-            </div>
+              </Button>
 
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">New accounts start with Free plan</span>
-                </div>
-              </div>
-
-              <div className="mt-4 text-center">
-                <p className="text-xs text-gray-500">
+              {/* Terms */}
+              <div className="pt-6 border-t border-slate-200">
+                <p className="text-xs text-slate-600 text-center">
                   By creating an account, you agree to our{' '}
-                  <Link to="/terms" className="text-blue-600 hover:text-blue-500">
+                  <Link to="/" className="text-primary hover:text-primary/80">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link to="/privacy" className="text-blue-600 hover:text-blue-500">
+                  <Link to="/" className="text-primary hover:text-primary/80">
                     Privacy Policy
                   </Link>
                 </p>
+                <p className="text-xs text-slate-500 text-center mt-2">
+                  New accounts start with the Free plan
+                </p>
               </div>
-            </div>
+            </form>
+          </Card>
+
+          {/* Footer Links */}
+          <div className="mt-6 text-center">
+            <Link
+              to="/pricing"
+              className="text-sm text-slate-600 hover:text-primary"
+            >
+              View our pricing plans
+            </Link>
           </div>
-        </form>
-      </div>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

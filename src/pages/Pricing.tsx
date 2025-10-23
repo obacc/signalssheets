@@ -1,228 +1,292 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Star } from 'lucide-react';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
+import { Card } from '../components/ui/Card';
+import { Button } from '../components/ui/Button';
+import { Check, Star } from 'lucide-react';
 
 const Pricing = () => {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
 
   const plans = [
     {
+      id: 'free',
       name: 'Free',
-      price: 0,
+      description: 'Perfect for exploring the Trinity Method',
+      priceMonthly: 0,
       priceYearly: 0,
+      popular: false,
       features: [
-        '10 signals per day',
-        'Basic filters',
+        'Daily Top 10 Signals',
+        'Basic Trinity Method scoring',
+        'Market regime indicator',
         'CSV export',
         'Email support',
-        'Mobile app access'
-      ],
-      limitations: [
-        'Limited historical data',
-        'No advanced analytics',
-        'Basic charting tools'
-      ],
-      popular: false
+        'Mobile responsive design'
+      ]
     },
     {
+      id: 'pro',
       name: 'Pro',
-      priceMonthly: 29,
-      priceYearly: 290,
+      description: 'For serious investors',
+      priceMonthly: 39,
+      priceYearly: 390,
+      popular: true,
       features: [
-        'Unlimited signals',
-        'All advanced filters',
-        'Google Sheets integration',
-        'Market Regime analysis',
-        'Custom alerts',
+        'Everything in Free',
+        'Full Top 500 Signals access',
+        'Advanced filtering & search',
+        'Watchlist with unlimited signals',
+        'Price alerts & notifications',
+        'Historical data (6 months)',
         'Priority email support',
-        'Advanced charting',
-        'Portfolio tracking'
-      ],
-      limitations: [],
-      popular: true
+        'Trinity Triangle charts',
+        'Custom author weights'
+      ]
     },
     {
+      id: 'premium',
       name: 'Premium',
+      description: 'For professional traders',
       priceMonthly: 79,
       priceYearly: 790,
+      popular: false,
       features: [
         'Everything in Pro',
-        'API access',
-        'Real-time alerts',
-        'Custom indicators',
+        'Full historical data (3+ years)',
+        'API access for automation',
+        'Real-time signal updates',
+        'Custom indicators & backtesting',
+        'Portfolio tracking & analytics',
         'White-label options',
-        'Priority phone support',
-        'Advanced backtesting',
-        'Risk management tools',
-        'Custom reports'
-      ],
-      limitations: [],
-      popular: false
+        'Priority phone & chat support',
+        'Dedicated account manager',
+        'Custom reports & exports'
+      ]
     }
   ];
 
   const getCurrentPrice = (plan: typeof plans[0]) => {
-    if (plan.name === 'Free') return 0;
-    return billingPeriod === 'monthly' ? (plan.priceMonthly || 0) : (plan.priceYearly || 0) / 12;
+    if (billingPeriod === 'monthly') {
+      return plan.priceMonthly;
+    }
+    return Math.floor(plan.priceYearly / 12);
   };
 
-  const getYearlySavings = (plan: typeof plans[0]) => {
-    if (plan.name === 'Free' || !plan.priceMonthly) return 0;
+  const getTotalPrice = (plan: typeof plans[0]) => {
+    if (billingPeriod === 'monthly') {
+      return plan.priceMonthly;
+    }
+    return plan.priceYearly;
+  };
+
+  const getSavings = (plan: typeof plans[0]) => {
+    if (plan.priceMonthly === 0) return 0;
     const monthlyTotal = plan.priceMonthly * 12;
-    const yearlyPrice = plan.priceYearly;
-    return Math.round(((monthlyTotal - yearlyPrice) / monthlyTotal) * 100);
+    return Math.round(((monthlyTotal - plan.priceYearly) / monthlyTotal) * 100);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Header */}
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <Header />
+
+      <main className="flex-1 container mx-auto px-4 py-12">
+        {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Start free, upgrade as you grow. All plans include our core signals platform.
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">
+            Choose Your Plan
+          </h1>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Start with our free plan and upgrade as you grow. All plans include access to the Trinity Method signals.
           </p>
-          
-          {/* Toggle */}
-          <div className="flex justify-center mb-8">
-            <div className="bg-gray-100 rounded-lg p-1 flex">
-              <button 
-                onClick={() => setBillingPeriod('monthly')} 
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-colors ${
-                  billingPeriod === 'monthly' 
-                    ? 'bg-white text-blue-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                Monthly
-              </button>
-              <button 
-                onClick={() => setBillingPeriod('yearly')}
-                className={`px-6 py-2 rounded-md text-sm font-medium transition-colors relative ${
-                  billingPeriod === 'yearly' 
-                    ? 'bg-white text-blue-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                Yearly
-                <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                  Save 20%
-                </span>
-              </button>
-            </div>
+        </div>
+
+        {/* Billing Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-slate-200 rounded-lg p-1 flex items-center">
+            <button
+              onClick={() => setBillingPeriod('monthly')}
+              className={`px-6 py-2 rounded-md text-sm font-semibold transition-colors ${
+                billingPeriod === 'monthly'
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriod('yearly')}
+              className={`px-6 py-2 rounded-md text-sm font-semibold transition-colors relative ${
+                billingPeriod === 'yearly'
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Yearly
+              <span className="absolute -top-2 -right-2 bg-buy text-white text-xs px-2 py-0.5 rounded-full">
+                Save 17%
+              </span>
+            </button>
           </div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {plans.map((plan) => (
-            <div 
-              key={plan.name}
-              className={`bg-white rounded-2xl p-8 shadow-lg border-2 relative ${
-                plan.popular 
-                  ? 'border-blue-500 transform scale-105' 
-                  : 'border-gray-200'
+            <Card
+              key={plan.id}
+              className={`relative ${
+                plan.popular
+                  ? 'border-2 border-primary shadow-xl ring-4 ring-primary/10'
+                  : ''
               }`}
             >
+              {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-1">
-                    <Star className="w-4 h-4" />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-1.5 shadow-lg">
+                    <Star className="w-4 h-4 fill-white" />
                     Most Popular
                   </div>
                 </div>
               )}
-              
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+
+              {/* Card Header */}
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  {plan.name}
+                </h3>
+                <p className="text-sm text-slate-600 mb-6">
+                  {plan.description}
+                </p>
+
+                {/* Price */}
                 <div className="mb-4">
-                  <span className="text-5xl font-bold text-gray-900">
-                    ${getCurrentPrice(plan).toFixed(0)}
-                  </span>
-                  <span className="text-gray-600 ml-2">/month</span>
-                </div>
-                {billingPeriod === 'yearly' && plan.name !== 'Free' && (
-                  <div className="text-sm text-green-600 font-semibold">
-                    Save {getYearlySavings(plan)}% with yearly billing
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="text-5xl font-bold text-slate-900">
+                      ${getCurrentPrice(plan)}
+                    </span>
+                    <span className="text-slate-600">/month</span>
                   </div>
-                )}
+                  {billingPeriod === 'yearly' && plan.priceMonthly > 0 && (
+                    <div className="mt-2">
+                      <p className="text-sm text-slate-600">
+                        ${getTotalPrice(plan)}/year
+                      </p>
+                      <p className="text-sm text-buy font-semibold">
+                        Save {getSavings(plan)}%
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
 
-              <div className="space-y-4 mb-8">
-                <h4 className="font-semibold text-gray-900">What's included:</h4>
-                <ul className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Features List */}
+              <div className="space-y-3 mb-8">
+                {plan.features.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-buy flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-700">{feature}</span>
+                  </div>
+                ))}
               </div>
 
-              <div className="text-center">
-                <Link 
-                  to="/register" 
-                  className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-colors ${
-                    plan.popular
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : plan.name === 'Free'
-                      ? 'bg-gray-900 text-white hover:bg-gray-800'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  {plan.name === 'Free' ? 'Get Started Free' : `Start ${plan.name} Plan`}
+              {/* CTA Button */}
+              <div className="mt-auto">
+                <Link to="/register">
+                  <Button
+                    variant={plan.popular ? 'primary' : 'secondary'}
+                    className="w-full"
+                  >
+                    {plan.priceMonthly === 0 ? 'Get Started Free' : `Start ${plan.name} Plan`}
+                  </Button>
                 </Link>
-                {plan.name !== 'Free' && (
-                  <p className="text-xs text-gray-500 mt-2">
-                    {billingPeriod === 'monthly' ? 'Billed monthly' : 'Billed yearly'}
-                  </p>
-                )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-          
+        <Card className="mb-12">
+          <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Can I change plans anytime?</h3>
-              <p className="text-gray-600 text-sm">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Can I change plans anytime?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences.
+              </p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Is there a free trial?</h3>
-              <p className="text-gray-600 text-sm">Yes, start with our Free plan to explore the platform. No credit card required.</p>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Is there a free trial?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                Our Free plan gives you full access to Daily Top 10 signals with no credit card required. Upgrade anytime to unlock more features.
+              </p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">What payment methods do you accept?</h3>
-              <p className="text-gray-600 text-sm">We accept all major credit cards, PayPal, and bank transfers for yearly plans.</p>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                What payment methods do you accept?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                We accept all major credit cards (Visa, Mastercard, Amex), PayPal, and bank transfers for yearly subscriptions.
+              </p>
             </div>
-            
+
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">Can I cancel anytime?</h3>
-              <p className="text-gray-600 text-sm">Yes, you can cancel your subscription at any time. No cancellation fees.</p>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Can I cancel anytime?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                Yes, you can cancel your subscription at any time with no penalties. Your access continues until the end of your billing period.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                What is the Trinity Method?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                The Trinity Method combines Peter Lynch's growth investing, William O'Neil's momentum trading, and Benjamin Graham's value investing into one powerful scoring system.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                Do you offer refunds?
+              </h3>
+              <p className="text-slate-600 text-sm">
+                Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, contact support for a full refund.
+              </p>
             </div>
           </div>
-        </div>
+        </Card>
 
-        {/* CTA Section */}
-        <div className="text-center mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to get started?</h2>
-          <p className="text-gray-600 mb-6">Join thousands of investors making smarter decisions with SignalsSheets.</p>
-          <Link 
-            to="/register"
-            className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Start Free Today
+        {/* Final CTA */}
+        <div className="text-center py-12 px-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            Ready to start trading smarter?
+          </h2>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Join thousands of investors using the Trinity Method to make better investment decisions.
+          </p>
+          <Link to="/register">
+            <Button variant="primary" className="px-8 py-3 text-lg">
+              Start Free Today
+            </Button>
           </Link>
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };

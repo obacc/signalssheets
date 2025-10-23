@@ -5,6 +5,7 @@ import { Card } from '../components/ui/Card';
 import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
+import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart';
 import { Badge } from '../components/ui/Badge';
 import { mockSignals } from '../lib/mockData';
 
@@ -57,6 +58,16 @@ const DailyTop10 = () => {
                   Trinity Score
                 </label>
                 <TrinityScoreBar score={signal.trinityScore} />
+              </div>
+
+              {/* Trinity Triangle Chart */}
+              <div className="flex justify-center mb-6">
+                <TrinityTriangleChart
+                  lynch={signal.authorScores.lynch}
+                  oneil={signal.authorScores.oneil}
+                  graham={signal.authorScores.graham}
+                  size="lg"
+                />
               </div>
 
               {/* Author Breakdown */}
