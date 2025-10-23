@@ -201,7 +201,7 @@ module.exports = {
           800: '#991b1b',
           900: '#7f1d1d',
         },
-        
+
         yellow: {
           50: '#fffbeb',
           100: '#fef3c7',
@@ -213,6 +213,32 @@ module.exports = {
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
+        },
+
+        // Semantic signal colors (aliases for clarity)
+        buy: '#10b981',
+        sell: '#ef4444',
+        hold: '#f59e0b',
+
+        // Surface colors
+        surface: {
+          light: '#ffffff',
+          card: '#f8fafc',
+          dark: '#1e293b',
+        },
+
+        // Slate (alias for neutral/gray)
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
         },
       },
       

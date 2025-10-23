@@ -1,281 +1,261 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  TrendingUp, 
-  Shield, 
-  Zap, 
-  CheckCircle,
-  ArrowRight,
-  BookOpen
-} from 'lucide-react';
+import { TrendingUp, Activity, ShieldCheck, CheckCircle, ArrowRight, LineChart, Bell, Download } from 'lucide-react';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import Logo from '../components/brand/Logo';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
 
 const Landing = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
-      
-      {/* Header/Nav */}
-      <header className="border-b border-neutral-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Logo variant="full" size="md" />
-            <nav className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-neutral-700 hover:text-primary-600 font-medium transition-colors">
-                Features
-              </a>
-              <a href="#pricing" className="text-neutral-700 hover:text-primary-600 font-medium transition-colors">
-                Pricing
-              </a>
-              <a href="#faq" className="text-neutral-700 hover:text-primary-600 font-medium transition-colors">
-                FAQ
-              </a>
-            </nav>
-            <div className="flex items-center gap-3">
-              <Link
-                to="/dashboard"
-                className="px-4 py-2 text-primary-600 hover:bg-primary-50 rounded-lg font-semibold transition-colors"
-              >
-                Ver Dashboard
-              </Link>
-              <button className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold transition-colors">
-                Ingresar
-              </button>
+    <div className="min-h-screen bg-white">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-lynch/10 text-lynch rounded-full text-sm font-semibold mb-6">
+              <span className="w-2 h-2 bg-lynch rounded-full animate-pulse"></span>
+              Trinity Method Trading Signals
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+              Trading Signals with the{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-oneil to-lynch">
+                Trinity Method
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl lg:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto">
+              Combining the best of Peter Lynch, William O'Neil, and Benjamin Graham 
+              into a single, powerful scoring system
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button variant="primary" as="link" to="/dashboard" size="lg">
+                View Signals Now
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button variant="secondary" size="lg">
+                Documentation
+              </Button>
+            </div>
+
+            {/* Stats Badges */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
+                <CheckCircle className="w-5 h-5 text-lynch" />
+                <span className="font-semibold text-slate-700">500+ Tickers Analyzed Daily</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
+                <CheckCircle className="w-5 h-5 text-oneil" />
+                <span className="font-semibold text-slate-700">180+ Active Signals</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
+                <CheckCircle className="w-5 h-5 text-graham" />
+                <span className="font-semibold text-slate-700">3 Proven Strategies</span>
+              </div>
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
-      {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left Column */}
-            <div>
-              <div className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-6">
-                ✨ Trinity Method Trading Signals
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
-                Señales de Trading con el
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-success-600">
-                  {' '}Trinity Method
-                </span>
-              </h1>
-              <p className="text-xl text-neutral-600 mb-8 leading-relaxed">
-                Combina las estrategias de Peter Lynch, William O'Neil y Benjamin Graham 
-                en señales EOD del TOP 500 de tickers de US.
+      {/* CRITICAL: Trinity Method Section - THE MISSING PIECE */}
+      <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                Trinity Method: The Best of 3 Worlds
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                We combine the proven strategies of the three greatest investors in history 
+                into a single, powerful scoring system
               </p>
-              
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link
-                  to="/dashboard"
-                  className="flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
-                >
-                  Ver Señales Ahora
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <button className="flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-neutral-300 hover:border-primary-500 text-neutral-900 rounded-xl font-bold text-lg transition-all hover:scale-105">
-                  <BookOpen className="w-5 h-5" />
-                  Documentación
-                </button>
-              </div>
-
-              {/* Social Proof */}
-              <div className="flex items-center gap-6 text-sm text-neutral-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-success-600" />
-                  <span>500+ Señales Activas</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-success-600" />
-                  <span>Actualización EOD</span>
-                </div>
-              </div>
             </div>
 
-            {/* Right Column - Dashboard Preview */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-success-600 rounded-2xl blur-3xl opacity-20"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-neutral-200">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-bold text-neutral-900">Trinity Signals Dashboard</h3>
-                  <span className="px-3 py-1 bg-success-100 text-success-700 rounded-full text-xs font-bold">
-                    LIVE
-                  </span>
+            {/* Three Author Cards */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Peter Lynch Card */}
+              <Card hover className="bg-gradient-to-br from-emerald-50 to-white border-lynch/20">
+                <div className="w-16 h-16 rounded-full bg-lynch flex items-center justify-center mb-6">
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
-                
-                {/* Mini Stats */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center p-3 bg-neutral-50 rounded-lg">
-                    <div className="text-2xl font-bold text-success-600">12.5%</div>
-                    <div className="text-xs text-neutral-600">% BUY</div>
-                  </div>
-                  <div className="text-center p-3 bg-neutral-50 rounded-lg">
-                    <div className="text-2xl font-bold text-primary-600">1,132</div>
-                    <div className="text-xs text-neutral-600">Señales</div>
-                  </div>
-                  <div className="text-center p-3 bg-neutral-50 rounded-lg">
-                    <div className="text-2xl font-bold text-warning-600">Neutral</div>
-                    <div className="text-xs text-neutral-600">Régimen</div>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Peter Lynch</h3>
+                <p className="text-slate-600 mb-6">
+                  Identifies companies with solid growth and exceptional fundamentals
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Favorable PEG Ratio</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Consistent Growth</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Solid Balance Sheet</span>
+                  </li>
+                </ul>
+              </Card>
 
-                {/* Mini Table */}
-                <div className="space-y-2">
-                  {[
-                    { ticker: 'AAPL', score: 78.3, signal: 'BUY' },
-                    { ticker: 'MSFT', score: 78.7, signal: 'BUY' },
-                    { ticker: 'NVDA', score: 85.0, signal: 'BUY' },
-                  ].map((item) => (
-                    <div key={item.ticker} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
-                      <span className="font-bold text-neutral-900">{item.ticker}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-semibold text-success-600">{item.score}</span>
-                        <span className="px-2 py-1 bg-success-500 text-white text-xs font-bold rounded">
-                          {item.signal}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+              {/* William O'Neil Card */}
+              <Card hover className="bg-gradient-to-br from-sky-50 to-white border-oneil/20">
+                <div className="w-16 h-16 rounded-full bg-oneil flex items-center justify-center mb-6">
+                  <Activity className="w-8 h-8 text-white" />
                 </div>
-              </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">William O'Neil</h3>
+                <p className="text-slate-600 mb-6">
+                  Detects stocks with exceptional momentum and relative strength
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Breakout Patterns</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Sector Leadership</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Institutional Support</span>
+                  </li>
+                </ul>
+              </Card>
+
+              {/* Benjamin Graham Card */}
+              <Card hover className="bg-gradient-to-br from-purple-50 to-white border-graham/20">
+                <div className="w-16 h-16 rounded-full bg-graham flex items-center justify-center mb-6">
+                  <ShieldCheck className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">Benjamin Graham</h3>
+                <p className="text-slate-600 mb-6">
+                  Values companies with margin of safety and solid fundamentals
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Margin of Safety</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Conservative Valuation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Stable Dividends</span>
+                  </li>
+                </ul>
+              </Card>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-neutral-900 mb-4">
-              Trinity Method: Lo Mejor de 3 Mundos
-            </h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Combinamos las estrategias más exitosas de la historia del trading en un único score.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            
-            {/* Feature 1: Lynch */}
-            <div className="p-8 bg-gradient-to-br from-success-50 to-white rounded-2xl border border-success-200 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-success-600 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-neutral-900 mb-3">Peter Lynch</h3>
-              <p className="text-neutral-600 mb-4">
-                Growth at Reasonable Price (GARP). Identifica empresas con crecimiento sólido a precios justos.
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                Powerful Features
+              </h2>
+              <p className="text-xl text-slate-600">
+                Everything you need to make informed trading decisions
               </p>
-              <ul className="space-y-2 text-sm text-neutral-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-success-600" />
-                  PEG Ratio favorable
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-success-600" />
-                  Crecimiento sostenible
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-success-600" />
-                  Balance sólido
-                </li>
-              </ul>
             </div>
 
-            {/* Feature 2: O'Neil */}
-            <div className="p-8 bg-gradient-to-br from-primary-50 to-white rounded-2xl border border-primary-200 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-primary-600 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-neutral-900 mb-3">William O'Neil</h3>
-              <p className="text-neutral-600 mb-4">
-                CAN SLIM Method. Detecta acciones con momentum y fortaleza relativa excepcional.
-              </p>
-              <ul className="space-y-2 text-sm text-neutral-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary-600" />
-                  High Relative Strength
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary-600" />
-                  Earnings acceleration
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary-600" />
-                  Institutional support
-                </li>
-              </ul>
-            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card>
+                <LineChart className="w-12 h-12 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Real-time Trinity Score</h3>
+                <p className="text-slate-600">
+                  Get instant Trinity Method scores combining all three strategies
+                </p>
+              </Card>
 
-            {/* Feature 3: Graham */}
-            <div className="p-8 bg-gradient-to-br from-info-50 to-white rounded-2xl border border-info-200 hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-info-600 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-neutral-900 mb-3">Benjamin Graham</h3>
-              <p className="text-neutral-600 mb-4">
-                Value Investing. Busca empresas infravaloradas con margen de seguridad.
-              </p>
-              <ul className="space-y-2 text-sm text-neutral-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-info-600" />
-                  Valuación conservadora
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-info-600" />
-                  Margen de seguridad
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-info-600" />
-                  Dividendos estables
-                </li>
-              </ul>
-            </div>
+              <Card>
+                <Bell className="w-12 h-12 text-oneil mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Email Alerts</h3>
+                <p className="text-slate-600">
+                  Receive notifications when new high-confidence signals are detected
+                </p>
+              </Card>
 
+              <Card>
+                <Download className="w-12 h-12 text-lynch mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Export to Sheets</h3>
+                <p className="text-slate-600">
+                  Download your signals as CSV for custom analysis
+                </p>
+              </Card>
+
+              <Card>
+                <CheckCircle className="w-12 h-12 text-graham mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">500+ Tickers</h3>
+                <p className="text-slate-600">
+                  Coverage of the top 500 US stocks updated daily
+                </p>
+              </Card>
+
+              <Card>
+                <TrendingUp className="w-12 h-12 text-success mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Performance Tracking</h3>
+                <p className="text-slate-600">
+                  Monitor historical accuracy and returns of our signals
+                </p>
+              </Card>
+
+              <Card>
+                <Activity className="w-12 h-12 text-warning mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Market Regime Analysis</h3>
+                <p className="text-slate-600">
+                  Understand current market conditions and adjust strategy
+                </p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-success-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Comienza a Operar con Señales Inteligentes
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Acceso inmediato a 500+ señales del Trinity Method. Sin tarjeta de crédito.
-          </p>
-          <Link
-            to="/dashboard"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105"
-          >
-            Explorar Dashboard Gratis
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+      <section className="py-20 bg-gradient-to-br from-primary via-oneil to-graham">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Start Analyzing with Trinity Method
+            </h2>
+            <p className="text-xl text-white/90 mb-10">
+              Join traders using the combined wisdom of Lynch, O'Neil, and Graham
+            </p>
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              as="link" 
+              to="/dashboard"
+              className="bg-white text-primary hover:bg-slate-50"
+            >
+              View Signals Now
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+            <p className="text-white/80 text-sm mt-4">
+              No credit card required • Free access to daily TOP 10
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <Logo variant="full" size="sm" />
-            </div>
-            <div className="flex gap-6 text-sm text-neutral-400">
-              <a href="#" className="hover:text-white transition-colors">Términos</a>
-              <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-              <a href="#" className="hover:text-white transition-colors">Contacto</a>
-            </div>
-            <div className="text-sm text-neutral-500">
-              © 2025 Indicium Signals. Todos los derechos reservados.
-            </div>
-          </div>
-        </div>
-      </footer>
-
+      <Footer />
     </div>
   );
 };
