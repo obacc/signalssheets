@@ -9,3 +9,21 @@ import Register from './pages/Register';
 import Pricing from './pages/Pricing';
 import Watchlist from './pages/Watchlist';
 import DailyTop10 from './pages/DailyTop10';
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/top500" element={<Top500 />} />
+      <Route path="/daily-top10" element={<DailyTop10 />} />
+      <Route path="/market-regime" element={<MarketRegime />} />
+      <Route path="/watchlist" element={<Watchlist />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/auth" element={<Auth />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
