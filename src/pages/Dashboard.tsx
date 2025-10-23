@@ -7,6 +7,7 @@ import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
 import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart';
+import { WatchlistStar } from '../components/ui/WatchlistStar';
 import { mockKPIs, mockMarketRegime, mockSignals } from '../lib/mockData';
 import { TrendingUp, Activity, BarChart3 } from 'lucide-react';
 
@@ -21,7 +22,7 @@ const Dashboard = () => {
         {/* Page Title */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">Dashboard</h1>
-          <p className="text-slate-600">Trinity Method Trading Signals</p>
+          <p className="text-slate-600">Señales de Trading Trinity Method</p>
         </div>
 
         {/* Market Regime Banner */}
@@ -36,7 +37,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h2 className="text-xl font-bold text-slate-900">
-                  Current Market Regime: <span className="text-hold">{mockMarketRegime.current}</span>
+                  Régimen de Mercado Actual: <span className="text-hold">{mockMarketRegime.current}</span>
                 </h2>
                 <p className="text-sm text-slate-600">
                   VIX: {mockMarketRegime.vix} | Breadth: {mockMarketRegime.breadth}%
@@ -64,33 +65,33 @@ const Dashboard = () => {
           <Card>
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-slate-600 mb-1">Total Signals</p>
+                <p className="text-sm text-slate-600 mb-1">Señales Totales</p>
                 <p className="text-3xl font-bold text-slate-900">{mockKPIs.totalSignals}</p>
               </div>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-primary" />
               </div>
             </div>
-            <p className="text-sm text-slate-600">Active signals in portfolio</p>
+            <p className="text-sm text-slate-600">Señales activas en portafolio</p>
           </Card>
 
           <Card>
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-slate-600 mb-1">Buy Signals</p>
+                <p className="text-sm text-slate-600 mb-1">Señales de Compra</p>
                 <p className="text-3xl font-bold text-buy">{mockKPIs.buySignals}</p>
               </div>
               <div className="w-12 h-12 rounded-lg bg-buy/10 flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-buy" />
               </div>
             </div>
-            <p className="text-sm text-slate-600">Positive momentum opportunities</p>
+            <p className="text-sm text-slate-600">Oportunidades de momentum positivo</p>
           </Card>
 
           <Card>
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-sm text-slate-600 mb-1">Avg Trinity Score</p>
+                <p className="text-sm text-slate-600 mb-1">Trinity Score Promedio</p>
                 <p className="text-3xl font-bold text-slate-900">{mockKPIs.avgTrinityScore}</p>
               </div>
               <div className="w-12 h-12 rounded-lg bg-oneil/10 flex items-center justify-center">
@@ -98,7 +99,7 @@ const Dashboard = () => {
               </div>
             </div>
             <p className="text-sm text-slate-600">
-              Top: <span className="font-semibold">{mockKPIs.topGainer.ticker}</span> +{mockKPIs.topGainer.change}%
+              Mayor: <span className="font-semibold">{mockKPIs.topGainer.ticker}</span> +{mockKPIs.topGainer.change}%
             </p>
           </Card>
         </div>
@@ -106,12 +107,12 @@ const Dashboard = () => {
         {/* TOP 10 Signals Table */}
         <Card>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-slate-900">Daily TOP 10 Signals</h2>
+            <h2 className="text-2xl font-bold text-slate-900">TOP 10 Señales Diarias</h2>
             <a
               href="/daily-top10"
               className="text-primary hover:text-primary/80 text-sm font-medium"
             >
-              View All →
+              Ver Todas →
             </a>
           </div>
 
@@ -119,18 +120,24 @@ const Dashboard = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-200">
+                  <th className="text-center py-3 px-2 text-sm font-semibold text-slate-700">★</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Ticker</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Company</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Signal</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Empresa</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Señal</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Trinity Score</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Author</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Price</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Target</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Autor</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Precio</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Objetivo</th>
                 </tr>
               </thead>
               <tbody>
                 {top10.map((signal) => (
                   <tr key={signal.id} className="border-b border-slate-100 hover:bg-slate-50">
+                    <td className="py-3 px-2">
+                      <div className="flex justify-center">
+                        <WatchlistStar ticker={signal.ticker} size="sm" />
+                      </div>
+                    </td>
                     <td className="py-3 px-4">
                       <span className="font-bold text-slate-900">{signal.ticker}</span>
                     </td>

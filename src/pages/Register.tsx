@@ -75,15 +75,15 @@ const Register = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-slate-900 mb-2">
-              Create your account
+              Crear tu cuenta
             </h1>
             <p className="text-slate-600">
-              Or{' '}
+              O{' '}
               <Link
                 to="/login"
                 className="font-semibold text-primary hover:text-primary/80"
               >
-                sign in to your existing account
+                iniciar sesión en tu cuenta existente
               </Link>
             </p>
           </div>
@@ -97,7 +97,7 @@ const Register = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-slate-700 mb-2"
                 >
-                  Full Name
+                  Nombre Completo
                 </label>
                 <input
                   id="name"
@@ -108,7 +108,7 @@ const Register = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="John Doe"
+                  placeholder="Juan Pérez"
                 />
               </div>
 
@@ -150,17 +150,17 @@ const Register = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Create a password"
+                  placeholder="Crea una contraseña"
                 />
               </div>
 
-              {/* Confirm Password */}
+              {/* Confirmar Contraseña */}
               <div>
                 <label
                   htmlFor="confirmPassword"
                   className="block text-sm font-medium text-slate-700 mb-2"
                 >
-                  Confirm Password
+                  Confirmar Contraseña
                 </label>
                 <input
                   id="confirmPassword"
@@ -171,7 +171,7 @@ const Register = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Confirm your password"
+                  placeholder="Confirma tu contraseña"
                 />
               </div>
 
@@ -189,23 +189,23 @@ const Register = () => {
                 disabled={isLoading}
                 className="w-full"
               >
-                {isLoading ? 'Creating account...' : 'Create account'}
+                {isLoading ? 'Creando cuenta...' : 'Crear cuenta'}
               </Button>
 
               {/* Terms */}
               <div className="pt-6 border-t border-slate-200">
                 <p className="text-xs text-slate-600 text-center">
-                  By creating an account, you agree to our{' '}
+                  Al crear una cuenta, aceptas nuestros{' '}
                   <Link to="/" className="text-primary hover:text-primary/80">
-                    Terms of Service
+                    Términos de Servicio
                   </Link>{' '}
-                  and{' '}
+                  y{' '}
                   <Link to="/" className="text-primary hover:text-primary/80">
-                    Privacy Policy
+                    Política de Privacidad
                   </Link>
                 </p>
                 <p className="text-xs text-slate-500 text-center mt-2">
-                  New accounts start with the Free plan
+                  Las cuentas nuevas comienzan con el plan Gratis
                 </p>
               </div>
             </form>

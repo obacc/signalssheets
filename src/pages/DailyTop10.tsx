@@ -6,6 +6,7 @@ import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
 import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart';
+import { WatchlistStar } from '../components/ui/WatchlistStar';
 import { Badge } from '../components/ui/Badge';
 import { mockSignals } from '../lib/mockData';
 
@@ -19,9 +20,9 @@ const DailyTop10 = () => {
       <main className="flex-1 container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Daily TOP 10</h1>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">TOP 10 Diario</h1>
           <p className="text-slate-600">
-            Updated {new Date().toLocaleDateString()} • Best opportunities from the Trinity Method
+            Actualizado {new Date().toLocaleDateString('es-ES')} • Mejores oportunidades del Trinity Method
           </p>
         </div>
 
@@ -44,7 +45,10 @@ const DailyTop10 = () => {
                     <p className="text-sm text-slate-600">{signal.company}</p>
                   </div>
                 </div>
-                <AuthorBadge author={signal.dominantAuthor} showIcon />
+                <div className="flex items-center gap-2">
+                  <AuthorBadge author={signal.dominantAuthor} showIcon />
+                  <WatchlistStar ticker={signal.ticker} size="md" />
+                </div>
               </div>
 
               {/* Signal Badge */}
@@ -73,7 +77,7 @@ const DailyTop10 = () => {
               {/* Author Breakdown */}
               <div className="space-y-2 mb-6 p-4 bg-slate-50 rounded-lg">
                 <p className="text-xs font-semibold text-slate-600 uppercase mb-2">
-                  Score Breakdown
+                  Desglose de Scores
                 </p>
                 {/* Lynch Score */}
                 <div className="flex items-center justify-between">
@@ -127,11 +131,11 @@ const DailyTop10 = () => {
               {/* Metrics Grid */}
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <p className="text-xs text-slate-600 mb-1">Current Price</p>
+                  <p className="text-xs text-slate-600 mb-1">Precio Actual</p>
                   <p className="text-lg font-bold text-slate-900">${signal.price.toFixed(2)}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-600 mb-1">Target Price</p>
+                  <p className="text-xs text-slate-600 mb-1">Precio Objetivo</p>
                   <p className="text-lg font-bold text-buy">${signal.targetPrice.toFixed(2)}</p>
                 </div>
                 <div>
@@ -139,7 +143,7 @@ const DailyTop10 = () => {
                   <p className="text-lg font-bold text-sell">${signal.stopLoss.toFixed(2)}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-600 mb-1">Potential Return</p>
+                  <p className="text-xs text-slate-600 mb-1">Retorno Potencial</p>
                   <p className="text-lg font-bold text-oneil">
                     {signal.potentialReturn > 0 ? '+' : ''}{signal.potentialReturn.toFixed(1)}%
                   </p>

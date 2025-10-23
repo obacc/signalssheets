@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Home
+              Inicio
             </Link>
             <Link to="/dashboard" className="text-slate-600 hover:text-primary font-medium transition-colors">
               Dashboard
@@ -35,16 +35,16 @@ export const Header: React.FC = () => {
               TOP 500
             </Link>
             <Link to="/market-regime" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Market Regime
+              Régimen de Mercado
             </Link>
             <Link to="/daily-top10" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Daily TOP 10
+              TOP 10 Diario
             </Link>
             <Link to="/watchlist" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Watchlist
+              Favoritos
             </Link>
             <Link to="/pricing" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Pricing
+              Precios
             </Link>
           </nav>
 
@@ -72,17 +72,17 @@ export const Header: React.FC = () => {
                   className="flex items-center gap-2"
                 >
                   <LogOut className="w-4 h-4" />
-                  Logout
+                  Cerrar Sesión
                 </Button>
               </>
             ) : (
               <>
                 {/* Login/Register Buttons */}
                 <Button variant="ghost" as="link" to="/login" size="sm">
-                  Login
+                  Iniciar Sesión
                 </Button>
                 <Button variant="primary" as="link" to="/register" size="sm">
-                  Get Started
+                  Comenzar
                 </Button>
               </>
             )}

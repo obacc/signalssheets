@@ -6,6 +6,7 @@ import { Button } from '../components/ui/Button';
 import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
+import { WatchlistStar } from '../components/ui/WatchlistStar';
 import { mockSignals } from '../lib/mockData';
 import { Search, Download } from 'lucide-react';
 
@@ -25,8 +26,8 @@ const Top500 = () => {
   });
 
   const handleExportCSV = () => {
-    // Simple CSV export
-    const headers = ['Ticker', 'Company', 'Signal', 'Trinity Score', 'Author', 'Price', 'Target', 'Sector'];
+    // CSV export with Spanish headers
+    const headers = ['Ticker', 'Empresa', 'Señal', 'Trinity Score', 'Autor', 'Precio', 'Objetivo', 'Sector'];
     const rows = filteredSignals.map(s => [
       s.ticker, s.company, s.signal, s.trinityScore, s.dominantAuthor,
       s.price, s.targetPrice, s.sector
@@ -48,8 +49,8 @@ const Top500 = () => {
       <main className="flex-1 container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">TOP 500 Trinity Signals</h1>
-          <p className="text-slate-600">Complete list of analyzed stocks using the Trinity Method</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">TOP 500 Señales Trinity</h1>
+          <p className="text-slate-600">Lista completa de acciones analizadas con el Trinity Method</p>
         </div>
 
         {/* Filters Card */}
@@ -58,7 +59,7 @@ const Top500 = () => {
             {/* Search */}
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Search Ticker or Company
+                Buscar Ticker o Empresa
               </label>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
@@ -66,7 +67,7 @@ const Top500 = () => {
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="e.g., NVDA or Apple"
+                  placeholder="ej: NVDA o Apple"
                   className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
@@ -75,14 +76,14 @@ const Top500 = () => {
             {/* Signal Filter */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Signal Type
+                Tipo de Señal
               </label>
               <select
                 value={signalFilter}
                 onChange={(e) => setSignalFilter(e.target.value)}
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
-                <option value="ALL">All Signals</option>
+                <option value="ALL">Todas las Señales</option>
                 <option value="BUY">BUY</option>
                 <option value="HOLD">HOLD</option>
                 <option value="SELL">SELL</option>
@@ -92,14 +93,14 @@ const Top500 = () => {
             {/* Author Filter */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">
-                Dominant Author
+                Autor Dominante
               </label>
               <select
                 value={authorFilter}
                 onChange={(e) => setAuthorFilter(e.target.value)}
                 className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               >
-                <option value="ALL">All Authors</option>
+                <option value="ALL">Todos los Autores</option>
                 <option value="Lynch">Lynch</option>
                 <option value="O'Neil">O'Neil</option>
                 <option value="Graham">Graham</option>
@@ -110,11 +111,11 @@ const Top500 = () => {
           {/* Results Count & Export */}
           <div className="mt-4 flex items-center justify-between pt-4 border-t border-slate-200">
             <p className="text-sm text-slate-600">
-              Showing <span className="font-semibold">{filteredSignals.length}</span> signals
+              Mostrando <span className="font-semibold">{filteredSignals.length}</span> señales
             </p>
             <Button variant="secondary" onClick={handleExportCSV}>
               <Download className="w-4 h-4" />
-              Export CSV
+              Exportar CSV
             </Button>
           </div>
         </Card>
@@ -125,19 +126,25 @@ const Top500 = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-200">
+                  <th className="text-center py-3 px-2 text-sm font-semibold text-slate-700">★</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Ticker</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Company</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Signal</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Empresa</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Señal</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Trinity Score</th>
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Author</th>
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Autor</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Sector</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Price</th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Potential</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Precio</th>
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-slate-700">Potencial</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredSignals.map((signal) => (
                   <tr key={signal.id} className="border-b border-slate-100 hover:bg-slate-50">
+                    <td className="py-3 px-2">
+                      <div className="flex justify-center">
+                        <WatchlistStar ticker={signal.ticker} size="sm" />
+                      </div>
+                    </td>
                     <td className="py-3 px-4">
                       <span className="font-bold text-slate-900">{signal.ticker}</span>
                     </td>

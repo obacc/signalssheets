@@ -48,15 +48,15 @@ const Login = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-slate-900 mb-2">
-              Sign in to your account
+              Iniciar sesión en tu cuenta
             </h1>
             <p className="text-slate-600">
-              Or{' '}
+              O{' '}
               <Link
                 to="/register"
                 className="font-semibold text-primary hover:text-primary/80"
               >
-                create a new account
+                crear una cuenta nueva
               </Link>
             </p>
           </div>
@@ -70,7 +70,7 @@ const Login = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-slate-700 mb-2"
                 >
-                  Email address
+                  Correo electrónico
                 </label>
                 <input
                   id="email"
@@ -81,7 +81,7 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="you@example.com"
+                  placeholder="tu@ejemplo.com"
                 />
               </div>
 
@@ -102,7 +102,7 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="Enter your password"
+                  placeholder="Ingresa tu contraseña"
                 />
               </div>
 
@@ -120,13 +120,13 @@ const Login = () => {
                 disabled={isLoading}
                 className="w-full"
               >
-                {isLoading ? 'Signing in...' : 'Sign in'}
+                {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
               </Button>
 
-              {/* Demo Accounts */}
+              {/* Cuentas Demo */}
               <div className="pt-6 border-t border-slate-200">
                 <p className="text-sm font-medium text-slate-700 mb-3 text-center">
-                  Demo Accounts
+                  Cuentas Demo
                 </p>
                 <div className="space-y-2 text-xs text-slate-600">
                   <div className="flex justify-between p-2 bg-slate-50 rounded">
@@ -134,8 +134,8 @@ const Login = () => {
                     <span className="text-slate-400">demo123</span>
                   </div>
                   <div className="flex justify-between p-2 bg-slate-50 rounded">
-                    <span><strong>Any Email:</strong> test@example.com</span>
-                    <span className="text-slate-400">any password (3+ chars)</span>
+                    <span><strong>Cualquier Email:</strong> test@example.com</span>
+                    <span className="text-slate-400">cualquier contraseña (3+ caracteres)</span>
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const Login = () => {
               to="/pricing"
               className="text-sm text-slate-600 hover:text-primary"
             >
-              View our pricing plans
+              Ver nuestros planes de precios
             </Link>
           </div>
         </div>

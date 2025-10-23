@@ -9,21 +9,33 @@ import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart'
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { mockSignals } from '../lib/mockData';
-import { Star, Download, Plus } from 'lucide-react';
+import { Star, Download, Plus, Info } from 'lucide-react';
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = useState<string[]>([]);
 
   // Load watchlist from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem('indicium_watchlist');
-    if (saved) {
-      try {
-        setWatchlist(JSON.parse(saved));
-      } catch (error) {
-        console.error('Failed to parse watchlist:', error);
+    const loadWatchlist = () => {
+      const saved = localStorage.getItem('indicium_watchlist');
+      if (saved) {
+        try {
+          setWatchlist(JSON.parse(saved));
+        } catch (error) {
+          console.error('Failed to parse watchlist:', error);
+        }
       }
-    }
+    };
+
+    loadWatchlist();
+
+    // Listen for updates from other components
+    const handleUpdate = () => {
+      loadWatchlist();
+    };
+
+    window.addEventListener('watchlistUpdated', handleUpdate);
+    return () => window.removeEventListener('watchlistUpdated', handleUpdate);
   }, []);
 
   // Save watchlist to localStorage whenever it changes
@@ -50,7 +62,7 @@ const Watchlist = () => {
 
   // Export watchlist to CSV
   const exportToCSV = () => {
-    const headers = ['Ticker', 'Company', 'Signal', 'Trinity Score', 'Dominant Author', 'Price', 'Target', 'Stop Loss', 'Potential Return'];
+    const headers = ['Ticker', 'Empresa', 'Señal', 'Trinity Score', 'Autor', 'Precio', 'Objetivo', 'Stop Loss', 'Retorno Potencial'];
     const rows = watchlistSignals.map(signal => [
       signal.ticker,
       signal.company,
@@ -92,18 +104,39 @@ const Watchlist = () => {
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">My Watchlist</h1>
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">Mis Favoritos</h1>
             <p className="text-slate-600">
-              {watchlistSignals.length} signal{watchlistSignals.length !== 1 ? 's' : ''} in your watchlist
+              {watchlistSignals.length} signal{watchlistSignals.length !== 1 ? 's' : ''} guardadas en favoritos
             </p>
           </div>
           {watchlistSignals.length > 0 && (
             <Button variant="secondary" onClick={exportToCSV}>
               <Download className="w-4 h-4 mr-2" />
-              Export CSV
+              Exportar CSV
             </Button>
           )}
         </div>
+
+        {/* Instructions Card */}
+        <Card className="mb-6 bg-primary/5 border-primary/20">
+          <div className="flex items-start gap-3">
+            <Info className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                ¿Cómo agregar señales a favoritos?
+              </h3>
+              <ol className="text-sm text-slate-700 space-y-1 list-decimal list-inside">
+                <li>Ve a cualquier página con señales (Dashboard, TOP 500, TOP 10 Diario)</li>
+                <li>Encuentra la señal que te interesa</li>
+                <li>Haz clic en el icono de estrella ★ junto a la señal</li>
+                <li>La señal aparecerá automáticamente aquí en Favoritos</li>
+              </ol>
+              <p className="text-sm text-slate-600 mt-3">
+                💡 <strong>Tip:</strong> Puedes guardar hasta 50 señales en tu lista de favoritos
+              </p>
+            </div>
+          </div>
+        </Card>
 
         {/* Empty State */}
         {watchlistSignals.length === 0 && (
@@ -112,10 +145,10 @@ const Watchlist = () => {
               <Star className="w-10 h-10 text-slate-400" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-3">
-              Your watchlist is empty
+              Tu lista de favoritos está vacía
             </h3>
             <p className="text-slate-600 mb-8 max-w-md mx-auto">
-              Start building your watchlist by adding signals from the top performers below.
+              Agrega señales a tus favoritos desde las páginas Dashboard, TOP 500 o TOP 10 Diario
             </p>
           </Card>
         )}
@@ -133,7 +166,7 @@ const Watchlist = () => {
                 <button
                   onClick={() => removeFromWatchlist(signal.ticker)}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-warning/10 hover:bg-warning/20 flex items-center justify-center transition-colors"
-                  title="Remove from watchlist"
+                  title="Quitar de favoritos"
                 >
                   <Star className="w-5 h-5 text-warning fill-warning" />
                 </button>
@@ -210,11 +243,11 @@ const Watchlist = () => {
           </div>
         )}
 
-        {/* Suggested Signals to Add */}
+        {/* Señales Sugeridas para Agregar */}
         {availableSignals.length > 0 && (
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              Suggested Signals to Add
+              Señales Sugeridas para Agregar
             </h2>
             <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
               {availableSignals.map((signal) => (
@@ -228,7 +261,7 @@ const Watchlist = () => {
                     <h4 className="text-lg font-bold text-slate-900">{signal.ticker}</h4>
                     <button
                       className="w-8 h-8 rounded-full bg-slate-100 hover:bg-primary/10 flex items-center justify-center transition-colors"
-                      title="Add to watchlist"
+                      title="Agregar a favoritos"
                     >
                       <Plus className="w-4 h-4 text-slate-600" />
                     </button>
