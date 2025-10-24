@@ -6,13 +6,16 @@ import { SignalBadge } from '../components/ui/SignalBadge';
 import { AuthorBadge } from '../components/ui/AuthorBadge';
 import { TrinityScoreBar } from '../components/ui/TrinityScoreBar';
 import { TrinityTriangleChart } from '../components/charts/TrinityTriangleChart';
+import { WatchlistStar } from '../components/ui/WatchlistStar';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { mockSignals } from '../lib/mockData';
-import { Star, Download, Plus, Info } from 'lucide-react';
+import { Star, Download, Info } from 'lucide-react';
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = useState<string[]>([]);
+  const [manualInput, setManualInput] = useState('');
+  const [addError, setAddError] = useState<string | null>(null);
 
   // Load watchlist from localStorage on mount
   useEffect(() => {
@@ -76,6 +79,81 @@ const Watchlist = () => {
 
   const isInWatchlist = (signalId: string) => watchlist.includes(signalId);
 
+  // Manual ticker add handler
+  const handleManualAdd = () => {
+    console.log('[Watchlist] handleManualAdd called with input:', manualInput);
+    setAddError(null);
+
+    // Parse input (split by comma, trim whitespace, uppercase)
+    const tickers = manualInput
+      .split(',')
+      .map(t => t.trim().toUpperCase())
+      .filter(t => t.length > 0);
+
+    console.log('[Watchlist] Parsed tickers:', tickers);
+
+    if (tickers.length === 0) {
+      setAddError('Por favor ingresa al menos un ticker');
+      return;
+    }
+
+    // Find signals that match the tickers
+    const signalsToAdd = mockSignals.filter(signal =>
+      tickers.includes(signal.ticker.toUpperCase())
+    );
+
+    console.log('[Watchlist] Signals found:', signalsToAdd.length, 'out of', tickers.length);
+
+    if (signalsToAdd.length === 0) {
+      setAddError(`No se encontraron señales para: ${tickers.join(', ')}`);
+      return;
+    }
+
+    // Get current watchlist
+    const saved = localStorage.getItem('indicium_watchlist');
+    let list: string[] = saved ? JSON.parse(saved) : [];
+
+    // Add new signals (avoid duplicates)
+    let addedCount = 0;
+    signalsToAdd.forEach(signal => {
+      if (!list.includes(signal.id)) {
+        if (list.length >= 50) {
+          setAddError('Has alcanzado el límite de 50 señales');
+          return;
+        }
+        list.push(signal.id);
+        addedCount++;
+        console.log('[Watchlist] Added signal:', signal.id, signal.ticker);
+      } else {
+        console.log('[Watchlist] Signal already in watchlist:', signal.id, signal.ticker);
+      }
+    });
+
+    // Save and update
+    localStorage.setItem('indicium_watchlist', JSON.stringify(list));
+    window.dispatchEvent(new CustomEvent('watchlistUpdated'));
+    console.log('[Watchlist] Saved updated watchlist, dispatched event');
+
+    // Clear input and show feedback
+    if (addedCount > 0) {
+      setManualInput('');
+
+      // Check if any tickers were not found
+      const notFound = tickers.filter(t =>
+        !signalsToAdd.some(s => s.ticker.toUpperCase() === t)
+      );
+
+      if (notFound.length > 0) {
+        setAddError(`✅ Agregados ${addedCount} ticker(s). No encontrados: ${notFound.join(', ')}`);
+      } else {
+        setAddError(`✅ Agregados ${addedCount} ticker(s) exitosamente`);
+      }
+
+      // Clear success message after 3 seconds
+      setTimeout(() => setAddError(null), 3000);
+    }
+  };
+
   // CRITICAL FIX: Filter by signal.id instead of signal.ticker
   console.log('[Watchlist] Filtering signals... watchlist contains:', watchlist);
   const watchlistSignals = mockSignals.filter(signal => {
@@ -118,9 +196,9 @@ const Watchlist = () => {
     window.URL.revokeObjectURL(url);
   };
 
-  // Available signals to add (not in watchlist)
+  // Available signals to add (not in watchlist) - FIXED: use signal.id
   const availableSignals = mockSignals.filter(signal =>
-    !watchlist.includes(signal.ticker)
+    !watchlist.includes(signal.id)
   ).slice(0, 5);
 
   return (
@@ -162,6 +240,58 @@ const Watchlist = () => {
                 💡 <strong>Tip:</strong> Puedes guardar hasta 50 señales en tu watchlist
               </p>
             </div>
+          </div>
+        </Card>
+
+        {/* Manual Ticker Input Section */}
+        <Card className="mb-6">
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Agregar Tickers Manualmente
+          </h3>
+
+          <div className="space-y-3">
+            {/* Input field */}
+            <div>
+              <label htmlFor="manual-ticker-input" className="block text-sm font-medium text-slate-700 mb-2">
+                Ingresa ticker(s) separados por comas
+              </label>
+              <input
+                id="manual-ticker-input"
+                type="text"
+                value={manualInput}
+                onChange={(e) => setManualInput(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    handleManualAdd();
+                  }
+                }}
+                placeholder="Ej: AAPL, MSFT, GOOGL"
+                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+              />
+              <p className="text-xs text-slate-500 mt-1">
+                💡 Puedes agregar múltiples tickers separándolos con comas
+              </p>
+            </div>
+
+            {/* Add button */}
+            <button
+              onClick={handleManualAdd}
+              disabled={!manualInput.trim()}
+              className="w-full px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors"
+            >
+              Agregar a Watchlist
+            </button>
+
+            {/* Error/feedback message */}
+            {addError && (
+              <div className={`p-3 rounded-lg text-sm ${
+                addError.includes('✅')
+                  ? 'bg-green-50 text-green-700 border border-green-200'
+                  : 'bg-yellow-50 text-yellow-700 border border-yellow-200'
+              }`}>
+                {addError}
+              </div>
+            )}
           </div>
         </Card>
 
@@ -281,17 +411,10 @@ const Watchlist = () => {
                 <Card
                   key={signal.id}
                   hover
-                  className="cursor-pointer"
-                  onClick={() => addToWatchlist(signal.ticker)}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-lg font-bold text-slate-900">{signal.ticker}</h4>
-                    <button
-                      className="w-8 h-8 rounded-full bg-slate-100 hover:bg-primary/10 flex items-center justify-center transition-colors"
-                      title="Agregar a la watchlist"
-                    >
-                      <Plus className="w-4 h-4 text-slate-600" />
-                    </button>
+                    <WatchlistStar signalId={signal.id} size="sm" />
                   </div>
                   <p className="text-xs text-slate-600 mb-3 line-clamp-1">{signal.company}</p>
                   <SignalBadge signal={signal.signal} />
