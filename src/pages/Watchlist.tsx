@@ -72,11 +72,6 @@ const Watchlist = () => {
     }
   };
 
-  const removeFromWatchlist = (signalId: string) => {
-    console.log('[Watchlist] removeFromWatchlist called with:', signalId);
-    setWatchlist(watchlist.filter(id => id !== signalId));
-  };
-
   const isInWatchlist = (signalId: string) => watchlist.includes(signalId);
 
   // Manual ticker add handler
@@ -317,16 +312,12 @@ const Watchlist = () => {
               <Card
                 key={signal.id}
                 hover
-                className="cursor-pointer relative"
+                className="relative"
               >
-                {/* Remove Button */}
-                <button
-                  onClick={() => removeFromWatchlist(signal.ticker)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-warning/10 hover:bg-warning/20 flex items-center justify-center transition-colors"
-                  title="Quitar de watchlist"
-                >
-                  <Star className="w-5 h-5 text-warning fill-warning" />
-                </button>
+                {/* WatchlistStar for consistent remove behavior */}
+                <div className="absolute top-4 right-4">
+                  <WatchlistStar signalId={signal.id} size="lg" />
+                </div>
 
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4 pr-12">
