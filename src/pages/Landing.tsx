@@ -24,7 +24,7 @@ const Landing = () => {
 
             {/* Headline */}
             <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
-              Trading Signals with the{' '}
+              Señales de Trading con el{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-oneil to-lynch">
                 Trinity Method
               </span>
@@ -32,18 +32,18 @@ const Landing = () => {
 
             {/* Subheadline */}
             <p className="text-xl lg:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto">
-              Combining the best of Peter Lynch, William O'Neil, and Benjamin Graham 
-              into a single, powerful scoring system
+              Combinando lo mejor de Peter Lynch, William O'Neil y Benjamin Graham
+              en un único y poderoso sistema de scoring
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button variant="primary" as="link" to="/dashboard" size="lg">
-                View Signals Now
+                Ver Señales Ahora
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="secondary" size="lg">
-                Documentation
+                Documentación
               </Button>
             </div>
 
@@ -51,15 +51,15 @@ const Landing = () => {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
                 <CheckCircle className="w-5 h-5 text-lynch" />
-                <span className="font-semibold text-slate-700">500+ Tickers Analyzed Daily</span>
+                <span className="font-semibold text-slate-700">500+ Tickers Analizados Diariamente</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
                 <CheckCircle className="w-5 h-5 text-oneil" />
-                <span className="font-semibold text-slate-700">180+ Active Signals</span>
+                <span className="font-semibold text-slate-700">180+ Señales Activas</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm border border-slate-200">
                 <CheckCircle className="w-5 h-5 text-graham" />
-                <span className="font-semibold text-slate-700">3 Proven Strategies</span>
+                <span className="font-semibold text-slate-700">3 Estrategias Probadas</span>
               </div>
             </div>
           </div>
@@ -73,11 +73,11 @@ const Landing = () => {
             {/* Section Header */}
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-                Trinity Method: The Best of 3 Worlds
+                Trinity Method: Lo Mejor de 3 Mundos
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                We combine the proven strategies of the three greatest investors in history 
-                into a single, powerful scoring system
+                Combinamos las estrategias probadas de los tres mejores inversores de todos los tiempos
+                en un único y poderoso sistema de scoring
               </p>
             </div>
 
@@ -90,20 +90,20 @@ const Landing = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">Peter Lynch</h3>
                 <p className="text-slate-600 mb-6">
-                  Identifies companies with solid growth and exceptional fundamentals
+                  Identifica empresas con crecimiento sólido y fundamentos excepcionales
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Favorable PEG Ratio</span>
+                    <span className="text-sm">Ratio PEG Favorable</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Consistent Growth</span>
+                    <span className="text-sm">Crecimiento Consistente</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-lynch mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Solid Balance Sheet</span>
+                    <span className="text-sm">Balance Sólido</span>
                   </li>
                 </ul>
               </Card>
@@ -115,20 +115,20 @@ const Landing = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">William O'Neil</h3>
                 <p className="text-slate-600 mb-6">
-                  Detects stocks with exceptional momentum and relative strength
+                  Detecta acciones con momentum excepcional y fuerza relativa
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Breakout Patterns</span>
+                    <span className="text-sm">Patrones de Ruptura</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Sector Leadership</span>
+                    <span className="text-sm">Liderazgo Sectorial</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-oneil mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Institutional Support</span>
+                    <span className="text-sm">Soporte Institucional</span>
                   </li>
                 </ul>
               </Card>
@@ -140,20 +140,20 @@ const Landing = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">Benjamin Graham</h3>
                 <p className="text-slate-600 mb-6">
-                  Values companies with margin of safety and solid fundamentals
+                  Valúa empresas con margen de seguridad y fundamentos sólidos
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Margin of Safety</span>
+                    <span className="text-sm">Margen de Seguridad</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Conservative Valuation</span>
+                    <span className="text-sm">Valuación Conservadora</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-graham mt-0.5 flex-shrink-0" />
-                    <span className="text-sm">Stable Dividends</span>
+                    <span className="text-sm">Dividendos Estables</span>
                   </li>
                 </ul>
               </Card>
@@ -168,35 +168,35 @@ const Landing = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-900 mb-4">
-                Powerful Features
+                Funcionalidades Poderosas
               </h2>
               <p className="text-xl text-slate-600">
-                Everything you need to make informed trading decisions
+                Todo lo que necesitas para tomar decisiones de trading informadas
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <Card>
                 <LineChart className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Real-time Trinity Score</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Trinity Score en Tiempo Real</h3>
                 <p className="text-slate-600">
-                  Get instant Trinity Method scores combining all three strategies
+                  Obtén scores instantáneos del Trinity Method combinando las tres estrategias
                 </p>
               </Card>
 
               <Card>
                 <Bell className="w-12 h-12 text-oneil mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Email Alerts</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Alertas por Email</h3>
                 <p className="text-slate-600">
-                  Receive notifications when new high-confidence signals are detected
+                  Recibe notificaciones cuando se detecten nuevas señales de alta confianza
                 </p>
               </Card>
 
               <Card>
                 <Download className="w-12 h-12 text-lynch mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Export to Sheets</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Exportar a Sheets</h3>
                 <p className="text-slate-600">
-                  Download your signals as CSV for custom analysis
+                  Descarga tus señales como CSV para análisis personalizado
                 </p>
               </Card>
 
@@ -204,23 +204,23 @@ const Landing = () => {
                 <CheckCircle className="w-12 h-12 text-graham mb-4" />
                 <h3 className="text-xl font-bold text-slate-900 mb-2">500+ Tickers</h3>
                 <p className="text-slate-600">
-                  Coverage of the top 500 US stocks updated daily
+                  Cobertura de las 500 principales acciones de EE.UU. actualizadas diariamente
                 </p>
               </Card>
 
               <Card>
                 <TrendingUp className="w-12 h-12 text-success mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Performance Tracking</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Seguimiento de Rendimiento</h3>
                 <p className="text-slate-600">
-                  Monitor historical accuracy and returns of our signals
+                  Monitorea la precisión histórica y los retornos de nuestras señales
                 </p>
               </Card>
 
               <Card>
                 <Activity className="w-12 h-12 text-warning mb-4" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Market Regime Analysis</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Análisis de Régimen de Mercado</h3>
                 <p className="text-slate-600">
-                  Understand current market conditions and adjust strategy
+                  Entiende las condiciones actuales del mercado y ajusta tu estrategia
                 </p>
               </Card>
             </div>
@@ -233,23 +233,23 @@ const Landing = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Start Analyzing with Trinity Method
+              Comienza a Analizar con Trinity Method
             </h2>
             <p className="text-xl text-white/90 mb-10">
-              Join traders using the combined wisdom of Lynch, O'Neil, and Graham
+              Únete a miles de traders usando la sabiduría combinada de Lynch, O'Neil y Graham
             </p>
-            <Button 
-              variant="secondary" 
-              size="lg" 
-              as="link" 
+            <Button
+              variant="secondary"
+              size="lg"
+              as="link"
               to="/dashboard"
               className="bg-white text-primary hover:bg-slate-50"
             >
-              View Signals Now
+              Ver Señales Ahora
               <ArrowRight className="w-5 h-5" />
             </Button>
             <p className="text-white/80 text-sm mt-4">
-              No credit card required • Free access to daily TOP 10
+              No se requiere tarjeta de crédito • Acceso gratuito al TOP 10 Diario
             </p>
           </div>
         </div>

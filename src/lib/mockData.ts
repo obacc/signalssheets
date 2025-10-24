@@ -51,6 +51,109 @@ export interface KPIMetrics {
 }
 
 export const mockSignals: Signal[] = [
+  // DEFAULT MARKET INDICES (benchmark ETFs)
+  {
+    id: 'spy-index',
+    ticker: 'SPY',
+    company: 'SPDR S&P 500 ETF Trust',
+    signal: 'HOLD',
+    trinityScore: 75,
+    dominantAuthor: "O'Neil",
+    authorScores: {
+      lynch: 70,
+      oneil: 80,
+      graham: 75
+    },
+    price: 445.32,
+    targetPrice: 475.00,
+    stopLoss: 425.00,
+    potentialReturn: 6.7,
+    sector: 'ETF - Market Index',
+    riskProfile: 'Moderate',
+    lastUpdated: new Date('2025-10-24')
+  },
+  {
+    id: 'qqq-index',
+    ticker: 'QQQ',
+    company: 'Invesco QQQ Trust',
+    signal: 'BUY',
+    trinityScore: 82,
+    dominantAuthor: "O'Neil",
+    authorScores: {
+      lynch: 78,
+      oneil: 88,
+      graham: 80
+    },
+    price: 385.67,
+    targetPrice: 415.00,
+    stopLoss: 370.00,
+    potentialReturn: 7.6,
+    sector: 'ETF - NASDAQ 100',
+    riskProfile: 'Aggressive',
+    lastUpdated: new Date('2025-10-24')
+  },
+  {
+    id: 'dia-index',
+    ticker: 'DIA',
+    company: 'SPDR Dow Jones Industrial Average ETF',
+    signal: 'HOLD',
+    trinityScore: 72,
+    dominantAuthor: 'Graham',
+    authorScores: {
+      lynch: 68,
+      oneil: 72,
+      graham: 76
+    },
+    price: 348.21,
+    targetPrice: 365.00,
+    stopLoss: 335.00,
+    potentialReturn: 4.8,
+    sector: 'ETF - Dow Jones',
+    riskProfile: 'Conservative',
+    lastUpdated: new Date('2025-10-24')
+  },
+  {
+    id: 'iwm-index',
+    ticker: 'IWM',
+    company: 'iShares Russell 2000 ETF',
+    signal: 'BUY',
+    trinityScore: 78,
+    dominantAuthor: 'Lynch',
+    authorScores: {
+      lynch: 82,
+      oneil: 76,
+      graham: 76
+    },
+    price: 195.43,
+    targetPrice: 210.00,
+    stopLoss: 185.00,
+    potentialReturn: 7.5,
+    sector: 'ETF - Small Cap',
+    riskProfile: 'Aggressive',
+    lastUpdated: new Date('2025-10-24')
+  },
+  {
+    id: 'vti-index',
+    ticker: 'VTI',
+    company: 'Vanguard Total Stock Market ETF',
+    signal: 'HOLD',
+    trinityScore: 74,
+    dominantAuthor: 'Graham',
+    authorScores: {
+      lynch: 72,
+      oneil: 74,
+      graham: 76
+    },
+    price: 235.88,
+    targetPrice: 250.00,
+    stopLoss: 225.00,
+    potentialReturn: 6.0,
+    sector: 'ETF - Total Market',
+    riskProfile: 'Moderate',
+    lastUpdated: new Date('2025-10-24')
+  },
+
+  // REGULAR SIGNALS
   {
     id: '1',
     ticker: 'NVDA',

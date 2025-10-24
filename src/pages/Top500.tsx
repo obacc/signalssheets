@@ -142,7 +142,7 @@ const Top500 = () => {
                   <tr key={signal.id} className="border-b border-slate-100 hover:bg-slate-50">
                     <td className="py-3 px-2">
                       <div className="flex justify-center">
-                        <WatchlistStar ticker={signal.ticker} size="sm" />
+                        <WatchlistStar signalId={signal.id} size="sm" />
                       </div>
                     </td>
                     <td className="py-3 px-4">

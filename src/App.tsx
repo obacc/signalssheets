@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
@@ -11,6 +12,20 @@ import Watchlist from './pages/Watchlist';
 import DailyTop10 from './pages/DailyTop10';
 
 export default function App() {
+  // Initialize default market indices in watchlist on first load
+  useEffect(() => {
+    const watchlist = localStorage.getItem('indicium_watchlist');
+
+    // Only initialize if watchlist doesn't exist (first-time user)
+    if (!watchlist) {
+      const defaultIndices = ['spy-index', 'qqq-index', 'dia-index', 'iwm-index', 'vti-index'];
+      localStorage.setItem('indicium_watchlist', JSON.stringify(defaultIndices));
+
+      // Dispatch event so Watchlist page can update if already mounted
+      window.dispatchEvent(new CustomEvent('watchlistUpdated'));
+    }
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Landing />} />

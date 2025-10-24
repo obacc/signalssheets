@@ -47,7 +47,7 @@ const DailyTop10 = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <AuthorBadge author={signal.dominantAuthor} showIcon />
-                  <WatchlistStar ticker={signal.ticker} size="md" />
+                  <WatchlistStar signalId={signal.id} size="md" />
                 </div>
               </div>
 

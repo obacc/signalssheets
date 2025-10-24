@@ -12,57 +12,57 @@ const Pricing = () => {
   const plans = [
     {
       id: 'free',
-      name: 'Free',
-      description: 'Perfect for exploring the Trinity Method',
+      name: 'Gratis',
+      description: 'Perfecto para explorar el Trinity Method',
       priceMonthly: 0,
       priceYearly: 0,
       popular: false,
       features: [
-        'Daily Top 10 Signals',
-        'Basic Trinity Method scoring',
-        'Market regime indicator',
-        'CSV export',
-        'Email support',
-        'Mobile responsive design'
+        'TOP 10 Señales Diarias',
+        'Scoring básico del Trinity Method',
+        'Indicador de régimen de mercado',
+        'Exportar a CSV',
+        'Soporte por email',
+        'Diseño responsive en móvil'
       ]
     },
     {
       id: 'pro',
       name: 'Pro',
-      description: 'For serious investors',
+      description: 'Para inversores serios',
       priceMonthly: 39,
       priceYearly: 390,
       popular: true,
       features: [
-        'Everything in Free',
-        'Full Top 500 Signals access',
-        'Advanced filtering & search',
-        'Watchlist with unlimited signals',
-        'Price alerts & notifications',
-        'Historical data (6 months)',
-        'Priority email support',
+        'Todo lo de Gratis',
+        'Acceso completo TOP 500 Señales',
+        'Filtros y búsqueda avanzados',
+        'Watchlist con señales ilimitadas',
+        'Alertas de precios y notificaciones',
+        'Datos históricos (6 meses)',
+        'Soporte prioritario por email',
         'Trinity Triangle charts',
-        'Custom author weights'
+        'Pesos personalizados por autor'
       ]
     },
     {
       id: 'premium',
       name: 'Premium',
-      description: 'For professional traders',
+      description: 'Para traders profesionales',
       priceMonthly: 79,
       priceYearly: 790,
       popular: false,
       features: [
-        'Everything in Pro',
-        'Full historical data (3+ years)',
-        'API access for automation',
-        'Real-time signal updates',
-        'Custom indicators & backtesting',
-        'Portfolio tracking & analytics',
-        'White-label options',
-        'Priority phone & chat support',
-        'Dedicated account manager',
-        'Custom reports & exports'
+        'Todo lo de Pro',
+        'Datos históricos completos (3+ años)',
+        'Acceso API para automatización',
+        'Actualizaciones de señales en tiempo real',
+        'Indicadores personalizados y backtesting',
+        'Seguimiento y análisis de portafolio',
+        'Opciones white-label',
+        'Soporte prioritario por teléfono y chat',
+        'Account Manager dedicado',
+        'Reportes y exportaciones personalizadas'
       ]
     }
   ];
@@ -95,10 +95,10 @@ const Pricing = () => {
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
-            Choose Your Plan
+            Elige Tu Plan
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Start with our free plan and upgrade as you grow. All plans include access to the Trinity Method signals.
+            Comienza con nuestro plan gratuito y actualiza a medida que creces. Todos los planes incluyen acceso a las señales del Trinity Method.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ const Pricing = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Monthly
+              Mensual
             </button>
             <button
               onClick={() => setBillingPeriod('yearly')}
@@ -123,9 +123,9 @@ const Pricing = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Yearly
+              Anual
               <span className="absolute -top-2 -right-2 bg-buy text-white text-xs px-2 py-0.5 rounded-full">
-                Save 17%
+                Ahorra 17%
               </span>
             </button>
           </div>
@@ -147,7 +147,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <div className="bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-1.5 shadow-lg">
                     <Star className="w-4 h-4 fill-white" />
-                    Most Popular
+                    Más Popular
                   </div>
                 </div>
               )}
@@ -167,15 +167,15 @@ const Pricing = () => {
                     <span className="text-5xl font-bold text-slate-900">
                       ${getCurrentPrice(plan)}
                     </span>
-                    <span className="text-slate-600">/month</span>
+                    <span className="text-slate-600">/mes</span>
                   </div>
                   {billingPeriod === 'yearly' && plan.priceMonthly > 0 && (
                     <div className="mt-2">
                       <p className="text-sm text-slate-600">
-                        ${getTotalPrice(plan)}/year
+                        ${getTotalPrice(plan)}/año
                       </p>
                       <p className="text-sm text-buy font-semibold">
-                        Save {getSavings(plan)}%
+                        Ahorra {getSavings(plan)}%
                       </p>
                     </div>
                   )}
@@ -199,7 +199,7 @@ const Pricing = () => {
                     variant={plan.popular ? 'primary' : 'secondary'}
                     className="w-full"
                   >
-                    {plan.priceMonthly === 0 ? 'Get Started Free' : `Start ${plan.name} Plan`}
+                    {plan.priceMonthly === 0 ? 'Comenzar Gratis' : `Iniciar Plan ${plan.name}`}
                   </Button>
                 </Link>
               </div>
@@ -210,61 +210,61 @@ const Pricing = () => {
         {/* FAQ Section */}
         <Card className="mb-12">
           <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
-            Frequently Asked Questions
+            Preguntas Frecuentes
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Can I change plans anytime?
+                ¿Puedo cambiar de plan en cualquier momento?
               </h3>
               <p className="text-slate-600 text-sm">
-                Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any differences.
+                Sí, puedes actualizar o bajar de plan en cualquier momento. Los cambios toman efecto inmediatamente, y prorrateamos cualquier diferencia.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Is there a free trial?
+                ¿Hay prueba gratuita?
               </h3>
               <p className="text-slate-600 text-sm">
-                Our Free plan gives you full access to Daily Top 10 signals with no credit card required. Upgrade anytime to unlock more features.
+                Nuestro plan Gratis te da acceso completo a las señales del TOP 10 Diario sin requerir tarjeta de crédito. Actualiza en cualquier momento para desbloquear más funcionalidades.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                What payment methods do you accept?
+                ¿Qué métodos de pago aceptan?
               </h3>
               <p className="text-slate-600 text-sm">
-                We accept all major credit cards (Visa, Mastercard, Amex), PayPal, and bank transfers for yearly subscriptions.
+                Aceptamos todas las tarjetas de crédito principales (Visa, Mastercard, Amex), PayPal, y transferencias bancarias para suscripciones anuales.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Can I cancel anytime?
+                ¿Puedo cancelar en cualquier momento?
               </h3>
               <p className="text-slate-600 text-sm">
-                Yes, you can cancel your subscription at any time with no penalties. Your access continues until the end of your billing period.
+                Sí, puedes cancelar tu suscripción en cualquier momento sin penalidades. Tu acceso continúa hasta el final de tu período de facturación.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                What is the Trinity Method?
+                ¿Qué es el Trinity Method?
               </h3>
               <p className="text-slate-600 text-sm">
-                The Trinity Method combines Peter Lynch's growth investing, William O'Neil's momentum trading, and Benjamin Graham's value investing into one powerful scoring system.
+                El Trinity Method combina la inversión de crecimiento de Peter Lynch, el trading de momentum de William O'Neil, y la inversión de valor de Benjamin Graham en un poderoso sistema de scoring.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                Do you offer refunds?
+                ¿Ofrecen reembolsos?
               </h3>
               <p className="text-slate-600 text-sm">
-                Yes, we offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, contact support for a full refund.
+                Sí, ofrecemos una garantía de devolución de dinero de 30 días en todos los planes pagos. Si no estás satisfecho, contacta a soporte para un reembolso completo.
               </p>
             </div>
           </div>
@@ -273,14 +273,14 @@ const Pricing = () => {
         {/* Final CTA */}
         <div className="text-center py-12 px-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Ready to start trading smarter?
+            ¿Listo para invertir más inteligentemente?
           </h2>
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of investors using the Trinity Method to make better investment decisions.
+            Únete a miles de inversores usando el Trinity Method para tomar mejores decisiones de inversión.
           </p>
           <Link to="/register">
             <Button variant="primary" className="px-8 py-3 text-lg">
-              Start Free Today
+              Comienza Gratis Hoy
             </Button>
           </Link>
         </div>

@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 
 interface WatchlistStarProps {
-  ticker: string;
+  signalId: string;
   size?: 'sm' | 'md' | 'lg';
   showLabel?: boolean;
 }
 
 export const WatchlistStar: React.FC<WatchlistStarProps> = ({
-  ticker,
+  signalId,
   size = 'md',
   showLabel = false
 }) => {
   const [isInWatchlist, setIsInWatchlist] = useState(false);
 
-  // Check if ticker is in watchlist on mount and when ticker changes
+  // Check if signal is in watchlist on mount and when signalId changes
   useEffect(() => {
     const checkWatchlist = () => {
       const watchlist = localStorage.getItem('indicium_watchlist');
       if (watchlist) {
         try {
           const list: string[] = JSON.parse(watchlist);
-          setIsInWatchlist(list.includes(ticker));
+          setIsInWatchlist(list.includes(signalId));
         } catch (error) {
           console.error('Failed to parse watchlist:', error);
         }
@@ -37,7 +37,7 @@ export const WatchlistStar: React.FC<WatchlistStarProps> = ({
 
     window.addEventListener('watchlistUpdated', handleWatchlistUpdate);
     return () => window.removeEventListener('watchlistUpdated', handleWatchlistUpdate);
-  }, [ticker]);
+  }, [signalId]);
 
   const toggleWatchlist = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent row click if in table
@@ -46,14 +46,14 @@ export const WatchlistStar: React.FC<WatchlistStarProps> = ({
     const watchlist = localStorage.getItem('indicium_watchlist');
     let list: string[] = watchlist ? JSON.parse(watchlist) : [];
 
-    if (list.includes(ticker)) {
+    if (list.includes(signalId)) {
       // Remove from watchlist
-      list = list.filter(t => t !== ticker);
+      list = list.filter(id => id !== signalId);
       setIsInWatchlist(false);
     } else {
       // Add to watchlist (limit to 50 signals)
       if (list.length < 50) {
-        list.push(ticker);
+        list.push(signalId);
         setIsInWatchlist(true);
       } else {
         alert('Has alcanzado el límite de 50 señales en la watchlist. Elimina algunas para agregar nuevas.');
