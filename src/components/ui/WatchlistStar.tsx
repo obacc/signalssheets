@@ -56,7 +56,7 @@ export const WatchlistStar: React.FC<WatchlistStarProps> = ({
         list.push(ticker);
         setIsInWatchlist(true);
       } else {
-        alert('Has alcanzado el límite de 50 señales en favoritos. Elimina algunas para agregar nuevas.');
+        alert('Has alcanzado el límite de 50 señales en la watchlist. Elimina algunas para agregar nuevas.');
         return;
       }
     }
@@ -81,14 +81,14 @@ export const WatchlistStar: React.FC<WatchlistStarProps> = ({
           ? 'text-warning bg-warning/10 hover:bg-warning/20'
           : 'text-slate-400 hover:text-warning hover:bg-slate-100'
       }`}
-      title={isInWatchlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+      title={isInWatchlist ? 'Quitar de watchlist' : 'Agregar a watchlist'}
     >
       <Star
         className={`${sizeClasses[size]} ${isInWatchlist ? 'fill-current' : ''}`}
       />
       {showLabel && (
         <span className="text-sm font-medium">
-          {isInWatchlist ? 'En Favoritos' : 'Agregar'}
+          {isInWatchlist ? 'En Watchlist' : 'Agregar'}
         </span>
       )}
     </button>

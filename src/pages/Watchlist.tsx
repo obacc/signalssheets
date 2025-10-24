@@ -104,9 +104,9 @@ const Watchlist = () => {
         {/* Page Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Mis Favoritos</h1>
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">Mi Watchlist</h1>
             <p className="text-slate-600">
-              {watchlistSignals.length} signal{watchlistSignals.length !== 1 ? 's' : ''} guardadas en favoritos
+              {watchlistSignals.length} señal{watchlistSignals.length !== 1 ? 'es' : ''} guardada{watchlistSignals.length !== 1 ? 's' : ''} en la watchlist
             </p>
           </div>
           {watchlistSignals.length > 0 && (
@@ -123,16 +123,16 @@ const Watchlist = () => {
             <Info className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
             <div>
               <h3 className="font-semibold text-slate-900 mb-2">
-                ¿Cómo agregar señales a favoritos?
+                ¿Cómo agregar señales a la watchlist?
               </h3>
               <ol className="text-sm text-slate-700 space-y-1 list-decimal list-inside">
                 <li>Ve a cualquier página con señales (Dashboard, TOP 500, TOP 10 Diario)</li>
                 <li>Encuentra la señal que te interesa</li>
                 <li>Haz clic en el icono de estrella ★ junto a la señal</li>
-                <li>La señal aparecerá automáticamente aquí en Favoritos</li>
+                <li>La señal aparecerá automáticamente aquí en Watchlist</li>
               </ol>
               <p className="text-sm text-slate-600 mt-3">
-                💡 <strong>Tip:</strong> Puedes guardar hasta 50 señales en tu lista de favoritos
+                💡 <strong>Tip:</strong> Puedes guardar hasta 50 señales en tu watchlist
               </p>
             </div>
           </div>
@@ -145,10 +145,10 @@ const Watchlist = () => {
               <Star className="w-10 h-10 text-slate-400" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-3">
-              Tu lista de favoritos está vacía
+              Tu watchlist está vacía
             </h3>
             <p className="text-slate-600 mb-8 max-w-md mx-auto">
-              Agrega señales a tus favoritos desde las páginas Dashboard, TOP 500 o TOP 10 Diario
+              Agrega señales a tu watchlist desde las páginas Dashboard, TOP 500 o TOP 10 Diario
             </p>
           </Card>
         )}
@@ -166,7 +166,7 @@ const Watchlist = () => {
                 <button
                   onClick={() => removeFromWatchlist(signal.ticker)}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-warning/10 hover:bg-warning/20 flex items-center justify-center transition-colors"
-                  title="Quitar de favoritos"
+                  title="Quitar de watchlist"
                 >
                   <Star className="w-5 h-5 text-warning fill-warning" />
                 </button>
@@ -261,7 +261,7 @@ const Watchlist = () => {
                     <h4 className="text-lg font-bold text-slate-900">{signal.ticker}</h4>
                     <button
                       className="w-8 h-8 rounded-full bg-slate-100 hover:bg-primary/10 flex items-center justify-center transition-colors"
-                      title="Agregar a favoritos"
+                      title="Agregar a la watchlist"
                     >
                       <Plus className="w-4 h-4 text-slate-600" />
                     </button>

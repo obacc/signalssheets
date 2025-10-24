@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
               TOP 10 Diario
             </Link>
             <Link to="/watchlist" className="text-slate-600 hover:text-primary font-medium transition-colors">
-              Favoritos
+              Watchlist
             </Link>
             <Link to="/pricing" className="text-slate-600 hover:text-primary font-medium transition-colors">
               Precios

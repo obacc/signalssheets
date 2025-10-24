@@ -126,7 +126,7 @@ const Top500 = () => {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-200">
-                  <th className="text-center py-3 px-2 text-sm font-semibold text-slate-700">★</th>
+                  <th className="text-center py-3 px-2 text-sm font-semibold text-slate-700">Watchlist</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Ticker</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Empresa</th>
                   <th className="text-left py-3 px-4 text-sm font-semibold text-slate-700">Señal</th>
