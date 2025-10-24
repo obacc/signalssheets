@@ -16,14 +16,24 @@ const Watchlist = () => {
 
   // Load watchlist from localStorage on mount
   useEffect(() => {
+    console.log('[Watchlist] Component mounted');
+
     const loadWatchlist = () => {
+      console.log('[Watchlist] Loading watchlist from localStorage...');
       const saved = localStorage.getItem('indicium_watchlist');
+      console.log('[Watchlist] Raw localStorage value:', saved);
+
       if (saved) {
         try {
-          setWatchlist(JSON.parse(saved));
+          const parsed = JSON.parse(saved);
+          console.log('[Watchlist] Parsed watchlist:', parsed);
+          console.log('[Watchlist] Number of signals:', parsed.length);
+          setWatchlist(parsed);
         } catch (error) {
-          console.error('Failed to parse watchlist:', error);
+          console.error('[Watchlist] Failed to parse watchlist:', error);
         }
+      } else {
+        console.log('[Watchlist] No watchlist found in localStorage');
       }
     };
 
@@ -31,34 +41,51 @@ const Watchlist = () => {
 
     // Listen for updates from other components
     const handleUpdate = () => {
+      console.log('[Watchlist] ========== EVENT RECEIVED ==========');
+      console.log('[Watchlist] watchlistUpdated event triggered, reloading...');
       loadWatchlist();
     };
 
     window.addEventListener('watchlistUpdated', handleUpdate);
-    return () => window.removeEventListener('watchlistUpdated', handleUpdate);
+    console.log('[Watchlist] Event listener registered');
+    return () => {
+      console.log('[Watchlist] Cleaning up event listener');
+      window.removeEventListener('watchlistUpdated', handleUpdate);
+    };
   }, []);
 
   // Save watchlist to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('indicium_watchlist', JSON.stringify(watchlist));
+    if (watchlist.length > 0) {
+      console.log('[Watchlist] State changed, saving to localStorage:', watchlist);
+      localStorage.setItem('indicium_watchlist', JSON.stringify(watchlist));
+    }
   }, [watchlist]);
 
-  const addToWatchlist = (ticker: string) => {
-    if (!watchlist.includes(ticker)) {
-      setWatchlist([...watchlist, ticker]);
+  const addToWatchlist = (signalId: string) => {
+    console.log('[Watchlist] addToWatchlist called with:', signalId);
+    if (!watchlist.includes(signalId)) {
+      setWatchlist([...watchlist, signalId]);
     }
   };
 
-  const removeFromWatchlist = (ticker: string) => {
-    setWatchlist(watchlist.filter(t => t !== ticker));
+  const removeFromWatchlist = (signalId: string) => {
+    console.log('[Watchlist] removeFromWatchlist called with:', signalId);
+    setWatchlist(watchlist.filter(id => id !== signalId));
   };
 
-  const isInWatchlist = (ticker: string) => watchlist.includes(ticker);
+  const isInWatchlist = (signalId: string) => watchlist.includes(signalId);
 
-  // Get signals that are in the watchlist
-  const watchlistSignals = mockSignals.filter(signal =>
-    watchlist.includes(signal.ticker)
-  );
+  // CRITICAL FIX: Filter by signal.id instead of signal.ticker
+  console.log('[Watchlist] Filtering signals... watchlist contains:', watchlist);
+  const watchlistSignals = mockSignals.filter(signal => {
+    const inList = watchlist.includes(signal.id);
+    if (inList) {
+      console.log('[Watchlist] Signal', signal.id, '(', signal.ticker, ') is in watchlist');
+    }
+    return inList;
+  });
+  console.log('[Watchlist] Found', watchlistSignals.length, 'signals in watchlist');
 
   // Export watchlist to CSV
   const exportToCSV = () => {
