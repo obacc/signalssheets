@@ -4,9 +4,11 @@
 
 Este directorio contiene:
 
-1. **SignalsSheets_FREE.xlsm** (18KB) - Tier gratuito con 10 watchlist slots
-2. **SignalsSheets_BASICO.xlsm** (22KB) - Tier básico con 25 watchlist slots + features avanzadas
+1. **SignalsSheets_FREE.xlsx** (18KB) - Tier gratuito con 10 watchlist slots
+2. **SignalsSheets_BASICO.xlsx** (22KB) - Tier básico con 25 watchlist slots + features avanzadas
 3. **create_signalssheets.py** - Script Python generador
+
+⚠️ **NOTA IMPORTANTE**: Los archivos están guardados como **.xlsx** (no .xlsm) porque openpyxl no puede crear archivos con macros. Después de importar el VBA code, debes guardar como **.xlsm** desde Excel.
 
 ## 🎯 ¿Qué está incluido?
 
@@ -78,14 +80,16 @@ in
 **Incluido en hoja `_VBA_CODE_` dentro de cada archivo**
 
 **Cómo importarlo:**
-1. Abrir Excel
+1. Abrir archivo .xlsx en Excel
 2. `Alt+F11` (VBA Editor)
 3. Insert → Module
-4. Ir a hoja `_VBA_CODE_` en Excel
-5. Copiar todo el código
-6. Pegar en Module1
+4. Ir a hoja `_VBA_CODE_` en Excel (cambiar de ventana)
+5. Copiar todo el código de la celda A3
+6. Pegar en Module1 del VBA Editor
 7. Cerrar VBA Editor
-8. Eliminar hoja `_VBA_CODE_`
+8. **File → Save As → Cambiar formato a "Excel Macro-Enabled Workbook (.xlsm)"**
+9. Guardar con nuevo nombre (ej: SignalsSheets_FREE.xlsm)
+10. Eliminar hoja `_VBA_CODE_`
 
 **Macros incluidas:**
 - `RefreshAllQueries()` - Actualiza datos desde Cloudflare
@@ -161,8 +165,8 @@ in
 python3 create_signalssheets.py
 
 # Esto crea:
-# - SignalsSheets_FREE.xlsm
-# - SignalsSheets_BASICO.xlsm
+# - SignalsSheets_FREE.xlsx
+# - SignalsSheets_BASICO.xlsx
 ```
 
 ### Para Distribución
@@ -263,16 +267,19 @@ Python/openpyxl **no puede** crear:
 - ❌ Conditional Formatting avanzado
 - ❌ Botones de formulario
 - ❌ Very Hidden sheets (solo Hidden)
+- ❌ Archivos .xlsm (macro-enabled) - solo .xlsx
 
 Por eso estos elementos deben agregarse **manualmente** en Excel.
 
-### ¿Por qué XLSM si no tiene VBA integrado?
-El formato .xlsm está preparado para macros, pero el código VBA debe:
-1. Copiarse desde hoja `_VBA_CODE_`
-2. Importarse manualmente al VBA Editor
-3. Guardarse en el archivo
+### ¿Por qué .xlsx y no .xlsm?
+Openpyxl **no puede** crear archivos .xlsm reales con macros embebidas. Aunque puedas cambiar la extensión a .xlsm, Excel rechazará el archivo con error "format file extension is not valid".
 
-No hay forma de inyectar VBA programáticamente de forma segura.
+**Solución:**
+1. Generar archivo como .xlsx (formato estándar sin macros)
+2. Abrir en Excel
+3. Importar VBA code manualmente (ver paso 2 arriba)
+4. File → Save As → Cambiar formato a .xlsm
+5. Ahora el archivo es .xlsm válido con macros funcionando
 
 ## 📞 Soporte
 
@@ -298,7 +305,7 @@ Antes de distribuir a usuarios:
 - [ ] Token real en Config (no placeholder)
 - [ ] Probado refresh de datos desde Cloudflare
 - [ ] Fórmulas traducidas si Excel en español
-- [ ] File → Save As → SignalsSheets_[TIER]_v1.0.0.xlsm
+- [ ] File → Save As → Formato .xlsm → SignalsSheets_[TIER]_v1.0.0.xlsm
 
 ---
 

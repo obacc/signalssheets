@@ -512,8 +512,8 @@ def create_free_tier_excel():
     ws_note['A3'].alignment = Alignment(wrap_text=True, vertical='top')
     ws_note.column_dimensions['A'].width = 100
 
-    # Save
-    filename = "SignalsSheets_FREE.xlsm"
+    # Save as .xlsx (not .xlsm - openpyxl can't create macro-enabled files)
+    filename = "SignalsSheets_FREE.xlsx"
     wb.save(filename)
     print(f"✅ {filename} creado exitosamente!")
 
@@ -596,8 +596,8 @@ def create_basico_tier_excel():
     ws_note['A3'].alignment = Alignment(wrap_text=True, vertical='top')
     ws_note.column_dimensions['A'].width = 100
 
-    # Save
-    filename = "SignalsSheets_BASICO.xlsm"
+    # Save as .xlsx (not .xlsm - openpyxl can't create macro-enabled files)
+    filename = "SignalsSheets_BASICO.xlsx"
     wb.save(filename)
     print(f"✅ {filename} creado exitosamente!")
 
@@ -633,6 +633,7 @@ def main():
         print("   - Alt+F11 para abrir VBA Editor")
         print("   - Ver hoja '_VBA_CODE_' en cada archivo")
         print("   - Copiar código a Module1")
+        print("   - File → Save As → Cambiar formato a 'Excel Macro-Enabled Workbook (.xlsm)'")
         print("   - Eliminar hoja '_VBA_CODE_' después")
 
         print("\n3. PROTECCIÓN DE HOJAS:")
@@ -653,7 +654,8 @@ def main():
         print("   - Protección de hojas es básica (configurar en Excel)")
         print("   - Named Ranges para Config pendientes (agregar manualmente)")
         print("   - Conditional Formatting pendiente (agregar manualmente)")
-        print("   - Formato XLSM creado pero VBA debe agregarse manual")
+        print("   - Archivos guardados como .xlsx (no .xlsm) - openpyxl no soporta macros")
+        print("   - Después de agregar VBA, guardar como .xlsm desde Excel")
 
         print("\n💡 PRIORIDAD DE COMPLETADO:")
         print("   ✅ CRÍTICO: Estructura de hojas")
