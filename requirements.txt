@@ -1,0 +1,13 @@
+# BigQuery Integration
+google-cloud-bigquery==3.38.0
+google-auth==2.41.1
+google-cloud-core==2.4.3
+
+# Data Processing (optional)
+pandas>=2.0.0
+
+# Development Tools
+black>=24.0.0
+flake8>=7.0.0
+pytest>=8.0.0
+pytest-cov>=4.1.0
