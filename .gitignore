@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Google Cloud credentials
+gcp-credentials.json
+*-credentials.json
+service-account*.json
+.config/gcp/
