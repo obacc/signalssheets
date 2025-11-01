@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Credentials and sensitive files
+*.json
+!package.json
+!package-lock.json
+!tsconfig*.json
+!wrangler.json
+.env
+.env.*
+*.key
+*.pem
+gcp_credentials.json
+test_bq_access.py
