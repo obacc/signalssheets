@@ -1,0 +1,7 @@
+# Development environment variables (for wrangler dev)
+# Copy this file to .dev.vars and fill in your values
+# NEVER commit .dev.vars to Git!
+
+# BigQuery Service Account JSON (entire JSON as string, minified)
+# Get from: free/scripts/bigquery-credentials.json
+BIGQUERY_CREDENTIALS='{"type":"service_account","project_id":"sunny-advantage-471523-b3",...}'

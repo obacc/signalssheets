@@ -1,0 +1,314 @@
+{
+  "version": "1.0.0",
+  "endpoint": "/v1/signals",
+  "methods": ["GET"],
+  "authentication": "token in query string (?token=XXX)",
+  "formats": ["json", "csv"],
+
+  "examples": {
+    "json_response": {
+      "meta": {
+        "generated_at": "2025-11-03T02:30:00.000Z",
+        "total_count": 87,
+        "ttl_seconds": 600,
+        "source_view": "v_api_free_signals",
+        "api_version": "1.0.0",
+        "refresh_interval_minutes": 10
+      },
+      "stats": {
+        "buy_signals": 24,
+        "sell_signals": 18,
+        "hold_signals": 45,
+        "avg_trinity_score": 68.4
+      },
+      "data": [
+        {
+          "id": "sig-001",
+          "ticker": "NVDA",
+          "companyName": "NVIDIA Corporation",
+          "sector": "Technology",
+          "signal": {
+            "type": "BUY",
+            "strength": 95,
+            "dominantAuthor": "O'Neil",
+            "confidence": 92
+          },
+          "price": {
+            "current": 495.50,
+            "changePercent": 3.2,
+            "target": 575.00,
+            "stopLoss": 445.00
+          },
+          "trinityScores": {
+            "lynch": 88,
+            "oneil": 95,
+            "graham": 72,
+            "average": 85.0
+          },
+          "riskProfile": "Aggressive",
+          "fundamentals": {
+            "marketCap": "$2.5T",
+            "peRatio": 78.5,
+            "eps": 6.32,
+            "dividendYield": 0.05,
+            "volume": 45230000
+          },
+          "dates": {
+            "signalDate": "2025-11-03",
+            "lastUpdated": "2025-11-03T02:30:00.000Z"
+          },
+          "reasoning": "Strong momentum breakout above 52-week high. Institutional accumulation increasing. AI growth story intact."
+        },
+        {
+          "id": "sig-002",
+          "ticker": "AAPL",
+          "companyName": "Apple Inc.",
+          "sector": "Technology",
+          "signal": {
+            "type": "HOLD",
+            "strength": 72,
+            "dominantAuthor": "Graham",
+            "confidence": 78
+          },
+          "price": {
+            "current": 178.25,
+            "changePercent": -0.5,
+            "target": 195.00,
+            "stopLoss": 165.00
+          },
+          "trinityScores": {
+            "lynch": 75,
+            "oneil": 68,
+            "graham": 85,
+            "average": 76.0
+          },
+          "riskProfile": "Moderate",
+          "fundamentals": {
+            "marketCap": "$2.8T",
+            "peRatio": 29.5,
+            "eps": 6.05,
+            "dividendYield": 0.52,
+            "volume": 52340000
+          },
+          "dates": {
+            "signalDate": "2025-11-02",
+            "lastUpdated": "2025-11-03T02:30:00.000Z"
+          },
+          "reasoning": "Solid fundamentals with stable earnings. Premium valuation limits upside. Wait for better entry point."
+        },
+        {
+          "id": "sig-003",
+          "ticker": "TSLA",
+          "companyName": "Tesla Inc.",
+          "sector": "Consumer Cyclical",
+          "signal": {
+            "type": "SELL",
+            "strength": 82,
+            "dominantAuthor": "Graham",
+            "confidence": 75
+          },
+          "price": {
+            "current": 242.80,
+            "changePercent": -2.1,
+            "target": 195.00,
+            "stopLoss": 260.00
+          },
+          "trinityScores": {
+            "lynch": 42,
+            "oneil": 55,
+            "graham": 28,
+            "average": 41.7
+          },
+          "riskProfile": "Aggressive",
+          "fundamentals": {
+            "marketCap": "$771B",
+            "peRatio": 75.2,
+            "eps": 3.23,
+            "dividendYield": 0.0,
+            "volume": 98560000
+          },
+          "dates": {
+            "signalDate": "2025-11-01",
+            "lastUpdated": "2025-11-03T02:30:00.000Z"
+          },
+          "reasoning": "Valuation stretched relative to earnings growth. Technical breakdown below key support. Rising inventory levels."
+        }
+      ]
+    },
+
+    "csv_example": "id,ticker,company_name,sector,signal_type,signal_strength,dominant_author,price,change_percent,target_price,stop_loss,risk_profile,trinity_score_lynch,trinity_score_oneil,trinity_score_graham,trinity_score_avg,confidence,signal_date,last_updated,market_cap,pe_ratio,eps,dividend_yield,volume,reasoning\nsig-001,NVDA,NVIDIA Corporation,Technology,BUY,95,O'Neil,495.50,3.2,575.00,445.00,Aggressive,88,95,72,85.0,92,2025-11-03,2025-11-03T02:30:00Z,$2.5T,78.5,6.32,0.05,45230000,Strong momentum breakout above 52-week high. Institutional accumulation increasing.\nsig-002,AAPL,Apple Inc.,Technology,HOLD,72,Graham,178.25,-0.5,195.00,165.00,Moderate,75,68,85,76.0,78,2025-11-02,2025-11-03T02:30:00Z,$2.8T,29.5,6.05,0.52,52340000,Solid fundamentals with stable earnings. Premium valuation limits upside.\nsig-003,TSLA,Tesla Inc.,Consumer Cyclical,SELL,82,Graham,242.80,-2.1,195.00,260.00,Aggressive,42,55,28,41.7,75,2025-11-01,2025-11-03T02:30:00Z,$771B,75.2,3.23,0.0,98560000,Valuation stretched relative to earnings growth. Technical breakdown below key support."
+  },
+
+  "request_parameters": {
+    "token": {
+      "required": true,
+      "type": "string",
+      "location": "query",
+      "description": "Authentication token for API access",
+      "example": "demo-free-token-2025"
+    },
+    "format": {
+      "required": false,
+      "type": "string",
+      "location": "query",
+      "default": "json",
+      "allowed_values": ["json", "csv"],
+      "description": "Response format"
+    }
+  },
+
+  "response_headers": {
+    "json": {
+      "Content-Type": "application/json; charset=utf-8",
+      "X-Data-Generated-At": "ISO 8601 timestamp of data generation",
+      "X-Cache-Hit": "true|false - Whether data was served from cache",
+      "X-API-Version": "1.0.0",
+      "Cache-Control": "public, max-age=600",
+      "Access-Control-Allow-Origin": "* (or specific domains)",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type"
+    },
+    "csv": {
+      "Content-Type": "text/csv; charset=utf-8",
+      "Content-Disposition": "attachment; filename=\"indicium-signals-YYYY-MM-DD.csv\"",
+      "X-Data-Generated-At": "ISO 8601 timestamp of data generation",
+      "X-Cache-Hit": "true|false",
+      "X-API-Version": "1.0.0",
+      "Cache-Control": "public, max-age=600"
+    }
+  },
+
+  "http_status_codes": {
+    "200": {
+      "description": "Success - Data returned",
+      "example_body": "See examples.json_response"
+    },
+    "400": {
+      "description": "Bad Request - Invalid parameters",
+      "example_body": {
+        "error": {
+          "code": "INVALID_FORMAT",
+          "message": "Format must be 'json' or 'csv'",
+          "timestamp": "2025-11-03T02:30:00.000Z"
+        }
+      }
+    },
+    "401": {
+      "description": "Unauthorized - Invalid or missing token",
+      "example_body": {
+        "error": {
+          "code": "INVALID_TOKEN",
+          "message": "Authentication token is invalid or expired",
+          "timestamp": "2025-11-03T02:30:00.000Z"
+        }
+      }
+    },
+    "429": {
+      "description": "Too Many Requests - Rate limit exceeded",
+      "example_body": {
+        "error": {
+          "code": "RATE_LIMIT_EXCEEDED",
+          "message": "Rate limit of 30 requests per minute exceeded",
+          "retry_after": 45,
+          "timestamp": "2025-11-03T02:30:00.000Z"
+        }
+      }
+    },
+    "500": {
+      "description": "Internal Server Error",
+      "example_body": {
+        "error": {
+          "code": "INTERNAL_ERROR",
+          "message": "An unexpected error occurred. Please try again later.",
+          "timestamp": "2025-11-03T02:30:00.000Z"
+        }
+      }
+    },
+    "503": {
+      "description": "Service Unavailable - Cache refresh in progress",
+      "example_body": {
+        "error": {
+          "code": "SERVICE_UNAVAILABLE",
+          "message": "Data refresh in progress. Please retry in 30 seconds.",
+          "retry_after": 30,
+          "timestamp": "2025-11-03T02:30:00.000Z"
+        }
+      }
+    }
+  },
+
+  "field_descriptions": {
+    "id": "Unique signal identifier (format: sig-XXX)",
+    "ticker": "Stock ticker symbol (uppercase)",
+    "companyName": "Full legal name of the company",
+    "sector": "Industry sector classification",
+    "signal.type": "Trading signal type: BUY, SELL, or HOLD",
+    "signal.strength": "Signal strength score from 0-100 (higher = stronger)",
+    "signal.dominantAuthor": "Dominant Trinity Method author: Lynch, O'Neil, or Graham",
+    "signal.confidence": "Confidence level from 0-100 based on author convergence",
+    "price.current": "Current stock price in USD",
+    "price.changePercent": "Percentage change from previous close",
+    "price.target": "Target price based on Trinity analysis (nullable)",
+    "price.stopLoss": "Suggested stop loss price (nullable)",
+    "trinityScores.lynch": "Peter Lynch score (0-100) - Growth at Reasonable Price",
+    "trinityScores.oneil": "William O'Neil score (0-100) - CANSLIM momentum",
+    "trinityScores.graham": "Benjamin Graham score (0-100) - Value investing",
+    "trinityScores.average": "Average of the three Trinity scores",
+    "riskProfile": "Risk classification: Conservative, Moderate, or Aggressive",
+    "fundamentals.marketCap": "Market capitalization (formatted string, e.g. '$2.5T')",
+    "fundamentals.peRatio": "Price-to-Earnings ratio (nullable)",
+    "fundamentals.eps": "Earnings per share (nullable)",
+    "fundamentals.dividendYield": "Dividend yield as decimal (e.g. 0.05 = 5%)",
+    "fundamentals.volume": "Daily trading volume",
+    "dates.signalDate": "Date when signal was generated (YYYY-MM-DD)",
+    "dates.lastUpdated": "Timestamp of last data update (ISO 8601)",
+    "reasoning": "Human-readable explanation of the signal rationale"
+  },
+
+  "usage_examples": {
+    "excel_power_query": {
+      "description": "Load data in Excel using Power Query (Data > From Web)",
+      "url": "https://free.api.indicium.com/v1/signals?token=YOUR_TOKEN&format=csv",
+      "steps": [
+        "Open Excel",
+        "Go to Data tab > Get Data > From Other Sources > From Web",
+        "Paste the URL with your token",
+        "Click OK and then Load",
+        "Data will refresh automatically based on Excel settings"
+      ]
+    },
+    "google_sheets": {
+      "description": "Import data in Google Sheets using IMPORTDATA function",
+      "formula": "=IMPORTDATA(\"https://free.api.indicium.com/v1/signals?token=YOUR_TOKEN&format=csv\")",
+      "note": "Google Sheets has a limit of ~50 IMPORTDATA calls per spreadsheet"
+    },
+    "javascript_fetch": {
+      "description": "Fetch data from web application using JavaScript",
+      "code": "fetch('https://free.api.indicium.com/v1/signals?token=YOUR_TOKEN&format=json')\n  .then(response => response.json())\n  .then(data => {\n    console.log(`Loaded ${data.meta.total_count} signals`);\n    console.log(data.data); // Array of signals\n  })\n  .catch(error => console.error('Error:', error));"
+    },
+    "python_requests": {
+      "description": "Fetch data using Python requests library",
+      "code": "import requests\nimport pandas as pd\n\nurl = 'https://free.api.indicium.com/v1/signals'\nparams = {'token': 'YOUR_TOKEN', 'format': 'json'}\n\nresponse = requests.get(url, params=params)\ndata = response.json()\n\ndf = pd.DataFrame(data['data'])\nprint(f\"Loaded {len(df)} signals\")"
+    },
+    "curl": {
+      "description": "Test endpoint using curl",
+      "command": "curl -H \"Accept: application/json\" \"https://free.api.indicium.com/v1/signals?token=YOUR_TOKEN&format=json\""
+    }
+  },
+
+  "rate_limits": {
+    "free_tier": {
+      "requests_per_minute": 30,
+      "requests_per_day": 1000,
+      "burst_limit": 5,
+      "note": "Limits are per token, not per IP"
+    }
+  },
+
+  "cache_behavior": {
+    "ttl_seconds": 600,
+    "refresh_interval_minutes": 10,
+    "stale_while_revalidate": true,
+    "description": "Data is refreshed every 10 minutes via Cron Trigger. Requests are served from Cloudflare KV cache with a TTL of 10 minutes."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "bigquery-inventory",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "BigQuery inventory and data exploration scripts",
+  "scripts": {
+    "inventory": "node inventory.js"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^7.9.0"
+  }
+}

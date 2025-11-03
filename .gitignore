@@ -22,3 +22,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ========================================
+# MVP Free Worker
+# ========================================
+
+# Wrangler
+free/worker/.wrangler/
+free/worker/.dev.vars
+free/worker/worker-configuration.d.ts
+free/worker/mock-cache.json
+
+# BigQuery credentials (NEVER commit)
+free/scripts/bigquery-credentials.json
+
+# Secrets
+*.key
+*.pem
+credentials.json

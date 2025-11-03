@@ -1,0 +1,61 @@
+name = "indicium-free-api"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Account ID - Replace with your Cloudflare account ID
+# Find it at: Cloudflare Dashboard > Workers & Pages > Overview
+# account_id = "YOUR_ACCOUNT_ID_HERE"
+
+# KV Namespaces
+# Run these commands to create namespaces and get IDs:
+# wrangler kv:namespace create "CACHE"
+# wrangler kv:namespace create "API_TOKENS"
+# wrangler kv:namespace create "RATE_LIMIT"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "REPLACE_WITH_CACHE_NAMESPACE_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_ID"  # Optional: for wrangler dev
+
+[[kv_namespaces]]
+binding = "API_TOKENS"
+id = "REPLACE_WITH_TOKENS_NAMESPACE_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_ID"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_RATELIMIT_NAMESPACE_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_ID"
+
+# Cron Trigger - Refresh cache every 10 minutes
+[triggers]
+crons = ["*/10 * * * *"]
+
+# Environment Variables (Non-secret)
+[vars]
+API_VERSION = "1.0.0"
+TTL_SECONDS = "600"
+RATE_LIMIT_PER_MIN = "30"
+RATE_LIMIT_PER_DAY = "1000"
+BIGQUERY_PROJECT_ID = "sunny-advantage-471523-b3"
+BIGQUERY_DATASET = "analytics"
+BIGQUERY_VIEW = "v_api_free_signals"
+
+# Routes - Configure custom domain
+# Uncomment and replace with your domain after setup
+# routes = [
+#   { pattern = "free.api.indicium.com/*", zone_name = "indicium.com" }
+# ]
+
+# Build configuration
+[build]
+command = ""  # No build step for pure JS
+
+# Observability
+[observability]
+enabled = true
+head_sampling_rate = 1.0
+
+# Limits (Free tier defaults)
+# [limits]
+# cpu_ms = 10

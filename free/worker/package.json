@@ -1,0 +1,25 @@
+{
+  "name": "indicium-free-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for Indicium Signals Free API - serves trading signals from BigQuery cache",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "bigquery",
+    "trading-signals",
+    "api"
+  ],
+  "author": "Indicium Signals",
+  "license": "PROPRIETARY",
+  "devDependencies": {
+    "wrangler": "^3.95.0"
+  },
+  "dependencies": {}
+}
