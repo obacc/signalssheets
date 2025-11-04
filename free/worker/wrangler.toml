@@ -11,18 +11,15 @@ account_id = "213d7189694d6fefdf23cd1ff91385d2"
 
 [[kv_namespaces]]
 binding = "CACHE"
-id = "REPLACE_WITH_CACHE_NAMESPACE_ID"
-# preview_id = "REPLACE_WITH_PREVIEW_ID"  # Optional: for wrangler dev
+id = "c5d868e355434634831d88a82d840f85"
 
 [[kv_namespaces]]
 binding = "API_TOKENS"
-id = "REPLACE_WITH_TOKENS_NAMESPACE_ID"
-# preview_id = "REPLACE_WITH_PREVIEW_ID"
+id = "a2ea754ec0fa426d9561fd9bc54f7603"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_RATELIMIT_NAMESPACE_ID"
-# preview_id = "REPLACE_WITH_PREVIEW_ID"
+id = "60bfde295e864e418cf8b5def36f87b3"
 
 # Cron Trigger - Refresh cache every 10 minutes
 [triggers]
