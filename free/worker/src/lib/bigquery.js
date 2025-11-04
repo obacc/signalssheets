@@ -1,8 +1,6 @@
 /**
- * BigQuery integration using REST API
- *
- * Note: Uses JWT authentication with service account
- * Credentials are stored in environment variable BIGQUERY_CREDENTIALS
+ * BigQuery integration using REST API with JWT authentication
+ * Uses WebCrypto API for RS256 JWT signing
  */
 
 import { logError, isRetryableError } from '../utils/error.js';
@@ -70,7 +68,7 @@ export async function querySignals(env) {
 
     // Check if error is retryable
     if (isRetryableError(error)) {
-      console.warn('[BigQuery] Retryable error detected, consider implementing retry logic');
+      console.warn('[BigQuery] Retryable error detected');
     }
 
     throw error;
@@ -79,6 +77,7 @@ export async function querySignals(env) {
 
 /**
  * Get OAuth2 access token using service account JWT
+ * Implements RS256 signing with WebCrypto API
  *
  * @param {Object} env - Environment bindings
  * @returns {Promise<string>} Access token
@@ -86,14 +85,15 @@ export async function querySignals(env) {
 async function getAccessToken(env) {
   const credentials = JSON.parse(env.BIGQUERY_CREDENTIALS);
 
-  // Create JWT assertion
-  const jwtHeader = {
+  // JWT header
+  const header = {
     alg: 'RS256',
     typ: 'JWT',
   };
 
+  // JWT claim set
   const now = Math.floor(Date.now() / 1000);
-  const jwtClaimSet = {
+  const claimSet = {
     iss: credentials.client_email,
     scope: 'https://www.googleapis.com/auth/bigquery.readonly',
     aud: 'https://oauth2.googleapis.com/token',
@@ -101,17 +101,18 @@ async function getAccessToken(env) {
     iat: now,
   };
 
-  // Note: In a real Worker, you'd need to implement JWT signing with RS256
-  // For now, this is a placeholder. Consider using a library like jose or implementing WebCrypto signing
-  // See: https://developers.cloudflare.com/workers/examples/signing-requests/
+  // Create JWT assertion
+  const headerB64 = base64urlEncode(JSON.stringify(header));
+  const claimSetB64 = base64urlEncode(JSON.stringify(claimSet));
+  const signatureInput = `${headerB64}.${claimSetB64}`;
 
-  // TODO: Implement proper JWT signing with credentials.private_key
-  // For MVP, you might want to use a pre-generated token or implement signing using WebCrypto API
+  // Sign with private key using WebCrypto
+  const signature = await signRS256(signatureInput, credentials.private_key);
+  const signatureB64 = base64urlEncode(signature);
 
-  throw new Error('JWT signing not yet implemented - requires WebCrypto RS256 signing');
+  const jwt = `${signatureInput}.${signatureB64}`;
 
-  // Placeholder for token exchange (after JWT is signed)
-  /*
+  // Exchange JWT for access token
   const response = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: {
@@ -119,13 +120,94 @@ async function getAccessToken(env) {
     },
     body: new URLSearchParams({
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: signedJwt,
+      assertion: jwt,
     }),
   });
 
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to get access token: ${response.status} ${errorText}`);
+  }
+
   const tokenData = await response.json();
   return tokenData.access_token;
-  */
+}
+
+/**
+ * Sign data with RS256 using WebCrypto API
+ *
+ * @param {string} data - Data to sign
+ * @param {string} privateKeyPEM - Private key in PEM format
+ * @returns {Promise<ArrayBuffer>} Signature
+ */
+async function signRS256(data, privateKeyPEM) {
+  // Remove PEM header/footer and decode base64
+  const pemContents = privateKeyPEM
+    .replace('-----BEGIN PRIVATE KEY-----', '')
+    .replace('-----END PRIVATE KEY-----', '')
+    .replace(/\s/g, '');
+
+  const binaryDer = base64Decode(pemContents);
+
+  // Import private key
+  const privateKey = await crypto.subtle.importKey(
+    'pkcs8',
+    binaryDer,
+    {
+      name: 'RSASSA-PKCS1-v1_5',
+      hash: 'SHA-256',
+    },
+    false,
+    ['sign']
+  );
+
+  // Sign data
+  const encoder = new TextEncoder();
+  const dataBuffer = encoder.encode(data);
+
+  const signature = await crypto.subtle.sign(
+    'RSASSA-PKCS1-v1_5',
+    privateKey,
+    dataBuffer
+  );
+
+  return signature;
+}
+
+/**
+ * Base64 decode (standard base64)
+ */
+function base64Decode(base64) {
+  const binaryString = atob(base64);
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes.buffer;
+}
+
+/**
+ * Base64url encode (RFC 4648)
+ */
+function base64urlEncode(data) {
+  let base64;
+  if (typeof data === 'string') {
+    base64 = btoa(data);
+  } else {
+    // ArrayBuffer
+    const bytes = new Uint8Array(data);
+    let binary = '';
+    for (let i = 0; i < bytes.byteLength; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    base64 = btoa(binary);
+  }
+
+  // Convert to base64url
+  return base64
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=/g, '');
 }
 
 /**

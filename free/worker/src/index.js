@@ -35,6 +35,11 @@ export default {
       return handleSignalsRequest(request, env);
     }
 
+    // Status endpoint
+    if (url.pathname === '/v1/status') {
+      return handleStatusRequest(request, env);
+    }
+
     // Health check endpoint
     if (url.pathname === '/health' || url.pathname === '/') {
       return jsonResponse({
@@ -46,7 +51,7 @@ export default {
     }
 
     // 404 for unknown paths
-    return errorResponse('NOT_FOUND', 'Endpoint not found. Try GET /v1/signals', 404);
+    return errorResponse('NOT_FOUND', 'Endpoint not found. Try GET /v1/signals or /v1/status', 404);
   },
 
   /**
@@ -143,5 +148,49 @@ async function handleSignalsRequest(request, env) {
   } catch (error) {
     logError(error, { context: 'handleSignalsRequest', url: request.url });
     return errorResponse('INTERNAL_ERROR', 'An unexpected error occurred. Please try again later.', 500);
+  }
+}
+
+/**
+ * Handle GET /v1/status
+ * Returns metadata about cached data and cron health
+ */
+async function handleStatusRequest(request, env) {
+  try {
+    // Get cached data metadata
+    const cacheKey = 'signals:latest';
+    const cachedData = await env.CACHE.get(cacheKey, { type: 'json' });
+
+    // Get cron health status
+    const cronHealth = await env.CACHE.get('cron:health', { type: 'json' });
+
+    if (!cachedData) {
+      return jsonResponse({
+        status: 'warning',
+        message: 'Cache not yet populated',
+        cron_health: cronHealth || { status: 'unknown' },
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    const statusData = {
+      status: 'ok',
+      cache: {
+        generated_at: cachedData.meta.generated_at,
+        total_count: cachedData.meta.total_count,
+        ttl_seconds: cachedData.meta.ttl_seconds,
+        source: cachedData.meta.source || 'unknown',
+        source_view: cachedData.meta.source_view,
+        api_version: cachedData.meta.api_version,
+      },
+      stats: cachedData.stats,
+      cron_health: cronHealth || { status: 'unknown' },
+      timestamp: new Date().toISOString(),
+    };
+
+    return jsonResponse(statusData);
+  } catch (error) {
+    logError(error, { context: 'handleStatusRequest' });
+    return errorResponse('INTERNAL_ERROR', 'Failed to retrieve status', 500);
   }
 }

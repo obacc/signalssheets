@@ -5,7 +5,6 @@
 
 import { querySignals } from './lib/bigquery.js';
 import { transformBigQueryResponse } from './lib/transform.js';
-import { mockSignalsData } from './lib/mockData.js';
 import { logError } from './utils/error.js';
 
 /**
@@ -23,36 +22,41 @@ export async function handleScheduled(event, env, ctx) {
   try {
     let responseData;
 
-    // Try to query BigQuery, fallback to mock data on error
-    try {
-      console.log('[SCHEDULED] Querying BigQuery...');
-      const rows = await querySignals(env);
+    // Query BigQuery
+    console.log('[SCHEDULED] Querying BigQuery...');
+    const rows = await querySignals(env);
 
-      // Transform to API format
-      const ttlSeconds = parseInt(env.TTL_SECONDS || '600');
-      responseData = transformBigQueryResponse(rows, ttlSeconds);
-
-      console.log('[SCHEDULED] BigQuery data transformed:', {
-        rowCount: responseData.data.length,
-        stats: responseData.stats,
-      });
-    } catch (bigQueryError) {
-      // Log error but continue with mock data
-      logError(bigQueryError, { context: 'BigQuery query failed, using mock data' });
-
-      console.warn('[SCHEDULED] Using mock data due to BigQuery error');
-      responseData = mockSignalsData;
-
-      // Update timestamps in mock data
-      responseData.meta.generated_at = new Date().toISOString();
-      responseData.data.forEach(signal => {
-        signal.dates.lastUpdated = new Date().toISOString();
-      });
+    if (!rows || rows.length === 0) {
+      throw new Error('BigQuery returned no data');
     }
+
+    // Transform to API format
+    const ttlSeconds = parseInt(env.TTL_SECONDS || '600');
+    responseData = transformBigQueryResponse(rows, ttlSeconds);
+
+    // Update metadata to indicate BigQuery source
+    responseData.meta.source_view = 'v_api_free_signals';
+    responseData.meta.source = 'bq';
+
+    console.log('[SCHEDULED] BigQuery data transformed:', {
+      rowCount: responseData.data.length,
+      stats: responseData.stats,
+    });
 
     // Write to KV cache
     const cacheKey = 'signals:latest';
     await env.CACHE.put(cacheKey, JSON.stringify(responseData));
+
+    // Store cron health status
+    const healthStatus = {
+      last_run: new Date().toISOString(),
+      status: 'success',
+      rowcount: responseData.data.length,
+      duration_ms: Date.now() - startTime,
+    };
+    await env.CACHE.put('cron:health', JSON.stringify(healthStatus), {
+      expirationTtl: 1800, // 30 minutes
+    });
 
     const duration = Date.now() - startTime;
 
@@ -67,6 +71,7 @@ export async function handleScheduled(event, env, ctx) {
       success: true,
       duration_ms: duration,
       signals_count: responseData.data.length,
+      source: 'bq',
     };
   } catch (error) {
     const duration = Date.now() - startTime;
@@ -77,6 +82,22 @@ export async function handleScheduled(event, env, ctx) {
       duration_ms: duration,
       error: error.message,
     });
+
+    // Store error status
+    const healthStatus = {
+      last_run: new Date().toISOString(),
+      status: 'error',
+      error: error.message,
+      duration_ms: duration,
+    };
+
+    try {
+      await env.CACHE.put('cron:health', JSON.stringify(healthStatus), {
+        expirationTtl: 1800,
+      });
+    } catch (kvError) {
+      console.error('[SCHEDULED] Failed to write health status:', kvError);
+    }
 
     // Don't throw - scheduled handlers should not crash
     return {

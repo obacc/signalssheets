@@ -1,10 +1,7 @@
 name = "indicium-free-api"
 main = "src/index.js"
 compatibility_date = "2025-01-01"
-
-# Account ID - Replace with your Cloudflare account ID
-# Find it at: Cloudflare Dashboard > Workers & Pages > Overview
-# account_id = "YOUR_ACCOUNT_ID_HERE"
+account_id = "213d7189694d6fefdf23cd1ff91385d2"
 
 # KV Namespaces
 # Run these commands to create namespaces and get IDs:
