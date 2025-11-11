@@ -1,0 +1,26 @@
+# Credenciales de GCP (NUNCA COMMITEAR)
+*.json
+!routines.json
+!*_summary.json
+!comparison_summary.json
+
+# Claves privadas
+*.pem
+*.key
+*.p12
+
+# Artefactos generados (pueden contener datos sensibles)
+artifacts/*.csv
+artifacts/*.txt
+artifacts/*.log
+
+# Logs
+logs/
+*.log
+
+# Temporales
+*.tmp
+*.temp
+.DS_Store
+__pycache__/
+*.pyc
