@@ -1,0 +1,27 @@
+# Environment configuration (contains sensitive data)
+config/.env
+
+# Service account keys
+*.json
+!*.example.json
+
+# Logs
+*.log
+/tmp/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup files
+*_backup_*
