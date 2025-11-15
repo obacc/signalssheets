@@ -1,0 +1,125 @@
+====================================================================================================
+ELIMINACIÓN DE SERVICE ACCOUNTS
+====================================================================================================
+
+Proyecto: sunny-advantage-471523-b3
+Fecha: 2025-11-15 02:08:49
+====================================================================================================
+
+🔐 Autenticando...
+✅ Autenticación exitosa
+
+
+📦 PASO 1: BACKUP DE POLÍTICA IAM
+----------------------------------------------------------------------------------------------------
+✅ Backup guardado: auditoria/backups/iam_policy_backup_20251115_020849.json
+
+
+📋 PASO 2: SERVICE ACCOUNTS A ELIMINAR
+----------------------------------------------------------------------------------------------------
+
+Total a eliminar: 8
+
+#3. sunny-advantage-471523-b3@appspot.gserviceaccount.com
+    Razón: App Engine Default - SIN USO (>90 días)
+
+#4. sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: Ingesta Finnhub - DESHABILITADA con permisos activos
+
+#8. chatgpt-bigquery-read@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: ChatGPT Integration - SIN USO (>90 días) con BigQuery Admin
+
+#9. stooq-ingest-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: Ingesta Stooq - USO BAJO (hace 40 días)
+
+#11. ingest-fn-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: Función Ingesta - SIN USO (>90 días)
+
+#12. dataform-ci@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: Dataform CI/CD - SIN USO (>90 días)
+
+#13. bigquery-ingesta@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: BigQuery Service - SIN USO (>90 días) sin permisos
+
+#14. scheduler-invoker@sunny-advantage-471523-b3.iam.gserviceaccount.com
+    Razón: Scheduler Invoker - SIN USO (>90 días) sin permisos
+
+
+📛 PASO 3: ELIMINANDO SERVICE ACCOUNTS
+----------------------------------------------------------------------------------------------------
+
+[1/8] Eliminando #3: sunny-advantage-471523-b3@appspot.gserviceaccount.com...
+    ✅ ELIMINADA exitosamente
+
+[2/8] Eliminando #4: sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceacco...
+    ✅ ELIMINADA exitosamente
+
+[3/8] Eliminando #8: chatgpt-bigquery-read@sunny-advantage-471523-b3.iam.gservice...
+    ✅ ELIMINADA exitosamente
+
+[4/8] Eliminando #9: stooq-ingest-sa@sunny-advantage-471523-b3.iam.gserviceaccoun...
+    ✅ ELIMINADA exitosamente
+
+[5/8] Eliminando #11: ingest-fn-sa@sunny-advantage-471523-b3.iam.gserviceaccount.c...
+    ✅ ELIMINADA exitosamente
+
+[6/8] Eliminando #12: dataform-ci@sunny-advantage-471523-b3.iam.gserviceaccount.co...
+    ✅ ELIMINADA exitosamente
+
+[7/8] Eliminando #13: bigquery-ingesta@sunny-advantage-471523-b3.iam.gserviceaccou...
+    ✅ ELIMINADA exitosamente
+
+[8/8] Eliminando #14: scheduler-invoker@sunny-advantage-471523-b3.iam.gserviceacco...
+    ✅ ELIMINADA exitosamente
+
+
+====================================================================================================
+📊 RESUMEN DE ELIMINACIÓN
+====================================================================================================
+
+Total procesadas: 8
+   ✅ Eliminadas exitosamente: 8
+   ⚠️  No encontradas:         0
+   ❌ Errores:                0
+
+💾 Resultados guardados: auditoria/backups/deletion_results_20251115_020900.json
+
+
+🔍 PASO 4: VERIFICACIÓN POST-ELIMINACIÓN
+----------------------------------------------------------------------------------------------------
+
+Listando service accounts restantes...
+
+✅ Service Accounts restantes: 6
+
+1. 🟢 cf-free-endpoints@sunny-advantage-471523-b3.iam.gserviceaccount.com
+   Cloudflare Free API SA
+
+2. 🟢 822442830684-compute@developer.gserviceaccount.com
+   Compute Engine default service account
+
+3. 🟢 claudecode@sunny-advantage-471523-b3.iam.gserviceaccount.com
+   ClaudeCode
+
+4. 🟢 signalsheet-backend@sunny-advantage-471523-b3.iam.gserviceaccount.com
+   signalsheet-backend
+
+5. 🟢 claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com
+   ClaudeCode
+
+6. 🟢 cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com
+   Cursor SignalSheets SA (dev)
+
+💾 Lista guardada: auditoria/backups/remaining_accounts_20251115_020900.json
+
+====================================================================================================
+✅ PROCESO DE ELIMINACIÓN COMPLETADO
+====================================================================================================
+
+🎉 Se eliminaron 8 service accounts exitosamente
+
+⚠️  IMPORTANTE:
+   • Backup de IAM policy: auditoria/backups/iam_policy_backup_20251115_020849.json
+   • Para restaurar (si es necesario):
+     gcloud projects set-iam-policy sunny-advantage-471523-b3 auditoria/backups/iam_policy_backup_20251115_020849.json
+
