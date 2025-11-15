@@ -1,0 +1,18 @@
+# Cloud Function Dependencies for Polygon Daily Loader
+# Python 3.11 compatible
+
+# Cloud Functions Framework
+functions-framework==3.*
+
+# Google Cloud Libraries
+google-cloud-storage==2.*
+google-cloud-secret-manager==2.*
+
+# HTTP Requests
+requests==2.*
+
+# Data Processing
+pyarrow==14.*
+
+# Note: Flask is included by functions-framework
+# Note: google-auth and google-api-core are dependencies of GCP libraries
