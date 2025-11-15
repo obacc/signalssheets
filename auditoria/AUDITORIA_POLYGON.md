@@ -4,6 +4,32 @@
 **Dataset:** `market_data`
 **Fecha:** 2025-11-11
 **Auditor:** Claude Code
+**Última actualización de horarios:** 2025-11-15
+
+---
+
+## ⏰ CAMBIO DE HORARIO - IMPORTANTE
+
+**Nuevo Schedule (vigente desde 2025-11-15):**
+- **Cloud Scheduler / Data Transfer:** Martes-Sábado 00:00 CST (`0 0 * * 2-6`)
+- **BigQuery Scheduled Query:** Diario 01:00 CST (`every day 01:00`)
+- **Timezone:** `America/Chicago` (Central Time US)
+
+**Razón del cambio:**
+- Mercado cierra: 15:00 CST (3:00 PM Central)
+- Polygon API datos disponibles: ~16:00 CST
+- Descarga a medianoche (00:00 CST) = 8 horas de buffer (vs 3 horas anteriores)
+- Evita conflictos con horas pico de uso
+- Datos siempre disponibles antes de la mañana siguiente
+
+**Mapeo de días:**
+| Día de Trading | Descarga en Madrugada |
+|----------------|----------------------|
+| Lunes          | Martes 00:00 CST    |
+| Martes         | Miércoles 00:00 CST |
+| Miércoles      | Jueves 00:00 CST    |
+| Jueves         | Viernes 00:00 CST   |
+| Viernes        | Sábado 00:00 CST    |
 
 ---
 
@@ -239,8 +265,8 @@ gcloud data-transfer runs list \
 
 **Checklist:**
 - [ ] ¿Existe una Scheduled Query que llame a `sp_merge_polygon_prices`?
-- [ ] ¿Cuál es el schedule? (ej: `every day 08:00`)
-- [ ] ¿Timezone configurado correctamente? (ej: `America/New_York`)
+- [ ] ¿Cuál es el schedule? (ej: `every day 01:00`)
+- [ ] ¿Timezone configurado correctamente? (ej: `America/Chicago`)
 - [ ] ¿Service Account tiene permisos adecuados?
 - [ ] ¿Hay notificaciones en caso de fallo?
 
@@ -552,7 +578,7 @@ gcloud logging read "
 └────────────────────┬────────────────────────────────────────┘
                      │
                      │ [DATA TRANSFER SERVICE]
-                     │ Schedule: daily 07:00 UTC
+                     │ Schedule: Tue-Sat 00:00 CST (America/Chicago)
                      │ SA: service-XXX@gcp-sa-bigquerydatatransfer...
                      │ Permisos: storage.objectViewer + bigquery.dataEditor
                      │
@@ -567,7 +593,7 @@ gcloud logging read "
 └────────────────────┬────────────────────────────────────────┘
                      │
                      │ [SCHEDULED QUERY]
-                     │ Schedule: daily 08:00 UTC (1h después de carga)
+                     │ Schedule: daily 01:00 CST (1h después de carga)
                      │ Query: CALL market_data.sp_merge_polygon_prices()
                      │ SA: service-XXX@gcp-sa-bigquerydatatransfer...
                      │ On failure: Email alert
@@ -646,14 +672,15 @@ bq mk --transfer_config \
     "write_disposition":"WRITE_APPEND",
     "max_bad_records":"100"
   }' \
-  --schedule="every day 07:00" \
-  --schedule_timezone="UTC"
+  --schedule="0 0 * * 2-6" \
+  --schedule_timezone="America/Chicago"
 ```
 
 **Checklist:**
 - [ ] `data_path_template` usa variable `{run_date}` para fecha dinámica
 - [ ] `write_disposition=WRITE_APPEND` (no trunca tabla)
-- [ ] `schedule_timezone=UTC` (o tu zona horaria)
+- [ ] `schedule_timezone=America/Chicago` (Central Time US)
+- [ ] Schedule usa cron `0 0 * * 2-6` (Martes-Sábado medianoche CST)
 - [ ] Service Account tiene `roles/storage.objectViewer` en bucket
 - [ ] Service Account tiene `roles/bigquery.dataEditor` en dataset
 
@@ -671,14 +698,16 @@ CALL `sunny-advantage-471523-b3.market_data.sp_merge_polygon_prices`();
 bq query \
   --project_id=sunny-advantage-471523-b3 \
   --use_legacy_sql=false \
-  --schedule="every day 08:00" \
+  --schedule="every day 01:00" \
+  --schedule_time_zone="America/Chicago" \
   --display_name="Polygon Merge to Prices" \
   --target_dataset=market_data \
   "CALL \`sunny-advantage-471523-b3.market_data.sp_merge_polygon_prices\`();"
 ```
 
 **Checklist:**
-- [ ] Ejecuta 1 hora **después** de la carga de staging (07:00 → 08:00)
+- [ ] Ejecuta 1 hora **después** de la carga de staging (00:00 CST → 01:00 CST)
+- [ ] Timezone configurado: `America/Chicago` (Central Time US)
 - [ ] SP es idempotente (usa `MERGE` no `INSERT`)
 - [ ] Notificación por email en caso de fallo
 - [ ] Service Account tiene `roles/bigquery.dataEditor` en dataset
@@ -922,7 +951,7 @@ gcloud logging read "
 # Solución: Re-trigger manual
 gcloud data-transfer runs schedule \
   --transfer-config=projects/.../transferConfigs/CONFIG_ID \
-  --schedule-time="2025-11-09T07:00:00Z"
+  --schedule-time="2025-11-09T00:00:00-06:00"  # 00:00 CST
 ```
 
 **Problema 2: Datos en staging pero no en Prices**
