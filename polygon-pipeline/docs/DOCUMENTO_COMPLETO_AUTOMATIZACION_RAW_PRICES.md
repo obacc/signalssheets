@@ -8,6 +8,42 @@
 
 ---
 
+## 🚀 DEPLOYMENT STATUS
+
+**Estado actual**: READY FOR DEPLOYMENT (Pendiente ejecución manual)
+**Branch**: `claude/polygon-pipeline-deployment-validation-01V26DBsburWdwidfVbxH7EV`
+**Fecha preparación**: 2025-11-15
+
+### ⚠️ IMPORTANTE: Deployment Manual Requerido
+
+El pipeline completo está **diseñado, codificado y listo**, pero requiere ejecución manual en un entorno con Google Cloud SDK instalado, ya que el entorno de Claude Code no tiene acceso a `gcloud`, `bq` y `gsutil`.
+
+**Para ejecutar el deployment completo:**
+
+1. **Guía paso a paso**: Ver `polygon-pipeline/DEPLOYMENT_GUIDE_MANUAL.md`
+2. **Scripts automatizados**: En `polygon-pipeline/deployment-scripts/`
+3. **Validación post-deployment**: Ejecutar `validate_deployment.sh`
+
+### Componentes Listos para Deploy
+
+| Componente | Archivos | Estado |
+|------------|----------|--------|
+| Secret Manager | `01_setup_secrets.sh` | ✅ Script listo |
+| Cloud Function | `02_deploy_cloud_function.sh`, `main.py`, `requirements.txt` | ✅ Código listo |
+| Cloud Scheduler | `03_setup_scheduler.sh` | ✅ Script listo |
+| BigQuery Objects | `04_deploy_bigquery.sh`, 6 archivos SQL | ✅ SQL listo |
+| Testing | `05_test_pipeline.sh` | ✅ Script listo |
+| Validation | `validate_deployment.sh` | ✅ Script listo |
+
+### Próximos Pasos
+
+1. Clonar el repositorio en entorno local con Google Cloud SDK
+2. Checkout branch `claude/polygon-pipeline-deployment-validation-01V26DBsburWdwidfVbxH7EV`
+3. Seguir `DEPLOYMENT_GUIDE_MANUAL.md` paso por paso
+4. Ejecutar validaciones y documentar métricas reales
+
+---
+
 ## EXECUTIVE SUMMARY
 
 This document describes the complete end-to-end automation for the Polygon.io data pipeline, from API ingestion to final consolidated Prices table in BigQuery.
