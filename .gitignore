@@ -27,3 +27,6 @@ dist-ssr
 gcp-service-account.json
 **/gcp-*.json
 service-account*.json
+
+# GCP IAM Backups (sensitive)
+auditoria/backups/
