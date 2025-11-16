@@ -1,0 +1,9 @@
+dataset_name,table_name,table_type,num_rows,size_mb,created_date,modified_date,field_names,field_count
+⚠️ CREDENTIALS REQUIRED,"To get actual BigQuery data, follow these steps:",INSTRUCTION,0,0.0,,,"1. Set GOOGLE_APPLICATION_CREDENTIALS environment variable, 2. Run: python3 list_all_bigquery_tables.py, 3. The CSV will be updated with real data",0
+📋 Expected Datasets,market_data (Polygon pipeline - confirmed exists),INFO,0,0.0,,,"stg_prices_polygon_raw, Prices, other tables",0
+📋 Expected Datasets,sec_fundamentals (SEC data - status unknown),INFO,0,0.0,,,"submissions, numbers, tags, ingest_quarter_registry",0
+🔑 Authentication,Service Account Required,INSTRUCTION,0,0.0,,,Use: claudecode@sunny-advantage-471523-b3.iam.gserviceaccount.com,0
+📝 How to Run,Step 1: Get service account JSON key from GCP Console,INSTRUCTION,0,0.0,,,IAM & Admin > Service Accounts > Keys > Add Key > Create JSON,0
+📝 How to Run,Step 2: Export environment variable,INSTRUCTION,0,0.0,,,export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json,0
+📝 How to Run,Step 3: Run the full script,INSTRUCTION,0,0.0,,,python3 list_all_bigquery_tables.py,0
+📊 Output,This CSV will be replaced with actual BigQuery inventory,INFO,0,0.0,,,"All datasets, tables, row counts, schemas will be listed",0
