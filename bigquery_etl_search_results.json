@@ -1,0 +1,34 @@
+{
+  "stored_procedures": [],
+  "jobs_recent": [],
+  "table_metadata": {
+    "created": "2025-11-01 01:30:20.755000+00:00",
+    "modified": "2025-11-01 01:30:20.756000+00:00",
+    "num_rows": 10,
+    "num_bytes": 411,
+    "description": null,
+    "labels": {}
+  },
+  "routines_found": [
+    {
+      "schema": "market_data",
+      "name": "proc_daily_market_regime",
+      "type": "PROCEDURE"
+    },
+    {
+      "schema": "market_data",
+      "name": "proc_health_checks",
+      "type": "PROCEDURE"
+    },
+    {
+      "schema": "market_data",
+      "name": "proc_daily_alerts",
+      "type": "PROCEDURE"
+    },
+    {
+      "schema": "market_data",
+      "name": "proc_export_signals_top10",
+      "type": "PROCEDURE"
+    }
+  ]
+}
