@@ -1,0 +1,40 @@
+{
+  "execution_time": "2025-11-17T03:14:09.989243+00:00",
+  "project_id": "sunny-advantage-471523-b3",
+  "phases": {
+    "phase_1_bigquery": {
+      "prices_table": {
+        "last_price_date": "2025-11-14",
+        "last_updated_timestamp": null,
+        "last_updated_formatted": null,
+        "total_records_last_7d": 58060,
+        "unique_tickers": 11877,
+        "first_update_last_7d": null
+      },
+      "signals_view": {
+        "last_signal_date": "2025-11-17",
+        "total_signals": 7,
+        "unique_tickers": 7,
+        "first_signal_date": "2025-11-17"
+      },
+      "hourly_distribution": []
+    },
+    "phase_2_gcs": {
+      "recent_files": [],
+      "total_dates_found": 0
+    },
+    "phase_3_scheduled": {
+      "note": "Use 'gcloud beta transfer configs list' para listar scheduled queries",
+      "manual_command": "bq ls --transfer_config --project_id=sunny-advantage-471523-b3"
+    },
+    "phase_4_gaps": {
+      "gap_analysis": {
+        "prices_last_date": "2025-11-14",
+        "prices_updated": "2025-11-01T07:00:37.179926+00:00",
+        "prices_updated_formatted": "2025-11-01 07:00:37 UTC | 2025-11-01 02:00:37 CT",
+        "signals_last_date": "2025-11-17",
+        "date_gap_days": 3
+      }
+    }
+  }
+}

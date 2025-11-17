@@ -67,13 +67,13 @@ class EODPipelineAuditor:
         print("📊 1.1 - Analizando tabla market_data.prices...")
         query_prices = """
         SELECT
-          MAX(date) as last_price_date,
+          MAX(fecha) as last_price_date,
           MAX(updated_at) as last_updated_timestamp,
           COUNT(*) as total_records_last_7d,
           COUNT(DISTINCT ticker) as unique_tickers,
           MIN(updated_at) as first_update_last_7d
-        FROM `sunny-advantage-471523-b3.market_data.prices`
-        WHERE date >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAYS)
+        FROM `sunny-advantage-471523-b3.market_data.Prices`
+        WHERE fecha >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)
         """
 
         try:
@@ -102,10 +102,10 @@ class EODPipelineAuditor:
         print("🎯 1.2 - Analizando vista analytics.v_api_free_signals...")
         query_signals = """
         SELECT
-          MAX(signal_date) as last_signal_date,
+          MAX(as_of_date) as last_signal_date,
           COUNT(*) as total_signals,
           COUNT(DISTINCT ticker) as unique_tickers,
-          MIN(signal_date) as first_signal_date
+          MIN(as_of_date) as first_signal_date
         FROM `sunny-advantage-471523-b3.analytics.v_api_free_signals`
         """
 
@@ -137,8 +137,8 @@ class EODPipelineAuditor:
           COUNT(*) as update_count,
           MIN(updated_at) as first_update,
           MAX(updated_at) as last_update
-        FROM `sunny-advantage-471523-b3.market_data.prices`
-        WHERE DATE(updated_at) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAYS)
+        FROM `sunny-advantage-471523-b3.market_data.Prices`
+        WHERE DATE(updated_at) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)
         GROUP BY hour_utc, update_date
         ORDER BY update_date DESC, hour_utc
         LIMIT 50
@@ -292,13 +292,13 @@ class EODPipelineAuditor:
         query_gap = """
         WITH prices_latest AS (
           SELECT
-            MAX(date) as last_date,
+            MAX(fecha) as last_date,
             MAX(updated_at) as prices_updated
-          FROM `sunny-advantage-471523-b3.market_data.prices`
+          FROM `sunny-advantage-471523-b3.market_data.Prices`
         ),
         signals_latest AS (
           SELECT
-            MAX(signal_date) as last_date
+            MAX(as_of_date) as last_date
           FROM `sunny-advantage-471523-b3.analytics.v_api_free_signals`
         )
         SELECT
