@@ -1,0 +1,3103 @@
+{
+  "F1_lynch_components_base": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "total": 2008,
+        "has_peg": 1999,
+        "has_roe": 1742,
+        "has_debt_equity": 194,
+        "avg_peg": -280.1259,
+        "avg_roe": "18.3422",
+        "avg_debt_equity": "-191.2188"
+      }
+    ]
+  },
+  "F2_debt_equity_distribution": {
+    "success": true,
+    "row_count": 6,
+    "data": [
+      {
+        "rango": "0-0.5 (EXCELENTE)",
+        "cantidad": 101,
+        "porcentaje": 5.03
+      },
+      {
+        "rango": "0.5-1.0 (BUENO)",
+        "cantidad": 32,
+        "porcentaje": 1.59
+      },
+      {
+        "rango": "1.0-2.0 (ACEPTABLE)",
+        "cantidad": 30,
+        "porcentaje": 1.49
+      },
+      {
+        "rango": ">2.0 (ALTO)",
+        "cantidad": 28,
+        "porcentaje": 1.39
+      },
+      {
+        "rango": "CERO",
+        "cantidad": 3,
+        "porcentaje": 0.15
+      },
+      {
+        "rango": "NULL",
+        "cantidad": 1814,
+        "porcentaje": 90.34
+      }
+    ]
+  },
+  "F3_roe_distribution": {
+    "success": true,
+    "row_count": 7,
+    "data": [
+      {
+        "rango": "0-10%",
+        "cantidad": 1285,
+        "porcentaje": 63.99
+      },
+      {
+        "rango": "10-15% (BUENO)",
+        "cantidad": 85,
+        "porcentaje": 4.23
+      },
+      {
+        "rango": "15-20% (EXCELENTE)",
+        "cantidad": 52,
+        "porcentaje": 2.59
+      },
+      {
+        "rango": ">20% (EXCEPCIONAL)",
+        "cantidad": 207,
+        "porcentaje": 10.31
+      },
+      {
+        "rango": "CERO",
+        "cantidad": 36,
+        "porcentaje": 1.79
+      },
+      {
+        "rango": "NEGATIVO",
+        "cantidad": 77,
+        "porcentaje": 3.83
+      },
+      {
+        "rango": "NULL",
+        "cantidad": 266,
+        "porcentaje": 13.25
+      }
+    ]
+  },
+  "F4_top50_complete_data": {
+    "success": true,
+    "row_count": 50,
+    "data": [
+      {
+        "ticker": "EEFT",
+        "trinity_score": 77.33,
+        "lynch_score": 100,
+        "oneil_score": 90,
+        "graham_score": 42,
+        "price": 70.64,
+        "peg_ratio": 0.15994703121837314,
+        "roe": "0.029488558",
+        "debt_to_equity": null,
+        "eps_diluted": "0.85",
+        "eps_growth_3y_avg": "519.583775453",
+        "pe_ratio": 83.10588235294118,
+        "pb_ratio": 0.061788409829519275,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "SHEN",
+        "trinity_score": 76.67,
+        "lynch_score": 100,
+        "oneil_score": 55,
+        "graham_score": 75,
+        "price": 10.35,
+        "peg_ratio": 0.3149939830787486,
+        "roe": "0.367586706",
+        "debt_to_equity": null,
+        "eps_diluted": "4.25",
+        "eps_growth_3y_avg": "7.731240114",
+        "pe_ratio": 2.4352941176470586,
+        "pb_ratio": 0.0053750202458956045,
+        "sector": "TRANSPORTATION"
+      },
+      {
+        "ticker": "VSAT",
+        "trinity_score": 75.0,
+        "lynch_score": 100,
+        "oneil_score": 50,
+        "graham_score": 75,
+        "price": 36.06,
+        "peg_ratio": 0.249290247005374,
+        "roe": "0.215863319",
+        "debt_to_equity": null,
+        "eps_diluted": "14.29",
+        "eps_growth_3y_avg": "10.122509795",
+        "pe_ratio": 2.5234429671098675,
+        "pb_ratio": 0.009793782713121067,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "WNC",
+        "trinity_score": 71.67,
+        "lynch_score": 60,
+        "oneil_score": 70,
+        "graham_score": 85,
+        "price": 7.58,
+        "peg_ratio": 1.01092990896534,
+        "roe": "1.223010115",
+        "debt_to_equity": null,
+        "eps_diluted": "5.36",
+        "eps_growth_3y_avg": "1.398889371",
+        "pe_ratio": 1.414179104477612,
+        "pb_ratio": 0.026439881374781548,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "STZ",
+        "trinity_score": 71.0,
+        "lynch_score": 100,
+        "oneil_score": 48,
+        "graham_score": 65,
+        "price": 129.16,
+        "peg_ratio": 0.4838675761516199,
+        "roe": "0.177294701",
+        "debt_to_equity": null,
+        "eps_diluted": "9.39",
+        "eps_growth_3y_avg": "28.427320306",
+        "pe_ratio": 13.755058572949945,
+        "pb_ratio": 0.039417416563516744,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "SONN",
+        "trinity_score": 70.67,
+        "lynch_score": 100,
+        "oneil_score": 60,
+        "graham_score": 52,
+        "price": 5.92,
+        "peg_ratio": 0.3183989911755663,
+        "roe": "0.003202643",
+        "debt_to_equity": null,
+        "eps_diluted": "0.6",
+        "eps_growth_3y_avg": "30.988372891",
+        "pe_ratio": 9.866666666666667,
+        "pb_ratio": 0.08250503084642197,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "SR",
+        "trinity_score": 70.67,
+        "lynch_score": 100,
+        "oneil_score": 70,
+        "graham_score": 42,
+        "price": 87.0,
+        "peg_ratio": 0.0002313151576473313,
+        "roe": "0.071744421",
+        "debt_to_equity": null,
+        "eps_diluted": "4.86",
+        "eps_growth_3y_avg": "77388.938753395",
+        "pe_ratio": 17.901234567901234,
+        "pb_ratio": 0.024829101566516985,
+        "sector": "TRANSPORTATION"
+      },
+      {
+        "ticker": "ERIE",
+        "trinity_score": 69.0,
+        "lynch_score": 100,
+        "oneil_score": 40,
+        "graham_score": 67,
+        "price": 286.58,
+        "peg_ratio": 0.01475757992012636,
+        "roe": "0.080186887",
+        "debt_to_equity": null,
+        "eps_diluted": "401",
+        "eps_growth_3y_avg": "48.426865754",
+        "pe_ratio": 0.7146633416458853,
+        "pb_ratio": 0.02264542814770186,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "NXT",
+        "trinity_score": 68.33,
+        "lynch_score": 80,
+        "oneil_score": 80,
+        "graham_score": 45,
+        "price": 93.75,
+        "peg_ratio": 0.7997089433657046,
+        "roe": "0.312731784",
+        "debt_to_equity": null,
+        "eps_diluted": "3.47",
+        "eps_growth_3y_avg": "33.78390512",
+        "pe_ratio": 27.017291066282418,
+        "pb_ratio": 0.2087579577490741,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "SBET",
+        "trinity_score": 68.33,
+        "lynch_score": 100,
+        "oneil_score": 65,
+        "graham_score": 40,
+        "price": 10.89,
+        "peg_ratio": 0.056553050027431516,
+        "roe": "-0.4680568",
+        "debt_to_equity": null,
+        "eps_diluted": "40.31",
+        "eps_growth_3y_avg": "4.777041886",
+        "pe_ratio": 0.2701562887620938,
+        "pb_ratio": 66.61948032737537,
+        "sector": "SERVICES"
+      },
+      {
+        "ticker": "RITM",
+        "trinity_score": 65.67,
+        "lynch_score": 100,
+        "oneil_score": 55,
+        "graham_score": 42,
+        "price": 11.12,
+        "peg_ratio": 0.2006963362512587,
+        "roe": "0.034645144",
+        "debt_to_equity": null,
+        "eps_diluted": "0.54",
+        "eps_growth_3y_avg": "102.605722542",
+        "pe_ratio": 20.592592592592588,
+        "pb_ratio": 0.005876331174420851,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "CINF",
+        "trinity_score": 65.0,
+        "lynch_score": 80,
+        "oneil_score": 70,
+        "graham_score": 45,
+        "price": 163.9,
+        "peg_ratio": 0.859837645020975,
+        "roe": "0.502663116",
+        "debt_to_equity": null,
+        "eps_diluted": "4.78",
+        "eps_growth_3y_avg": "39.878113185",
+        "pe_ratio": 34.28870292887029,
+        "pb_ratio": 0.055746514780292945,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "NPO",
+        "trinity_score": 64.0,
+        "lynch_score": 100,
+        "oneil_score": 40,
+        "graham_score": 52,
+        "price": 209.86,
+        "peg_ratio": 0.0034866789191848346,
+        "roe": "0.017327958",
+        "debt_to_equity": null,
+        "eps_diluted": "1.15",
+        "eps_growth_3y_avg": "52338.331332328",
+        "pe_ratio": 182.48695652173916,
+        "pb_ratio": 0.028017104080910956,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "CIM",
+        "trinity_score": 58.5,
+        "lynch_score": null,
+        "oneil_score": 40,
+        "graham_score": 77,
+        "price": 12.03,
+        "peg_ratio": -5.766688271217698,
+        "roe": "0.040166903",
+        "debt_to_equity": "0.03239532",
+        "eps_diluted": "1.77",
+        "eps_growth_3y_avg": "-1.178598504",
+        "pe_ratio": 6.796610169491525,
+        "pb_ratio": 0.002187266688050984,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "ARWR",
+        "trinity_score": 57.5,
+        "lynch_score": null,
+        "oneil_score": 55,
+        "graham_score": 60,
+        "price": 41.26,
+        "peg_ratio": -13.603445560676965,
+        "roe": "0.542124419",
+        "debt_to_equity": null,
+        "eps_diluted": "2.75",
+        "eps_growth_3y_avg": "-1.102929129",
+        "pe_ratio": 15.003636363636362,
+        "pb_ratio": 0.09788288479353041,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "EBS",
+        "trinity_score": 57.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 70,
+        "price": 10.11,
+        "peg_ratio": -0.4988267562092596,
+        "roe": "0.14084507",
+        "debt_to_equity": null,
+        "eps_diluted": "1.19",
+        "eps_growth_3y_avg": "-17.031560985",
+        "pe_ratio": 8.495798319327731,
+        "pb_ratio": 0.02381432696768848,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "EQH",
+        "trinity_score": 56.67,
+        "lynch_score": 0,
+        "oneil_score": 100,
+        "graham_score": 70,
+        "price": 44.72,
+        "peg_ratio": 4.466958150723029,
+        "roe": "0.542274052",
+        "debt_to_equity": null,
+        "eps_diluted": "5.46",
+        "eps_growth_3y_avg": "1.833569045",
+        "pe_ratio": 8.19047619047619,
+        "pb_ratio": 0.05549342237401082,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "CORZZ",
+        "trinity_score": 56.5,
+        "lynch_score": null,
+        "oneil_score": 48,
+        "graham_score": 65,
+        "price": 14.94,
+        "peg_ratio": -2.5215579597755555,
+        "roe": "0.195321248",
+        "debt_to_equity": null,
+        "eps_diluted": "1.25",
+        "eps_growth_3y_avg": "-4.73992674",
+        "pe_ratio": 11.952,
+        "pb_ratio": 0.00043015223939334315,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "CORZW",
+        "trinity_score": 56.5,
+        "lynch_score": null,
+        "oneil_score": 43,
+        "graham_score": 70,
+        "price": 8.8,
+        "peg_ratio": -1.48525502316097,
+        "roe": "0.195321248",
+        "debt_to_equity": null,
+        "eps_diluted": "1.25",
+        "eps_growth_3y_avg": "-4.73992674",
+        "pe_ratio": 7.040000000000001,
+        "pb_ratio": 0.0010708447821487614,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "CORZ",
+        "trinity_score": 56.5,
+        "lynch_score": null,
+        "oneil_score": 48,
+        "graham_score": 65,
+        "price": 14.93,
+        "peg_ratio": -2.519870169976509,
+        "roe": "0.195321248",
+        "debt_to_equity": null,
+        "eps_diluted": "1.25",
+        "eps_growth_3y_avg": "-4.73992674",
+        "pe_ratio": 11.943999999999999,
+        "pb_ratio": 0.1101896637386626,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "EVR",
+        "trinity_score": 56.0,
+        "lynch_score": null,
+        "oneil_score": 60,
+        "graham_score": 52,
+        "price": 307.75,
+        "peg_ratio": -1178.0758155729945,
+        "roe": "0.085605765",
+        "debt_to_equity": null,
+        "eps_diluted": "3.48",
+        "eps_growth_3y_avg": "-0.075066398",
+        "pe_ratio": 88.433908045977,
+        "pb_ratio": 0.06210644502770487,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "CALM",
+        "trinity_score": 55.0,
+        "lynch_score": 0,
+        "oneil_score": 80,
+        "graham_score": 85,
+        "price": 90.47,
+        "peg_ratio": 4.8439487207707606,
+        "roe": "0.213510361",
+        "debt_to_equity": null,
+        "eps_diluted": "10.38",
+        "eps_growth_3y_avg": "1.799317069",
+        "pe_ratio": 8.715799614643544,
+        "pb_ratio": 0.021867157658247725,
+        "sector": "ENERGY"
+      },
+      {
+        "ticker": "OSCR",
+        "trinity_score": 55.0,
+        "lynch_score": null,
+        "oneil_score": 70,
+        "graham_score": 40,
+        "price": 13.88,
+        "peg_ratio": -15.199011875147152,
+        "roe": "0.206498525",
+        "debt_to_equity": null,
+        "eps_diluted": "0.92",
+        "eps_growth_3y_avg": "-0.992627458",
+        "pe_ratio": 15.08695652173913,
+        "pb_ratio": 0.13144169174091422,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "TMDX",
+        "trinity_score": 55.0,
+        "lynch_score": null,
+        "oneil_score": 70,
+        "graham_score": 40,
+        "price": 115.01,
+        "peg_ratio": -95.27758825820622,
+        "roe": "0.112343233",
+        "debt_to_equity": null,
+        "eps_diluted": "0.7",
+        "eps_growth_3y_avg": "-1.724434917",
+        "pe_ratio": 164.3,
+        "pb_ratio": 0.26359835387112157,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "STOK",
+        "trinity_score": 54.0,
+        "lynch_score": null,
+        "oneil_score": 43,
+        "graham_score": 65,
+        "price": 26.51,
+        "peg_ratio": -20.968931923837697,
+        "roe": "0.198534895",
+        "debt_to_equity": null,
+        "eps_diluted": "1.9",
+        "eps_growth_3y_avg": "-0.665395435",
+        "pe_ratio": 13.95263157894737,
+        "pb_ratio": 0.047270897864781204,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "TER",
+        "trinity_score": 53.5,
+        "lynch_score": null,
+        "oneil_score": 55,
+        "graham_score": 52,
+        "price": 169.97,
+        "peg_ratio": -2590.5249399349445,
+        "roe": "0.051343073",
+        "debt_to_equity": null,
+        "eps_diluted": "0.61",
+        "eps_growth_3y_avg": "-0.107560958",
+        "pe_ratio": 278.6393442622951,
+        "pb_ratio": 0.283108172938147,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "REVG",
+        "trinity_score": 52.5,
+        "lynch_score": null,
+        "oneil_score": 55,
+        "graham_score": 50,
+        "price": 52.57,
+        "peg_ratio": -5.967736204528376,
+        "roe": "0.36686747",
+        "debt_to_equity": null,
+        "eps_diluted": "0.38",
+        "eps_growth_3y_avg": "-23.181672333",
+        "pe_ratio": 138.3421052631579,
+        "pb_ratio": 0.07900363164658634,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "CTS",
+        "trinity_score": 51.67,
+        "lynch_score": 0,
+        "oneil_score": 95,
+        "graham_score": 60,
+        "price": 42.35,
+        "peg_ratio": 50.9933982664003,
+        "roe": "0.103062214",
+        "debt_to_equity": null,
+        "eps_diluted": "1.81",
+        "eps_growth_3y_avg": "0.458839592",
+        "pe_ratio": 23.39779005524862,
+        "pb_ratio": 0.01699813075256671,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "NHC",
+        "trinity_score": 51.0,
+        "lynch_score": null,
+        "oneil_score": 55,
+        "graham_score": 47,
+        "price": 128.12,
+        "peg_ratio": -246.6538530209493,
+        "roe": "0.032048124",
+        "debt_to_equity": null,
+        "eps_diluted": "2.07",
+        "eps_growth_3y_avg": "-0.250933521",
+        "pe_ratio": 61.89371980676329,
+        "pb_ratio": 0.006985500773712676,
+        "sector": "UTILITIES"
+      },
+      {
+        "ticker": "KINS",
+        "trinity_score": 51.0,
+        "lynch_score": null,
+        "oneil_score": 60,
+        "graham_score": 42,
+        "price": 14.37,
+        "peg_ratio": -18.066894577629935,
+        "roe": "0.043594375",
+        "debt_to_equity": "0.061843637",
+        "eps_diluted": "0.27",
+        "eps_growth_3y_avg": "-2.945842297",
+        "pe_ratio": 53.222222222222214,
+        "pb_ratio": 0.01703505851555555,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "FRPH",
+        "trinity_score": 51.0,
+        "lynch_score": null,
+        "oneil_score": 65,
+        "graham_score": 37,
+        "price": 24.55,
+        "peg_ratio": -2192.40853815439,
+        "roe": "0.077900779",
+        "debt_to_equity": null,
+        "eps_diluted": "0.09",
+        "eps_growth_3y_avg": "-0.124419228",
+        "pe_ratio": 272.77777777777777,
+        "pb_ratio": 0.09466361896952304,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "WD",
+        "trinity_score": 51.0,
+        "lynch_score": null,
+        "oneil_score": 65,
+        "graham_score": 37,
+        "price": 65.34,
+        "peg_ratio": -259.79322918364693,
+        "roe": "0.00135022",
+        "debt_to_equity": null,
+        "eps_diluted": "1.28",
+        "eps_growth_3y_avg": "-0.196490398",
+        "pe_ratio": 51.046875,
+        "pb_ratio": 0.006314850855015525,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "ENVA",
+        "trinity_score": 51.0,
+        "lynch_score": null,
+        "oneil_score": 65,
+        "graham_score": 37,
+        "price": 125.69,
+        "peg_ratio": -1610.0260410625517,
+        "roe": "0.060943719",
+        "debt_to_equity": "2.540568156",
+        "eps_diluted": "2.69",
+        "eps_growth_3y_avg": "-0.029021212",
+        "pe_ratio": 46.72490706319702,
+        "pb_ratio": 0.022336856726074505,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "VTR",
+        "trinity_score": 50.0,
+        "lynch_score": null,
+        "oneil_score": 65,
+        "graham_score": 35,
+        "price": 78.0,
+        "peg_ratio": -7104.091701801562,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_diluted": "0.1",
+        "eps_growth_3y_avg": "-0.10979588",
+        "pe_ratio": 780.0,
+        "pb_ratio": 0.020391374836883414,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "HLNE",
+        "trinity_score": 50.0,
+        "lynch_score": 10,
+        "oneil_score": 75,
+        "graham_score": 65,
+        "price": 131.25,
+        "peg_ratio": 124.57529687282444,
+        "roe": "0.303112727",
+        "debt_to_equity": "0.13889675",
+        "eps_diluted": "5.41",
+        "eps_growth_3y_avg": "0.194746704",
+        "pe_ratio": 24.260628465804064,
+        "pb_ratio": 0.06797495507339522,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "SNDA",
+        "trinity_score": 50.0,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 55,
+        "price": 32.26,
+        "peg_ratio": -31.507955391501657,
+        "roe": "0.376387825",
+        "debt_to_equity": null,
+        "eps_diluted": "2.16",
+        "eps_growth_3y_avg": "-0.47401315",
+        "pe_ratio": 14.935185185185183,
+        "pb_ratio": 0.022699068050428362,
+        "sector": "UTILITIES"
+      },
+      {
+        "ticker": "POWL",
+        "trinity_score": 50.0,
+        "lynch_score": null,
+        "oneil_score": 50,
+        "graham_score": 50,
+        "price": 329.66,
+        "peg_ratio": -103.39185785723934,
+        "roe": "0.123086814",
+        "debt_to_equity": null,
+        "eps_diluted": "3.81",
+        "eps_growth_3y_avg": "-0.836864103",
+        "pe_ratio": 86.52493438320211,
+        "pb_ratio": 0.20139159662168804,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "HLF",
+        "trinity_score": 50.0,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 55,
+        "price": 9.23,
+        "peg_ratio": -133.4398214721727,
+        "roe": "0.215476699",
+        "debt_to_equity": null,
+        "eps_diluted": "0.49",
+        "eps_growth_3y_avg": "-0.141162769",
+        "pe_ratio": 18.836734693877553,
+        "pb_ratio": 0.05118845929884566,
+        "sector": "WHOLESALE"
+      },
+      {
+        "ticker": "OHI",
+        "trinity_score": 50.0,
+        "lynch_score": null,
+        "oneil_score": 65,
+        "graham_score": 35,
+        "price": 43.97,
+        "peg_ratio": -3635.523819612656,
+        "roe": "2.540886952",
+        "debt_to_equity": null,
+        "eps_diluted": "0.33",
+        "eps_growth_3y_avg": "-0.036650131",
+        "pe_ratio": 133.24242424242422,
+        "pb_ratio": 1.986106588986507,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "ENS",
+        "trinity_score": 49.33,
+        "lynch_score": 0,
+        "oneil_score": 78,
+        "graham_score": 70,
+        "price": 137.52,
+        "peg_ratio": 24.411489656159766,
+        "roe": "0.189833086",
+        "debt_to_equity": null,
+        "eps_diluted": "8.99",
+        "eps_growth_3y_avg": "0.62663102",
+        "pe_ratio": 15.296996662958843,
+        "pb_ratio": 0.03459025492699149,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "ALL",
+        "trinity_score": 49.0,
+        "lynch_score": 60,
+        "oneil_score": 40,
+        "graham_score": 47,
+        "price": 214.3,
+        "peg_ratio": 1.1849772417435387,
+        "roe": "0.055225572",
+        "debt_to_equity": "0.366628882",
+        "eps_diluted": "4.46",
+        "eps_growth_3y_avg": "40.548734323",
+        "pe_ratio": 48.04932735426009,
+        "pb_ratio": 0.02419129752437089,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "AMKR",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 31.68,
+        "peg_ratio": -10091.765493975485,
+        "roe": "0.014170161",
+        "debt_to_equity": null,
+        "eps_diluted": "0.24",
+        "eps_growth_3y_avg": "-0.013079971",
+        "pe_ratio": 132.0,
+        "pb_ratio": 0.02391736684302078,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "TFX",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 107.0,
+        "peg_ratio": -1768.5572304456978,
+        "roe": "0.023116327",
+        "debt_to_equity": null,
+        "eps_diluted": "2.07",
+        "eps_growth_3y_avg": "-0.029227678",
+        "pe_ratio": 51.69082125603865,
+        "pb_ratio": 0.016121535787213582,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "HRTG",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 55,
+        "graham_score": 42,
+        "price": 31.14,
+        "peg_ratio": -58.66758951259737,
+        "roe": "0.083740715",
+        "debt_to_equity": "0.319637602",
+        "eps_diluted": "0.99",
+        "eps_growth_3y_avg": "-0.536148591",
+        "pe_ratio": 31.454545454545457,
+        "pb_ratio": 0.04993537900958756,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "DCO",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 91.37,
+        "peg_ratio": -2359.8138701342573,
+        "roe": "0.023178786",
+        "debt_to_equity": null,
+        "eps_diluted": "0.69",
+        "eps_growth_3y_avg": "-0.056114718",
+        "pe_ratio": 132.42028985507247,
+        "pb_ratio": 0.01667539019791609,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "RCKY",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 30.14,
+        "peg_ratio": -251.75304696850566,
+        "roe": "0.030473101",
+        "debt_to_equity": null,
+        "eps_diluted": "0.66",
+        "eps_growth_3y_avg": "-0.181394693",
+        "pe_ratio": 45.666666666666664,
+        "pb_ratio": 0.009662317830556977,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "PAHC",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 45.1,
+        "peg_ratio": -2603.722259519437,
+        "roe": "0.078498601",
+        "debt_to_equity": null,
+        "eps_diluted": "0.51",
+        "eps_growth_3y_avg": "-0.033963443",
+        "pe_ratio": 88.43137254901961,
+        "pb_ratio": 0.05191200036091311,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "ALRS",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 21.72,
+        "peg_ratio": -332.0970680538798,
+        "roe": "0.047222843",
+        "debt_to_equity": "0.209596363",
+        "eps_diluted": "0.52",
+        "eps_growth_3y_avg": "-0.125774163",
+        "pe_ratio": 41.76923076923077,
+        "pb_ratio": 0.003968068775468948,
+        "sector": "FINANCIALS"
+      },
+      {
+        "ticker": "BMRN",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 45,
+        "graham_score": 52,
+        "price": 54.73,
+        "peg_ratio": -1048.8573597388115,
+        "roe": "0.032050973",
+        "debt_to_equity": null,
+        "eps_diluted": "0.95",
+        "eps_growth_3y_avg": "-0.054926941",
+        "pe_ratio": 57.61052631578947,
+        "pb_ratio": 0.018666666053906655,
+        "sector": "INDUSTRIALS"
+      },
+      {
+        "ticker": "PRH",
+        "trinity_score": 48.5,
+        "lynch_score": null,
+        "oneil_score": 35,
+        "graham_score": 62,
+        "price": 24.72,
+        "peg_ratio": -23.856423420338377,
+        "roe": "0.038081853",
+        "debt_to_equity": null,
+        "eps_diluted": "3.12",
+        "eps_growth_3y_avg": "-0.332115036",
+        "pe_ratio": 7.9230769230769225,
+        "pb_ratio": 3.3573801827125786e-05,
+        "sector": "FINANCIALS"
+      }
+    ]
+  },
+  "F5_lynch_zero_complete": {
+    "success": true,
+    "row_count": 50,
+    "data": [
+      {
+        "ticker": "CEP",
+        "lynch_score": 0,
+        "peg_ratio": 24800.000000000004,
+        "roe": "-0.217200642",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 14.88,
+        "eps_diluted": "0.06"
+      },
+      {
+        "ticker": "MBAV",
+        "lynch_score": 0,
+        "peg_ratio": 13206.25,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.565,
+        "eps_diluted": "0.08"
+      },
+      {
+        "ticker": "GRDN",
+        "lynch_score": 0,
+        "peg_ratio": 19473.333333333336,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 29.21,
+        "eps_diluted": "0.15"
+      },
+      {
+        "ticker": "BACQ",
+        "lynch_score": 0,
+        "peg_ratio": 15157.142857142855,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.61,
+        "eps_diluted": "0.07"
+      },
+      {
+        "ticker": "AVPT",
+        "lynch_score": 0,
+        "peg_ratio": 65100.0,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 13.02,
+        "eps_diluted": "0.02"
+      },
+      {
+        "ticker": "SDRL",
+        "lynch_score": 0,
+        "peg_ratio": 3712.3456790123455,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 30.07,
+        "eps_diluted": "0.81"
+      },
+      {
+        "ticker": "ETHM",
+        "lynch_score": 0,
+        "peg_ratio": 20520.0,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.26,
+        "eps_diluted": "0.05"
+      },
+      {
+        "ticker": "WLAC",
+        "lynch_score": 0,
+        "peg_ratio": 16857.142857142855,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 11.8,
+        "eps_diluted": "0.07"
+      },
+      {
+        "ticker": "FBLA",
+        "lynch_score": 0,
+        "peg_ratio": 30750.0,
+        "roe": "-0.004864024",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 12.3,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "VG",
+        "lynch_score": 0,
+        "peg_ratio": 3192.0,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 7.98,
+        "eps_diluted": "0.25"
+      },
+      {
+        "ticker": "KDK",
+        "lynch_score": 0,
+        "peg_ratio": 321.6818174507231,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.20952381",
+        "price": 6.74,
+        "eps_diluted": "0.1"
+      },
+      {
+        "ticker": "IMSR",
+        "lynch_score": 0,
+        "peg_ratio": 60350.0,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 12.07,
+        "eps_diluted": "0.02"
+      },
+      {
+        "ticker": "BUR",
+        "lynch_score": 0,
+        "peg_ratio": 6135.714285714284,
+        "roe": "0.012705109",
+        "debt_to_equity": "0.724919538",
+        "eps_growth_3y_avg": null,
+        "price": 8.59,
+        "eps_diluted": "0.14"
+      },
+      {
+        "ticker": "NPB",
+        "lynch_score": 0,
+        "peg_ratio": 3434.6938775510203,
+        "roe": "0.037291617",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 16.83,
+        "eps_diluted": "0.49"
+      },
+      {
+        "ticker": "SEB",
+        "lynch_score": 0,
+        "peg_ratio": 12504.461305007586,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 4120.22,
+        "eps_diluted": "32.95"
+      },
+      {
+        "ticker": "LINE",
+        "lynch_score": 0,
+        "peg_ratio": 334099.99999999994,
+        "roe": "0",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 33.41,
+        "eps_diluted": "0.01"
+      },
+      {
+        "ticker": "CURB",
+        "lynch_score": 0,
+        "peg_ratio": 23250.0,
+        "roe": "0.004107048",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 23.25,
+        "eps_diluted": "0.1"
+      },
+      {
+        "ticker": "BOW",
+        "lynch_score": 0,
+        "peg_ratio": 8135.294117647058,
+        "roe": "0.063990187",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 27.66,
+        "eps_diluted": "0.34"
+      },
+      {
+        "ticker": "INGM",
+        "lynch_score": 0,
+        "peg_ratio": 6882.758620689656,
+        "roe": "0.018530079",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 19.96,
+        "eps_diluted": "0.29"
+      },
+      {
+        "ticker": "TAP",
+        "lynch_score": 0,
+        "peg_ratio": 4787.628865979382,
+        "roe": "0.015871803",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 46.44,
+        "eps_diluted": "0.97"
+      },
+      {
+        "ticker": "PRMB",
+        "lynch_score": 0,
+        "peg_ratio": 10946.666666666668,
+        "roe": "0.010050704",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 16.42,
+        "eps_diluted": "0.15"
+      },
+      {
+        "ticker": "MRP",
+        "lynch_score": 0,
+        "peg_ratio": 7992.3076923076915,
+        "roe": "0.012555512",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 31.17,
+        "eps_diluted": "0.39"
+      },
+      {
+        "ticker": "GBFH",
+        "lynch_score": 0,
+        "peg_ratio": 11406.451612903225,
+        "roe": "0.043581694",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 35.36,
+        "eps_diluted": "0.31"
+      },
+      {
+        "ticker": "CLS",
+        "lynch_score": 0,
+        "peg_ratio": 40374.02597402597,
+        "roe": "3.350364964",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 310.88,
+        "eps_diluted": "0.77"
+      },
+      {
+        "ticker": "POR",
+        "lynch_score": 0,
+        "peg_ratio": 428.9544589560006,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.10669785",
+        "price": 49.43,
+        "eps_diluted": "1.08"
+      },
+      {
+        "ticker": "OI",
+        "lynch_score": 0,
+        "peg_ratio": 825.8622385273349,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.035491526",
+        "price": 13.19,
+        "eps_diluted": "0.45"
+      },
+      {
+        "ticker": "FCPT",
+        "lynch_score": 0,
+        "peg_ratio": 9008.185124998596,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.010336753",
+        "price": 24.21,
+        "eps_diluted": "0.26"
+      },
+      {
+        "ticker": "SLRC",
+        "lynch_score": 0,
+        "peg_ratio": 64.48640181939719,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.465822481",
+        "price": 15.32,
+        "eps_diluted": "0.51"
+      },
+      {
+        "ticker": "CATY",
+        "lynch_score": 0,
+        "peg_ratio": 618.2238213773737,
+        "roe": "0",
+        "debt_to_equity": "130.345733042",
+        "eps_growth_3y_avg": "0.07838453",
+        "price": 47.49,
+        "eps_diluted": "0.98"
+      },
+      {
+        "ticker": "AII",
+        "lynch_score": 0,
+        "peg_ratio": 8.543556392264248,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 24.96,
+        "eps_diluted": "292.15"
+      },
+      {
+        "ticker": "GEV",
+        "lynch_score": 0,
+        "peg_ratio": 63550.54945054944,
+        "roe": "0.026608003",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 578.31,
+        "eps_diluted": "0.91"
+      },
+      {
+        "ticker": "ARDT",
+        "lynch_score": 0,
+        "peg_ratio": 3106.896551724138,
+        "roe": "0.035215019",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 9.01,
+        "eps_diluted": "0.29"
+      },
+      {
+        "ticker": "SW",
+        "lynch_score": 0,
+        "peg_ratio": 4697.260273972603,
+        "roe": "0.022119816",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 34.29,
+        "eps_diluted": "0.73"
+      },
+      {
+        "ticker": "LGCY",
+        "lynch_score": 0,
+        "peg_ratio": 4504.761904761905,
+        "roe": "0.071732103",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 9.46,
+        "eps_diluted": "0.21"
+      },
+      {
+        "ticker": "FXC",
+        "lynch_score": 0,
+        "peg_ratio": 75.42338107041854,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "2.147671569",
+        "price": 69.6534,
+        "eps_diluted": "0.43"
+      },
+      {
+        "ticker": "CSGS",
+        "lynch_score": 0,
+        "peg_ratio": 3709.3724851580396,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.031022371",
+        "price": 78.25,
+        "eps_diluted": "0.68"
+      },
+      {
+        "ticker": "CCIX",
+        "lynch_score": 0,
+        "peg_ratio": 15171.428571428569,
+        "roe": "3774.877607789",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.62,
+        "eps_diluted": "0.07"
+      },
+      {
+        "ticker": "COLA",
+        "lynch_score": 0,
+        "peg_ratio": 51700.0,
+        "roe": "772.159793814",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.34,
+        "eps_diluted": "0.02"
+      },
+      {
+        "ticker": "VCIC",
+        "lynch_score": 0,
+        "peg_ratio": 18001.5,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 10.8009,
+        "eps_diluted": "0.06"
+      },
+      {
+        "ticker": "HTGC",
+        "lynch_score": 0,
+        "peg_ratio": 18163.742593571136,
+        "roe": "0.050459698",
+        "debt_to_equity": "1.109083234",
+        "eps_growth_3y_avg": "0.001697038",
+        "price": 17.57,
+        "eps_diluted": "0.57"
+      },
+      {
+        "ticker": "AMTM",
+        "lynch_score": 0,
+        "peg_ratio": 110350.0,
+        "roe": "0.017316017",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 22.07,
+        "eps_diluted": "0.02"
+      },
+      {
+        "ticker": "UFCS",
+        "lynch_score": 0,
+        "peg_ratio": 5538.805970149253,
+        "roe": "0.03079916",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 37.11,
+        "eps_diluted": "0.67"
+      },
+      {
+        "ticker": "REFI",
+        "lynch_score": 0,
+        "peg_ratio": 7692.984937990267,
+        "roe": "0.031331433",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.003509691",
+        "price": 12.69,
+        "eps_diluted": "0.47"
+      },
+      {
+        "ticker": "BBDC",
+        "lynch_score": 0,
+        "peg_ratio": 316.05871998817577,
+        "roe": "0.037012861",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.101021011",
+        "price": 8.94,
+        "eps_diluted": "0.28"
+      },
+      {
+        "ticker": "WBTN",
+        "lynch_score": 0,
+        "peg_ratio": 21383.333333333332,
+        "roe": "0.004206159",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 12.83,
+        "eps_diluted": "0.06"
+      },
+      {
+        "ticker": "FERG",
+        "lynch_score": 0,
+        "peg_ratio": 11137.614678899083,
+        "roe": "0.044081282",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": null,
+        "price": 242.8,
+        "eps_diluted": "2.18"
+      },
+      {
+        "ticker": "MMC",
+        "lynch_score": 0,
+        "peg_ratio": 553.3046492273312,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.117161931",
+        "price": 182.81,
+        "eps_diluted": "2.82"
+      },
+      {
+        "ticker": "AZZ",
+        "lynch_score": 0,
+        "peg_ratio": 223.97518120345515,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.126639754",
+        "price": 98.14,
+        "eps_diluted": "3.46"
+      },
+      {
+        "ticker": "ARI",
+        "lynch_score": 0,
+        "peg_ratio": 2469.4904947211294,
+        "roe": "382.220588235",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.025005158",
+        "price": 9.88,
+        "eps_diluted": "0.16"
+      },
+      {
+        "ticker": "ITW",
+        "lynch_score": 0,
+        "peg_ratio": 806.3244981367365,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0.110831682",
+        "price": 243.97,
+        "eps_diluted": "2.73"
+      }
+    ]
+  },
+  "F6_lynch_null_complete": {
+    "success": true,
+    "row_count": 50,
+    "data": [
+      {
+        "ticker": "TXO",
+        "lynch_score": null,
+        "peg_ratio": -61.10756434801162,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.672435721",
+        "price": 13.56,
+        "eps_diluted": "0.33"
+      },
+      {
+        "ticker": "PWP",
+        "lynch_score": null,
+        "peg_ratio": -151.8944913557774,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.512965717",
+        "price": 18.7,
+        "eps_diluted": "0.24"
+      },
+      {
+        "ticker": "ABL",
+        "lynch_score": null,
+        "peg_ratio": -215.27393515401195,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.608526991",
+        "price": 6.55,
+        "eps_diluted": "0.05"
+      },
+      {
+        "ticker": "CNH",
+        "lynch_score": null,
+        "peg_ratio": -18037.055758085073,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.001921332",
+        "price": 10.05,
+        "eps_diluted": "0.29"
+      },
+      {
+        "ticker": "FXE",
+        "lynch_score": null,
+        "peg_ratio": -196.90718471284717,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.938653338",
+        "price": 107.2,
+        "eps_diluted": "0.58"
+      },
+      {
+        "ticker": "PX",
+        "lynch_score": null,
+        "peg_ratio": -1758.2258053172739,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.140909091",
+        "price": 9.91,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "FXF",
+        "lynch_score": null,
+        "peg_ratio": -9164.234297709869,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.608070442",
+        "price": 111.45,
+        "eps_diluted": "0.02"
+      },
+      {
+        "ticker": "PPL",
+        "lynch_score": null,
+        "peg_ratio": -102.85410917351399,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.638213268",
+        "price": 36.76,
+        "eps_diluted": "0.56"
+      },
+      {
+        "ticker": "UWMC",
+        "lynch_score": null,
+        "peg_ratio": -651.7322302773002,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.086947774",
+        "price": 5.1,
+        "eps_diluted": "0.09"
+      },
+      {
+        "ticker": "GHI",
+        "lynch_score": null,
+        "peg_ratio": -112.93362704687982,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.139567861",
+        "price": 6.62,
+        "eps_diluted": "0.42"
+      },
+      {
+        "ticker": "KGS",
+        "lynch_score": null,
+        "peg_ratio": -168.2192660750429,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.513676337",
+        "price": 33.7,
+        "eps_diluted": "0.39"
+      },
+      {
+        "ticker": "PLTM",
+        "lynch_score": null,
+        "peg_ratio": -15.943319314060867,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-1.24440837",
+        "price": 14.88,
+        "eps_diluted": "0.75"
+      },
+      {
+        "ticker": "OKTA",
+        "lynch_score": null,
+        "peg_ratio": -1438.3067985062933,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.166743682",
+        "price": 83.94,
+        "eps_diluted": "0.35"
+      },
+      {
+        "ticker": "LMNR",
+        "lynch_score": null,
+        "peg_ratio": -31.424227349006728,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-1.219259436",
+        "price": 13.41,
+        "eps_diluted": "0.35"
+      },
+      {
+        "ticker": "PHIN",
+        "lynch_score": null,
+        "peg_ratio": -327.15759793129314,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.263209877",
+        "price": 54.25,
+        "eps_diluted": "0.63"
+      },
+      {
+        "ticker": "DX",
+        "lynch_score": null,
+        "peg_ratio": -33.04022536253519,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.642682511",
+        "price": 13.59,
+        "eps_diluted": "0.64"
+      },
+      {
+        "ticker": "FBIN",
+        "lynch_score": null,
+        "peg_ratio": -413.8496661505344,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.152642512",
+        "price": 48.01,
+        "eps_diluted": "0.76"
+      },
+      {
+        "ticker": "TTSH",
+        "lynch_score": null,
+        "peg_ratio": -30369.761910646987,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.005219007",
+        "price": 6.34,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "CCI",
+        "lynch_score": null,
+        "peg_ratio": -43665.94882348893,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.00295715",
+        "price": 91.68,
+        "eps_diluted": "0.71"
+      },
+      {
+        "ticker": "RKT",
+        "lynch_score": null,
+        "peg_ratio": -499.8258058696305,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.310108038",
+        "price": 17.05,
+        "eps_diluted": "0.11"
+      },
+      {
+        "ticker": "SHCO",
+        "lynch_score": null,
+        "peg_ratio": -330.6325631158557,
+        "roe": "-0.024377796",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.666903459",
+        "price": 8.82,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "AMSC",
+        "lynch_score": null,
+        "peg_ratio": -553.4973557157587,
+        "roe": "0",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.382906075",
+        "price": 33.91,
+        "eps_diluted": "0.16"
+      },
+      {
+        "ticker": "PCT",
+        "lynch_score": null,
+        "peg_ratio": -89.8115555861108,
+        "roe": "0.010238896",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-2.046507254",
+        "price": 9.19,
+        "eps_diluted": "0.05"
+      },
+      {
+        "ticker": "MRCC",
+        "lynch_score": null,
+        "peg_ratio": -10.017873016737148,
+        "roe": "0.016661278",
+        "debt_to_equity": "1.522590503",
+        "eps_growth_3y_avg": "-4.298983087",
+        "price": 6.46,
+        "eps_diluted": "0.15"
+      },
+      {
+        "ticker": "YEXT",
+        "lynch_score": null,
+        "peg_ratio": -1704.169222339992,
+        "roe": "0.004946234",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.495255981",
+        "price": 8.44,
+        "eps_diluted": "0.01"
+      },
+      {
+        "ticker": "CMA",
+        "lynch_score": null,
+        "peg_ratio": -1715.599697091825,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.036516677",
+        "price": 78.31,
+        "eps_diluted": "1.25"
+      },
+      {
+        "ticker": "LGIH",
+        "lynch_score": null,
+        "peg_ratio": -419.52907016623385,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.161490597",
+        "price": 48.78,
+        "eps_diluted": "0.72"
+      },
+      {
+        "ticker": "TFC",
+        "lynch_score": null,
+        "peg_ratio": -1322.9891682739135,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.038974785",
+        "price": 44.86,
+        "eps_diluted": "0.87"
+      },
+      {
+        "ticker": "MCY",
+        "lynch_score": null,
+        "peg_ratio": -18.63748351821401,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-3.553756742",
+        "price": 88.09,
+        "eps_diluted": "1.33"
+      },
+      {
+        "ticker": "PRTH",
+        "lynch_score": null,
+        "peg_ratio": -149.83250355959422,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.34972385",
+        "price": 5.24,
+        "eps_diluted": "0.1"
+      },
+      {
+        "ticker": "ANGI",
+        "lynch_score": null,
+        "peg_ratio": -24.221530608740856,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-1.491785714",
+        "price": 10.84,
+        "eps_diluted": "0.3"
+      },
+      {
+        "ticker": "PINC",
+        "lynch_score": null,
+        "peg_ratio": -1680.0244953411875,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.054127475",
+        "price": 28.19,
+        "eps_diluted": "0.31"
+      },
+      {
+        "ticker": "ASLE",
+        "lynch_score": null,
+        "peg_ratio": -290.9985928770353,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.170963026",
+        "price": 5.97,
+        "eps_diluted": "0.12"
+      },
+      {
+        "ticker": "GRND",
+        "lynch_score": null,
+        "peg_ratio": -42.78947933774094,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-3.637965899",
+        "price": 14.01,
+        "eps_diluted": "0.09"
+      },
+      {
+        "ticker": "SGI",
+        "lynch_score": null,
+        "peg_ratio": -3679.0036835568358,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.055841711",
+        "price": 88.34,
+        "eps_diluted": "0.43"
+      },
+      {
+        "ticker": "TMC",
+        "lynch_score": null,
+        "peg_ratio": -185.8295650536119,
+        "roe": "-0.046978932",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.341710965",
+        "price": 5.08,
+        "eps_diluted": "0.08"
+      },
+      {
+        "ticker": "IBTA",
+        "lynch_score": null,
+        "peg_ratio": null,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "0",
+        "price": 26.56,
+        "eps_diluted": "0.33"
+      },
+      {
+        "ticker": "BRSP",
+        "lynch_score": null,
+        "peg_ratio": -105.3574674992118,
+        "roe": "0.005096268",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-1.286097732",
+        "price": 5.42,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "NMFC",
+        "lynch_score": null,
+        "peg_ratio": -536.1728672359893,
+        "roe": "0.020252132",
+        "debt_to_equity": "1.357169194",
+        "eps_growth_3y_avg": "-0.067644659",
+        "price": 9.43,
+        "eps_diluted": "0.26"
+      },
+      {
+        "ticker": "SEAT",
+        "lynch_score": null,
+        "peg_ratio": -521.9208209613136,
+        "roe": "0.03417526",
+        "debt_to_equity": "1.203790772",
+        "eps_growth_3y_avg": "-0.378888889",
+        "price": 7.91,
+        "eps_diluted": "0.04"
+      },
+      {
+        "ticker": "MSDL",
+        "lynch_score": null,
+        "peg_ratio": -2924.858864306972,
+        "roe": "0.028056256",
+        "debt_to_equity": "1.090540649",
+        "eps_growth_3y_avg": "-0.009677419",
+        "price": 16.7,
+        "eps_diluted": "0.59"
+      },
+      {
+        "ticker": "BCIC",
+        "lynch_score": null,
+        "peg_ratio": -154.80532844573744,
+        "roe": "0.006279413",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.171586471",
+        "price": 12.75,
+        "eps_diluted": "0.48"
+      },
+      {
+        "ticker": "LUCK",
+        "lynch_score": null,
+        "peg_ratio": -26.05246900491311,
+        "roe": "0.055220133",
+        "debt_to_equity": "2.483766759",
+        "eps_growth_3y_avg": "-2.594123932",
+        "price": 8.11,
+        "eps_diluted": "0.12"
+      },
+      {
+        "ticker": "NCDL",
+        "lynch_score": null,
+        "peg_ratio": -2748.7683875997986,
+        "roe": "0.030077146",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.009354839",
+        "price": 14.4,
+        "eps_diluted": "0.56"
+      },
+      {
+        "ticker": "WHF",
+        "lynch_score": null,
+        "peg_ratio": -191.61699605280802,
+        "roe": "0.020860855",
+        "debt_to_equity": "1.262111458",
+        "eps_growth_3y_avg": "-0.141307523",
+        "price": 7.04,
+        "eps_diluted": "0.26"
+      },
+      {
+        "ticker": "NEWT",
+        "lynch_score": null,
+        "peg_ratio": -212.83156499019205,
+        "roe": "0.020326252",
+        "debt_to_equity": "1.477182975",
+        "eps_growth_3y_avg": "-0.124264314",
+        "price": 10.05,
+        "eps_diluted": "0.38"
+      },
+      {
+        "ticker": "KBDC",
+        "lynch_score": null,
+        "peg_ratio": -3842.307903634627,
+        "roe": "0.023395446",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.007407407",
+        "price": 14.8,
+        "eps_diluted": "0.52"
+      },
+      {
+        "ticker": "EL",
+        "lynch_score": null,
+        "peg_ratio": -529.1547696536169,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.183124304",
+        "price": 88.18,
+        "eps_diluted": "0.91"
+      },
+      {
+        "ticker": "OCSL",
+        "lynch_score": null,
+        "peg_ratio": -303.089482714512,
+        "roe": "0",
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.374201921",
+        "price": 13.61,
+        "eps_diluted": "0.12"
+      },
+      {
+        "ticker": "SHC",
+        "lynch_score": null,
+        "peg_ratio": -16890.27818266568,
+        "roe": null,
+        "debt_to_equity": null,
+        "eps_growth_3y_avg": "-0.046298823",
+        "price": 15.64,
+        "eps_diluted": "0.02"
+      }
+    ]
+  },
+  "F7_columnas_lynch_view": {
+    "success": true,
+    "row_count": 16,
+    "data": [
+      {
+        "column_name": "ticker",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fiscal_year",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "fiscal_period",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "period_end_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "filing_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "days_since_filing",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "price",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_diluted",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_growth_3y_avg",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "peg_ratio",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "debt_to_equity",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "peg_score_base",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "debt_adjustment",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "lynch_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "sector",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "calculated_at",
+        "data_type": "TIMESTAMP"
+      }
+    ]
+  },
+  "F8_sample_lynch_view": {
+    "success": true,
+    "row_count": 20,
+    "data": [
+      {
+        "ticker": "IMSR",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-20",
+        "days_since_filing": 181,
+        "price": 12.07,
+        "eps_diluted": "0.02",
+        "eps_growth_3y_avg": null,
+        "peg_ratio": 60350.0,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "CCAP",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-14",
+        "days_since_filing": 187,
+        "price": 13.66,
+        "eps_diluted": "0.63",
+        "eps_growth_3y_avg": "0.096398193",
+        "peg_ratio": 224.92682702610085,
+        "debt_to_equity": "0.94145958",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "MSIF",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-13",
+        "days_since_filing": 188,
+        "price": 13.13,
+        "eps_diluted": "0.38",
+        "eps_growth_3y_avg": "0.422222222",
+        "peg_ratio": 81.83518009847282,
+        "debt_to_equity": "0.610064097",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "GAINL",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-13",
+        "days_since_filing": 188,
+        "price": 25.145,
+        "eps_diluted": "1.11",
+        "eps_growth_3y_avg": "0.003594053",
+        "peg_ratio": 6302.9546734990145,
+        "debt_to_equity": "0.913090782",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "GAIN",
+        "fiscal_year": 2024,
+        "fiscal_period": "FY",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-13",
+        "days_since_filing": 188,
+        "price": 13.77,
+        "eps_diluted": "1.11",
+        "eps_growth_3y_avg": "0.003594053",
+        "peg_ratio": 3451.647876479675,
+        "debt_to_equity": "0.913090782",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "RWAY",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-12",
+        "days_since_filing": 189,
+        "price": 9.85,
+        "eps_diluted": "0.3",
+        "eps_growth_3y_avg": "0.164815817",
+        "peg_ratio": 199.21227180115446,
+        "debt_to_equity": "0.44437017",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "SCM",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-12",
+        "days_since_filing": 189,
+        "price": 12.05,
+        "eps_diluted": "0.54",
+        "eps_growth_3y_avg": "0.478935929",
+        "peg_ratio": 46.59248442982196,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "MAIN",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-09",
+        "days_since_filing": 192,
+        "price": 58.42,
+        "eps_diluted": "1.05",
+        "eps_growth_3y_avg": "0.070091789",
+        "peg_ratio": 793.789059059332,
+        "debt_to_equity": "0.793335735",
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "BBDC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-08",
+        "days_since_filing": 193,
+        "price": 8.94,
+        "eps_diluted": "0.28",
+        "eps_growth_3y_avg": "0.101021011",
+        "peg_ratio": 316.05871998817577,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "FDUS",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-08",
+        "days_since_filing": 193,
+        "price": 19.75,
+        "eps_diluted": "0.57",
+        "eps_growth_3y_avg": "0.507083505",
+        "peg_ratio": 68.33021083384983,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "OBDC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-07",
+        "days_since_filing": 194,
+        "price": 11.9,
+        "eps_diluted": "0.49",
+        "eps_growth_3y_avg": "0.220123488",
+        "peg_ratio": 110.32768245846754,
+        "debt_to_equity": "1.685440563",
+        "peg_score_base": 0,
+        "debt_adjustment": -15,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "SLRC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-07",
+        "days_since_filing": 194,
+        "price": 15.32,
+        "eps_diluted": "0.51",
+        "eps_growth_3y_avg": "0.465822481",
+        "peg_ratio": 64.48640181939719,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "BXSL",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-07",
+        "days_since_filing": 194,
+        "price": 26.66,
+        "eps_diluted": "0.96",
+        "eps_growth_3y_avg": "0.106795255",
+        "peg_ratio": 260.03808252841696,
+        "debt_to_equity": "0.098798309",
+        "peg_score_base": 0,
+        "debt_adjustment": 10,
+        "lynch_score": 10,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "GLAD",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q2",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-06",
+        "days_since_filing": 195,
+        "price": 19.3,
+        "eps_diluted": "0.5",
+        "eps_growth_3y_avg": "0.660018993",
+        "peg_ratio": 58.483165498844976,
+        "debt_to_equity": null,
+        "peg_score_base": 0,
+        "debt_adjustment": 0,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "CGBDL",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-06",
+        "days_since_filing": 195,
+        "price": 25.44,
+        "eps_diluted": "0.52",
+        "eps_growth_3y_avg": "0.336997046",
+        "peg_ratio": 145.17360761398757,
+        "debt_to_equity": "5.745924326",
+        "peg_score_base": 0,
+        "debt_adjustment": -15,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "CGBD",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-06",
+        "days_since_filing": 195,
+        "price": 11.88,
+        "eps_diluted": "0.52",
+        "eps_growth_3y_avg": "0.336997046",
+        "peg_ratio": 67.79333563106023,
+        "debt_to_equity": "5.745924326",
+        "peg_score_base": 0,
+        "debt_adjustment": -15,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "BCSF",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-05",
+        "days_since_filing": 196,
+        "price": 13.89,
+        "eps_diluted": "0.55",
+        "eps_growth_3y_avg": "0.008960573",
+        "peg_ratio": 2818.4074226665475,
+        "debt_to_equity": "0.261385732",
+        "peg_score_base": 0,
+        "debt_adjustment": 10,
+        "lynch_score": 10,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "GBDC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q2",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-05",
+        "days_since_filing": 196,
+        "price": 13.85,
+        "eps_diluted": "0.55",
+        "eps_growth_3y_avg": "0.053605871",
+        "peg_ratio": 469.7585863648812,
+        "debt_to_equity": "0.22667924",
+        "peg_score_base": 0,
+        "debt_adjustment": 10,
+        "lynch_score": 10,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "HTGC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-01",
+        "days_since_filing": 200,
+        "price": 17.57,
+        "eps_diluted": "0.57",
+        "eps_growth_3y_avg": "0.001697038",
+        "peg_ratio": 18163.742593571136,
+        "debt_to_equity": "1.109083234",
+        "peg_score_base": 0,
+        "debt_adjustment": -15,
+        "lynch_score": 0,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      },
+      {
+        "ticker": "ARCC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-04-29",
+        "days_since_filing": 202,
+        "price": 20.21,
+        "eps_diluted": "0.76",
+        "eps_growth_3y_avg": "0.063644238",
+        "peg_ratio": 417.8242382783794,
+        "debt_to_equity": "0.06469859",
+        "peg_score_base": 0,
+        "debt_adjustment": 10,
+        "lynch_score": 10,
+        "sector": null,
+        "calculated_at": "2025-11-18 03:17:58.878717+00:00"
+      }
+    ]
+  },
+  "F9_columnas_oneil_view": {
+    "success": true,
+    "row_count": 21,
+    "data": [
+      {
+        "column_name": "ticker",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fiscal_year",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "fiscal_period",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "period_end_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "filing_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "days_since_filing",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "price",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_diluted",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_growth_yoy",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_growth_3y_avg",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "revenue_growth_yoy",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "roe",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "current_earnings_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "annual_growth_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "new_products_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "supply_demand_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "leader_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "oneil_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "eps_accelerating_oneil",
+        "data_type": "BOOL"
+      },
+      {
+        "column_name": "sector",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "calculated_at",
+        "data_type": "TIMESTAMP"
+      }
+    ]
+  },
+  "F10_columnas_graham_view": {
+    "success": true,
+    "row_count": 24,
+    "data": [
+      {
+        "column_name": "ticker",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fiscal_year",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "fiscal_period",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "period_end_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "filing_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "days_since_filing",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "price",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_diluted",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "pe_ratio",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "pb_ratio",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "current_ratio",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "debt_to_equity",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "roe",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "quarters_positive_eps_5y",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "pe_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "pb_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "current_ratio_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "debt_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "roe_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "stability_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "graham_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "eps_stable_graham",
+        "data_type": "BOOL"
+      },
+      {
+        "column_name": "sector",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "calculated_at",
+        "data_type": "TIMESTAMP"
+      }
+    ]
+  },
+  "F11_columnas_prices": {
+    "success": true,
+    "row_count": 14,
+    "data": [
+      {
+        "column_name": "origen",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "ticker",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fecha",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "open",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "high",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "low",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "close",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "vol",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "openint",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "carga_ts",
+        "data_type": "TIMESTAMP"
+      },
+      {
+        "column_name": "first_batch_id",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "last_batch_id",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "TIMESTAMP"
+      },
+      {
+        "column_name": "updated_ts",
+        "data_type": "TIMESTAMP"
+      }
+    ]
+  },
+  "F12_prices_basic_stats": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "total_tickers": 13576,
+        "total_records": 22733428
+      }
+    ]
+  },
+  "F13_fundamentals_coverage": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "total_tickers": 6629,
+        "total_filings": 116370,
+        "fecha_mas_antigua": "2019-06-30",
+        "fecha_mas_reciente": "2025-05-31"
+      }
+    ]
+  },
+  "F14_quarters_por_ticker_dist": {
+    "success": true,
+    "row_count": 23,
+    "data": [
+      {
+        "quarters_disponibles": 23,
+        "tickers": 7,
+        "porcentaje": 0.11
+      },
+      {
+        "quarters_disponibles": 22,
+        "tickers": 365,
+        "porcentaje": 5.51
+      },
+      {
+        "quarters_disponibles": 21,
+        "tickers": 3353,
+        "porcentaje": 50.58
+      },
+      {
+        "quarters_disponibles": 20,
+        "tickers": 454,
+        "porcentaje": 6.85
+      },
+      {
+        "quarters_disponibles": 19,
+        "tickers": 287,
+        "porcentaje": 4.33
+      },
+      {
+        "quarters_disponibles": 18,
+        "tickers": 156,
+        "porcentaje": 2.35
+      },
+      {
+        "quarters_disponibles": 17,
+        "tickers": 243,
+        "porcentaje": 3.67
+      },
+      {
+        "quarters_disponibles": 16,
+        "tickers": 190,
+        "porcentaje": 2.87
+      },
+      {
+        "quarters_disponibles": 15,
+        "tickers": 189,
+        "porcentaje": 2.85
+      },
+      {
+        "quarters_disponibles": 14,
+        "tickers": 117,
+        "porcentaje": 1.76
+      },
+      {
+        "quarters_disponibles": 13,
+        "tickers": 153,
+        "porcentaje": 2.31
+      },
+      {
+        "quarters_disponibles": 12,
+        "tickers": 70,
+        "porcentaje": 1.06
+      },
+      {
+        "quarters_disponibles": 11,
+        "tickers": 151,
+        "porcentaje": 2.28
+      },
+      {
+        "quarters_disponibles": 10,
+        "tickers": 73,
+        "porcentaje": 1.1
+      },
+      {
+        "quarters_disponibles": 9,
+        "tickers": 71,
+        "porcentaje": 1.07
+      },
+      {
+        "quarters_disponibles": 8,
+        "tickers": 73,
+        "porcentaje": 1.1
+      },
+      {
+        "quarters_disponibles": 7,
+        "tickers": 57,
+        "porcentaje": 0.86
+      },
+      {
+        "quarters_disponibles": 6,
+        "tickers": 78,
+        "porcentaje": 1.18
+      },
+      {
+        "quarters_disponibles": 5,
+        "tickers": 71,
+        "porcentaje": 1.07
+      },
+      {
+        "quarters_disponibles": 4,
+        "tickers": 111,
+        "porcentaje": 1.67
+      },
+      {
+        "quarters_disponibles": 3,
+        "tickers": 104,
+        "porcentaje": 1.57
+      },
+      {
+        "quarters_disponibles": 2,
+        "tickers": 104,
+        "porcentaje": 1.57
+      },
+      {
+        "quarters_disponibles": 1,
+        "tickers": 152,
+        "porcentaje": 2.29
+      }
+    ]
+  },
+  "F15_tickers_con_12plus_quarters": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "tickers_con_12plus_quarters": 5584
+      }
+    ]
+  },
+  "F16_completitud_fundamentals": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "total_records": 116370,
+        "has_revenue": 37567,
+        "has_net_income": 104878,
+        "has_eps": 91946,
+        "has_assets": 115785,
+        "has_equity": 108680,
+        "has_debt": 9577,
+        "pct_revenue": 32.28,
+        "pct_debt": 8.23
+      }
+    ]
+  },
+  "F17_tickers_por_capa": {
+    "success": true,
+    "row_count": 5,
+    "data": [
+      {
+        "capa": "market_data.Prices",
+        "tickers": 13576
+      },
+      {
+        "capa": "sector_map_v6r2",
+        "tickers": 8113
+      },
+      {
+        "capa": "trinity_scores_base",
+        "tickers": 2007
+      },
+      {
+        "capa": "trinity_scores_historical",
+        "tickers": 2007
+      },
+      {
+        "capa": "v_fundamentals_quarterly_historical",
+        "tickers": 6629
+      }
+    ]
+  },
+  "F18_peg_absurdos_detalle": {
+    "success": true,
+    "row_count": 30,
+    "data": [
+      {
+        "ticker": "KRMN",
+        "peg_ratio": 602500.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 6025.0,
+        "eps_diluted": "0.01",
+        "price": 60.25,
+        "pe_calculado": 6025.0,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "LINE",
+        "peg_ratio": 334099.99999999994,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 3340.9999999999995,
+        "eps_diluted": "0.01",
+        "price": 33.41,
+        "pe_calculado": 3340.9999999999995,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "SNDK",
+        "peg_ratio": 133768.42105263157,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 1337.6842105263158,
+        "eps_diluted": "0.19",
+        "price": 254.16,
+        "pe_calculado": 1337.6842105263158,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "AMTM",
+        "peg_ratio": 110350.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 1103.5,
+        "eps_diluted": "0.02",
+        "price": 22.07,
+        "pe_calculado": 1103.5,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "JBHT",
+        "peg_ratio": 71968.33934124495,
+        "eps_growth_3y_avg": "0.001854299",
+        "pe_ratio": 133.45081967213116,
+        "eps_diluted": "1.22",
+        "price": 162.81,
+        "pe_calculado": 133.45081967213116,
+        "peg_recalculado": 719.6833934124494
+      },
+      {
+        "ticker": "AVPT",
+        "peg_ratio": 65100.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 651.0,
+        "eps_diluted": "0.02",
+        "price": 13.02,
+        "pe_calculado": 651.0,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "GEV",
+        "peg_ratio": 63550.54945054944,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 635.5054945054944,
+        "eps_diluted": "0.91",
+        "price": 578.31,
+        "pe_calculado": 635.5054945054944,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "IMSR",
+        "peg_ratio": 60350.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 603.5,
+        "eps_diluted": "0.02",
+        "price": 12.07,
+        "pe_calculado": 603.5,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "COLA",
+        "peg_ratio": 51700.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 517.0,
+        "eps_diluted": "0.02",
+        "price": 10.34,
+        "pe_calculado": 517.0,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "CLS",
+        "peg_ratio": 40374.02597402597,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 403.7402597402597,
+        "eps_diluted": "0.77",
+        "price": 310.88,
+        "pe_calculado": 403.7402597402597,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "TFSL",
+        "peg_ratio": 39976.13012695331,
+        "eps_growth_3y_avg": "0.004885058",
+        "pe_ratio": 195.28571428571428,
+        "eps_diluted": "0.07",
+        "price": 13.67,
+        "pe_calculado": 195.28571428571428,
+        "peg_recalculado": 399.7613012695331
+      },
+      {
+        "ticker": "AEIS",
+        "peg_ratio": 38313.312791963275,
+        "eps_growth_3y_avg": "0.008130534",
+        "pe_ratio": 311.5076923076923,
+        "eps_diluted": "0.65",
+        "price": 202.48,
+        "pe_calculado": 311.5076923076923,
+        "peg_recalculado": 383.1331279196327
+      },
+      {
+        "ticker": "HD",
+        "peg_ratio": 37804.65820848263,
+        "eps_growth_3y_avg": "0.002640513",
+        "pe_ratio": 99.8236914600551,
+        "eps_diluted": "3.63",
+        "price": 362.36,
+        "pe_calculado": 99.8236914600551,
+        "peg_recalculado": 378.04658208482635
+      },
+      {
+        "ticker": "LB",
+        "peg_ratio": 37270.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 372.7,
+        "eps_diluted": "0.2",
+        "price": 74.54,
+        "pe_calculado": 372.7,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "FFIN",
+        "peg_ratio": 35631.50189091827,
+        "eps_growth_3y_avg": "0.002032432",
+        "pe_ratio": 72.4186046511628,
+        "eps_diluted": "0.43",
+        "price": 31.14,
+        "pe_calculado": 72.4186046511628,
+        "peg_recalculado": 356.31501890918264
+      },
+      {
+        "ticker": "CRWD",
+        "peg_ratio": 33380.79423413364,
+        "eps_growth_3y_avg": "0.09472689",
+        "pe_ratio": 3162.0588235294113,
+        "eps_diluted": "0.17",
+        "price": 537.55,
+        "pe_calculado": 3162.0588235294113,
+        "peg_recalculado": 333.80794234133634
+      },
+      {
+        "ticker": "CHRW",
+        "peg_ratio": 30922.3739194692,
+        "eps_growth_3y_avg": "0.004451717",
+        "pe_ratio": 137.65765765765767,
+        "eps_diluted": "1.11",
+        "price": 152.8,
+        "pe_calculado": 137.65765765765767,
+        "peg_recalculado": 309.223739194692
+      },
+      {
+        "ticker": "FBLA",
+        "peg_ratio": 30750.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 307.5,
+        "eps_diluted": "0.04",
+        "price": 12.3,
+        "pe_calculado": 307.5,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "TWFG",
+        "peg_ratio": 29888.888888888887,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 298.88888888888886,
+        "eps_diluted": "0.09",
+        "price": 26.9,
+        "pe_calculado": 298.88888888888886,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "FRME",
+        "peg_ratio": 29427.670780369215,
+        "eps_growth_3y_avg": "0.0013101",
+        "pe_ratio": 38.55319148936171,
+        "eps_diluted": "0.94",
+        "price": 36.24,
+        "pe_calculado": 38.55319148936171,
+        "peg_recalculado": 294.2767078036922
+      },
+      {
+        "ticker": "CBU",
+        "peg_ratio": 27555.883311840913,
+        "eps_growth_3y_avg": "0.002203928",
+        "pe_ratio": 60.73118279569892,
+        "eps_diluted": "0.93",
+        "price": 56.48,
+        "pe_calculado": 60.73118279569892,
+        "peg_recalculado": 275.55883311840915
+      },
+      {
+        "ticker": "CEP",
+        "peg_ratio": 24800.000000000004,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 248.00000000000003,
+        "eps_diluted": "0.06",
+        "price": 14.88,
+        "pe_calculado": 248.00000000000003,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "HBNC",
+        "peg_ratio": 24676.456339780678,
+        "eps_growth_3y_avg": "0.001211231",
+        "pe_ratio": 29.88888888888889,
+        "eps_diluted": "0.54",
+        "price": 16.14,
+        "pe_calculado": 29.88888888888889,
+        "peg_recalculado": 246.76456339780677
+      },
+      {
+        "ticker": "CURB",
+        "peg_ratio": 23250.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 232.5,
+        "eps_diluted": "0.1",
+        "price": 23.25,
+        "pe_calculado": 232.5,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "WAY",
+        "peg_ratio": 22075.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 220.75,
+        "eps_diluted": "0.16",
+        "price": 35.32,
+        "pe_calculado": 220.75,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "WBTN",
+        "peg_ratio": 21383.333333333332,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 213.83333333333334,
+        "eps_diluted": "0.06",
+        "price": 12.83,
+        "pe_calculado": 213.83333333333334,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "GIG",
+        "peg_ratio": 21039.999999999996,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 210.39999999999998,
+        "eps_diluted": "0.05",
+        "price": 10.52,
+        "pe_calculado": 210.39999999999998,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "IDR",
+        "peg_ratio": 20664.70588235294,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 206.64705882352942,
+        "eps_diluted": "0.17",
+        "price": 35.13,
+        "pe_calculado": 206.64705882352942,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "ETHM",
+        "peg_ratio": 20520.0,
+        "eps_growth_3y_avg": null,
+        "pe_ratio": 205.2,
+        "eps_diluted": "0.05",
+        "price": 10.26,
+        "pe_calculado": 205.2,
+        "peg_recalculado": null
+      },
+      {
+        "ticker": "LFUS",
+        "peg_ratio": 20266.909147418333,
+        "eps_growth_3y_avg": "0.006153117",
+        "pe_ratio": 124.70466321243524,
+        "eps_diluted": "1.93",
+        "price": 240.68,
+        "pe_calculado": 124.70466321243524,
+        "peg_recalculado": 202.6690914741833
+      }
+    ]
+  }
+}

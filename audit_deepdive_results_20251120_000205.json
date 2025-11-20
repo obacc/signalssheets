@@ -1,0 +1,975 @@
+{
+  "INV1_columnas_v_fundamentals_quarterly": {
+    "success": true,
+    "row_count": 33,
+    "data": [
+      {
+        "column_name": "ticker_norm",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fiscal_year",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "fiscal_period",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "period_end_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "filing_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "form",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "revenue",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "net_income",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_diluted",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "total_assets",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "total_liabilities",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "shareholders_equity",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "current_assets",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "current_liabilities",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "long_term_debt",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "gross_profit",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "operating_income",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "revenue_4q_ago",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_4q_ago",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "net_income_4q_ago",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "revenue_growth_yoy",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_growth_yoy",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "net_income_growth_yoy",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "eps_volatility_5y",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_avg_5y",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "quarters_positive_eps_5y",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "equity_to_assets",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "debt_to_equity",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "current_ratio",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "net_margin",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "gross_margin",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "roe",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "days_since_filing",
+        "data_type": "INT64"
+      }
+    ]
+  },
+  "INV2_columnas_trinity_scores_historical": {
+    "success": true,
+    "row_count": 17,
+    "data": [
+      {
+        "column_name": "ticker",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "fiscal_year",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "fiscal_period",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "period_end_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "filing_date",
+        "data_type": "DATE"
+      },
+      {
+        "column_name": "days_since_filing",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "lynch_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "oneil_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "graham_score",
+        "data_type": "INT64"
+      },
+      {
+        "column_name": "trinity_score",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "peg_ratio",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_accelerating_oneil",
+        "data_type": "BOOL"
+      },
+      {
+        "column_name": "eps_stable_graham",
+        "data_type": "BOOL"
+      },
+      {
+        "column_name": "sector",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "price",
+        "data_type": "FLOAT64"
+      },
+      {
+        "column_name": "eps_diluted",
+        "data_type": "NUMERIC"
+      },
+      {
+        "column_name": "calculated_at",
+        "data_type": "TIMESTAMP"
+      }
+    ]
+  },
+  "INV3_inventario_tablas": {
+    "success": false,
+    "error": "400 Unrecognized name: row_count at [8:3]; reason: invalidQuery, location: query, message: Unrecognized name: row_count at [8:3]\n\nLocation: US\nJob ID: 8a3f7747-7d46-4922-8951-828a21cad9f3\n"
+  },
+  "INV4_lynch_zero_sample": {
+    "success": false,
+    "error": "400 Unrecognized name: roe at [6:3]; reason: invalidQuery, location: query, message: Unrecognized name: roe at [6:3]\n\nLocation: US\nJob ID: 5061673e-2110-4e04-9062-f186bb80a4aa\n"
+  },
+  "INV5_lynch_null_sample": {
+    "success": false,
+    "error": "400 Unrecognized name: roe at [6:3]; reason: invalidQuery, location: query, message: Unrecognized name: roe at [6:3]\n\nLocation: US\nJob ID: 02addd55-b5a6-400c-82cc-f08bdced3af6\n"
+  },
+  "INV6_lynch_components_stats": {
+    "success": false,
+    "error": "400 Unrecognized name: roe at [5:9]; reason: invalidQuery, location: query, message: Unrecognized name: roe at [5:9]\n\nLocation: US\nJob ID: 40fd7d35-8adc-4030-94f3-51bda02abd0c\n"
+  },
+  "INV7_debt_equity_distribution": {
+    "success": false,
+    "error": "400 Unrecognized name: debt_to_equity at [4:10]; reason: invalidQuery, location: query, message: Unrecognized name: debt_to_equity at [4:10]\n\nLocation: US\nJob ID: 8830777a-79e8-4e2b-a199-c72c0e4495b3\n"
+  },
+  "INV8_trinity_base_sample": {
+    "success": true,
+    "row_count": 10,
+    "data": [
+      {
+        "ticker": "FISV",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-04-25",
+        "days_since_filing": 206,
+        "revenue": "883000000",
+        "net_income": "851000000",
+        "eps_diluted": "1.51",
+        "total_assets": "80402000000",
+        "total_liabilities": "53881000000",
+        "shareholders_equity": "27068000000",
+        "current_assets": "25591000000",
+        "current_liabilities": "23293000000",
+        "long_term_debt": null,
+        "gross_profit": null,
+        "operating_income": "1395000000",
+        "revenue_growth_yoy": "-0.406586022",
+        "eps_growth_yoy": "0.217741935",
+        "net_income_growth_yoy": "0.157823129",
+        "eps_growth_3y_avg": "0.436933912",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": true,
+        "eps_volatility_5y": 1.466379357824104,
+        "eps_avg_5y": "1.695",
+        "quarters_positive_eps_5y": 20,
+        "equity_to_assets": "0.336658292",
+        "debt_to_equity": null,
+        "current_ratio": "1.098656249",
+        "net_margin": "0.963759909",
+        "gross_margin": null,
+        "roe": "0.031439338",
+        "price": 63.42,
+        "volume": 5596494,
+        "market_cap_proxy": 354929649.48,
+        "sector": null,
+        "pe_ratio": 42.0,
+        "pb_ratio": 0.013112518452785578,
+        "peg_ratio": 96.12437681422173
+      },
+      {
+        "ticker": "ARCC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-04-29",
+        "days_since_filing": 202,
+        "revenue": null,
+        "net_income": "82000000",
+        "eps_diluted": "0.76",
+        "total_assets": "9276000000",
+        "total_liabilities": "14645000000",
+        "shareholders_equity": "12906000000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "835000000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "0",
+        "net_income_growth_yoy": "0",
+        "eps_growth_3y_avg": "0.063644238",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 1.203194233545176,
+        "eps_avg_5y": "1.398181818",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "1.391332471",
+        "debt_to_equity": "0.06469859",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.006353634",
+        "price": 20.21,
+        "volume": 2680388,
+        "market_cap_proxy": 54170641.480000004,
+        "sector": null,
+        "pe_ratio": 26.592105263157894,
+        "pb_ratio": 0.0041973222904075624,
+        "peg_ratio": 417.8242382783794
+      },
+      {
+        "ticker": "TSLX",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-04-30",
+        "days_since_filing": 201,
+        "revenue": null,
+        "net_income": "47518000",
+        "eps_diluted": "0.53",
+        "total_assets": "3582225000",
+        "total_liabilities": "1974696000",
+        "shareholders_equity": "1582006000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "1901142000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "-0.184615385",
+        "net_income_growth_yoy": null,
+        "eps_growth_3y_avg": "-0.027426951",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.9703120397817676,
+        "eps_avg_5y": "1.223636364",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "0.441626643",
+        "debt_to_equity": "1.201728691",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.030036549",
+        "price": 21.23,
+        "volume": 335668,
+        "market_cap_proxy": 7126231.640000001,
+        "sector": null,
+        "pe_ratio": 40.056603773584904,
+        "pb_ratio": 0.004504554116735335,
+        "peg_ratio": -1460.4832951932901
+      },
+      {
+        "ticker": "OCSL",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q2",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-01",
+        "days_since_filing": 200,
+        "revenue": null,
+        "net_income": "0",
+        "eps_diluted": "0.12",
+        "total_assets": "145003000",
+        "total_liabilities": "1604054000",
+        "shareholders_equity": "2367337000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": null,
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "-0.586206897",
+        "net_income_growth_yoy": "-1",
+        "eps_growth_3y_avg": "-0.374201921",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 1.3126309458488323,
+        "eps_avg_5y": "0.87",
+        "quarters_positive_eps_5y": 10,
+        "equity_to_assets": "16.326124287",
+        "debt_to_equity": null,
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0",
+        "price": 13.61,
+        "volume": 454684,
+        "market_cap_proxy": 6188249.239999999,
+        "sector": null,
+        "pe_ratio": 113.41666666666667,
+        "pb_ratio": 0.002614012808484808,
+        "peg_ratio": -303.089482714512
+      },
+      {
+        "ticker": "HTGC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-01",
+        "days_since_filing": 200,
+        "revenue": null,
+        "net_income": "90964000",
+        "eps_diluted": "0.57",
+        "total_assets": "4031211000",
+        "total_liabilities": "2030581000",
+        "shareholders_equity": "1802706000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "1999351000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "-0.161764706",
+        "net_income_growth_yoy": "-0.038069456",
+        "eps_growth_3y_avg": "0.001697038",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.7813124156885586,
+        "eps_avg_5y": "1.010909091",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "0.44718721",
+        "debt_to_equity": "1.109083234",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.050459698",
+        "price": 17.57,
+        "volume": 1290205,
+        "market_cap_proxy": 22668901.85,
+        "sector": null,
+        "pe_ratio": 30.824561403508774,
+        "pb_ratio": 0.012574930049603208,
+        "peg_ratio": 18163.742593571136
+      },
+      {
+        "ticker": "BCSF",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-05",
+        "days_since_filing": 196,
+        "revenue": null,
+        "net_income": "-113000",
+        "eps_diluted": "0.55",
+        "total_assets": "704900000",
+        "total_liabilities": "1492485000",
+        "shareholders_equity": "1139672000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "297894000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "0",
+        "net_income_growth_yoy": "-1.003219832",
+        "eps_growth_3y_avg": "0.008960573",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.7311231574971289,
+        "eps_avg_5y": "1.01375",
+        "quarters_positive_eps_5y": 8,
+        "equity_to_assets": "1.61678536",
+        "debt_to_equity": "0.261385732",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "-0.000099151",
+        "price": 13.89,
+        "volume": 302012,
+        "market_cap_proxy": 4194946.680000001,
+        "sector": null,
+        "pe_ratio": 25.254545454545454,
+        "pb_ratio": 0.0036808368372654595,
+        "peg_ratio": 2818.4074226665475
+      },
+      {
+        "ticker": "GBDC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q2",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-05",
+        "days_since_filing": 196,
+        "revenue": null,
+        "net_income": "93558000",
+        "eps_diluted": "0.55",
+        "total_assets": "8949865000",
+        "total_liabilities": "4906367000",
+        "shareholders_equity": "2646912000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "600000000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "0",
+        "net_income_growth_yoy": "0",
+        "eps_growth_3y_avg": "0.053605871",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.6727893091789245,
+        "eps_avg_5y": "0.836363636",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "0.295748819",
+        "debt_to_equity": "0.22667924",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.035346094",
+        "price": 13.85,
+        "volume": 713713,
+        "market_cap_proxy": 9884925.049999999,
+        "sector": null,
+        "pe_ratio": 25.18181818181818,
+        "pb_ratio": 0.0037345121598300205,
+        "peg_ratio": 469.7585863648812
+      },
+      {
+        "ticker": "NMFC",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-05",
+        "days_since_filing": 196,
+        "revenue": null,
+        "net_income": "27408000",
+        "eps_diluted": "0.26",
+        "total_assets": "3246701000",
+        "total_liabilities": "369335000",
+        "shareholders_equity": "1353339000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "1836710000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "-0.35",
+        "net_income_growth_yoy": "-0.385098602",
+        "eps_growth_3y_avg": "-0.067644659",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.6692872735570687,
+        "eps_avg_5y": "0.683636364",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "0.41683512",
+        "debt_to_equity": "1.357169194",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.020252132",
+        "price": 9.43,
+        "volume": 396723,
+        "market_cap_proxy": 3741097.8899999997,
+        "sector": null,
+        "pe_ratio": 36.26923076923077,
+        "pb_ratio": 0.00276434647194827,
+        "peg_ratio": -536.1728672359893
+      },
+      {
+        "ticker": "GLAD",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q2",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-06",
+        "days_since_filing": 195,
+        "revenue": null,
+        "net_income": "23632000",
+        "eps_diluted": "0.5",
+        "total_assets": "812468000",
+        "total_liabilities": "333727000",
+        "shareholders_equity": "480316000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": null,
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "0.923076923",
+        "net_income_growth_yoy": "0",
+        "eps_growth_3y_avg": "0.660018993",
+        "eps_accelerating_oneil": true,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.6095936715915319,
+        "eps_avg_5y": "0.634",
+        "quarters_positive_eps_5y": 10,
+        "equity_to_assets": "0.591181437",
+        "debt_to_equity": null,
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.049200943",
+        "price": 19.3,
+        "volume": 247238,
+        "market_cap_proxy": 4771693.4,
+        "sector": null,
+        "pe_ratio": 38.6,
+        "pb_ratio": 0.009934487712256098,
+        "peg_ratio": 58.483165498844976
+      },
+      {
+        "ticker": "CGBD",
+        "fiscal_year": 2025,
+        "fiscal_period": "Q1",
+        "period_end_date": "2025-03-31",
+        "filing_date": "2025-05-06",
+        "days_since_filing": 195,
+        "revenue": null,
+        "net_income": "29264000",
+        "eps_diluted": "0.52",
+        "total_assets": "1925993000",
+        "total_liabilities": "1321419000",
+        "shareholders_equity": "65756000",
+        "current_assets": null,
+        "current_liabilities": null,
+        "long_term_debt": "377829000",
+        "gross_profit": null,
+        "operating_income": null,
+        "revenue_growth_yoy": null,
+        "eps_growth_yoy": "0",
+        "net_income_growth_yoy": "0.333819508",
+        "eps_growth_3y_avg": "0.336997046",
+        "eps_accelerating_oneil": false,
+        "eps_stable_graham": false,
+        "eps_volatility_5y": 0.9201086892318755,
+        "eps_avg_5y": "1",
+        "quarters_positive_eps_5y": 11,
+        "equity_to_assets": "0.034141349",
+        "debt_to_equity": "5.745924326",
+        "current_ratio": null,
+        "net_margin": null,
+        "gross_margin": null,
+        "roe": "0.445039236",
+        "price": 11.88,
+        "volume": 539029,
+        "market_cap_proxy": 6403664.5200000005,
+        "sector": null,
+        "pe_ratio": 22.846153846153847,
+        "pb_ratio": 0.0973852503193625,
+        "peg_ratio": 67.79333563106023
+      }
+    ]
+  },
+  "INV9_trinity_base_ddl": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "table_name": "trinity_scores_base",
+        "table_type": "BASE TABLE"
+      }
+    ]
+  },
+  "INV10_sector_map_structure": {
+    "success": true,
+    "row_count": 2,
+    "data": [
+      {
+        "column_name": "ticker_canon",
+        "data_type": "STRING"
+      },
+      {
+        "column_name": "sector",
+        "data_type": "STRING"
+      }
+    ]
+  },
+  "INV11_sector_map_sample": {
+    "success": true,
+    "row_count": 20,
+    "data": [
+      {
+        "ticker_canon": "EME",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "APG",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "ZEOWW",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "FFLO",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "HOVNP",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "EEGI",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "JFB",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "ADMQ",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "ZNB",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "DY",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "WXM",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "IBP",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "GRHI",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "GVA",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "SDHC",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "SKK",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "GLDD",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "J",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "FIX",
+        "sector": "CONSTRUCTION"
+      },
+      {
+        "ticker_canon": "FGL",
+        "sector": "CONSTRUCTION"
+      }
+    ]
+  },
+  "INV12_tickers_sin_sector": {
+    "success": true,
+    "row_count": 1,
+    "data": [
+      {
+        "total_tickers": 2010,
+        "con_sector": 1971,
+        "sin_sector": 39,
+        "porcentaje_sin_sector": 1.94
+      }
+    ]
+  },
+  "INV13_peg_distribution": {
+    "success": true,
+    "row_count": 6,
+    "data": [
+      {
+        "rango": "0-1 (IDEAL)",
+        "cantidad": 12,
+        "porcentaje": 0.6
+      },
+      {
+        "rango": "1-2 (OK)",
+        "cantidad": 3,
+        "porcentaje": 0.15
+      },
+      {
+        "rango": "2-5 (ALTO)",
+        "cantidad": 13,
+        "porcentaje": 0.65
+      },
+      {
+        "rango": "5-10 (MUY ALTO)",
+        "cantidad": 18,
+        "porcentaje": 0.9
+      },
+      {
+        "rango": ">10 (ABSURDO)",
+        "cantidad": 1213,
+        "porcentaje": 60.35
+      },
+      {
+        "rango": "NULL",
+        "cantidad": 751,
+        "porcentaje": 37.36
+      }
+    ]
+  },
+  "INV14_top_peg_absurdos": {
+    "success": false,
+    "error": "400 Unrecognized name: roe at [7:3]; reason: invalidQuery, location: query, message: Unrecognized name: roe at [7:3]\n\nLocation: US\nJob ID: cc2258e0-8742-457a-bfbf-4db326f7cf10\n"
+  },
+  "INV15_tablas_produccion_old": {
+    "success": false,
+    "error": "400 Unrecognized name: row_count at [2:32]; reason: invalidQuery, location: query, message: Unrecognized name: row_count at [2:32]\n\nLocation: US\nJob ID: ea2716b1-dd0a-46ca-b78a-a6a20c2da996\n"
+  },
+  "INV16_market_data_prices": {
+    "success": false,
+    "error": "400 Unrecognized name: date at [4:7]; reason: invalidQuery, location: query, message: Unrecognized name: date at [4:7]\n\nLocation: US\nJob ID: b309edcf-3e98-4a0f-a6ee-00a2d251ecea\n"
+  },
+  "INV17_recent_prices_sample": {
+    "success": false,
+    "error": "400 Unrecognized name: date at [4:7]; reason: invalidQuery, location: query, message: Unrecognized name: date at [4:7]\n\nLocation: US\nJob ID: 1673f9d6-8005-4620-a060-13a7c2e8e6d1\n"
+  },
+  "INV18_senales_detalladas": {
+    "success": true,
+    "row_count": 6,
+    "data": [
+      {
+        "signal_category": "BUY (>=75)",
+        "cantidad": 3,
+        "porcentaje": 0.15,
+        "min_score": 75.0,
+        "max_score": 77.33,
+        "avg_score": 76.33
+      },
+      {
+        "signal_category": "STRONG_HOLD (70-74)",
+        "cantidad": 4,
+        "porcentaje": 0.2,
+        "min_score": 70.67,
+        "max_score": 71.67,
+        "avg_score": 71.0
+      },
+      {
+        "signal_category": "HOLD (60-69)",
+        "cantidad": 6,
+        "porcentaje": 0.3,
+        "min_score": 64.0,
+        "max_score": 69.0,
+        "avg_score": 66.72
+      },
+      {
+        "signal_category": "WEAK_HOLD (50-59)",
+        "cantidad": 26,
+        "porcentaje": 1.29,
+        "min_score": 50.0,
+        "max_score": 58.5,
+        "avg_score": 53.36
+      },
+      {
+        "signal_category": "WEAK_SELL (40-49)",
+        "cantidad": 217,
+        "porcentaje": 10.8,
+        "min_score": 40.0,
+        "max_score": 49.33,
+        "avg_score": 43.28
+      },
+      {
+        "signal_category": "SELL (<40)",
+        "cantidad": 1754,
+        "porcentaje": 87.26,
+        "min_score": 3.33,
+        "max_score": 39.33,
+        "avg_score": 27.47
+      }
+    ]
+  },
+  "INV19_top50_signals": {
+    "success": false,
+    "error": "400 Unrecognized name: roe at [11:3]; reason: invalidQuery, location: query, message: Unrecognized name: roe at [11:3]\n\nLocation: US\nJob ID: 9efbddd3-5ce0-44b2-9240-be6f461d76d0\n"
+  },
+  "INV20_oneil_stats": {
+    "success": true,
+    "row_count": 4,
+    "data": [
+      {
+        "total": 761,
+        "has_oneil": 761,
+        "avg_oneil": 16.91,
+        "min_oneil": 5,
+        "max_oneil": 25,
+        "rango": "1-25",
+        "cantidad": 761
+      },
+      {
+        "total": 836,
+        "has_oneil": 836,
+        "avg_oneil": 39.64,
+        "min_oneil": 28,
+        "max_oneil": 50,
+        "rango": "26-50",
+        "cantidad": 836
+      },
+      {
+        "total": 366,
+        "has_oneil": 366,
+        "avg_oneil": 63.09,
+        "min_oneil": 53,
+        "max_oneil": 75,
+        "rango": "51-75",
+        "cantidad": 366
+      },
+      {
+        "total": 47,
+        "has_oneil": 47,
+        "avg_oneil": 84.21,
+        "min_oneil": 78,
+        "max_oneil": 100,
+        "rango": "76-100",
+        "cantidad": 47
+      }
+    ]
+  },
+  "INV21_graham_stats": {
+    "success": true,
+    "row_count": 5,
+    "data": [
+      {
+        "total": 220,
+        "has_graham": 220,
+        "avg_graham": 19.19,
+        "min_graham": 5,
+        "max_graham": 25,
+        "rango": "1-25",
+        "cantidad": 220
+      },
+      {
+        "total": 1354,
+        "has_graham": 1354,
+        "avg_graham": 39.29,
+        "min_graham": 27,
+        "max_graham": 50,
+        "rango": "26-50",
+        "cantidad": 1354
+      },
+      {
+        "total": 415,
+        "has_graham": 415,
+        "avg_graham": 55.51,
+        "min_graham": 52,
+        "max_graham": 75,
+        "rango": "51-75",
+        "cantidad": 415
+      },
+      {
+        "total": 14,
+        "has_graham": 14,
+        "avg_graham": 80.79,
+        "min_graham": 77,
+        "max_graham": 85,
+        "rango": "76-100",
+        "cantidad": 14
+      },
+      {
+        "total": 7,
+        "has_graham": 7,
+        "avg_graham": 0.0,
+        "min_graham": 0,
+        "max_graham": 0,
+        "rango": "CERO",
+        "cantidad": 7
+      }
+    ]
+  }
+}
