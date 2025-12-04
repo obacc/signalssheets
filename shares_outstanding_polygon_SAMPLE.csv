@@ -1,0 +1,11 @@
+ticker,shares_outstanding,shares_source,polygon_response_date,last_updated,notes
+GOOGL,12198500000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+GOOG,12198500000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+BRK.B,2100000000,share_class,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+TSLA,3178919364,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+TSM,25894855095,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+V,1950000000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+WMT,2590000000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+JPM,2845000000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+MA,925000000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
+LLY,900000000,weighted,2025-12-04,2025-12-04T14:41:46,Downloaded from Polygon.io on 2025-12-04
