@@ -1,0 +1,126 @@
+================================================================================
+DIAGNÓSTICO COMPLETO EPS TTM - PROBLEMA Q4_calc
+Fecha: 2025-12-05
+================================================================================
+
+🔴 CAUSA RAÍZ IDENTIFICADA:
+   Q4_calc EN LA TABLA CONTIENE EL VALOR DE FY (AÑO COMPLETO), NO Q4!
+
+================================================================================
+EVIDENCIA - AAPL FISCAL YEAR 2024:
+================================================================================
+
+| Period   | period_end_date | eps_diluted | Observación          |
+|----------|-----------------|-------------|----------------------|
+| Q1       | 2023-12-31      | $2.18       | ✅ Correcto         |
+| Q2       | 2024-03-31      | $1.53       | ✅ Correcto         |
+| Q3       | 2024-06-30      | $1.40       | ✅ Correcto         |
+| Q4_calc  | 2024-09-30      | $6.13       | ❌ INCORRECTO       |
+| FY       | 2024-09-30      | $6.13       | ✅ Año completo     |
+
+CÁLCULO Q4 CORRECTO:
+  Q4 = FY - Q1 - Q2 - Q3
+  Q4 = 6.13 - 2.18 - 1.53 - 1.40 = $1.02
+
+⚠️ Q4_calc tiene $6.13 (el FY completo) en lugar de $1.02 (solo Q4)
+
+================================================================================
+IMPACTO EN EPS TTM:
+================================================================================
+
+CON Q4_calc INCORRECTO (actual):
+  TTM = Q3_2025 + Q2_2025 + Q1_2025 + Q4_calc_2024
+  TTM = 1.57 + 1.65 + 2.40 + 6.13 = $11.75
+  P/E = $280.70 / $11.75 = 23.89
+
+CON Q4 CORREGIDO:
+  TTM = Q3_2025 + Q2_2025 + Q1_2025 + Q4_correcto_2024
+  TTM = 1.57 + 1.65 + 2.40 + 1.02 = $6.64
+  P/E = $280.70 / $6.64 = 42.27
+
+COMPARACIÓN:
+| Método                  | EPS TTM | P/E    |
+|-------------------------|---------|--------|
+| Script actual (Q4_calc) | $11.75  | 23.89  |
+| Corregido (Q4 real)     | $6.64   | 42.27  |
+| Yahoo Finance           | ~$7.37  | 38.09  |
+
+================================================================================
+VALIDACIÓN Q4_calc - TODOS LOS TICKERS TIENEN EL MISMO ERROR:
+================================================================================
+
+| Ticker | FY     | EPS FY | Suma Q1-Q4_calc | Error %  |
+|--------|--------|--------|-----------------|----------|
+| AAPL   | 2024   | $6.13  | $11.24          | 83.36%   |
+| MSFT   | 2024   | $11.80 | $20.66          | 75.08%   |
+| NVDA   | 2024   | $2.94  | $9.95           | 238.44%  |
+| ORCL   | 2024   | $3.71  | $6.31           | 70.08%   |
+| WMT    | 2024   | $2.41  | $6.24           | 158.92%  |
+
+Nota: Si Q4_calc fuera correcto, Suma Q1-Q4 ≈ FY (error < 1%)
+
+================================================================================
+ORIGEN DEL ERROR:
+================================================================================
+
+El problema está en cómo se generó fundamentals_timeseries.
+Q4_calc debería calcularse como:
+
+  Q4_calc = FY - Q1 - Q2 - Q3
+
+Pero parece que se copió directamente el valor de FY a Q4_calc.
+
+================================================================================
+SOLUCIÓN RECOMENDADA:
+================================================================================
+
+OPCIÓN 1: Corregir Q4_calc en la tabla (mejor solución)
+```sql
+UPDATE `sunny-advantage-471523-b3.IS_Fundamentales.fundamentals_timeseries` t
+SET eps_diluted = (
+  SELECT fy.eps_diluted - COALESCE(q1.eps_diluted,0) - COALESCE(q2.eps_diluted,0) - COALESCE(q3.eps_diluted,0)
+  FROM fundamentals_timeseries fy
+  LEFT JOIN fundamentals_timeseries q1 ON fy.ticker = q1.ticker AND fy.fiscal_year = q1.fiscal_year AND q1.fiscal_period = 'Q1'
+  LEFT JOIN fundamentals_timeseries q2 ON fy.ticker = q2.ticker AND fy.fiscal_year = q2.fiscal_year AND q2.fiscal_period = 'Q2'
+  LEFT JOIN fundamentals_timeseries q3 ON fy.ticker = q3.ticker AND fy.fiscal_year = q3.fiscal_year AND q3.fiscal_period = 'Q3'
+  WHERE fy.ticker = t.ticker AND fy.fiscal_year = t.fiscal_year AND fy.fiscal_period = 'FY'
+)
+WHERE t.fiscal_period = 'Q4_calc'
+```
+
+OPCIÓN 2: Calcular Q4 en el query de validación (workaround)
+```sql
+WITH q4_corrected AS (
+  SELECT
+    ticker,
+    fiscal_year,
+    (SELECT eps_diluted FROM fundamentals_timeseries f2
+     WHERE f2.ticker = f1.ticker AND f2.fiscal_year = f1.fiscal_year AND f2.fiscal_period = 'FY')
+    -
+    COALESCE((SELECT eps_diluted FROM fundamentals_timeseries f2
+     WHERE f2.ticker = f1.ticker AND f2.fiscal_year = f1.fiscal_year AND f2.fiscal_period = 'Q1'), 0)
+    -
+    COALESCE((SELECT eps_diluted FROM fundamentals_timeseries f2
+     WHERE f2.ticker = f1.ticker AND f2.fiscal_year = f1.fiscal_year AND f2.fiscal_period = 'Q2'), 0)
+    -
+    COALESCE((SELECT eps_diluted FROM fundamentals_timeseries f2
+     WHERE f2.ticker = f1.ticker AND f2.fiscal_year = f1.fiscal_year AND f2.fiscal_period = 'Q3'), 0)
+    AS q4_eps_corrected
+  FROM fundamentals_timeseries f1
+  WHERE fiscal_period = 'Q4_calc'
+)
+-- Usar q4_corrected en lugar de Q4_calc directamente
+```
+
+================================================================================
+CONCLUSIÓN:
+================================================================================
+
+❌ PROBLEMA: Q4_calc contiene valores de FY, no de Q4
+❌ IMPACTO: EPS TTM inflado ~77%, P/E subestimado ~43%
+✅ SOLUCIÓN: Recalcular Q4_calc = FY - Q1 - Q2 - Q3
+
+El error NO está en el query de validación, sino en los DATOS de la tabla.
+Todos los tickers están afectados por este mismo problema.
+
+================================================================================
