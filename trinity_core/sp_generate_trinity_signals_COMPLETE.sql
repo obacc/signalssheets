@@ -339,9 +339,9 @@ BEGIN
       -- Ratios from fundamentals_ratios
       lr.roe * 100 AS roe, -- Convert to percentage
       lr.current_ratio,
-      lr.revenue_growth_yoy * 100 AS revenue_growth_yoy, -- Convert to percentage
-      lr.eps_growth_yoy * 100 AS eps_growth_yoy,
-      lr.net_income_growth_yoy * 100 AS net_income_growth_yoy,
+      lr.revenue_growth_yoy AS revenue_growth_yoy, -- Already stored as percentage
+      lr.eps_growth_yoy AS eps_growth_yoy, -- Already stored as percentage
+      lr.net_income_growth_yoy AS net_income_growth_yoy, -- Already stored as percentage
       lr.debt_to_equity,
       -- Dynamic ratios
       CASE WHEN lf.eps_ttm > 0 THEN lp.price_current / lf.eps_ttm ELSE NULL END AS pe_ratio,
@@ -351,10 +351,10 @@ BEGIN
       CASE WHEN lf.revenues_ttm > 0
            THEN (lp.price_current * COALESCE(lf.net_income_ttm / NULLIF(lf.eps_ttm, 0), 1000000000)) / lf.revenues_ttm
            ELSE NULL END AS ps_ratio,
-      -- PEG = P/E / EPS Growth Rate
+      -- PEG = P/E / EPS Growth Rate (eps_growth_yoy already as %)
       CASE
         WHEN lf.eps_ttm > 0 AND lr.eps_growth_yoy > 0
-        THEN (lp.price_current / lf.eps_ttm) / (lr.eps_growth_yoy * 100)
+        THEN (lp.price_current / lf.eps_ttm) / lr.eps_growth_yoy
         ELSE NULL
       END AS peg_ratio,
       lf.data_quality_score,
