@@ -3,56 +3,45 @@ MARKET REGIME SYSTEM - EXECUTION LOG
 Date: 2025-12-05
 ======================================================================
 
-PASO 1: CREATE TABLE market_regime_daily
+PASO 1: CLEAN FALLBACK CODE
 ----------------------------------------------------------------------
-Status: ✅ SUCCESS
-Table: sunny-advantage-471523-b3.IS_Fundamentales.market_regime_daily
-Columns:
-  - regime_date DATE (partition key)
-  - regime_type STRING (BULL/NEUTRAL/CORRECTION/BEAR)
-  - sp500_close FLOAT64
-  - sp500_ytd_start FLOAT64
-  - sp500_ytd_change_pct FLOAT64
-  - vix_close FLOAT64
-  - calculation_method STRING
-  - data_source STRING
-  - notes STRING
-  - created_at TIMESTAMP
-  - updated_at TIMESTAMP
+Status: COMPLETED
+Action: Removed all fallback/estimated values from update_market_regime.py
+- Removed get_manual_data() function
+- Removed fallback logic
+- Script now fails explicitly if yfinance unavailable
 
-PASO 2: CREATE SCRIPT update_market_regime.py
+PASO 2: CREATE CLOUD FUNCTION STRUCTURE
 ----------------------------------------------------------------------
-Status: ✅ SUCCESS
-Location: /home/user/signalssheets/market_regime/update_market_regime.py
-Features:
-  - Tries yfinance first (if installed)
-  - Falls back to manual/estimated values
-  - Uses MERGE for idempotent updates
-  - Calculates regime from S&P 500 YTD change
+Status: COMPLETED
+Location: /home/user/signalssheets/cloud_functions/market_regime/
+Files created:
+  - main.py (Cloud Function entry point)
+  - requirements.txt (yfinance, google-cloud-bigquery, etc.)
 
-PASO 3: FIRST EXECUTION
+PASO 3: DEPLOY CLOUD FUNCTION
 ----------------------------------------------------------------------
-Status: ✅ SUCCESS
-Execution Time: 2025-12-05T20:35:10
-Data Source: Manual Entry (estimated)
-Results:
-  - S&P 500 YTD Start: $5,881.63
-  - S&P 500 Current:   $6,090.27
-  - YTD Change:        +3.55%
-  - VIX:               13.50
-  - Regime:            NEUTRAL
+Status: PENDING (requires gcloud CLI)
+Note: gcloud CLI not available in this environment.
+Deployment commands documented in DEPLOYMENT.md
 
-PASO 4: VERIFY TABLE POPULATED
+PASO 4: TEST CLOUD FUNCTION
 ----------------------------------------------------------------------
-Status: ✅ SUCCESS
-Records Found: 1
-Data verified in BigQuery
+Status: PENDING (requires deployed function)
 
-PASO 5: IDEMPOTENCY TEST (2ND EXECUTION)
+PASO 5: VALIDATE REAL DATA
 ----------------------------------------------------------------------
-Status: ✅ SUCCESS
-Records after 2nd run: 1 (no duplicates)
-MERGE statement working correctly
+Status: PENDING (requires deployed function)
+
+PASO 6: CLEAN FAKE RECORDS
+----------------------------------------------------------------------
+Status: COMPLETED
+Action: Deleted 1 record with 'Manual Entry (estimated)' data source
+Query executed:
+  DELETE FROM market_regime_daily
+  WHERE data_source LIKE '%estimated%' OR data_source LIKE '%Manual%'
+
+Current table status: EMPTY (ready for real data)
 
 ======================================================================
 REGIME CLASSIFICATION RULES
@@ -65,10 +54,25 @@ S&P 500 YTD Change:
   <  -20%     : BEAR        (Bear market)
 
 ======================================================================
-CURRENT MARKET REGIME: NEUTRAL
-S&P 500 YTD: +3.55%
+NEXT STEPS (Manual)
 ======================================================================
+1. Deploy Cloud Function using gcloud CLI (see DEPLOYMENT.md)
+2. Test function with curl POST
+3. Verify real Yahoo Finance data in BigQuery
+4. Create Cloud Scheduler for daily automation
 
-Note: yfinance library could not be installed in this environment.
-Script uses manual/estimated S&P 500 values as fallback.
-For production use, install yfinance or configure alternative API.
+======================================================================
+FILES CREATED/MODIFIED
+======================================================================
+- market_regime/update_market_regime.py (cleaned, no fallback)
+- market_regime/DEPLOYMENT.md (deployment guide)
+- cloud_functions/market_regime/main.py
+- cloud_functions/market_regime/requirements.txt
+
+======================================================================
+IMPORTANT
+======================================================================
+- NO fallback/estimated data allowed
+- Function fails explicitly if Yahoo Finance unavailable
+- Always verify data_source = 'Yahoo Finance' in BigQuery
+======================================================================

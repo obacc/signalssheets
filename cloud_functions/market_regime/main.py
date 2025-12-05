@@ -1,22 +1,17 @@
-#!/usr/bin/env python3
 """
-Update Market Regime Daily
-Fetches S&P 500 YTD performance from Yahoo Finance and determines market regime.
+Cloud Function: Update Market Regime Daily
+Triggered by Cloud Scheduler or HTTP request
 
-Production version - requires yfinance library.
-No fallback/estimated values - fails explicitly if data unavailable.
+Fetches S&P 500 YTD performance from Yahoo Finance and determines market regime.
+Updates BigQuery table: sunny-advantage-471523-b3.IS_Fundamentales.market_regime_daily
 """
 
 import os
 import sys
+import json
 from datetime import datetime, date
 
-# Set credentials if running locally
-if 'GOOGLE_APPLICATION_CREDENTIALS' not in os.environ:
-    creds_path = '/home/user/signalssheets/credentials/gcp-service-account.json'
-    if os.path.exists(creds_path):
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = creds_path
-
+import functions_framework
 from google.cloud import bigquery
 
 # Config
@@ -50,14 +45,7 @@ def calculate_market_regime(ytd_change_pct):
 
 def fetch_market_data():
     """Fetch S&P 500 and VIX data from Yahoo Finance."""
-    print("[1] Fetching market data from Yahoo Finance...")
-
-    try:
-        import yfinance as yf
-    except ImportError:
-        raise ImportError(
-            "yfinance is required. Install with: pip install yfinance"
-        )
+    import yfinance as yf
 
     # S&P 500
     sp500 = yf.Ticker("^GSPC")
@@ -77,24 +65,18 @@ def fetch_market_data():
     if len(ytd_data) == 0:
         raise ValueError(f"No S&P 500 data found for {current_year}")
 
-    ytd_start_price = ytd_data.iloc[0]['Close']
-    current_price = sp500_history.iloc[-1]['Close']
+    ytd_start_price = float(ytd_data.iloc[0]['Close'])
+    current_price = float(sp500_history.iloc[-1]['Close'])
     ytd_change_pct = ((current_price - ytd_start_price) / ytd_start_price) * 100
 
-    vix_current = vix_history.iloc[-1]['Close'] if len(vix_history) > 0 else None
-
-    print(f"    S&P 500 YTD Start: ${ytd_start_price:.2f}")
-    print(f"    S&P 500 Current:   ${current_price:.2f}")
-    print(f"    YTD Change:        {ytd_change_pct:+.2f}%")
-    if vix_current:
-        print(f"    VIX Current:       {vix_current:.2f}")
+    vix_current = float(vix_history.iloc[-1]['Close']) if len(vix_history) > 0 else None
 
     return {
         'regime_date': date.today(),
-        'sp500_close': float(current_price),
-        'sp500_ytd_start': float(ytd_start_price),
-        'sp500_ytd_change_pct': float(ytd_change_pct),
-        'vix_close': float(vix_current) if vix_current else None,
+        'sp500_close': current_price,
+        'sp500_ytd_start': ytd_start_price,
+        'sp500_ytd_change_pct': ytd_change_pct,
+        'vix_close': vix_current,
         'regime_type': calculate_market_regime(ytd_change_pct),
         'calculation_method': 'SP500_YTD',
         'data_source': 'Yahoo Finance',
@@ -104,8 +86,6 @@ def fetch_market_data():
 
 def update_bigquery(data):
     """Insert or update market regime in BigQuery using MERGE for idempotency."""
-    print("\n[2] Updating BigQuery...")
-
     client = bigquery.Client(project=PROJECT_ID)
     table_ref = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 
@@ -154,43 +134,60 @@ def update_bigquery(data):
 
     job = client.query(merge_query)
     job.result()
-
-    print(f"    Market Regime updated: {data['regime_type']}")
-    print(f"    Date: {data['regime_date']}")
+    return True
 
 
-def main():
-    """Main execution."""
-    print("=" * 70)
-    print("MARKET REGIME UPDATE - YAHOO FINANCE")
-    print(f"Execution Time: {datetime.now().isoformat()}")
-    print("=" * 70)
+@functions_framework.http
+def market_regime_update(request):
+    """
+    Cloud Function entry point.
+
+    Args:
+        request (flask.Request): HTTP request object
+
+    Returns:
+        tuple: (response_dict, status_code)
+    """
+    execution_time = datetime.now().isoformat()
+    print(f"[{execution_time}] Market Regime Update started")
 
     try:
         # Fetch data from Yahoo Finance
+        print("Fetching market data from Yahoo Finance...")
         data = fetch_market_data()
 
+        print(f"S&P 500 YTD Start: ${data['sp500_ytd_start']:.2f}")
+        print(f"S&P 500 Current:   ${data['sp500_close']:.2f}")
+        print(f"YTD Change:        {data['sp500_ytd_change_pct']:+.2f}%")
+        print(f"VIX Current:       {data['vix_close']:.2f}" if data['vix_close'] else "VIX: N/A")
+        print(f"Regime:            {data['regime_type']}")
+
         # Update BigQuery
+        print("Updating BigQuery...")
         update_bigquery(data)
 
-        print("\n" + "=" * 70)
         print(f"SUCCESS - Market Regime: {data['regime_type']}")
-        print(f"   S&P 500 YTD: {data['sp500_ytd_change_pct']:+.2f}%")
-        print(f"   Data Source: {data['data_source']}")
-        print("=" * 70)
 
-        return 0
-
-    except ImportError as e:
-        print(f"\nDEPENDENCY ERROR: {str(e)}", file=sys.stderr)
-        return 2
+        return {
+            'status': 'success',
+            'message': 'Market regime updated successfully',
+            'data': {
+                'regime_date': str(data['regime_date']),
+                'regime_type': data['regime_type'],
+                'sp500_close': round(data['sp500_close'], 2),
+                'sp500_ytd_change_pct': round(data['sp500_ytd_change_pct'], 2),
+                'vix_close': round(data['vix_close'], 2) if data['vix_close'] else None,
+                'data_source': data['data_source']
+            }
+        }, 200
 
     except Exception as e:
-        print(f"\nERROR: {str(e)}", file=sys.stderr)
+        error_msg = str(e)
+        print(f"ERROR: {error_msg}")
         import traceback
         traceback.print_exc()
-        return 1
 
-
-if __name__ == "__main__":
-    sys.exit(main())
+        return {
+            'status': 'error',
+            'message': error_msg
+        }, 500
