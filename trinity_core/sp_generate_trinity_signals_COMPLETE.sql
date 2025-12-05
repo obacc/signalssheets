@@ -288,25 +288,30 @@ BEGIN
     WHERE ft.fiscal_period = 'FY'
   ),
 
-  -- PASO 6: Latest ratios
+  -- PASO 6: Latest ratios (use most recent period, not just FY)
   latest_ratios AS (
     SELECT
-      fr.ticker,
-      fr.roe,
-      fr.current_ratio,
-      fr.debt_to_equity,
-      fr.revenue_growth_yoy,
-      fr.eps_growth_yoy,
-      fr.net_income_growth_yoy
-    FROM `sunny-advantage-471523-b3.IS_Fundamentales.fundamentals_ratios` fr
-    INNER JOIN (
-      SELECT ticker, MAX(period_end_date) AS max_period
-      FROM `sunny-advantage-471523-b3.IS_Fundamentales.fundamentals_ratios`
-      WHERE fiscal_period = 'FY'
-        AND period_end_date <= execution_date
-      GROUP BY ticker
-    ) mr ON fr.ticker = mr.ticker AND fr.period_end_date = mr.max_period
-    WHERE fr.fiscal_period = 'FY'
+      ticker,
+      roe,
+      current_ratio,
+      debt_to_equity,
+      revenue_growth_yoy,
+      eps_growth_yoy,
+      net_income_growth_yoy
+    FROM (
+      SELECT
+        fr.ticker,
+        fr.roe,
+        fr.current_ratio,
+        fr.debt_to_equity,
+        fr.revenue_growth_yoy,
+        fr.eps_growth_yoy,
+        fr.net_income_growth_yoy,
+        ROW_NUMBER() OVER (PARTITION BY fr.ticker ORDER BY fr.period_end_date DESC) AS rn
+      FROM `sunny-advantage-471523-b3.IS_Fundamentales.fundamentals_ratios` fr
+      WHERE fr.period_end_date <= execution_date
+    )
+    WHERE rn = 1
   ),
 
   -- PASO 7: Calculate market cap and dynamic ratios
