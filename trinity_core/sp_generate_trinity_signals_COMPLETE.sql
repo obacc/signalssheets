@@ -52,6 +52,10 @@ BEGIN
   DECLARE p_stop_loss_pct FLOAT64;
   DECLARE p_target_pct FLOAT64;
 
+  -- Market Regime Variables
+  DECLARE v_current_regime STRING DEFAULT 'NEUTRAL';
+  DECLARE v_threshold_adjustment FLOAT64 DEFAULT 0;
+
   SET v_execution_ts = CURRENT_TIMESTAMP();
 
   -- Default execution_date to today if NULL
@@ -210,6 +214,40 @@ BEGIN
   SET p_target_pct = COALESCE(p_target_pct, 20.0);
 
   -- ========================================================================
+  -- PASO 2.5: READ MARKET REGIME AND ADJUST THRESHOLDS
+  -- ========================================================================
+
+  -- Get current market regime
+  SET v_current_regime = (
+    SELECT regime_type
+    FROM `sunny-advantage-471523-b3.IS_Fundamentales.market_regime_daily`
+    WHERE regime_date <= execution_date
+    ORDER BY regime_date DESC
+    LIMIT 1
+  );
+
+  -- Default to NEUTRAL if no regime found
+  SET v_current_regime = COALESCE(v_current_regime, 'NEUTRAL');
+
+  -- Calculate threshold adjustment based on regime
+  -- BULL: Lower thresholds (easier to trigger BUY) -> -5
+  -- NEUTRAL: No adjustment -> 0
+  -- CORRECTION: Higher thresholds (harder to trigger BUY) -> +5
+  -- BEAR: Much higher thresholds -> +10
+  SET v_threshold_adjustment = CASE v_current_regime
+    WHEN 'BULL' THEN -5.0
+    WHEN 'NEUTRAL' THEN 0.0
+    WHEN 'CORRECTION' THEN 5.0
+    WHEN 'BEAR' THEN 10.0
+    ELSE 0.0
+  END;
+
+  -- Apply adjustment to thresholds
+  SET p_strong_buy_threshold = p_strong_buy_threshold + v_threshold_adjustment;
+  SET p_buy_threshold = p_buy_threshold + v_threshold_adjustment;
+  SET p_hold_threshold = p_hold_threshold + v_threshold_adjustment;
+
+  -- ========================================================================
   -- PASO 3-12: CREATE TEMP TABLE WITH ALL CALCULATIONS AND INSERT
   -- ========================================================================
 
@@ -230,7 +268,8 @@ BEGIN
     graham_score, graham_pb_score, graham_current_ratio_score, graham_debt_score, graham_stability_score,
     trinity_score,
     signal_strength, recommendation, confidence_level, entry_price, stop_loss, target_price, risk_reward_ratio,
-    ranking_position, percentile_rank, data_quality_score, has_complete_data, calculation_timestamp
+    ranking_position, percentile_rank, data_quality_score, has_complete_data, calculation_timestamp,
+    market_regime
   )
   WITH
   -- PASO 3: Latest prices per ticker
@@ -649,7 +688,8 @@ BEGIN
     percentile_rank,
     data_quality_score,
     has_complete_data,
-    v_execution_ts AS calculation_timestamp
+    v_execution_ts AS calculation_timestamp,
+    v_current_regime AS market_regime
   FROM ranked_signals;
 
   -- ========================================================================

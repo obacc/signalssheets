@@ -1,0 +1,97 @@
+======================================================================
+MARKET REGIME INTEGRATION LOG
+Date: 2025-12-05
+======================================================================
+
+PASO 1-2: MODIFY SP FOR MARKET REGIME
+----------------------------------------------------------------------
+Status: COMPLETED
+
+Added variables:
+  - v_current_regime STRING DEFAULT 'NEUTRAL'
+  - v_threshold_adjustment FLOAT64 DEFAULT 0
+
+Added logic to read market regime:
+  SELECT regime_type FROM market_regime_daily
+  WHERE regime_date <= execution_date
+  ORDER BY regime_date DESC LIMIT 1
+
+Threshold adjustments by regime:
+  - BULL:       -5 (easier to trigger BUY)
+  - NEUTRAL:     0 (no adjustment)
+  - CORRECTION: +5 (harder to trigger BUY)
+  - BEAR:      +10 (much harder to trigger BUY)
+
+PASO 3-4: ADD market_regime COLUMN
+----------------------------------------------------------------------
+Status: COMPLETED
+
+Column added: market_regime STRING
+Updated INSERT and SELECT statements in SP
+
+PASO 5: RE-CREATE SP AND EXECUTE
+----------------------------------------------------------------------
+Status: COMPLETED
+
+SP deployed: 2025-12-05 21:14:57
+
+PASO 6: VALIDATE INTEGRATION (NEUTRAL)
+----------------------------------------------------------------------
+Status: COMPLETED
+
+Results with NEUTRAL regime (adjustment = 0):
+  GOOGL  | Trinity: 61.2 | HOLD | Regime: NEUTRAL
+  V      | Trinity: 61.2 | HOLD | Regime: NEUTRAL
+  META   | Trinity: 60.2 | HOLD | Regime: NEUTRAL
+  AMZN   | Trinity: 57.6 | HOLD | Regime: NEUTRAL
+  JNJ    | Trinity: 57.1 | HOLD | Regime: NEUTRAL
+  NVDA   | Trinity: 56.9 | HOLD | Regime: NEUTRAL
+  MSFT   | Trinity: 53.8 | HOLD | Regime: NEUTRAL
+  AAPL   | Trinity: 48.1 | SELL | Regime: NEUTRAL  ← 48.1 < 50 (hold_threshold)
+  TSLA   | Trinity: 37.8 | SELL | Regime: NEUTRAL
+
+Distribution: HOLD=7, SELL=2
+
+PASO 7: TEST WITH SIMULATED BULL REGIME
+----------------------------------------------------------------------
+Status: COMPLETED
+
+Results with BULL regime (adjustment = -5):
+  - hold_threshold: 50 → 45
+  - buy_threshold:  70 → 65
+  - strong_buy_threshold: 85 → 80
+
+  AAPL   | Trinity: 48.1 | HOLD | Regime: BULL  ← 48.1 >= 45 (now HOLD!)
+
+Distribution: HOLD=8, SELL=1
+
+COMPARISON:
+  NEUTRAL: HOLD=7, SELL=2
+  BULL:    HOLD=8, SELL=1
+  Change:  AAPL moved from SELL → HOLD (threshold lowered)
+
+======================================================================
+THRESHOLD LOGIC SUMMARY
+======================================================================
+
+Default thresholds (from parametros_trinity):
+  strong_buy_threshold = 85
+  buy_threshold = 70
+  hold_threshold = 50
+
+After regime adjustment:
+  BULL:       [80, 65, 45]  → More BUY signals
+  NEUTRAL:    [85, 70, 50]  → Normal
+  CORRECTION: [90, 75, 55]  → Fewer BUY signals
+  BEAR:       [95, 80, 60]  → Very few BUY signals
+
+======================================================================
+FILES MODIFIED
+======================================================================
+- trinity_core/sp_generate_trinity_signals_COMPLETE.sql
+- trinity_signals_daily table (added market_regime column)
+- trinity_core/trinity_signals_regime_test.csv (validation export)
+
+======================================================================
+STATUS: INTEGRATION COMPLETE
+======================================================================
