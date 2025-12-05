@@ -28,3 +28,8 @@ credentials/
 *.json.bak
 gcp-*.json
 service-account*.json
+
+# GCP Inventory outputs (contain sensitive data)
+gcp_inventory/*.csv
+gcp_inventory/*.txt
+gcp_inventory_*.zip
