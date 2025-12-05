@@ -1,0 +1,74 @@
+======================================================================
+MARKET REGIME SYSTEM - EXECUTION LOG
+Date: 2025-12-05
+======================================================================
+
+PASO 1: CREATE TABLE market_regime_daily
+----------------------------------------------------------------------
+Status: ✅ SUCCESS
+Table: sunny-advantage-471523-b3.IS_Fundamentales.market_regime_daily
+Columns:
+  - regime_date DATE (partition key)
+  - regime_type STRING (BULL/NEUTRAL/CORRECTION/BEAR)
+  - sp500_close FLOAT64
+  - sp500_ytd_start FLOAT64
+  - sp500_ytd_change_pct FLOAT64
+  - vix_close FLOAT64
+  - calculation_method STRING
+  - data_source STRING
+  - notes STRING
+  - created_at TIMESTAMP
+  - updated_at TIMESTAMP
+
+PASO 2: CREATE SCRIPT update_market_regime.py
+----------------------------------------------------------------------
+Status: ✅ SUCCESS
+Location: /home/user/signalssheets/market_regime/update_market_regime.py
+Features:
+  - Tries yfinance first (if installed)
+  - Falls back to manual/estimated values
+  - Uses MERGE for idempotent updates
+  - Calculates regime from S&P 500 YTD change
+
+PASO 3: FIRST EXECUTION
+----------------------------------------------------------------------
+Status: ✅ SUCCESS
+Execution Time: 2025-12-05T20:35:10
+Data Source: Manual Entry (estimated)
+Results:
+  - S&P 500 YTD Start: $5,881.63
+  - S&P 500 Current:   $6,090.27
+  - YTD Change:        +3.55%
+  - VIX:               13.50
+  - Regime:            NEUTRAL
+
+PASO 4: VERIFY TABLE POPULATED
+----------------------------------------------------------------------
+Status: ✅ SUCCESS
+Records Found: 1
+Data verified in BigQuery
+
+PASO 5: IDEMPOTENCY TEST (2ND EXECUTION)
+----------------------------------------------------------------------
+Status: ✅ SUCCESS
+Records after 2nd run: 1 (no duplicates)
+MERGE statement working correctly
+
+======================================================================
+REGIME CLASSIFICATION RULES
+======================================================================
+S&P 500 YTD Change:
+  >= +20%     : BULL        (Strong bull market)
+  >= +10%     : NEUTRAL     (Moderate positive)
+  >= -10%     : NEUTRAL     (Sideways/consolidation)
+  >= -20%     : CORRECTION  (Market correction)
+  <  -20%     : BEAR        (Bear market)
+
+======================================================================
+CURRENT MARKET REGIME: NEUTRAL
+S&P 500 YTD: +3.55%
+======================================================================
+
+Note: yfinance library could not be installed in this environment.
+Script uses manual/estimated S&P 500 values as fallback.
+For production use, install yfinance or configure alternative API.

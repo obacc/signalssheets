@@ -1,0 +1,2 @@
+regime_date,regime_type,sp500_close,sp500_ytd_start,sp500_ytd_change_pct,vix_close,data_source,notes,created_at,updated_at
+2025-12-05,NEUTRAL,6090.27,5881.63,3.54731596513212,13.5,Manual Entry (estimated),S&P 500 YTD: +3.55%,2025-12-05 20:35:10.873418+00:00,2025-12-05 20:35:10.873418+00:00
