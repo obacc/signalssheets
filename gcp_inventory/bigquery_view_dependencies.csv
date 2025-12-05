@@ -1,0 +1,25 @@
+view_name,view_query,depends_on
+market_data.v_ticker_norm,"SELECT DISTINCT
+      ticker,
+      -- Normalizar: remover .US y convertir a mayúsculas
+      UPPER(TRIM(REPLACE(ticker, '.US', ''))) AS ticker_norm
+    FROM `sunny-advantage-471523-b3.market_data.Prices`
+    WHERE ticker IS NOT NULL
+      AND ticker != ''",sunny-advantage-471523-b3.market_data.Prices
+market_data.stg_prices_polygon_raw,"SELECT
+  ticker,
+  date,
+  open,
+  high,
+  low,
+  close,
+  volume,
+  load_ts
+FROM `sunny-advantage-471523-b3.market_data.ext_polygon_daily`",sunny-advantage-471523-b3.market_data.ext_polygon_daily
+market_data.v_Prices_canon,"SELECT
+          p.*,
+          `sunny-advantage-471523-b3.analytics.udf_canon_ticker`(p.ticker) AS ticker_canon
+        FROM `sunny-advantage-471523-b3.market_data.Prices` p
+        WHERE p.fecha IS NOT NULL
+          AND p.close IS NOT NULL
+          AND p.close > 0","sunny-advantage-471523-b3.analytics.udf_canon_ticker, sunny-advantage-471523-b3.market_data.Prices"

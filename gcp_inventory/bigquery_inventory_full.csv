@@ -1,0 +1,17 @@
+dataset,table_name,table_type,created,modified,num_rows,size_mb,partition_type,partition_field,clustering_fields,description,labels
+IS_Fundamentales,fundamentals_ratios,TABLE,2025-12-02 20:01:38.314000+00:00,2025-12-05 02:15:09.514000+00:00,241249,49.78215026855469,DAY,period_end_date,"ticker,fiscal_year,fiscal_period",Calculated financial ratios from fundamentals_timeseries,"{'source': 'calculated', 'dataset': 'fundamentals'}"
+IS_Fundamentales,fundamentals_timeseries,TABLE,2025-12-02 20:01:34.923000+00:00,2025-12-05 02:14:56.499000+00:00,241250,69.27408027648926,DAY,period_end_date,"ticker,fiscal_year,fiscal_period",Normalized financial statements - Income Statement + Balance Sheet + Cash Flow,"{'source': 'sec_edgar_normalized', 'dataset': 'fundamentals'}"
+IS_Fundamentales,shares_outstanding_from_num,TABLE,2025-12-04 17:36:32.398000+00:00,2025-12-04 17:36:32.398000+00:00,943356,99.08434581756592,NONE,NONE,NONE,NO DESCRIPTION,NONE
+IS_Fundamentales,cik_ticker_mapping,TABLE,2025-12-02 19:58:10.766000+00:00,2025-12-03 03:30:14.037000+00:00,10175,0.9803056716918945,NONE,NONE,"cik,ticker",CIK to Ticker mapping from SEC company tickers API,"{'source': 'sec_api', 'dataset': 'fundamentals'}"
+IS_Fundamentales,Sub,TABLE,2025-12-02 17:04:00.352000+00:00,2025-12-02 17:26:43.193000+00:00,308780,103.10894203186035,DAY,filed_date,"cik,period",SEC EDGAR Submissions - EXACT schema from files,NONE
+IS_Fundamentales,Tag,TABLE,2025-12-02 17:04:10.054000+00:00,2025-12-02 17:17:59.843000+00:00,3355974,804.2523059844971,NONE,NONE,"tag,version",SEC EDGAR Tag Dictionary - EXACT schema from files,NONE
+IS_Fundamentales,Pre,TABLE,2025-12-02 17:04:09.081000+00:00,2025-12-02 17:17:00.243000+00:00,33129343,5256.888346672058,DAY,filed_date,"adsh,stmt",SEC EDGAR Presentation - EXACT schema from files,NONE
+IS_Fundamentales,Num,TABLE,2025-12-02 17:04:04.806000+00:00,2025-12-02 17:15:33.957000+00:00,138538865,20183.180678367615,DAY,filed_date,"adsh,tag,qtrs",SEC EDGAR Numeric Data - EXACT schema from files,NONE
+market_data,Prices,TABLE,2025-09-09 19:11:23.318000+00:00,2025-12-05 07:00:13.817000+00:00,22862123,1858.2985076904297,DAY,fecha,ticker,NO DESCRIPTION,NONE
+market_data,audit_runs,TABLE,2025-12-02 16:50:31.211000+00:00,2025-12-02 16:50:31.211000+00:00,0,0.0,DAY,shard_date,"job_name,stage",NO DESCRIPTION,NONE
+market_data,v_ticker_norm,VIEW,2025-12-01 01:45:40.128000+00:00,2025-12-01 01:45:40.128000+00:00,0,0.0,NONE,NONE,NONE,NO DESCRIPTION,NONE
+market_data,stg_prices_polygon_raw,VIEW,2025-11-13 00:42:29.610000+00:00,2025-11-13 00:42:29.610000+00:00,0,0.0,NONE,NONE,NONE,NO DESCRIPTION,NONE
+market_data,ext_polygon_daily,EXTERNAL,2025-11-12 23:09:28.117000+00:00,2025-11-12 23:09:28.364000+00:00,0,0.0,NONE,NONE,NONE,NO DESCRIPTION,NONE
+market_data,staging_polygon_daily_raw,TABLE,2025-10-31 02:13:06.880000+00:00,2025-11-07 18:51:42.155000+00:00,92917,3.57705020904541,DAY,date,ticker,Staging Polygon.io data,NONE
+market_data,v_Prices_canon,VIEW,2025-11-02 02:33:37.162000+00:00,2025-11-02 02:33:37.162000+00:00,0,0.0,NONE,NONE,NONE,NO DESCRIPTION,NONE
+market_data,stooq_ext,EXTERNAL,2025-10-07 02:28:49.622000+00:00,2025-10-07 02:28:50.050000+00:00,0,0.0,NONE,NONE,NONE,NO DESCRIPTION,NONE

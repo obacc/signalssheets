@@ -1,0 +1,2 @@
+name,schedule,state,time_zone,last_attempt_time,target_type,target_uri,region
+NOTE_SSL_ERROR,API_call_failed_due_to_SSL_certificate_verification_error,N/A,N/A,N/A,N/A,N/A,N/A

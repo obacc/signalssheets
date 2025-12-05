@@ -1,0 +1,88 @@
+=== INVENTARIO GCP PROYECTO: sunny-advantage-471523-b3 ===
+Fecha: 2025-12-05 14:36:31
+Generado por: Claude Code
+
+================================================================================
+BIGQUERY:
+================================================================================
+- Datasets: 2
+- Tablas: 11
+- Vistas: 3
+- Materialized Views: 0
+- Stored Procedures: 5
+- Espacio total: 27.76 GB
+
+================================================================================
+CLOUD FUNCTIONS:
+================================================================================
+- Total functions: 0
+- Activas: 0
+- Inactivas: 0
+- Nota: No se encontraron Cloud Functions en el proyecto
+
+================================================================================
+CLOUD SCHEDULER:
+================================================================================
+- Total jobs: N/A
+- Estado: Error de conexión SSL en el entorno de ejecución
+- Nota: Verificar manualmente con gcloud CLI o consola GCP
+
+================================================================================
+RECURSOS SIN USO (90+ días):
+================================================================================
+- Tablas: 0
+- Vistas: 0
+- Espacio: 0.00 MB
+- Nota: Todos los recursos han sido modificados recientemente
+
+================================================================================
+DETALLE POR DATASET:
+================================================================================
+
+📁 IS_Fundamentales:
+   - Tablas: 8, Vistas: 0
+   - Tamaño: 26566.55 MB (~25.95 GB)
+   - Contiene datos de fundamentales (Income Statements)
+
+📁 market_data:
+   - Tablas: 3, Vistas: 3
+   - Tamaño: 1861.88 MB (~1.82 GB)
+   - Contiene datos de precios y mercado
+
+================================================================================
+STORED PROCEDURES ENCONTRADOS (5):
+================================================================================
+1. IS_Fundamentales: 1 procedure
+2. market_data: 4 procedures
+
+================================================================================
+VISTAS ENCONTRADAS (3):
+================================================================================
+1. market_data.v_ticker_norm
+2. market_data.stg_prices_polygon_raw
+3. market_data.v_Prices_canon
+
+================================================================================
+RECOMENDACIONES:
+================================================================================
+1. Verificar Cloud Scheduler manualmente desde la consola de GCP
+2. Revisar las dependencias de vistas en bigquery_view_dependencies.csv
+3. El espacio total de ~28 GB está principalmente en IS_Fundamentales
+4. Todos los recursos están activos (ninguno sin uso en 90+ días)
+
+================================================================================
+ARCHIVOS GENERADOS:
+================================================================================
+1. bigquery_inventory_full.csv - Inventario completo tablas/vistas
+2. bigquery_procedures_inventory.csv - Stored procedures
+3. cloud_functions_inventory.csv - Cloud Functions activas
+4. cloud_scheduler_inventory.csv - Jobs programados
+5. bigquery_view_dependencies.csv - Dependencias de vistas
+6. bigquery_unused_resources.csv - Recursos sin uso reciente
+7. summary_report.txt - Este archivo
+
+================================================================================
+CREDENCIALES UTILIZADAS:
+================================================================================
+Service Account: claudecode@sunny-advantage-471523-b3.iam.gserviceaccount.com
+Rol: Owner
