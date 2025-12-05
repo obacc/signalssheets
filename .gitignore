@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Credentials (never commit)
+credentials/
+*.json.bak
+gcp-*.json
+service-account*.json
