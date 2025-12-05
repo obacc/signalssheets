@@ -1,0 +1,78 @@
+{
+  "table_id": "shares_outstanding_from_num",
+  "full_table_id": "sunny-advantage-471523-b3.IS_Fundamentales.shares_outstanding_from_num",
+  "created": "2025-12-04 17:36:32.398000+00:00",
+  "modified": "2025-12-04 17:36:32.398000+00:00",
+  "num_rows": 943356,
+  "num_bytes": 103897467,
+  "size_mb": 99.08434581756592,
+  "schema": [
+    {
+      "name": "cik",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "company_name",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "adsh",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "fiscal_year",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "fiscal_period",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "filing_date",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "form_type",
+      "type": "STRING",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "period_end_date",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "shares_common",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "shares_generic",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "shares_basic",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "shares_diluted",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "shares_outstanding_consolidated",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    }
+  ],
+  "description": null,
+  "labels": {}
+}

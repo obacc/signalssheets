@@ -1,0 +1,112 @@
+# Backup Stored Procedures - 2025-12-05 15:01:53.643325
+================================================================================
+
+PROCEDURE: proc_health_checks
+Created: 2025-10-15 17:51:56.738000+00:00
+Last Altered: 2025-10-15 17:51:56.738000+00:00
+----------------------------------------
+BEGIN
+      INSERT INTO `sunny-advantage-471523-b3.market_data.audit_runs`
+      (job_name, shard_date, stage, state, attempt, start_ts, end_ts, rows_written, bytes_read, latency_ms, msg)
+      SELECT 
+        'HEALTH_CHECK',
+        p_date,
+        'HEALTH', 
+        CASE
+          WHEN e2_rows BETWEEN 4000 AND 6000 AND coverage >= 0.95 THEN 'OK'
+          WHEN coverage BETWEEN 0.90 AND 0.95 THEN 'WARN'
+          ELSE 'WARN'
+        END,
+        1,
+        CURRENT_TIMESTAMP(),
+        CURRENT_TIMESTAMP(),
+        e2_rows,
+        0,
+        0,
+        FORMAT('Health daily: E2=%d, Coverage=%.2f%%, %%BUY=%.4f', e2_rows, coverage*100, pct_buy)
+      FROM (
+        SELECT
+          (SELECT COUNT(*) FROM `sunny-advantage-471523-b3.market_data.universe_current` WHERE fecha=p_date) e2_rows,
+          (SELECT 1 - SAFE_DIVIDE(COUNTIF(reason='missing_price'), NULLIF(COUNT(*),0))
+             FROM `sunny-advantage-471523-b3.market_data.monitor_missing_prices_daily`
+             WHERE run_date=p_date) coverage,
+          (SELECT SAFE_DIVIDE(SUM(CASE WHEN final_signal='BUY' THEN 1 ELSE 0 END), COUNT(*))
+             FROM `sunny-advantage-471523-b3.market_data.signals_eod_current_protected`
+             WHERE fecha=p_date) pct_buy
+      );
+    END
+
+================================================================================
+
+PROCEDURE: proc_daily_alerts
+Created: 2025-10-15 17:54:35.481000+00:00
+Last Altered: 2025-10-15 17:54:35.481000+00:00
+----------------------------------------
+BEGIN
+      -- Cobertura
+      INSERT INTO `sunny-advantage-471523-b3.market_data.alert_log`
+      SELECT 
+        CURRENT_TIMESTAMP(), 
+        p_date,
+        CASE WHEN coverage < 0.80 THEN 'FAIL'
+             WHEN coverage < 0.90 THEN 'WARN' 
+             ELSE 'INFO' END AS severity,
+        'coverage',
+        FORMAT('Cobertura %.2f%%', coverage*100),
+        TO_JSON(STRUCT(coverage))
+      FROM (
+        SELECT 
+          1 - SAFE_DIVIDE(COUNTIF(reason='missing_price'), NULLIF(COUNT(*),0)) AS coverage
+        FROM `sunny-advantage-471523-b3.market_data.monitor_missing_prices_daily`
+        WHERE run_date = p_date
+      );
+
+      -- %BUY bands
+      INSERT INTO `sunny-advantage-471523-b3.market_data.alert_log`
+      WITH m AS (
+        SELECT 
+          SAFE_DIVIDE(SUM(CASE WHEN final_signal='BUY' THEN 1 ELSE 0 END), COUNT(*)) AS pct_buy
+        FROM `sunny-advantage-471523-b3.market_data.signals_eod_current_protected` 
+        WHERE fecha = p_date
+      )
+      SELECT 
+        CURRENT_TIMESTAMP(), 
+        p_date,
+        CASE WHEN pct_buy > 0.50 THEN 'FAIL'
+             WHEN pct_buy < 0.05 OR pct_buy > 0.18 THEN 'WARN'
+             ELSE 'INFO' END,
+        'buy_band',
+        FORMAT('%%BUY=%.4f', pct_buy),
+        TO_JSON(STRUCT(pct_buy))
+      FROM m;
+    END
+
+================================================================================
+
+PROCEDURE: proc_circuit_breaker
+Created: 2025-10-15 17:51:54.841000+00:00
+Last Altered: 2025-10-15 17:51:54.841000+00:00
+----------------------------------------
+BEGIN
+      DECLARE pause BOOL DEFAULT FALSE;
+      SET pause = (
+        SELECT COUNTIF(msg LIKE '%timeout%' OR msg LIKE '%TIMEOUT%') >= 2
+        FROM `sunny-advantage-471523-b3.market_data.audit_runs`
+        WHERE shard_date = p_date AND stage IN ('E3','E6')
+      );
+      
+      IF pause THEN
+        INSERT INTO `sunny-advantage-471523-b3.market_data.alert_log`
+        VALUES (
+          CURRENT_TIMESTAMP(), 
+          p_date, 
+          'FAIL', 
+          'circuit_breaker',
+          'Se detectaron 2 timeouts seguidos. Pausar el día y alertar.', 
+          NULL
+        );
+      END IF;
+    END
+
+================================================================================
+

@@ -1,0 +1,15 @@
+# Backup Vista - 2025-12-05 15:01:54.335326
+================================================================================
+
+VIEW: v_Prices_canon
+----------------------------------------
+SELECT
+          p.*,
+          `sunny-advantage-471523-b3.analytics.udf_canon_ticker`(p.ticker) AS ticker_canon
+        FROM `sunny-advantage-471523-b3.market_data.Prices` p
+        WHERE p.fecha IS NOT NULL
+          AND p.close IS NOT NULL
+          AND p.close > 0
+
+================================================================================
+

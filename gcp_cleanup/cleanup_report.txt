@@ -1,0 +1,35 @@
+===============================================================================
+REPORTE LIMPIEZA RECURSOS OBSOLETOS BIGQUERY
+Proyecto: sunny-advantage-471523-b3
+Fecha: 2025-12-05 15:01:55
+===============================================================================
+
+RECURSOS ELIMINADOS:
+
+1. STORED PROCEDURES (3):
+   ✅ proc_daily_alerts
+   ✅ proc_health_checks
+   ✅ proc_circuit_breaker
+
+   Razón: Referencian tablas inexistentes de Trinity v1/v2/v3
+
+2. VISTA (1):
+   ✅ v_Prices_canon
+
+   Razón: Depende de UDF analytics.udf_canon_ticker que no existe
+
+3. TABLA (1):
+   ✅ shares_outstanding_from_num (99 MB)
+
+   Razón: Datos ya integrados en fundamentals_timeseries
+
+===============================================================================
+BACKUPS DISPONIBLES:
+- /home/user/signalssheets/gcp_cleanup/backup_sps.txt
+- /home/user/signalssheets/gcp_cleanup/backup_vista.txt
+- /home/user/signalssheets/gcp_cleanup/backup_tabla_metadata.json
+
+ESPACIO LIBERADO: ~99 MB
+
+✅ LIMPIEZA COMPLETADA EXITOSAMENTE
+===============================================================================
