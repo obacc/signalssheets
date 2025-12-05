@@ -33,3 +33,5 @@ service-account*.json
 gcp_inventory/*.csv
 gcp_inventory/*.txt
 gcp_inventory_*.zip
+__pycache__/
+*.pyc
