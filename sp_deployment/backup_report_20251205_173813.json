@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-12-05T17:38:17.241604",
+  "backup_date": "20251205_173813",
+  "results": [
+    {
+      "type": "stored_procedure",
+      "error": "400 Unrecognized name: last_modified at [6:5]; reason: invalidQuery, location: query, message: Unrecognized name: last_modified at [6:5]\n\nLocation: US\nJob ID: 69232cab-6c83-4d98-b750-d1caf57ab9e3\n"
+    },
+    {
+      "type": "fundamentals_timeseries",
+      "total_rows": 241250,
+      "unique_tickers": 6678,
+      "q4_calc_rows": 32796,
+      "year_range": "2015-2026"
+    },
+    {
+      "type": "fundamentals_ratios",
+      "total_rows": 241249,
+      "unique_tickers": 6678,
+      "total_columns": 39,
+      "price_dependent_columns": [
+        "price_to_earnings",
+        "price_to_book",
+        "price_to_sales",
+        "peg_ratio"
+      ]
+    },
+    {
+      "type": "existing_backup",
+      "status": "not_found"
+    }
+  ]
+}

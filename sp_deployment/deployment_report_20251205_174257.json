@@ -1,0 +1,117 @@
+{
+  "deployment_timestamp": "2025-12-05T17:42:57.691677",
+  "sp_name": "sp_refresh_fundamentals_tables",
+  "corrections_applied": [
+    "EPS Q4_calc = FY - (Q1 + Q2 + Q3)",
+    "Removed price_to_earnings from ratios",
+    "Removed price_to_book from ratios",
+    "Removed price_to_sales from ratios",
+    "Removed peg_ratio from ratios"
+  ],
+  "validation_results": {
+    "aapl_q4_calc": 1.0200000000000005,
+    "aapl_expected": 1.02,
+    "tickers_passed": 0,
+    "tickers_failed": 10,
+    "ratios_columns_removed": [
+      "price_to_earnings",
+      "price_to_book",
+      "price_to_sales",
+      "peg_ratio"
+    ],
+    "ts_rows": 241250,
+    "ratios_rows": 241249
+  },
+  "deployment_log": [
+    {
+      "timestamp": "2025-12-05T17:41:49.017104",
+      "paso": "PASO 2",
+      "message": "Current ratios columns: 39",
+      "status": "info"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:49.017260",
+      "paso": "PASO 2",
+      "message": "Dropping columns: ['price_to_earnings', 'price_to_book', 'price_to_sales', 'peg_ratio']",
+      "status": "info"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:49.551781",
+      "paso": "PASO 2",
+      "message": "Dropped column: price_to_earnings",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:50.107554",
+      "paso": "PASO 2",
+      "message": "Dropped column: price_to_book",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:50.635012",
+      "paso": "PASO 2",
+      "message": "Dropped column: price_to_sales",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:51.336471",
+      "paso": "PASO 2",
+      "message": "Dropped column: peg_ratio",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:52.026999",
+      "paso": "PASO 2",
+      "message": "Final ratios columns: 35",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:53.182450",
+      "paso": "PASO 3",
+      "message": "SP created/replaced successfully",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:41:53.182587",
+      "paso": "PASO 4",
+      "message": "Starting SP execution...",
+      "status": "info"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:53.864168",
+      "paso": "PASO 4",
+      "message": "SP execution completed in 60.7 seconds",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:54.688054",
+      "paso": "PASO 5",
+      "message": "AAPL Q4_calc = $1.02 (expected ~$1.02) \u2713",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:54.688123",
+      "paso": "PASO 5",
+      "message": "Sum validation passed (diff: 0.00%)",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:56.093932",
+      "paso": "PASO 6",
+      "message": "Ticker validation: 0 passed, 10 failed",
+      "status": "error"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:56.768606",
+      "paso": "PASO 7",
+      "message": "All price-dependent columns removed: ['price_to_earnings', 'price_to_book', 'price_to_sales', 'peg_ratio']",
+      "status": "success"
+    },
+    {
+      "timestamp": "2025-12-05T17:42:57.691590",
+      "paso": "PASO 7",
+      "message": "Ratios table: 241,249 rows, 35 columns",
+      "status": "success"
+    }
+  ]
+}
