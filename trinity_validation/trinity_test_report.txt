@@ -1,0 +1,155 @@
+
+================================================================================
+REPORTE VALIDACIÓN TRINITY METHOD MVP
+Proyecto: sunny-advantage-471523-b3
+Fecha: 2025-12-05 15:47:24
+================================================================================
+
+STATUS DE PASOS:
+✅ PASO 1: Tabla test creada
+✅ PASO 2: Datos extraídos y scores calculados
+✅ PASO 3: Datos insertados en BigQuery
+✅ PASO 4: CSV generado
+✅ PASO 5: Reporte generado
+
+================================================================================
+RESUMEN DE PROCESAMIENTO
+================================================================================
+
+Tickers solicitados: 10
+Tickers procesados exitosamente: 10
+Tickers fallidos: 0
+
+Tickers procesados: AAPL, MSFT, GOOGL, NVDA, META, TSLA, AMZN, JPM, V, WMT
+
+================================================================================
+DISTRIBUCIÓN DE SEÑALES
+================================================================================
+
+STRONG BUY: 0 tickers
+BUY:        3 tickers
+HOLD:       4 tickers
+SELL:       3 tickers
+
+================================================================================
+TOP 3 TICKERS POR TRINITY SCORE
+================================================================================
+
+1. GOOGL - Alphabet Inc.
+   Trinity Score: 71.8
+   Signal: BUY
+   Lynch: 67.5 | O'Neil: 78.5 | Graham: 69.0
+   Price: $317.62 | Entry: $317.62 | Target: $381.14
+
+2. AMZN - AMAZON COM INC
+   Trinity Score: 70.7
+   Signal: BUY
+   Lynch: 94.0 | O'Neil: 60.5 | Graham: 55.5
+   Price: $229.11 | Entry: $229.11 | Target: $274.93
+
+3. NVDA - NVIDIA CORP
+   Trinity Score: 70.2
+   Signal: BUY
+   Lynch: 94.0 | O'Neil: 44.0 | Graham: 73.0
+   Price: $183.38 | Entry: $183.38 | Target: $220.06
+
+================================================================================
+DETALLE COMPLETO POR TICKER
+================================================================================
+
+GOOGL (Technology)
+  Price: $317.62 | P/E: 20.77 | PEG: 0.93
+  Lynch: 67.5 (PEG:80, ROE:30, EPS:80)
+  O'Neil: 78.5 (RS:100, Vol:30, Mom:100)
+  Graham: 69.0 (P/B:50, CR:60, D/E:100)
+  TRINITY: 71.8 → BUY
+
+AMZN (Consumer Cyclical)
+  Price: $229.11 | P/E: 22.4 | PEG: 0.67
+  Lynch: 94.0 (PEG:80, ROE:100, EPS:100)
+  O'Neil: 60.5 (RS:60, Vol:30, Mom:60)
+  Graham: 55.5 (P/B:30, CR:30, D/E:100)
+  TRINITY: 70.7 → BUY
+
+NVDA (Technology)
+  Price: $183.38 | P/E: 55.74 | PEG: 0.91
+  Lynch: 94.0 (PEG:80, ROE:100, EPS:100)
+  O'Neil: 44.0 (RS:30, Vol:30, Mom:30)
+  Graham: 73.0 (P/B:30, CR:100, D/E:100)
+  TRINITY: 70.2 → BUY
+
+META (Technology)
+  Price: $661.53 | P/E: 15.22 | PEG: 0.4
+  Lynch: 82.5 (PEG:100, ROE:30, EPS:100)
+  O'Neil: 60.5 (RS:60, Vol:30, Mom:60)
+  Graham: 63.0 (P/B:30, CR:60, D/E:100)
+  TRINITY: 69.0 → HOLD
+
+AAPL (Technology)
+  Price: $280.70 | P/E: 23.89 | PEG: 1.97
+  Lynch: 61.0 (PEG:30, ROE:100, EPS:60)
+  O'Neil: 74.5 (RS:100, Vol:30, Mom:100)
+  Graham: 38.0 (P/B:30, CR:30, D/E:30)
+  TRINITY: 58.8 → HOLD
+
+V (Other)
+  Price: $327.10 | P/E: 4.72 | PEG: 0.39
+  Lynch: 72.0 (PEG:100, ROE:60, EPS:60)
+  O'Neil: 52.5 (RS:60, Vol:30, Mom:60)
+  Graham: 45.5 (P/B:30, CR:30, D/E:60)
+  TRINITY: 57.2 → HOLD
+
+MSFT (Technology)
+  Price: $480.84 | P/E: 20.35 | PEG: 1.31
+  Lynch: 52.5 (PEG:60, ROE:30, EPS:60)
+  O'Neil: 52.5 (RS:60, Vol:30, Mom:60)
+  Graham: 55.5 (P/B:30, CR:30, D/E:100)
+  TRINITY: 53.4 → HOLD
+
+WMT (Consumer Cyclical)
+  Price: $114.84 | P/E: 37.65 | PEG: N/A
+  Lynch: 21.0 (PEG:0, ROE:30, EPS:30)
+  O'Neil: 68.5 (RS:100, Vol:30, Mom:100)
+  Graham: 50.5 (P/B:30, CR:30, D/E:80)
+  TRINITY: 46.5 → SELL
+
+TSLA (Consumer Cyclical)
+  Price: $454.53 | P/E: 79.05 | PEG: N/A
+  Lynch: 21.0 (PEG:0, ROE:30, EPS:30)
+  O'Neil: 64.5 (RS:100, Vol:30, Mom:80)
+  Graham: 50.5 (P/B:30, CR:80, D/E:30)
+  TRINITY: 45.1 → SELL
+
+JPM (Financial Services)
+  Price: $316.10 | P/E: 14.58 | PEG: N/A
+  Lynch: 21.0 (PEG:0, ROE:30, EPS:30)
+  O'Neil: 68.5 (RS:100, Vol:30, Mom:100)
+  Graham: 38.0 (P/B:30, CR:30, D/E:30)
+  TRINITY: 42.7 → SELL
+
+================================================================================
+PARÁMETROS UTILIZADOS (Perfil: MODERATE)
+================================================================================
+
+LYNCH:
+  PEG: Excellent≤0.5, Good≤1.0, Acceptable≤1.5
+  ROE: Excellent≥20%, Good≥15%, Acceptable≥10%
+  EPS Growth: Excellent≥30%, Good≥20%, Acceptable≥10%
+
+O'NEIL:
+  RS: Excellent≥85, Good≥70, Acceptable≥50
+
+GRAHAM:
+  P/B: Excellent≤1.0, Good≤1.5, Acceptable≤2.5
+  Current Ratio: Excellent≥2.5, Good≥2.0, Acceptable≥1.5
+  D/E: Excellent≤0.3, Good≤0.5, Acceptable≤1.0
+
+TRINITY WEIGHTS:
+  Lynch: 35% | O'Neil: 35% | Graham: 30%
+
+SIGNAL THRESHOLDS:
+  STRONG BUY: ≥85 | BUY: ≥70 | HOLD: ≥50 | SELL: <50
+
+================================================================================
+✅ VALIDACIÓN PRE-DESARROLLO COMPLETADA EXITOSAMENTE
+================================================================================
