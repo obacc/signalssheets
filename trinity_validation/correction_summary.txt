@@ -1,0 +1,38 @@
+
+================================================================================
+RESUMEN CORRECCIÓN Q4_calc - COMPLETADO
+Fecha: 2025-12-05
+================================================================================
+
+1. CORRECCIÓN EJECUTADA:
+   ✅ MERGE completado exitosamente
+   ✅ 21,435 registros Q4_calc actualizados
+
+2. CAMPOS CORREGIDOS:
+   - eps_diluted = FY - Q1 - Q2 - Q3
+   - eps_basic = FY - Q1 - Q2 - Q3
+
+3. VALIDACIÓN AAPL 2024:
+   ANTES (incorrecto):
+   - Q4_calc = 6.13 (era copia de FY)
+   - EPS TTM = 11.75
+   - P/E = 23.89
+
+   DESPUÉS (correcto):
+   - Q4_calc = 1.02 (calculado correctamente)
+   - EPS TTM = 6.6400
+   - P/E = 42.27
+
+   Yahoo Finance referencia: P/E ~38.09
+
+4. VALIDACIÓN 10 TICKERS:
+   9/10 tickers con suma Q1+Q2+Q3+Q4 = FY ✅
+
+5. BACKUP DISPONIBLE:
+   Tabla: fundamentals_timeseries_BACKUP_EPS_20251205
+
+6. PRÓXIMOS PASOS:
+   - Corregir sp_refresh_fundamentals_tables para evitar reintroducir el bug
+   - Re-ejecutar Trinity Method con datos corregidos
+
+================================================================================
