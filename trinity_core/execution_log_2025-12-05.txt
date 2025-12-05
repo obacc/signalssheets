@@ -1,0 +1,37 @@
+======================================================================
+TRINITY METHOD - EXECUTION LOG
+Execution Start: 2025-12-05T19:46:21.633363
+Signal Date: 2025-12-05
+======================================================================
+
+[1] EXECUTION
+    Status: SUCCESS
+    Execution time: 25.86 seconds
+
+[2] VALIDATION
+    Total rows: 9
+    Unique tickers: 9
+    Signal distribution:
+      STRONG BUY: 0
+      BUY: 3
+      HOLD: 4
+      SELL: 2
+    Validation error: Invalid format specifier '.2f if row.avg_score else 0' for object of type 'float'
+
+[3] TOP 50 EXPORT
+    Exported: /home/user/signalssheets/trinity_core/trinity_signals_top50_2025-12-05.csv
+    Rows: 9
+    Export error: Invalid format specifier '.2f if r['price_current'] else 0' for object of type 'float'
+
+[4] BUY SIGNALS SAMPLE
+    Error: Invalid format specifier '.2f if r['entry_price'] else 0' for object of type 'float'
+
+[5] SCORE DISTRIBUTION
+
+======================================================================
+EXECUTION SUMMARY
+======================================================================
+Start: 2025-12-05T19:46:21.633363
+End: 2025-12-05T19:46:49.919535
+Total time: 28.29 seconds
+======================================================================
