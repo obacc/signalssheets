@@ -1,5 +1,26 @@
-name = "indiciumsignals"
-compatibility_date = "2024-01-01"
+# Indicium Signals - Cloudflare Configuration
+# Updated: 2024-12-06
 
+name = "indicium-signals-api"
+main = "src/worker/index.js"
+compatibility_date = "2024-12-05"
+account_id = "213d7189694d6fefdf23cd1ff91385d2"
+
+[vars]
+ENVIRONMENT = "production"
+
+# KV Namespace - ID will be populated after creation
+# Run: wrangler kv:namespace create "SIGNALS_KV"
+# Then update the id below with the returned value
+[[kv_namespaces]]
+binding = "SIGNALS_KV"
+id = "PENDING_CREATION"
+
+# Static site config for Pages
 [site]
 bucket = "./dist"
+
+# Routes (optional - for custom domain)
+# routes = [
+#   { pattern = "api.indiciumsignals.com/*", zone_name = "indiciumsignals.com" }
+# ]

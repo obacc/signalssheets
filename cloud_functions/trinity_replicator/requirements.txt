@@ -1,0 +1,6 @@
+# Trinity Replicator Cloud Function Dependencies
+# Last updated: 2024-12-06
+
+functions-framework==3.*
+google-cloud-bigquery==3.14.1
+requests>=2.31.0

@@ -1,0 +1,25 @@
+# Ignore actual environment files with secrets
+.env.yaml
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local testing
+.gcloudignore
