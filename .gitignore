@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# GCP Credentials (NUNCA commitear)
+credentials/*.json
+!credentials/*.example.json
+gcp-service-account.json
+*.pem
+*.key
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
