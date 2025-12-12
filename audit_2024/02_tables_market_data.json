@@ -1,0 +1,118 @@
+{
+  "kind": "bigquery#tableList",
+  "etag": "i6dRlWAEM4zRgF03STkKaQ==",
+  "tables": [
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.Prices",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "Prices"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "fecha"
+      },
+      "creationTime": "1757445083318",
+      "clustering": {
+        "fields": [
+          "ticker"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.audit_runs",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "audit_runs"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "shard_date"
+      },
+      "creationTime": "1764694231211",
+      "clustering": {
+        "fields": [
+          "job_name",
+          "stage"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.ext_polygon_daily",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "ext_polygon_daily"
+      },
+      "type": "EXTERNAL",
+      "creationTime": "1762988968117"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.staging_polygon_daily_raw",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "staging_polygon_daily_raw"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "date"
+      },
+      "creationTime": "1761876786880",
+      "clustering": {
+        "fields": [
+          "ticker"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.stg_prices_polygon_raw",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "stg_prices_polygon_raw"
+      },
+      "type": "VIEW",
+      "view": {
+        "useLegacySql": false
+      },
+      "creationTime": "1762994549610"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.stooq_ext",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "stooq_ext"
+      },
+      "type": "EXTERNAL",
+      "creationTime": "1759804129622"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:market_data.v_ticker_norm",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "tableId": "v_ticker_norm"
+      },
+      "type": "VIEW",
+      "view": {
+        "useLegacySql": false
+      },
+      "creationTime": "1764553540128"
+    }
+  ],
+  "totalItems": 7
+}

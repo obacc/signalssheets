@@ -1,0 +1,80 @@
+{
+  "kind": "bigquery#table",
+  "etag": "xnBMo2cJiVtQugvsLP2Izw==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.parametros_trinity",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/parametros_trinity",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "parametros_trinity"
+  },
+  "description": "Par\u00e1metros configurables para Trinity Method - 3 escenarios \u00d7 50 par\u00e1metros",
+  "schema": {
+    "fields": [
+      {
+        "name": "parameter_id",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "scenario_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "category",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "parameter_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "parameter_value",
+        "type": "FLOAT",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "parameter_unit",
+        "type": "STRING"
+      },
+      {
+        "name": "description",
+        "type": "STRING"
+      },
+      {
+        "name": "is_active",
+        "type": "BOOLEAN",
+        "defaultValueExpression": "TRUE"
+      },
+      {
+        "name": "last_updated",
+        "type": "TIMESTAMP",
+        "defaultValueExpression": "CURRENT_TIMESTAMP()"
+      }
+    ]
+  },
+  "numBytes": "15388",
+  "numLongTermBytes": "0",
+  "numRows": "150",
+  "creationTime": "1764963427580",
+  "lastModifiedTime": "1764963432809",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "scenario_name",
+      "category"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "15388",
+  "numActiveLogicalBytes": "15388",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "5298",
+  "numActivePhysicalBytes": "5298",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "5298"
+}

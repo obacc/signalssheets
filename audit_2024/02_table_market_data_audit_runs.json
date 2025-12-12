@@ -1,0 +1,95 @@
+{
+  "kind": "bigquery#table",
+  "etag": "dKAxlj/p6OnwEsd5XcCNzA==",
+  "id": "sunny-advantage-471523-b3:market_data.audit_runs",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/audit_runs",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "audit_runs"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "job_name",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "shard_date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "stage",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "state",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "attempt",
+        "type": "INTEGER"
+      },
+      {
+        "name": "start_ts",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "end_ts",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "rows_written",
+        "type": "INTEGER"
+      },
+      {
+        "name": "bytes_read",
+        "type": "INTEGER"
+      },
+      {
+        "name": "latency_ms",
+        "type": "INTEGER"
+      },
+      {
+        "name": "msg",
+        "type": "STRING"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "shard_date"
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1764694231211",
+  "lastModifiedTime": "1764694231211",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "job_name",
+      "stage"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "0",
+  "numActivePhysicalBytes": "0",
+  "numLongTermPhysicalBytes": "0",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "shard_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "0"
+}

@@ -1,0 +1,13 @@
+{
+  "etag": "URyGhqXhXGvao/VxFDFoxA==",
+  "routineReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "routineId": "sp_merge_polygon_prices"
+  },
+  "routineType": "PROCEDURE",
+  "creationTime": "1763240079658",
+  "lastModifiedTime": "1763240079658",
+  "language": "SQL",
+  "definitionBody": "BEGIN\n\n  MERGE `sunny-advantage-471523-b3.market_data.Prices` AS T\n\n  USING (\n    SELECT\n      -- Normalizaci\u00f3n: agregar sufijo .US para unificar con Stooq\n      CONCAT(ticker, '.US') AS ticker,\n\n      -- Mapeo de schema: date (staging) \u2192 fecha (Prices)\n      `date` AS fecha,\n\n      -- Deduplicar filas: tomar el \u00faltimo valor por load_ts\n      -- Esto asegura que si hay duplicados, tomamos el m\u00e1s reciente\n      ARRAY_AGG(\n        STRUCT(open, high, low, close, volume, load_ts)\n        ORDER BY load_ts DESC\n        LIMIT 1\n      )[OFFSET(0)].open AS open,\n      \n      ARRAY_AGG(\n        STRUCT(open, high, low, close, volume, load_ts)\n        ORDER BY load_ts DESC\n        LIMIT 1\n      )[OFFSET(0)].high AS high,\n      \n      ARRAY_AGG(\n        STRUCT(open, high, low, close, volume, load_ts)\n        ORDER BY load_ts DESC\n        LIMIT 1\n      )[OFFSET(0)].low AS low,\n      \n      ARRAY_AGG(\n        STRUCT(open, high, low, close, volume, load_ts)\n        ORDER BY load_ts DESC\n        LIMIT 1\n      )[OFFSET(0)].close AS close,\n\n      -- Mapeo de schema: volume (staging) \u2192 vol (Prices)\n      ARRAY_AGG(\n        STRUCT(open, high, low, close, volume, load_ts)\n        ORDER BY load_ts DESC\n        LIMIT 1\n      )[OFFSET(0)].volume AS vol,\n\n      -- Origen fijo\n      'Polygon' AS origen,\n\n      -- Timestamp de carga desde RAW (el m\u00e1s reciente)\n      MAX(load_ts) AS carga_ts\n\n    FROM `sunny-advantage-471523-b3.market_data.stg_prices_polygon_raw`\n    WHERE ticker IS NOT NULL\n      AND `date` IS NOT NULL\n    GROUP BY ticker, `date`\n  ) AS S\n\n  -- Clave MERGE: (ticker, fecha, origen) para evitar duplicados\n  ON  T.ticker = S.ticker\n  AND T.fecha = S.fecha\n  AND T.origen = S.origen\n\n  WHEN MATCHED THEN UPDATE SET\n\n    T.open    = S.open,\n    T.high    = S.high,\n    T.low     = S.low,\n    T.close   = S.close,\n    T.vol     = S.vol,\n    T.updated_ts = CURRENT_TIMESTAMP()\n\n  WHEN NOT MATCHED THEN\n\n    INSERT (ticker, fecha, open, high, low, close, vol, origen, carga_ts)\n\n    VALUES (S.ticker, S.fecha, S.open, S.high, S.low, S.close, S.vol, S.origen, S.carga_ts);\n\nEND"
+}

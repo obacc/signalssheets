@@ -1,0 +1,61 @@
+{
+  "kind": "bigquery#table",
+  "etag": "tA5tJd3c3CUpPC0ngepE1w==",
+  "id": "sunny-advantage-471523-b3:market_data.stg_prices_polygon_raw",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/stg_prices_polygon_raw",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "stg_prices_polygon_raw"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "date",
+        "type": "DATE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT"
+      },
+      {
+        "name": "volume",
+        "type": "INTEGER"
+      },
+      {
+        "name": "load_ts",
+        "type": "TIMESTAMP"
+      }
+    ]
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1762994549610",
+  "lastModifiedTime": "1762994549610",
+  "type": "VIEW",
+  "view": {
+    "query": "SELECT\n  ticker,\n  date,\n  open,\n  high,\n  low,\n  close,\n  volume,\n  load_ts\nFROM `sunny-advantage-471523-b3.market_data.ext_polygon_daily`",
+    "useLegacySql": false
+  },
+  "location": "US",
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0"
+}

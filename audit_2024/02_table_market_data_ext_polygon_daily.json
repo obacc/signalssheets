@@ -1,0 +1,74 @@
+{
+  "kind": "bigquery#table",
+  "etag": "2mMN4FJC8MKKazHZfpKzhQ==",
+  "id": "sunny-advantage-471523-b3:market_data.ext_polygon_daily",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/ext_polygon_daily",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "ext_polygon_daily"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "volume",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "load_ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1762988968117",
+  "lastModifiedTime": "1762988968364",
+  "type": "EXTERNAL",
+  "externalDataConfiguration": {
+    "sourceUris": [
+      "gs://ss-bucket-polygon-incremental/polygon/daily*.parquet"
+    ],
+    "sourceFormat": "PARQUET",
+    "autodetect": true,
+    "ignoreUnknownValues": false
+  },
+  "location": "US",
+  "requirePartitionFilter": false,
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0"
+}

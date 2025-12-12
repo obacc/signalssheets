@@ -1,0 +1,90 @@
+{
+  "kind": "bigquery#table",
+  "etag": "jaPGANsM7C66iMWL13lxiw==",
+  "id": "sunny-advantage-471523-b3:market_data.stooq_ext",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/stooq_ext",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "stooq_ext"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "_TICKER_",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_PER_",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_DATE_",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_TIME_",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_OPEN_",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_HIGH_",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_LOW_",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_CLOSE_",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_VOL_",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "_OPENINT_",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1759804129622",
+  "lastModifiedTime": "1759804130050",
+  "type": "EXTERNAL",
+  "externalDataConfiguration": {
+    "sourceUris": [
+      "gs://ss-bucket-stook-incremental/*.txt"
+    ],
+    "sourceFormat": "CSV",
+    "maxBadRecords": 1000,
+    "autodetect": true,
+    "ignoreUnknownValues": false,
+    "csvOptions": {
+      "fieldDelimiter": ",",
+      "skipLeadingRows": "1",
+      "quote": ""
+    }
+  },
+  "location": "US",
+  "requirePartitionFilter": false,
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0"
+}

@@ -1,0 +1,16 @@
+{
+  "routines": [
+    {
+      "etag": "URyGhqXhXGvao/VxFDFoxA==",
+      "routineReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "market_data",
+        "routineId": "sp_merge_polygon_prices"
+      },
+      "routineType": "PROCEDURE",
+      "creationTime": "1763240079658",
+      "lastModifiedTime": "1763240079658",
+      "language": "SQL"
+    }
+  ]
+}

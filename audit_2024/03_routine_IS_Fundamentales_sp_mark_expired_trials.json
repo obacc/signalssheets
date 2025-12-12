@@ -1,0 +1,13 @@
+{
+  "etag": "58/BJNsCbl2TToYWZaOZtA==",
+  "routineReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "routineId": "sp_mark_expired_trials"
+  },
+  "routineType": "PROCEDURE",
+  "creationTime": "1765136020793",
+  "lastModifiedTime": "1765136020793",
+  "language": "SQL",
+  "definitionBody": "BEGIN\n  -- Marcar tokens FREE expirados\n  UPDATE `sunny-advantage-471523-b3.IS_Fundamentales.api_tokens`\n  SET status = 'expired'\n  WHERE status = 'active'\n    AND expiry_date < CURRENT_DATE()\n    AND expiry_date IS NOT NULL;\n  \n  -- Log de ejecuci\u00f3n (opcional)\n  -- INSERT INTO logs (procedure_name, executed_at, rows_affected)\n  -- VALUES ('sp_mark_expired_trials', CURRENT_TIMESTAMP(), @@row_count);\nEND"
+}

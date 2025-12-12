@@ -1,0 +1,209 @@
+{
+  "kind": "bigquery#table",
+  "etag": "Qann0RI0857R5qnzO3TlpQ==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.trinity_signals_daily_test",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/trinity_signals_daily_test",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "trinity_signals_daily_test"
+  },
+  "description": "Tabla TEST para validaci\u00f3n pre-desarrollo Trinity Method",
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING"
+      },
+      {
+        "name": "sector",
+        "type": "STRING"
+      },
+      {
+        "name": "signal_date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "price_current",
+        "type": "FLOAT"
+      },
+      {
+        "name": "price_52w_high",
+        "type": "FLOAT"
+      },
+      {
+        "name": "price_52w_low",
+        "type": "FLOAT"
+      },
+      {
+        "name": "volume_daily",
+        "type": "INTEGER"
+      },
+      {
+        "name": "volume_avg_50d",
+        "type": "FLOAT"
+      },
+      {
+        "name": "market_cap",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_diluted_q",
+        "type": "FLOAT"
+      },
+      {
+        "name": "shares_outstanding_diluted",
+        "type": "FLOAT"
+      },
+      {
+        "name": "revenues_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_income_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "stockholders_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_liabilities",
+        "type": "FLOAT"
+      },
+      {
+        "name": "long_term_debt",
+        "type": "FLOAT"
+      },
+      {
+        "name": "roe",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "revenue_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "pe_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "pb_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "peg_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "debt_to_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_peg_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_roe_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_eps_growth_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_rs_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_volume_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_price_momentum_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_pb_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_current_ratio_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_debt_equity_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "trinity_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "signal_strength",
+        "type": "STRING"
+      },
+      {
+        "name": "entry_price",
+        "type": "FLOAT"
+      },
+      {
+        "name": "stop_loss",
+        "type": "FLOAT"
+      },
+      {
+        "name": "target_price",
+        "type": "FLOAT"
+      }
+    ]
+  },
+  "numBytes": "3492",
+  "numLongTermBytes": "0",
+  "numRows": "10",
+  "creationTime": "1764957789200",
+  "lastModifiedTime": "1764961503177",
+  "type": "TABLE",
+  "location": "US",
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "3492",
+  "numActiveLogicalBytes": "3492",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "12599",
+  "numActivePhysicalBytes": "12599",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "12599"
+}

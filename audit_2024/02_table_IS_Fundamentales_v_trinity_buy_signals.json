@@ -1,0 +1,261 @@
+{
+  "kind": "bigquery#table",
+  "etag": "iYfWXMJDx1pHUhHPhsCDOw==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.v_trinity_buy_signals",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/v_trinity_buy_signals",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "v_trinity_buy_signals"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "ticker_norm",
+        "type": "STRING"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING"
+      },
+      {
+        "name": "sector",
+        "type": "STRING"
+      },
+      {
+        "name": "industry",
+        "type": "STRING"
+      },
+      {
+        "name": "signal_date",
+        "type": "DATE"
+      },
+      {
+        "name": "price_current",
+        "type": "FLOAT"
+      },
+      {
+        "name": "price_52w_high",
+        "type": "FLOAT"
+      },
+      {
+        "name": "price_52w_low",
+        "type": "FLOAT"
+      },
+      {
+        "name": "volume_daily",
+        "type": "INTEGER"
+      },
+      {
+        "name": "volume_avg_50d",
+        "type": "FLOAT"
+      },
+      {
+        "name": "market_cap",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "revenues_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_income_ttm",
+        "type": "FLOAT"
+      },
+      {
+        "name": "stockholders_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_liabilities",
+        "type": "FLOAT"
+      },
+      {
+        "name": "long_term_debt",
+        "type": "FLOAT"
+      },
+      {
+        "name": "roe",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "revenue_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_income_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "pe_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "pb_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "ps_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "peg_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "debt_to_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_peg_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_roe_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_eps_growth_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "lynch_revenue_growth_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_rs_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_volume_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_momentum_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "oneil_eps_accel_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_pb_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_current_ratio_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_debt_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "graham_stability_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "trinity_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "signal_strength",
+        "type": "STRING"
+      },
+      {
+        "name": "recommendation",
+        "type": "STRING"
+      },
+      {
+        "name": "confidence_level",
+        "type": "FLOAT"
+      },
+      {
+        "name": "entry_price",
+        "type": "FLOAT"
+      },
+      {
+        "name": "stop_loss",
+        "type": "FLOAT"
+      },
+      {
+        "name": "target_price",
+        "type": "FLOAT"
+      },
+      {
+        "name": "risk_reward_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "ranking_position",
+        "type": "INTEGER"
+      },
+      {
+        "name": "percentile_rank",
+        "type": "FLOAT"
+      },
+      {
+        "name": "data_quality_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "has_complete_data",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "calculation_timestamp",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP"
+      }
+    ]
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1764963622864",
+  "lastModifiedTime": "1764963622864",
+  "type": "VIEW",
+  "view": {
+    "query": "SELECT *\nFROM `sunny-advantage-471523-b3.IS_Fundamentales.trinity_signals_daily`\nWHERE signal_strength IN ('STRONG BUY', 'BUY')\n  AND signal_date = (\n    SELECT MAX(signal_date)\n    FROM `sunny-advantage-471523-b3.IS_Fundamentales.trinity_signals_daily`\n  )\nORDER BY trinity_score DESC",
+    "useLegacySql": false
+  },
+  "location": "US",
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0"
+}

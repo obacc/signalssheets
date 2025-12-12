@@ -1,0 +1,96 @@
+{
+  "kind": "bigquery#table",
+  "etag": "BW7dp2W423AUyel4ekjP8Q==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.market_regime_daily",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/market_regime_daily",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "market_regime_daily"
+  },
+  "description": "Daily Market Regime calculation for Trinity Method threshold adjustments",
+  "schema": {
+    "fields": [
+      {
+        "name": "regime_date",
+        "type": "DATE",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "regime_type",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "sp500_close",
+        "type": "FLOAT"
+      },
+      {
+        "name": "sp500_ytd_start",
+        "type": "FLOAT"
+      },
+      {
+        "name": "sp500_ytd_change_pct",
+        "type": "FLOAT"
+      },
+      {
+        "name": "vix_close",
+        "type": "FLOAT"
+      },
+      {
+        "name": "calculation_method",
+        "type": "STRING"
+      },
+      {
+        "name": "data_source",
+        "type": "STRING"
+      },
+      {
+        "name": "notes",
+        "type": "STRING"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "defaultValueExpression": "CURRENT_TIMESTAMP()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP",
+        "defaultValueExpression": "CURRENT_TIMESTAMP()"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "regime_date"
+  },
+  "numBytes": "1072",
+  "numLongTermBytes": "0",
+  "numRows": "8",
+  "creationTime": "1764966752089",
+  "lastModifiedTime": "1765522811080",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "regime_type"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "12882",
+  "numTotalLogicalBytes": "1072",
+  "numActiveLogicalBytes": "1072",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "38782",
+  "numActivePhysicalBytes": "38782",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "9",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "regime_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "25900"
+}

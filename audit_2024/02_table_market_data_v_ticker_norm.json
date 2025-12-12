@@ -1,0 +1,37 @@
+{
+  "kind": "bigquery#table",
+  "etag": "OJ64CVxTAeJnQ9KU/h4Vgw==",
+  "id": "sunny-advantage-471523-b3:market_data.v_ticker_norm",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/v_ticker_norm",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "v_ticker_norm"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "ticker_norm",
+        "type": "STRING"
+      }
+    ]
+  },
+  "numBytes": "0",
+  "numLongTermBytes": "0",
+  "numRows": "0",
+  "creationTime": "1764553540128",
+  "lastModifiedTime": "1764553540128",
+  "type": "VIEW",
+  "view": {
+    "query": "SELECT DISTINCT\n      ticker,\n      -- Normalizar: remover .US y convertir a may\u00fasculas\n      UPPER(TRIM(REPLACE(ticker, '.US', ''))) AS ticker_norm\n    FROM `sunny-advantage-471523-b3.market_data.Prices`\n    WHERE ticker IS NOT NULL\n      AND ticker != ''",
+    "useLegacySql": false
+  },
+  "location": "US",
+  "numTotalLogicalBytes": "0",
+  "numActiveLogicalBytes": "0",
+  "numLongTermLogicalBytes": "0"
+}

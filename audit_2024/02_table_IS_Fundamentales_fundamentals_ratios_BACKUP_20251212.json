@@ -1,0 +1,170 @@
+{
+  "kind": "bigquery#table",
+  "etag": "biTNJzwJugrrR6Ms/9J+RQ==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios_BACKUP_20251212",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/fundamentals_ratios_BACKUP_20251212",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "fundamentals_ratios_BACKUP_20251212"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "cik",
+        "type": "INTEGER"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING"
+      },
+      {
+        "name": "fiscal_year",
+        "type": "INTEGER"
+      },
+      {
+        "name": "fiscal_period",
+        "type": "STRING"
+      },
+      {
+        "name": "period_end_date",
+        "type": "DATE"
+      },
+      {
+        "name": "period_type",
+        "type": "STRING"
+      },
+      {
+        "name": "gross_margin",
+        "type": "FLOAT"
+      },
+      {
+        "name": "operating_margin",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_margin",
+        "type": "FLOAT"
+      },
+      {
+        "name": "roe",
+        "type": "FLOAT"
+      },
+      {
+        "name": "roa",
+        "type": "FLOAT"
+      },
+      {
+        "name": "roic",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "quick_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "cash_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "working_capital",
+        "type": "FLOAT"
+      },
+      {
+        "name": "debt_to_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "debt_to_assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "equity_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "interest_coverage",
+        "type": "FLOAT"
+      },
+      {
+        "name": "asset_turnover",
+        "type": "FLOAT"
+      },
+      {
+        "name": "inventory_turnover",
+        "type": "FLOAT"
+      },
+      {
+        "name": "receivables_turnover",
+        "type": "FLOAT"
+      },
+      {
+        "name": "days_sales_outstanding",
+        "type": "FLOAT"
+      },
+      {
+        "name": "fcf_margin",
+        "type": "FLOAT"
+      },
+      {
+        "name": "operating_cf_ratio",
+        "type": "FLOAT"
+      },
+      {
+        "name": "cash_flow_to_debt",
+        "type": "FLOAT"
+      },
+      {
+        "name": "capex_to_revenue",
+        "type": "FLOAT"
+      },
+      {
+        "name": "revenue_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_income_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "fcf_growth_yoy",
+        "type": "FLOAT"
+      },
+      {
+        "name": "data_quality_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "last_updated",
+        "type": "TIMESTAMP"
+      }
+    ]
+  },
+  "numBytes": "47761448",
+  "numLongTermBytes": "0",
+  "numRows": "241249",
+  "creationTime": "1765558666641",
+  "lastModifiedTime": "1765558666641",
+  "type": "TABLE",
+  "location": "US",
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "47761448",
+  "numActiveLogicalBytes": "47761448",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "21365004",
+  "numActivePhysicalBytes": "21365004",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "21365004"
+}

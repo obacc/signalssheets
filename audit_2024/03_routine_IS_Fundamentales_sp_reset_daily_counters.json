@@ -1,0 +1,13 @@
+{
+  "etag": "VG7vQ3yeC03DBngK8gTjbQ==",
+  "routineReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "routineId": "sp_reset_daily_counters"
+  },
+  "routineType": "PROCEDURE",
+  "creationTime": "1765136019360",
+  "lastModifiedTime": "1765136019360",
+  "language": "SQL",
+  "definitionBody": "BEGIN\n  -- Resetear contadores diarios para usuarios activos\n  UPDATE `sunny-advantage-471523-b3.IS_Fundamentales.api_tokens`\n  SET request_count_today = 0\n  WHERE status = 'active';\n  \n  -- Log de ejecuci\u00f3n (opcional, si tienes tabla de logs)\n  -- INSERT INTO logs (procedure_name, executed_at, rows_affected)\n  -- VALUES ('sp_reset_daily_counters', CURRENT_TIMESTAMP(), @@row_count);\nEND"
+}

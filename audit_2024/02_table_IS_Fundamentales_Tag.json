@@ -1,0 +1,93 @@
+{
+  "kind": "bigquery#table",
+  "etag": "UHqRZ2s2XZ26zyUQiuiweg==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.Tag",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/Tag",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "Tag"
+  },
+  "description": "SEC EDGAR Tag Dictionary - EXACT schema from files",
+  "schema": {
+    "fields": [
+      {
+        "name": "tag",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "XBRL tag name"
+      },
+      {
+        "name": "version",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Taxonomy version"
+      },
+      {
+        "name": "custom",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "1=custom, 0=standard"
+      },
+      {
+        "name": "abstract",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "1=abstract, 0=concrete"
+      },
+      {
+        "name": "datatype",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Data type"
+      },
+      {
+        "name": "iord",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "I=Instant, D=Duration"
+      },
+      {
+        "name": "crdr",
+        "type": "STRING",
+        "description": "C=Credit, D=Debit"
+      },
+      {
+        "name": "tlabel",
+        "type": "STRING",
+        "description": "Terse label"
+      },
+      {
+        "name": "doc",
+        "type": "STRING",
+        "description": "Documentation"
+      },
+      {
+        "name": "quarter",
+        "type": "STRING",
+        "description": "Quarter used"
+      }
+    ]
+  },
+  "numBytes": "843319666",
+  "numLongTermBytes": "0",
+  "numRows": "3355974",
+  "creationTime": "1764695050054",
+  "lastModifiedTime": "1764695879843",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "tag",
+      "version"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "843319666",
+  "numActiveLogicalBytes": "843319666",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "42881230",
+  "numActivePhysicalBytes": "42881230",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "42881230"
+}

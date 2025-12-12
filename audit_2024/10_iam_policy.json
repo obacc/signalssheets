@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "etag": "BwZFYqCgUDk=",
+  "bindings": [
+    {
+      "role": "roles/aiplatform.colabServiceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-vertex-nb.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/aiplatform.notebookServiceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-aiplatform-vm.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/aiplatform.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-aiplatform.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/artifactregistry.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.admin",
+      "members": [
+        "deleted:serviceAccount:chatgpt-bigquery-read@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=106885838650534437859",
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:claudecode@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:signalsheet-backend@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.dataEditor",
+      "members": [
+        "deleted:serviceAccount:dataform-ci@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=106717363450188678908",
+        "deleted:serviceAccount:ingest-fn-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=116791220180124478582",
+        "deleted:serviceAccount:sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=104696564378084794599",
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:indicium-api-worker@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:service-822442830684@gcp-sa-dataform.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.dataViewer",
+      "members": [
+        "serviceAccount:cf-free-endpoints@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.jobUser",
+      "members": [
+        "deleted:serviceAccount:dataform-ci@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=106717363450188678908",
+        "deleted:serviceAccount:ingest-fn-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=116791220180124478582",
+        "deleted:serviceAccount:sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=104696564378084794599",
+        "serviceAccount:cf-free-endpoints@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:indicium-api-worker@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:service-822442830684@gcp-sa-dataform.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.securityAdmin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquery.studioAdmin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/bigquerydatatransfer.serviceAgent",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:service-822442830684@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudaicompanion.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-cloudaicompanion.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudbuild.builds.builder",
+      "members": [
+        "serviceAccount:822442830684@cloudbuild.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudbuild.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudfunctions.admin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudfunctions.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcf-admin-robot.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudscheduler.admin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/cloudscheduler.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-cloudscheduler.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/compute.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@compute-system.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/containerregistry.ServiceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@containerregistry.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/dataflow.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@dataflow-service-producer-prod.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/dataform.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-dataform.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/dataplex.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-dataplex.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/dataproc.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@dataproc-accounts.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/editor",
+      "members": [
+        "deleted:serviceAccount:sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=104696564378084794599",
+        "deleted:serviceAccount:sunny-advantage-471523-b3@appspot.gserviceaccount.com?uid=114378398947588516947",
+        "serviceAccount:822442830684-compute@developer.gserviceaccount.com",
+        "serviceAccount:822442830684@cloudservices.gserviceaccount.com",
+        "user:aaron.c.investor@gmail.com"
+      ]
+    },
+    {
+      "role": "roles/eventarc.eventReceiver",
+      "members": [
+        "deleted:serviceAccount:stooq-ingest-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=108670903790277670763"
+      ]
+    },
+    {
+      "role": "roles/eventarc.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-eventarc.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/iam.oauthClientAdmin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/iam.serviceAccountUser",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/logging.admin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/monitoring.admin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/networkconnectivity.multicloudDataTransferConfigAdmin",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/notebooks.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-notebooks.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/owner",
+      "members": [
+        "serviceAccount:claudecode@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "user:ob.acc23@gmail.com"
+      ]
+    },
+    {
+      "role": "roles/pubsub.publisher",
+      "members": [
+        "serviceAccount:service-822442830684@gs-project-accounts.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/pubsub.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@gcp-sa-pubsub.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/run.admin",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/run.invoker",
+      "members": [
+        "deleted:serviceAccount:stooq-ingest-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=108670903790277670763"
+      ]
+    },
+    {
+      "role": "roles/run.serviceAgent",
+      "members": [
+        "serviceAccount:service-822442830684@serverless-robot-prod.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/secretmanager.secretAccessor",
+      "members": [
+        "deleted:serviceAccount:ingest-fn-sa@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=116791220180124478582",
+        "deleted:serviceAccount:sa-ingest-finnhub@sunny-advantage-471523-b3.iam.gserviceaccount.com?uid=104696564378084794599",
+        "serviceAccount:822442830684-compute@developer.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/serviceusage.serviceUsageConsumer",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/storage.admin",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com",
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/storage.expressModeUserAccess",
+      "members": [
+        "serviceAccount:claudecode-939@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/storage.objectAdmin",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    },
+    {
+      "role": "roles/storage.objectViewer",
+      "members": [
+        "serviceAccount:cursor-signalsheets@sunny-advantage-471523-b3.iam.gserviceaccount.com"
+      ]
+    }
+  ]
+}

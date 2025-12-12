@@ -1,0 +1,111 @@
+{
+  "kind": "bigquery#table",
+  "etag": "tSrUQEPuesKv4P/XgflwoQ==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.Pre",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/Pre",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "Pre"
+  },
+  "description": "SEC EDGAR Presentation - EXACT schema from files",
+  "schema": {
+    "fields": [
+      {
+        "name": "adsh",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Links to Sub.adsh"
+      },
+      {
+        "name": "report",
+        "type": "INTEGER",
+        "description": "Report number"
+      },
+      {
+        "name": "line",
+        "type": "INTEGER",
+        "description": "Line number"
+      },
+      {
+        "name": "stmt",
+        "type": "STRING",
+        "description": "Statement type"
+      },
+      {
+        "name": "inpth",
+        "type": "INTEGER",
+        "description": "In path: 1=yes, 0=no"
+      },
+      {
+        "name": "rfile",
+        "type": "STRING",
+        "description": "Role file"
+      },
+      {
+        "name": "tag",
+        "type": "STRING",
+        "description": "Links to Tag.tag"
+      },
+      {
+        "name": "version",
+        "type": "STRING",
+        "description": "Links to Tag.version"
+      },
+      {
+        "name": "plabel",
+        "type": "STRING",
+        "description": "Preferred label"
+      },
+      {
+        "name": "negating",
+        "type": "INTEGER",
+        "description": "Negating: 1=yes, 0=no"
+      },
+      {
+        "name": "filed_date",
+        "type": "DATE",
+        "mode": "REQUIRED",
+        "description": "Filing date - PARTITION KEY"
+      },
+      {
+        "name": "quarter",
+        "type": "STRING",
+        "description": "YYYYqN format"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "filed_date"
+  },
+  "numBytes": "5512246955",
+  "numLongTermBytes": "0",
+  "numRows": "33129343",
+  "creationTime": "1764695049081",
+  "lastModifiedTime": "1764695820243",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "adsh",
+      "stmt"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "5512246955",
+  "numActiveLogicalBytes": "5512246955",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "402420765",
+  "numActivePhysicalBytes": "402420765",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "2678",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "filed_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "402420765"
+}

@@ -1,0 +1,254 @@
+{
+  "kind": "bigquery#table",
+  "etag": "8aPGbqoqN0/cTroulXF4GA==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_timeseries_BACKUP_PREOCFFIX_20251212",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/fundamentals_timeseries_BACKUP_PREOCFFIX_20251212",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "fundamentals_timeseries_BACKUP_PREOCFFIX_20251212"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "cik",
+        "type": "INTEGER"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING"
+      },
+      {
+        "name": "fiscal_year",
+        "type": "INTEGER"
+      },
+      {
+        "name": "fiscal_period",
+        "type": "STRING"
+      },
+      {
+        "name": "period_end_date",
+        "type": "DATE"
+      },
+      {
+        "name": "fiscal_year_end",
+        "type": "STRING"
+      },
+      {
+        "name": "is_calculated",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "period_type",
+        "type": "STRING"
+      },
+      {
+        "name": "form_type",
+        "type": "STRING"
+      },
+      {
+        "name": "filing_date",
+        "type": "DATE"
+      },
+      {
+        "name": "revenues",
+        "type": "FLOAT"
+      },
+      {
+        "name": "cost_of_revenue",
+        "type": "FLOAT"
+      },
+      {
+        "name": "gross_profit",
+        "type": "FLOAT"
+      },
+      {
+        "name": "operating_expenses",
+        "type": "FLOAT"
+      },
+      {
+        "name": "research_development",
+        "type": "FLOAT"
+      },
+      {
+        "name": "selling_general_admin",
+        "type": "FLOAT"
+      },
+      {
+        "name": "operating_income",
+        "type": "FLOAT"
+      },
+      {
+        "name": "interest_expense",
+        "type": "FLOAT"
+      },
+      {
+        "name": "interest_income",
+        "type": "FLOAT"
+      },
+      {
+        "name": "other_income_expense",
+        "type": "FLOAT"
+      },
+      {
+        "name": "income_before_tax",
+        "type": "FLOAT"
+      },
+      {
+        "name": "income_tax_expense",
+        "type": "FLOAT"
+      },
+      {
+        "name": "net_income",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_basic",
+        "type": "FLOAT"
+      },
+      {
+        "name": "eps_diluted",
+        "type": "FLOAT"
+      },
+      {
+        "name": "shares_outstanding_basic",
+        "type": "FLOAT"
+      },
+      {
+        "name": "shares_outstanding_diluted",
+        "type": "FLOAT"
+      },
+      {
+        "name": "assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "cash_and_equivalents",
+        "type": "FLOAT"
+      },
+      {
+        "name": "short_term_investments",
+        "type": "FLOAT"
+      },
+      {
+        "name": "accounts_receivable",
+        "type": "FLOAT"
+      },
+      {
+        "name": "inventory",
+        "type": "FLOAT"
+      },
+      {
+        "name": "noncurrent_assets",
+        "type": "FLOAT"
+      },
+      {
+        "name": "ppe_net",
+        "type": "FLOAT"
+      },
+      {
+        "name": "liabilities",
+        "type": "FLOAT"
+      },
+      {
+        "name": "current_liabilities",
+        "type": "FLOAT"
+      },
+      {
+        "name": "accounts_payable",
+        "type": "FLOAT"
+      },
+      {
+        "name": "short_term_debt",
+        "type": "FLOAT"
+      },
+      {
+        "name": "long_term_debt",
+        "type": "FLOAT"
+      },
+      {
+        "name": "noncurrent_liabilities",
+        "type": "FLOAT"
+      },
+      {
+        "name": "stockholders_equity",
+        "type": "FLOAT"
+      },
+      {
+        "name": "retained_earnings",
+        "type": "FLOAT"
+      },
+      {
+        "name": "operating_cash_flow",
+        "type": "FLOAT"
+      },
+      {
+        "name": "investing_cash_flow",
+        "type": "FLOAT"
+      },
+      {
+        "name": "financing_cash_flow",
+        "type": "FLOAT"
+      },
+      {
+        "name": "capex",
+        "type": "FLOAT"
+      },
+      {
+        "name": "free_cash_flow",
+        "type": "FLOAT"
+      },
+      {
+        "name": "dividends_paid",
+        "type": "FLOAT"
+      },
+      {
+        "name": "data_quality_score",
+        "type": "FLOAT"
+      },
+      {
+        "name": "last_updated",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "shares_outstanding_consolidated",
+        "type": "INTEGER"
+      },
+      {
+        "name": "shares_source",
+        "type": "STRING"
+      },
+      {
+        "name": "long_term_debt_noncurrent",
+        "type": "FLOAT"
+      },
+      {
+        "name": "long_term_debt_current",
+        "type": "FLOAT"
+      }
+    ]
+  },
+  "numBytes": "74732674",
+  "numLongTermBytes": "0",
+  "numRows": "241250",
+  "creationTime": "1765567968644",
+  "lastModifiedTime": "1765567968644",
+  "type": "TABLE",
+  "location": "US",
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "74732674",
+  "numActiveLogicalBytes": "74732674",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "19631061",
+  "numActivePhysicalBytes": "19631061",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "19631061"
+}

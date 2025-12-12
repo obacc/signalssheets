@@ -1,0 +1,83 @@
+{
+  "kind": "bigquery#table",
+  "etag": "zI4AnaC6dcivwXOIk9ol4A==",
+  "id": "sunny-advantage-471523-b3:market_data.staging_polygon_daily_raw",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/staging_polygon_daily_raw",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "staging_polygon_daily_raw"
+  },
+  "description": "Staging Polygon.io data",
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "volume",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "date"
+  },
+  "numBytes": "3750809",
+  "numLongTermBytes": "0",
+  "numRows": "92917",
+  "creationTime": "1761876786880",
+  "lastModifiedTime": "1762541502155",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "ticker"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "3750809",
+  "numActiveLogicalBytes": "3750809",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "1132535",
+  "numActivePhysicalBytes": "1132535",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "8",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "1132535"
+}

@@ -1,0 +1,208 @@
+{
+  "kind": "bigquery#queryResponse",
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "volume",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "load_ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "jobReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "jobId": "job_1Vm_8074b9c3XiOg_RYaJLhDohUE",
+    "location": "US"
+  },
+  "totalRows": "5",
+  "rows": [
+    {
+      "f": [
+        {
+          "v": "QQEW"
+        },
+        {
+          "v": "2025-12-10"
+        },
+        {
+          "v": "143.62"
+        },
+        {
+          "v": "145.38"
+        },
+        {
+          "v": "143.53"
+        },
+        {
+          "v": "144.99"
+        },
+        {
+          "v": "23884"
+        },
+        {
+          "v": "1.765432813259278E9"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "PID"
+        },
+        {
+          "v": "2025-12-10"
+        },
+        {
+          "v": "21.82"
+        },
+        {
+          "v": "22.065"
+        },
+        {
+          "v": "21.82"
+        },
+        {
+          "v": "22.01"
+        },
+        {
+          "v": "63001"
+        },
+        {
+          "v": "1.765432813259278E9"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "GMEY"
+        },
+        {
+          "v": "2025-12-10"
+        },
+        {
+          "v": "39.92"
+        },
+        {
+          "v": "40.76"
+        },
+        {
+          "v": "39.5668"
+        },
+        {
+          "v": "40.49"
+        },
+        {
+          "v": "20571"
+        },
+        {
+          "v": "1.765432813259278E9"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "CGMM"
+        },
+        {
+          "v": "2025-12-10"
+        },
+        {
+          "v": "28.93"
+        },
+        {
+          "v": "29.47"
+        },
+        {
+          "v": "28.84"
+        },
+        {
+          "v": "29.37"
+        },
+        {
+          "v": "687297"
+        },
+        {
+          "v": "1.765432813259278E9"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "DFCA"
+        },
+        {
+          "v": "2025-12-10"
+        },
+        {
+          "v": "50.15"
+        },
+        {
+          "v": "50.17"
+        },
+        {
+          "v": "49.93"
+        },
+        {
+          "v": "50.11"
+        },
+        {
+          "v": "74552"
+        },
+        {
+          "v": "1.765432813259278E9"
+        }
+      ]
+    }
+  ],
+  "totalBytesProcessed": "989",
+  "jobComplete": true,
+  "cacheHit": false,
+  "queryId": "job_1Vm_8074b9c3XiOg_RYaJLhDohUE",
+  "jobCreationReason": {
+    "code": "REQUESTED"
+  },
+  "totalBytesBilled": "10485760",
+  "totalSlotMs": "425",
+  "location": "US",
+  "creationTime": "1765568743208",
+  "startTime": "1765568743431",
+  "endTime": "1765568743761"
+}

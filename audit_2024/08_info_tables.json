@@ -1,0 +1,688 @@
+{
+  "kind": "bigquery#queryResponse",
+  "schema": {
+    "fields": [
+      {
+        "name": "table_catalog",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "table_schema",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "table_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "table_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_insertable_into",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_typed",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "creation_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "base_table_catalog",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "base_table_schema",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "base_table_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "snapshot_time_ms",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ddl",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "default_collation_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "upsert_stream_apply_watermark",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "replica_source_catalog",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "replica_source_schema",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "replica_source_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "replication_status",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "replication_error",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_change_history_enabled",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sync_status",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "last_completion_time",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "error_time",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "error",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+              {
+                "name": "reason",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "location",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "message",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "is_fine_grained_mutations_enabled",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "managed_table_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "jobReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "jobId": "job_v_RNHTDfvS-FfcwPU4vmqaPySDZg",
+    "location": "US"
+  },
+  "totalRows": "7",
+  "rows": [
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "v_ticker_norm"
+        },
+        {
+          "v": "VIEW"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.764553540128E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE VIEW `sunny-advantage-471523-b3.market_data.v_ticker_norm`\nAS SELECT DISTINCT\n      ticker,\n      -- Normalizar: remover .US y convertir a may\u00fasculas\n      UPPER(TRIM(REPLACE(ticker, '.US', ''))) AS ticker_norm\n    FROM `sunny-advantage-471523-b3.market_data.Prices`\n    WHERE ticker IS NOT NULL\n      AND ticker != '';"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "EXTERNAL"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.762988968117E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE EXTERNAL TABLE `sunny-advantage-471523-b3.market_data.ext_polygon_daily`\nOPTIONS(\n  format=\"PARQUET\",\n  uris=[\"gs://ss-bucket-polygon-incremental/polygon/daily*.parquet\"]\n);"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "BASE TABLE"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.757445083318E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE TABLE `sunny-advantage-471523-b3.market_data.Prices`\n(\n  origen STRING,\n  ticker STRING,\n  fecha DATE,\n  open FLOAT64,\n  high FLOAT64,\n  low FLOAT64,\n  close FLOAT64,\n  vol INT64,\n  openint INT64,\n  carga_ts TIMESTAMP,\n  first_batch_id STRING,\n  last_batch_id STRING,\n  updated_at TIMESTAMP,\n  updated_ts TIMESTAMP\n)\nPARTITION BY fecha\nCLUSTER BY ticker;"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NATIVE"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "VIEW"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.76299454961E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE VIEW `sunny-advantage-471523-b3.market_data.stg_prices_polygon_raw`\nAS SELECT\n  ticker,\n  date,\n  open,\n  high,\n  low,\n  close,\n  volume,\n  load_ts\nFROM `sunny-advantage-471523-b3.market_data.ext_polygon_daily`;"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "BASE TABLE"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.76187678688E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE TABLE `sunny-advantage-471523-b3.market_data.staging_polygon_daily_raw`\n(\n  ticker STRING,\n  date DATE,\n  open FLOAT64,\n  high FLOAT64,\n  low FLOAT64,\n  close FLOAT64,\n  volume INT64\n)\nPARTITION BY date\nCLUSTER BY ticker\nOPTIONS(\n  description=\"Staging Polygon.io data\"\n);"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NATIVE"
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "EXTERNAL"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.759804129622E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE EXTERNAL TABLE `sunny-advantage-471523-b3.market_data.stooq_ext`\nOPTIONS(\n  quote=\"\",\n  skip_leading_rows=1,\n  max_bad_records=1000,\n  format=\"CSV\",\n  uris=[\"gs://ss-bucket-stook-incremental/*.txt\"]\n);"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "BASE TABLE"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1.764694231211E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "CREATE TABLE `sunny-advantage-471523-b3.market_data.audit_runs`\n(\n  job_name STRING NOT NULL,\n  shard_date DATE NOT NULL,\n  stage STRING NOT NULL,\n  state STRING NOT NULL,\n  attempt INT64,\n  start_ts TIMESTAMP,\n  end_ts TIMESTAMP,\n  rows_written INT64,\n  bytes_read INT64,\n  latency_ms INT64,\n  msg STRING\n)\nPARTITION BY shard_date\nCLUSTER BY job_name, stage;"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NATIVE"
+        }
+      ]
+    }
+  ],
+  "totalBytesProcessed": "10485760",
+  "jobComplete": true,
+  "cacheHit": false,
+  "queryId": "job_v_RNHTDfvS-FfcwPU4vmqaPySDZg",
+  "jobCreationReason": {
+    "code": "REQUESTED"
+  },
+  "totalBytesBilled": "10485760",
+  "totalSlotMs": "47",
+  "location": "US",
+  "creationTime": "1765568740215",
+  "startTime": "1765568740308",
+  "endTime": "1765568740516"
+}

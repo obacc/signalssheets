@@ -1,0 +1,101 @@
+{
+  "kind": "bigquery#table",
+  "etag": "oWwflrfK7HNjonp3LIphbw==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.cik_ticker_mapping",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/cik_ticker_mapping",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "cik_ticker_mapping"
+  },
+  "description": "CIK to Ticker mapping from SEC company tickers API",
+  "labels": {
+    "source": "sec_api",
+    "dataset": "fundamentals"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "cik",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "exchange",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "last_updated",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "data_source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_active",
+        "type": "BOOLEAN",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "delisted_date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sic_code",
+        "type": "INTEGER",
+        "description": "Standard Industrial Classification code from SEC"
+      },
+      {
+        "name": "sector",
+        "type": "STRING",
+        "description": "Business sector (Technology, Healthcare, etc.)"
+      },
+      {
+        "name": "industry",
+        "type": "STRING",
+        "description": "Specific industry within sector"
+      },
+      {
+        "name": "business_description",
+        "type": "STRING",
+        "description": "Business description from SEC filing"
+      }
+    ]
+  },
+  "numBytes": "1027925",
+  "numLongTermBytes": "0",
+  "numRows": "10175",
+  "creationTime": "1764705490766",
+  "lastModifiedTime": "1764732614037",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "cik",
+      "ticker"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "1027925",
+  "numActiveLogicalBytes": "1027925",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "253222",
+  "numActivePhysicalBytes": "253222",
+  "numLongTermPhysicalBytes": "0",
+  "numCurrentPhysicalBytes": "253222"
+}

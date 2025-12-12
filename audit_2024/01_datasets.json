@@ -1,0 +1,24 @@
+{
+  "kind": "bigquery#datasetList",
+  "etag": "19fyR+dEd7iDLZD2Zrp4nQ==",
+  "datasets": [
+    {
+      "kind": "bigquery#dataset",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales",
+      "datasetReference": {
+        "datasetId": "IS_Fundamentales",
+        "projectId": "sunny-advantage-471523-b3"
+      },
+      "location": "US"
+    },
+    {
+      "kind": "bigquery#dataset",
+      "id": "sunny-advantage-471523-b3:market_data",
+      "datasetReference": {
+        "datasetId": "market_data",
+        "projectId": "sunny-advantage-471523-b3"
+      },
+      "location": "US"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "kind": "bigquery#queryResponse",
+  "schema": {
+    "fields": [
+      {
+        "name": "origen",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "fecha",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "vol",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "openint",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "carga_ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "first_batch_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "last_batch_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "updated_ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  "jobReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "jobId": "job_0HdRImLVUiad8qLgMFwZ90JDCdKv",
+    "location": "US"
+  },
+  "totalRows": "5",
+  "rows": [
+    {
+      "f": [
+        {
+          "v": "nasdaq etfs"
+        },
+        {
+          "v": "PNQI.US"
+        },
+        {
+          "v": "2011-07-06"
+        },
+        {
+          "v": "8.0478"
+        },
+        {
+          "v": "8.1058"
+        },
+        {
+          "v": "7.9958"
+        },
+        {
+          "v": "8.0898"
+        },
+        {
+          "v": "319580"
+        },
+        {
+          "v": "0"
+        },
+        {
+          "v": "1.757444974774237E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "nasdaq etfs"
+        },
+        {
+          "v": "QQEW.US"
+        },
+        {
+          "v": "2011-07-06"
+        },
+        {
+          "v": "24.2313"
+        },
+        {
+          "v": "24.3469"
+        },
+        {
+          "v": "24.1853"
+        },
+        {
+          "v": "24.3091"
+        },
+        {
+          "v": "31466"
+        },
+        {
+          "v": "0"
+        },
+        {
+          "v": "1.757444974774237E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "nasdaq etfs"
+        },
+        {
+          "v": "VONG.US"
+        },
+        {
+          "v": "2011-07-06"
+        },
+        {
+          "v": "13.8323"
+        },
+        {
+          "v": "13.8481"
+        },
+        {
+          "v": "13.7857"
+        },
+        {
+          "v": "13.8451"
+        },
+        {
+          "v": "60527"
+        },
+        {
+          "v": "0"
+        },
+        {
+          "v": "1.757444974774237E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "nasdaq etfs"
+        },
+        {
+          "v": "FNX.US"
+        },
+        {
+          "v": "2011-07-06"
+        },
+        {
+          "v": "32.7286"
+        },
+        {
+          "v": "32.9613"
+        },
+        {
+          "v": "32.5736"
+        },
+        {
+          "v": "32.8341"
+        },
+        {
+          "v": "237983"
+        },
+        {
+          "v": "0"
+        },
+        {
+          "v": "1.757444974774237E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "nasdaq etfs"
+        },
+        {
+          "v": "KBWY.US"
+        },
+        {
+          "v": "2011-07-06"
+        },
+        {
+          "v": "13.5857"
+        },
+        {
+          "v": "13.6688"
+        },
+        {
+          "v": "13.5857"
+        },
+        {
+          "v": "13.6688"
+        },
+        {
+          "v": "3676"
+        },
+        {
+          "v": "0"
+        },
+        {
+          "v": "1.757444974774237E9"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        }
+      ]
+    }
+  ],
+  "totalBytesProcessed": "54012177",
+  "jobComplete": true,
+  "cacheHit": false,
+  "queryId": "job_0HdRImLVUiad8qLgMFwZ90JDCdKv",
+  "jobCreationReason": {
+    "code": "REQUESTED"
+  },
+  "totalBytesBilled": "54525952",
+  "totalSlotMs": "11745",
+  "location": "US",
+  "creationTime": "1765568743896",
+  "startTime": "1765568743987",
+  "endTime": "1765568747602"
+}

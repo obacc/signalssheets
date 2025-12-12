@@ -1,0 +1,103 @@
+{
+  "kind": "bigquery#table",
+  "etag": "fBhf9dMysnQLkgHAfVKGrw==",
+  "id": "sunny-advantage-471523-b3:market_data.Prices",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/market_data/tables/Prices",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "market_data",
+    "tableId": "Prices"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "origen",
+        "type": "STRING"
+      },
+      {
+        "name": "ticker",
+        "type": "STRING"
+      },
+      {
+        "name": "fecha",
+        "type": "DATE"
+      },
+      {
+        "name": "open",
+        "type": "FLOAT"
+      },
+      {
+        "name": "high",
+        "type": "FLOAT"
+      },
+      {
+        "name": "low",
+        "type": "FLOAT"
+      },
+      {
+        "name": "close",
+        "type": "FLOAT"
+      },
+      {
+        "name": "vol",
+        "type": "INTEGER"
+      },
+      {
+        "name": "openint",
+        "type": "INTEGER"
+      },
+      {
+        "name": "carga_ts",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "first_batch_id",
+        "type": "STRING"
+      },
+      {
+        "name": "last_batch_id",
+        "type": "STRING"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "updated_ts",
+        "type": "TIMESTAMP"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "fecha"
+  },
+  "numBytes": "1953382297",
+  "numLongTermBytes": "0",
+  "numRows": "22920978",
+  "creationTime": "1757445083318",
+  "lastModifiedTime": "1765522815769",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "ticker"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "28699862",
+  "numTotalLogicalBytes": "1953382297",
+  "numActiveLogicalBytes": "1953382297",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "499711661",
+  "numActivePhysicalBytes": "499711661",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "4020",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "fecha"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "471011799"
+}

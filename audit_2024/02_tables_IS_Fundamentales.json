@@ -1,0 +1,371 @@
+{
+  "kind": "bigquery#tableList",
+  "etag": "SSAYR8S6w+brATz2bNmmaQ==",
+  "tables": [
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.Num",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "Num"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "filed_date"
+      },
+      "creationTime": "1764695044806",
+      "clustering": {
+        "fields": [
+          "adsh",
+          "tag",
+          "qtrs"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.Pre",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "Pre"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "filed_date"
+      },
+      "creationTime": "1764695049081",
+      "clustering": {
+        "fields": [
+          "adsh",
+          "stmt"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.Sub",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "Sub"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "filed_date"
+      },
+      "creationTime": "1764695040352",
+      "clustering": {
+        "fields": [
+          "cik",
+          "period"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.Tag",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "Tag"
+      },
+      "type": "TABLE",
+      "creationTime": "1764695050054",
+      "clustering": {
+        "fields": [
+          "tag",
+          "version"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.api_tokens",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "api_tokens"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "created_at"
+      },
+      "creationTime": "1765136013007",
+      "clustering": {
+        "fields": [
+          "plan",
+          "status"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.cik_ticker_mapping",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "cik_ticker_mapping"
+      },
+      "type": "TABLE",
+      "labels": {
+        "source": "sec_api",
+        "dataset": "fundamentals"
+      },
+      "creationTime": "1764705490766",
+      "clustering": {
+        "fields": [
+          "cik",
+          "ticker"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_ratios"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "period_end_date"
+      },
+      "labels": {
+        "source": "calculated",
+        "dataset": "fundamentals"
+      },
+      "creationTime": "1764705698314",
+      "clustering": {
+        "fields": [
+          "ticker",
+          "fiscal_year",
+          "fiscal_period"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios_BACKUP_20251212",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_ratios_BACKUP_20251212"
+      },
+      "type": "TABLE",
+      "creationTime": "1765558666641"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios_BACKUP_PRECOALESCE_20251212",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_ratios_BACKUP_PRECOALESCE_20251212"
+      },
+      "type": "TABLE",
+      "creationTime": "1765565156260"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios_BACKUP_PREPERIODFIX_20251212",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_ratios_BACKUP_PREPERIODFIX_20251212"
+      },
+      "type": "TABLE",
+      "creationTime": "1765561431579"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_timeseries",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_timeseries"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "period_end_date"
+      },
+      "labels": {
+        "source": "sec_edgar_normalized",
+        "dataset": "fundamentals"
+      },
+      "creationTime": "1764705694923",
+      "clustering": {
+        "fields": [
+          "ticker",
+          "fiscal_year",
+          "fiscal_period"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_timeseries_BACKUP_20251212",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_timeseries_BACKUP_20251212"
+      },
+      "type": "TABLE",
+      "creationTime": "1765558662229"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_timeseries_BACKUP_EPS_20251205",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_timeseries_BACKUP_EPS_20251205"
+      },
+      "type": "TABLE",
+      "creationTime": "1764954511454"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_timeseries_BACKUP_PREOCFFIX_20251212",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "fundamentals_timeseries_BACKUP_PREOCFFIX_20251212"
+      },
+      "type": "TABLE",
+      "creationTime": "1765567968644"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.market_regime_daily",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "market_regime_daily"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "field": "regime_date"
+      },
+      "creationTime": "1764966752089",
+      "clustering": {
+        "fields": [
+          "regime_type"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.parametros_trinity",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "parametros_trinity"
+      },
+      "type": "TABLE",
+      "creationTime": "1764963427580",
+      "clustering": {
+        "fields": [
+          "scenario_name",
+          "category"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.plan_configs",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "plan_configs"
+      },
+      "type": "TABLE",
+      "creationTime": "1765136013675"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.trinity_signals_daily",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "trinity_signals_daily"
+      },
+      "type": "TABLE",
+      "timePartitioning": {
+        "type": "DAY",
+        "expirationMs": "604800000",
+        "field": "signal_date"
+      },
+      "creationTime": "1764963621665",
+      "clustering": {
+        "fields": [
+          "ticker",
+          "signal_strength"
+        ]
+      }
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.trinity_signals_daily_test",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "trinity_signals_daily_test"
+      },
+      "type": "TABLE",
+      "creationTime": "1764957789200"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.v_trinity_buy_signals",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "v_trinity_buy_signals"
+      },
+      "type": "VIEW",
+      "view": {
+        "useLegacySql": false
+      },
+      "creationTime": "1764963622864"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.v_trinity_signals_latest",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "v_trinity_signals_latest"
+      },
+      "type": "VIEW",
+      "view": {
+        "useLegacySql": false
+      },
+      "creationTime": "1764963622239"
+    },
+    {
+      "kind": "bigquery#table",
+      "id": "sunny-advantage-471523-b3:IS_Fundamentales.v_trinity_top50",
+      "tableReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "tableId": "v_trinity_top50"
+      },
+      "type": "VIEW",
+      "view": {
+        "useLegacySql": false
+      },
+      "creationTime": "1764963623367"
+    }
+  ],
+  "totalItems": 22
+}

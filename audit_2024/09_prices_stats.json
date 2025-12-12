@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": 400,
+    "message": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Syntax error: Unexpected keyword ROWS at [1:20]\",\n    \"errors\": [\n      {\n        \"message\": \"Syntax error: Unexpected keyword ROWS at [1:20]\",\n        \"domain\": \"global\",\n        \"reason\": \"invalidQuery\",\n        \"location\": \"q\",\n        \"locationType\": \"parameter\"\n      }\n    ],\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "kind": "bigquery#table",
+  "etag": "6h39h67JtfZtgVBSE1oCVA==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.api_tokens",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/api_tokens",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "api_tokens"
+  },
+  "description": "Tabla de tokens de API para control de acceso. Gestiona usuarios FREE y BASIC con l\u00edmites de requests diarios.",
+  "schema": {
+    "fields": [
+      {
+        "name": "token_id",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "user_email",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "user_name",
+        "type": "STRING"
+      },
+      {
+        "name": "plan",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "status",
+        "type": "STRING",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "expiry_date",
+        "type": "DATE"
+      },
+      {
+        "name": "request_count_today",
+        "type": "INTEGER",
+        "defaultValueExpression": "0"
+      },
+      {
+        "name": "request_limit_daily",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+      },
+      {
+        "name": "last_request_at",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "notes",
+        "type": "STRING"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "created_at"
+  },
+  "numBytes": "164",
+  "numLongTermBytes": "0",
+  "numRows": "1",
+  "creationTime": "1765136013007",
+  "lastModifiedTime": "1765530905007",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "plan",
+      "status"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "479804",
+  "numTotalLogicalBytes": "164",
+  "numActiveLogicalBytes": "164",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "485033",
+  "numActivePhysicalBytes": "485033",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "2",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "created_at"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "5229"
+}

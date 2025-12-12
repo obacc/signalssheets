@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": 400,
+    "message": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"BigQuery Data Transfer Service does not yet support location: unknown\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
+  }
+}

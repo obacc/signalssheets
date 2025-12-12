@@ -1,0 +1,245 @@
+{
+  "kind": "bigquery#table",
+  "etag": "fcKB2rJ2coL18q1nQlspIg==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.Sub",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/Sub",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "Sub"
+  },
+  "description": "SEC EDGAR Submissions - EXACT schema from files",
+  "schema": {
+    "fields": [
+      {
+        "name": "adsh",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Accession Number"
+      },
+      {
+        "name": "cik",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Central Index Key"
+      },
+      {
+        "name": "name",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Company name"
+      },
+      {
+        "name": "sic",
+        "type": "INTEGER",
+        "description": "SIC code"
+      },
+      {
+        "name": "countryba",
+        "type": "STRING",
+        "description": "Country business address"
+      },
+      {
+        "name": "stprba",
+        "type": "STRING",
+        "description": "State business address"
+      },
+      {
+        "name": "cityba",
+        "type": "STRING",
+        "description": "City business address"
+      },
+      {
+        "name": "zipba",
+        "type": "INTEGER",
+        "description": "ZIP business address"
+      },
+      {
+        "name": "bas1",
+        "type": "STRING",
+        "description": "Business address street 1"
+      },
+      {
+        "name": "bas2",
+        "type": "STRING",
+        "description": "Business address street 2"
+      },
+      {
+        "name": "baph",
+        "type": "INTEGER",
+        "description": "Business phone"
+      },
+      {
+        "name": "countryma",
+        "type": "STRING",
+        "description": "Country mailing address"
+      },
+      {
+        "name": "stprma",
+        "type": "STRING",
+        "description": "State mailing address"
+      },
+      {
+        "name": "cityma",
+        "type": "STRING",
+        "description": "City mailing address"
+      },
+      {
+        "name": "zipma",
+        "type": "INTEGER",
+        "description": "ZIP mailing address"
+      },
+      {
+        "name": "mas1",
+        "type": "STRING",
+        "description": "Mailing address street 1"
+      },
+      {
+        "name": "mas2",
+        "type": "STRING",
+        "description": "Mailing address street 2"
+      },
+      {
+        "name": "countryinc",
+        "type": "STRING",
+        "description": "Country of incorporation"
+      },
+      {
+        "name": "stprinc",
+        "type": "STRING",
+        "description": "State of incorporation"
+      },
+      {
+        "name": "ein",
+        "type": "INTEGER",
+        "description": "Employer ID Number"
+      },
+      {
+        "name": "former",
+        "type": "STRING",
+        "description": "Former company name"
+      },
+      {
+        "name": "changed",
+        "type": "INTEGER",
+        "description": "Changed date YYYYMMDD"
+      },
+      {
+        "name": "afs",
+        "type": "STRING",
+        "description": "Aggregate Financial Statement"
+      },
+      {
+        "name": "wksi",
+        "type": "INTEGER",
+        "description": "Well-Known Seasoned Issuer"
+      },
+      {
+        "name": "fye",
+        "type": "INTEGER",
+        "description": "Fiscal year end MMDD"
+      },
+      {
+        "name": "form",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Form type"
+      },
+      {
+        "name": "period",
+        "type": "INTEGER",
+        "description": "Period end YYYYMMDD"
+      },
+      {
+        "name": "fy",
+        "type": "INTEGER",
+        "description": "Fiscal year"
+      },
+      {
+        "name": "fp",
+        "type": "STRING",
+        "description": "Fiscal period"
+      },
+      {
+        "name": "filed",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Filing date YYYYMMDD"
+      },
+      {
+        "name": "filed_date",
+        "type": "DATE",
+        "mode": "REQUIRED",
+        "description": "Filing date as DATE - PARTITION KEY"
+      },
+      {
+        "name": "accepted",
+        "type": "STRING",
+        "description": "Accepted timestamp"
+      },
+      {
+        "name": "prevrpt",
+        "type": "INTEGER",
+        "description": "Previous report"
+      },
+      {
+        "name": "detail",
+        "type": "INTEGER",
+        "description": "Detail flag"
+      },
+      {
+        "name": "instance",
+        "type": "STRING",
+        "description": "Instance document"
+      },
+      {
+        "name": "nciks",
+        "type": "INTEGER",
+        "description": "Number of CIKs"
+      },
+      {
+        "name": "aciks",
+        "type": "INTEGER",
+        "description": "Additional CIKs"
+      },
+      {
+        "name": "quarter",
+        "type": "STRING",
+        "description": "YYYYqN format"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "filed_date"
+  },
+  "numBytes": "108117562",
+  "numLongTermBytes": "0",
+  "numRows": "308780",
+  "creationTime": "1764695040352",
+  "lastModifiedTime": "1764696403193",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "cik",
+      "period"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "108117562",
+  "numActiveLogicalBytes": "108117562",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "54081384",
+  "numActivePhysicalBytes": "54081384",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "2678",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "filed_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "54081384"
+}

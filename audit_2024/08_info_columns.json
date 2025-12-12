@@ -1,0 +1,3975 @@
+{
+  "kind": "bigquery#queryResponse",
+  "schema": {
+    "fields": [
+      {
+        "name": "table_catalog",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "table_schema",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "table_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "column_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ordinal_position",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_nullable",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "data_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_generated",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "generation_expression",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_stored",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_hidden",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_updatable",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_system_defined",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_partitioning_column",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "clustering_ordinal_position",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "collation_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "column_default",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "rounding_mode",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "data_policies",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "name",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "policy_tags",
+        "type": "STRING",
+        "mode": "REPEATED"
+      }
+    ]
+  },
+  "jobReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "jobId": "job_VUo-lMOWgORB1Tq1Lr55AhERsDhm",
+    "location": "US"
+  },
+  "totalRows": "60",
+  "rows": [
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "origen"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "ticker"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "fecha"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "DATE"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "open"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "high"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "low"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "close"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "vol"
+        },
+        {
+          "v": "8"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "openint"
+        },
+        {
+          "v": "9"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "carga_ts"
+        },
+        {
+          "v": "10"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "first_batch_id"
+        },
+        {
+          "v": "11"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "last_batch_id"
+        },
+        {
+          "v": "12"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "updated_at"
+        },
+        {
+          "v": "13"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "Prices"
+        },
+        {
+          "v": "updated_ts"
+        },
+        {
+          "v": "14"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "job_name"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "shard_date"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "DATE"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "stage"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "state"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "attempt"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "start_ts"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "end_ts"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "rows_written"
+        },
+        {
+          "v": "8"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "bytes_read"
+        },
+        {
+          "v": "9"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "latency_ms"
+        },
+        {
+          "v": "10"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "audit_runs"
+        },
+        {
+          "v": "msg"
+        },
+        {
+          "v": "11"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "ticker"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "date"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "DATE"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "open"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "high"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "low"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "close"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "volume"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "ext_polygon_daily"
+        },
+        {
+          "v": "load_ts"
+        },
+        {
+          "v": "8"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "ticker"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "date"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "DATE"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "open"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "high"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "low"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "close"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "staging_polygon_daily_raw"
+        },
+        {
+          "v": "volume"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "ticker"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "date"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "DATE"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "open"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "high"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "low"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "close"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "volume"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stg_prices_polygon_raw"
+        },
+        {
+          "v": "load_ts"
+        },
+        {
+          "v": "8"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "TIMESTAMP"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_TICKER_"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_PER_"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_DATE_"
+        },
+        {
+          "v": "3"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_TIME_"
+        },
+        {
+          "v": "4"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_OPEN_"
+        },
+        {
+          "v": "5"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_HIGH_"
+        },
+        {
+          "v": "6"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_LOW_"
+        },
+        {
+          "v": "7"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_CLOSE_"
+        },
+        {
+          "v": "8"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_VOL_"
+        },
+        {
+          "v": "9"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "FLOAT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "stooq_ext"
+        },
+        {
+          "v": "_OPENINT_"
+        },
+        {
+          "v": "10"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "INT64"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "v_ticker_norm"
+        },
+        {
+          "v": "ticker"
+        },
+        {
+          "v": "1"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    },
+    {
+      "f": [
+        {
+          "v": "sunny-advantage-471523-b3"
+        },
+        {
+          "v": "market_data"
+        },
+        {
+          "v": "v_ticker_norm"
+        },
+        {
+          "v": "ticker_norm"
+        },
+        {
+          "v": "2"
+        },
+        {
+          "v": "YES"
+        },
+        {
+          "v": "STRING"
+        },
+        {
+          "v": "NEVER"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": "NO"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": "NULL"
+        },
+        {
+          "v": null
+        },
+        {
+          "v": []
+        },
+        {
+          "v": []
+        }
+      ]
+    }
+  ],
+  "totalBytesProcessed": "10485760",
+  "jobComplete": true,
+  "cacheHit": false,
+  "queryId": "job_VUo-lMOWgORB1Tq1Lr55AhERsDhm",
+  "jobCreationReason": {
+    "code": "REQUESTED"
+  },
+  "totalBytesBilled": "10485760",
+  "totalSlotMs": "74",
+  "location": "US",
+  "creationTime": "1765568740665",
+  "startTime": "1765568740768",
+  "endTime": "1765568740957"
+}

@@ -1,0 +1,52 @@
+{
+  "routines": [
+    {
+      "etag": "qNBrBZ9toWXu2rNa8ZohSg==",
+      "routineReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "routineId": "sp_generate_trinity_signals"
+      },
+      "routineType": "PROCEDURE",
+      "creationTime": "1765336267047",
+      "lastModifiedTime": "1765336267047",
+      "language": "SQL"
+    },
+    {
+      "etag": "58/BJNsCbl2TToYWZaOZtA==",
+      "routineReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "routineId": "sp_mark_expired_trials"
+      },
+      "routineType": "PROCEDURE",
+      "creationTime": "1765136020793",
+      "lastModifiedTime": "1765136020793",
+      "language": "SQL"
+    },
+    {
+      "etag": "0141Hu/waTZm8b452VhkYQ==",
+      "routineReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "routineId": "sp_refresh_fundamentals_tables"
+      },
+      "routineType": "PROCEDURE",
+      "creationTime": "1765566068937",
+      "lastModifiedTime": "1765566068937",
+      "language": "SQL"
+    },
+    {
+      "etag": "VG7vQ3yeC03DBngK8gTjbQ==",
+      "routineReference": {
+        "projectId": "sunny-advantage-471523-b3",
+        "datasetId": "IS_Fundamentales",
+        "routineId": "sp_reset_daily_counters"
+      },
+      "routineType": "PROCEDURE",
+      "creationTime": "1765136019360",
+      "lastModifiedTime": "1765136019360",
+      "language": "SQL"
+    }
+  ]
+}

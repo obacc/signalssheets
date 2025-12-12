@@ -1,0 +1,117 @@
+{
+  "kind": "bigquery#table",
+  "etag": "j6bRPhr5NLVa6LCph9Izug==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.Num",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/Num",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "Num"
+  },
+  "description": "SEC EDGAR Numeric Data - EXACT schema from files",
+  "schema": {
+    "fields": [
+      {
+        "name": "adsh",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Links to Sub.adsh"
+      },
+      {
+        "name": "tag",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "XBRL tag name"
+      },
+      {
+        "name": "version",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Taxonomy version"
+      },
+      {
+        "name": "ddate",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Data date YYYYMMDD"
+      },
+      {
+        "name": "qtrs",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Quarters: 0=instant, 1=Q, 4=Annual"
+      },
+      {
+        "name": "uom",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Unit of measure"
+      },
+      {
+        "name": "segments",
+        "type": "STRING",
+        "description": "Segment breakdown"
+      },
+      {
+        "name": "coreg",
+        "type": "STRING",
+        "description": "Co-registrant CIK"
+      },
+      {
+        "name": "value",
+        "type": "FLOAT",
+        "description": "Numerical value - NULLABLE"
+      },
+      {
+        "name": "footnote",
+        "type": "STRING",
+        "description": "Footnote reference"
+      },
+      {
+        "name": "filed_date",
+        "type": "DATE",
+        "mode": "REQUIRED",
+        "description": "Filing date - PARTITION KEY"
+      },
+      {
+        "name": "quarter",
+        "type": "STRING",
+        "description": "YYYYqN format"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "filed_date"
+  },
+  "numBytes": "21163598863",
+  "numLongTermBytes": "0",
+  "numRows": "138538865",
+  "creationTime": "1764695044806",
+  "lastModifiedTime": "1764695733957",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "adsh",
+      "tag",
+      "qtrs"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "0",
+  "numTotalLogicalBytes": "21163598863",
+  "numActiveLogicalBytes": "21163598863",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "892712303",
+  "numActivePhysicalBytes": "892712303",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "2678",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "filed_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "892712303"
+}

@@ -1,0 +1,234 @@
+{
+  "kind": "bigquery#table",
+  "etag": "Lnaa3BudFq/6xVXPFRfBBg==",
+  "id": "sunny-advantage-471523-b3:IS_Fundamentales.fundamentals_ratios",
+  "selfLink": "https://bigquery.googleapis.com/bigquery/v2/projects/sunny-advantage-471523-b3/datasets/IS_Fundamentales/tables/fundamentals_ratios",
+  "tableReference": {
+    "projectId": "sunny-advantage-471523-b3",
+    "datasetId": "IS_Fundamentales",
+    "tableId": "fundamentals_ratios"
+  },
+  "description": "Calculated financial ratios from fundamentals_timeseries",
+  "labels": {
+    "source": "calculated",
+    "dataset": "fundamentals"
+  },
+  "schema": {
+    "fields": [
+      {
+        "name": "ticker",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Normalized ticker"
+      },
+      {
+        "name": "cik",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Central Index Key"
+      },
+      {
+        "name": "company_name",
+        "type": "STRING",
+        "description": "Company name"
+      },
+      {
+        "name": "fiscal_year",
+        "type": "INTEGER",
+        "mode": "REQUIRED",
+        "description": "Fiscal year"
+      },
+      {
+        "name": "fiscal_period",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "Q1, Q2, Q3, Q4_calc, Annual"
+      },
+      {
+        "name": "period_end_date",
+        "type": "DATE",
+        "mode": "REQUIRED",
+        "description": "Period end date"
+      },
+      {
+        "name": "period_type",
+        "type": "STRING",
+        "description": "quarterly or annual"
+      },
+      {
+        "name": "gross_margin",
+        "type": "FLOAT",
+        "description": "Gross Profit / Revenues"
+      },
+      {
+        "name": "operating_margin",
+        "type": "FLOAT",
+        "description": "Operating Income / Revenues"
+      },
+      {
+        "name": "net_margin",
+        "type": "FLOAT",
+        "description": "Net Income / Revenues"
+      },
+      {
+        "name": "roe",
+        "type": "FLOAT",
+        "description": "Return on Equity (Net Income / Equity)"
+      },
+      {
+        "name": "roa",
+        "type": "FLOAT",
+        "description": "Return on Assets (Net Income / Assets)"
+      },
+      {
+        "name": "roic",
+        "type": "FLOAT",
+        "description": "Return on Invested Capital"
+      },
+      {
+        "name": "current_ratio",
+        "type": "FLOAT",
+        "description": "Current Assets / Current Liabilities"
+      },
+      {
+        "name": "quick_ratio",
+        "type": "FLOAT",
+        "description": "(Current Assets - Inventory) / Current Liabilities"
+      },
+      {
+        "name": "cash_ratio",
+        "type": "FLOAT",
+        "description": "Cash / Current Liabilities"
+      },
+      {
+        "name": "working_capital",
+        "type": "FLOAT",
+        "description": "Current Assets - Current Liabilities (millones)"
+      },
+      {
+        "name": "debt_to_equity",
+        "type": "FLOAT",
+        "description": "Total Debt / Equity"
+      },
+      {
+        "name": "debt_to_assets",
+        "type": "FLOAT",
+        "description": "Total Debt / Total Assets"
+      },
+      {
+        "name": "equity_ratio",
+        "type": "FLOAT",
+        "description": "Equity / Assets"
+      },
+      {
+        "name": "interest_coverage",
+        "type": "FLOAT",
+        "description": "Operating Income / Interest Expense"
+      },
+      {
+        "name": "asset_turnover",
+        "type": "FLOAT",
+        "description": "Revenues / Average Assets"
+      },
+      {
+        "name": "inventory_turnover",
+        "type": "FLOAT",
+        "description": "COGS / Average Inventory"
+      },
+      {
+        "name": "receivables_turnover",
+        "type": "FLOAT",
+        "description": "Revenues / Average Receivables"
+      },
+      {
+        "name": "days_sales_outstanding",
+        "type": "FLOAT",
+        "description": "365 / Receivables Turnover"
+      },
+      {
+        "name": "fcf_margin",
+        "type": "FLOAT",
+        "description": "FCF / Revenues"
+      },
+      {
+        "name": "operating_cf_ratio",
+        "type": "FLOAT",
+        "description": "Operating CF / Current Liabilities"
+      },
+      {
+        "name": "cash_flow_to_debt",
+        "type": "FLOAT",
+        "description": "Operating CF / Total Debt"
+      },
+      {
+        "name": "capex_to_revenue",
+        "type": "FLOAT",
+        "description": "CapEx / Revenues"
+      },
+      {
+        "name": "revenue_growth_yoy",
+        "type": "FLOAT",
+        "description": "Revenue growth year-over-year %"
+      },
+      {
+        "name": "net_income_growth_yoy",
+        "type": "FLOAT",
+        "description": "Net income growth YoY %"
+      },
+      {
+        "name": "eps_growth_yoy",
+        "type": "FLOAT",
+        "description": "EPS growth YoY %"
+      },
+      {
+        "name": "fcf_growth_yoy",
+        "type": "FLOAT",
+        "description": "FCF growth YoY %"
+      },
+      {
+        "name": "data_quality_score",
+        "type": "FLOAT",
+        "description": "0-1 score based on calculation validity"
+      },
+      {
+        "name": "last_updated",
+        "type": "TIMESTAMP",
+        "description": "Last refresh"
+      }
+    ]
+  },
+  "timePartitioning": {
+    "type": "DAY",
+    "field": "period_end_date"
+  },
+  "numBytes": "51354652",
+  "numLongTermBytes": "0",
+  "numRows": "241342",
+  "creationTime": "1764705698314",
+  "lastModifiedTime": "1765568568013",
+  "type": "TABLE",
+  "location": "US",
+  "clustering": {
+    "fields": [
+      "ticker",
+      "fiscal_year",
+      "fiscal_period"
+    ]
+  },
+  "numTimeTravelPhysicalBytes": "240105515",
+  "numTotalLogicalBytes": "51354652",
+  "numActiveLogicalBytes": "51354652",
+  "numLongTermLogicalBytes": "0",
+  "numTotalPhysicalBytes": "268483410",
+  "numActivePhysicalBytes": "268483410",
+  "numLongTermPhysicalBytes": "0",
+  "numPartitions": "135",
+  "partitionDefinition": {
+    "partitionedColumn": [
+      {
+        "field": "period_end_date"
+      }
+    ]
+  },
+  "numCurrentPhysicalBytes": "28377895"
+}
