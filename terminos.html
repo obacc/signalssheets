@@ -3,202 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terminos de Uso · Indicium Signals</title>
-
+<title>Términos de Uso · Indicium Signals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --text-primary:#0f172a;
-  --text-secondary:#334155;
+  --primary:#3b82f6;
+  --text:#0f172a;
   --text-muted:#64748b;
-  --border:#e2e8f0;
   --bg:#ffffff;
-  --bg-subtle:#f8fafc;
-  --primary:#1e3a8a;
+  --border:#e2e8f0;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:Inter,system-ui,sans-serif;
-  color:var(--text-primary);
+  color:var(--text);
   background:var(--bg);
-  line-height:1.7;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
+  line-height:1.6;
 }
-
-header{border-bottom:1px solid var(--border);}
+header{border-bottom:1px solid var(--border);background:#fff;}
 nav{
   max-width:1200px;margin:0 auto;padding:1rem 2rem;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;justify-content:space-between;align-items:center;
 }
-.brand{text-decoration:none;color:inherit;display:flex;align-items:center;}
-.brand-name{font-size:1.3rem;font-weight:800;letter-spacing:.05em;}
-.brand-sub{
-  font-size:.7rem;font-weight:700;letter-spacing:.25em;
-  color:var(--text-muted);display:block;margin-top:.15rem;
-}
-
-main{flex:1;padding:4rem 2rem;}
-.container{max-width:800px;margin:0 auto;}
-
-h1{font-size:2.25rem;font-weight:700;margin-bottom:2rem;}
-h2{font-size:1.35rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--primary);}
-
-p{margin-bottom:1.25rem;color:var(--text-secondary);}
-ul{margin:1rem 0 1.5rem 1.5rem;color:var(--text-secondary);}
-li{margin-bottom:.5rem;}
-
-.highlight{
-  background:var(--bg-subtle);
-  border-left:4px solid var(--primary);
-  padding:1.25rem 1.5rem;
-  margin:2rem 0;
-  border-radius:0 10px 10px 0;
-}
-.highlight p{margin:0;font-weight:500;color:var(--text-primary);}
-
-.last-updated{
-  margin-top:3rem;
-  padding-top:2rem;
-  border-top:1px solid var(--border);
-  color:var(--text-muted);
-  font-size:.9rem;
-}
-
+.brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--text);}
+.brand-name{font-weight:900;letter-spacing:0.05em;font-size:1.125rem;}
+.brand-sub{font-size:0.7rem;letter-spacing:0.2em;color:var(--text-muted);margin-top:0.25rem;}
+.container{max-width:800px;margin:0 auto;padding:4rem 2rem;}
+h1{font-size:2.5rem;font-weight:800;color:var(--text);margin-bottom:2rem;}
+h2{font-size:1.75rem;font-weight:700;color:var(--text);margin:2.5rem 0 1rem;}
+p{margin-bottom:1rem;color:var(--text-muted);line-height:1.7;}
+ul{margin:1rem 0 1rem 1.5rem;color:var(--text-muted);}
+li{margin-bottom:0.5rem;line-height:1.7;}
+strong{color:var(--text);font-weight:600;}
+a{color:var(--primary);text-decoration:none;}
+a:hover{text-decoration:underline;}
 footer{
-  background:#0f172a;
-  color:#94a3b8;
-  padding:2rem;
-  text-align:center;
-  font-size:.875rem;
+  background:#0f172a;color:#cbd5e1;border-top:1px solid rgba(148,163,184,.12);
+  margin-top:4rem;padding:2rem 0;
 }
-footer a{color:#cbd5e1;text-decoration:none;margin:0 .5rem;}
-footer a:hover{color:#fff;}
-
-@media(max-width:600px){
-  main{padding:2rem 1rem;}
-  h1{font-size:1.75rem;}
+.footer-content{
+  max-width:1100px;margin:0 auto;padding:0 2rem;
+  text-align:center;font-size:0.875rem;color:#64748b;
 }
+.footer-content a{color:#94a3b8;text-decoration:none;margin:0 0.5rem;}
+.footer-content a:hover{color:#cbd5e1;}
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
   <nav>
-    <a href="index.html" class="brand" aria-label="Indicium Signals">
-      <svg width="40" height="40" viewBox="0 0 48 48" fill="none" style="margin-right:0.65rem;flex-shrink:0;">
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color: #1e3a8a" />
-            <stop offset="100%" style="stop-color: #10b981" />
-          </linearGradient>
-        </defs>
-        <path d="M6 36 L14 28 L22 32 L30 16 L38 20 L46 8"
-              stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <circle cx="14" cy="28" r="3" fill="#1e3a8a"/>
-        <circle cx="22" cy="32" r="3" fill="#1e3a8a"/>
-        <circle cx="30" cy="16" r="3" fill="#10b981"/>
-        <circle cx="38" cy="20" r="3" fill="#10b981"/>
-        <path d="M42 12 L46 8 L46 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
-      <div style="display:flex;flex-direction:column;">
+    <a href="index.html" class="brand">
+      <div>
         <div class="brand-name">INDICIUM</div>
-        <span class="brand-sub">SIGNALS</span>
+        <div class="brand-sub">SIGNALS</div>
       </div>
     </a>
-    <a href="index.html" style="color:var(--text-secondary);text-decoration:none;font-weight:600;">Volver al inicio</a>
   </nav>
 </header>
 
-<main>
-  <div class="container">
-    <h1>Terminos de Uso</h1>
+<!-- CONTENIDO -->
+<main class="container">
+  <h1>Términos de Uso</h1>
 
-    <div class="highlight">
-      <p>Al acceder y utilizar Indicium Signals, aceptas estos terminos. Si no estas de acuerdo, no debes utilizar el servicio.</p>
-    </div>
+  <p><strong>Última actualización:</strong> Diciembre 2024</p>
 
-    <h2>1. Aceptacion de terminos</h2>
-    <p>Estos Terminos de Uso constituyen un acuerdo legal entre tu y Indicium Signals. Al registrarte o usar el servicio, confirmas que has leido, entendido y aceptado estos terminos.</p>
+  <h2>Aceptación de Términos</h2>
+  <p>Al acceder y utilizar Indicium Signals, aceptas estos Términos de Uso. Si no estás de acuerdo, no utilices este servicio.</p>
 
-    <h2>2. Descripcion del servicio</h2>
-    <p>Indicium Signals proporciona:</p>
-    <ul>
-      <li>Analisis automatizado de acciones basado en el Codigo Trinity</li>
-      <li>Senales de priorizacion (NO recomendaciones de inversion)</li>
-      <li>Datos de mercado procesados (precios, ratios, metricas)</li>
-      <li>Herramientas de visualizacion y seguimiento</li>
-    </ul>
+  <h2>Uso del Servicio</h2>
+  <p>Te otorgamos una licencia limitada, no exclusiva y no transferible para:</p>
+  <ul>
+    <li>Acceder y usar Indicium Signals para tu uso personal</li>
+    <li>Ver información y señales proporcionadas</li>
+    <li>Descargar materiales educativos cuando estén disponibles</li>
+  </ul>
 
-    <h2>3. Uso permitido</h2>
-    <p>Puedes usar el servicio para:</p>
-    <ul>
-      <li>Informarte sobre oportunidades potenciales de inversion</li>
-      <li>Complementar tu propio analisis e investigacion</li>
-      <li>Uso personal y no comercial</li>
-    </ul>
+  <p><strong>No está permitido:</strong></p>
+  <ul>
+    <li>Revender, redistribuir o sublicenciar el servicio</li>
+    <li>Usar el servicio para actividades ilegales</li>
+    <li>Intentar acceder a áreas restringidas del sitio</li>
+    <li>Realizar ingeniería inversa del sistema</li>
+    <li>Extraer datos de manera automatizada (scraping)</li>
+  </ul>
 
-    <h2>4. Uso prohibido</h2>
-    <p>NO puedes:</p>
-    <ul>
-      <li>Redistribuir, revender o compartir el contenido sin autorizacion</li>
-      <li>Usar los datos para servicios comerciales propios</li>
-      <li>Realizar scraping, crawling o extraccion automatizada</li>
-      <li>Intentar vulnerar la seguridad del sistema</li>
-      <li>Suplantar la identidad de otros usuarios</li>
-      <li>Usar el servicio para actividades ilegales</li>
-    </ul>
+  <h2>Propiedad Intelectual</h2>
+  <p>Todo el contenido de Indicium Signals (texto, gráficos, logos, metodología Código Trinity) es propiedad de Indicium Signals o sus licenciantes y está protegido por leyes de propiedad intelectual.</p>
 
-    <h2>5. Cuenta de usuario</h2>
-    <p>Eres responsable de:</p>
-    <ul>
-      <li>Mantener la confidencialidad de tus credenciales</li>
-      <li>Todas las actividades realizadas bajo tu cuenta</li>
-      <li>Notificarnos inmediatamente de cualquier uso no autorizado</li>
-    </ul>
+  <h2>Disclaimer de Inversión</h2>
+  <p>Este servicio es <strong>únicamente informativo y educativo</strong>. No proporcionamos asesoría financiera personalizada. Ver nuestro <a href="disclaimer.html">Aviso Legal completo</a>.</p>
 
-    <h2>6. Propiedad intelectual</h2>
-    <p>Todo el contenido, diseno, codigo, metodologias y marcas de Indicium Signals son propiedad exclusiva del servicio y estan protegidos por leyes de propiedad intelectual. El "Codigo Trinity" es una metodologia propietaria.</p>
+  <h2>Limitación de Responsabilidad</h2>
+  <p>Indicium Signals se proporciona "tal cual" sin garantías de ningún tipo. No garantizamos:</p>
+  <ul>
+    <li>Disponibilidad ininterrumpida del servicio</li>
+    <li>Exactitud absoluta de los datos</li>
+    <li>Resultados específicos de inversión</li>
+    <li>Compatibilidad con todos los dispositivos</li>
+  </ul>
 
-    <h2>7. Limitacion de responsabilidad</h2>
-    <div class="highlight">
-      <p>En la maxima medida permitida por ley, Indicium Signals no sera responsable de danos directos, indirectos, incidentales, especiales o consecuentes derivados del uso del servicio o decisiones de inversion basadas en la informacion proporcionada.</p>
-    </div>
+  <p><strong>No seremos responsables</strong> por daños directos, indirectos, incidentales o consecuentes derivados del uso o la imposibilidad de usar el servicio.</p>
 
-    <h2>8. Indemnizacion</h2>
-    <p>Aceptas indemnizar y mantener indemne a Indicium Signals de cualquier reclamacion, dano, perdida o gasto derivado de tu uso del servicio o violacion de estos terminos.</p>
+  <h2>Modificaciones del Servicio</h2>
+  <p>Nos reservamos el derecho de:</p>
+  <ul>
+    <li>Modificar o descontinuar el servicio en cualquier momento</li>
+    <li>Cambiar estos Términos (notificándote con antelación)</li>
+    <li>Actualizar la metodología Código Trinity</li>
+  </ul>
 
-    <h2>9. Modificaciones</h2>
-    <p>Nos reservamos el derecho de modificar estos terminos. Los cambios significativos seran notificados por email. El uso continuado del servicio tras las modificaciones implica aceptacion de los nuevos terminos.</p>
+  <h2>Cancelación</h2>
+  <p>Podemos suspender o cancelar tu acceso si:</p>
+  <ul>
+    <li>Violas estos Términos de Uso</li>
+    <li>Usas el servicio de manera fraudulenta</li>
+    <li>Realizas actividades que perjudiquen a otros usuarios</li>
+  </ul>
 
-    <h2>10. Terminacion</h2>
-    <p>Podemos suspender o terminar tu acceso al servicio en cualquier momento, con o sin causa, con o sin previo aviso. Tu puedes cancelar tu cuenta en cualquier momento.</p>
+  <h2>Ley Aplicable</h2>
+  <p>Estos términos se rigen por las leyes aplicables. Cualquier disputa se resolverá mediante arbitraje.</p>
 
-    <h2>11. Ley aplicable</h2>
-    <p>Estos terminos se regiran e interpretaran de acuerdo con las leyes aplicables. Cualquier disputa sera sometida a los tribunales competentes.</p>
-
-    <h2>12. Contacto</h2>
-    <p>Para consultas sobre estos terminos: legal@indiciumsignals.com</p>
-
-    <div class="last-updated">
-      Ultima actualizacion: Diciembre 2024
-    </div>
-  </div>
+  <h2>Contacto</h2>
+  <p>Para consultas sobre estos términos: <strong>legal@indiciumsignals.com</strong></p>
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <div>2025 Indicium Signals</div>
-  <div style="margin-top:.5rem;">
-    <a href="disclaimer.html">Disclaimer</a>
-    <a href="privacidad.html">Privacidad</a>
-    <a href="terminos.html">Terminos</a>
+  <div class="footer-content">
+    <p>© 2025 Indicium Signals. Todos los derechos reservados.</p>
+    <p style="margin-top:0.5rem;">
+      <a href="index.html">Inicio</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos</a>
+    </p>
   </div>
 </footer>
 

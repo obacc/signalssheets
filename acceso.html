@@ -4,244 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Solicitar Acceso · Indicium Signals</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --text-primary:#0f172a;
-  --text-secondary:#334155;
+  --primary:#3b82f6;
+  --secondary:#10b981;
+  --text:#0f172a;
   --text-muted:#64748b;
-  --border:#e2e8f0;
   --bg:#ffffff;
-  --bg-subtle:#f8fafc;
-  --lynch:#10b981;
-  --oneil:#3b82f6;
-  --graham:#8b5cf6;
-  --primary:#1e3a8a;
+  --border:#e2e8f0;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:Inter,system-ui,sans-serif;
-  color:var(--text-primary);
+  color:var(--text);
   background:var(--bg);
   line-height:1.6;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
 }
-
-header{border-bottom:1px solid var(--border);}
+header{border-bottom:1px solid var(--border);background:#fff;}
 nav{
   max-width:1200px;margin:0 auto;padding:1rem 2rem;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;justify-content:space-between;align-items:center;
 }
-.brand{text-decoration:none;color:inherit;display:flex;align-items:center;}
-.brand-name{font-size:1.3rem;font-weight:800;letter-spacing:.05em;}
-.brand-sub{
-  font-size:.7rem;font-weight:700;letter-spacing:.25em;
-  color:var(--text-muted);display:block;margin-top:.15rem;
+.brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--text);}
+.brand-name{font-weight:900;letter-spacing:0.05em;font-size:1.125rem;}
+.brand-sub{font-size:0.7rem;letter-spacing:0.2em;color:var(--text-muted);margin-top:0.25rem;}
+.container{max-width:700px;margin:0 auto;padding:4rem 2rem;}
+h1{font-size:2.5rem;font-weight:800;color:var(--text);margin-bottom:1rem;}
+p{margin-bottom:1.5rem;color:var(--text-muted);line-height:1.7;font-size:1.05rem;}
+.btn{
+  display:inline-block;padding:0.875rem 2rem;background:var(--primary);
+  color:#fff;text-decoration:none;border-radius:100px;font-weight:600;
+  transition:all 0.2s;border:none;cursor:pointer;font-size:1rem;
 }
-
-main{flex:1;padding:4rem 2rem;}
-.container{max-width:640px;margin:0 auto;}
-
-h1{font-size:2rem;font-weight:700;margin-bottom:1rem;text-align:center;}
-.subtitle{text-align:center;color:var(--text-secondary);margin-bottom:3rem;}
-
-.form-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:2.5rem;
+.btn:hover{background:#2563eb;transform:translateY(-2px);}
+input,select{
+  width:100%;padding:0.875rem 1rem;border:1px solid var(--border);
+  border-radius:8px;font-size:1rem;font-family:inherit;
 }
-
+input:focus,select:focus{outline:none;border-color:var(--primary);}
+label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--text);}
 .form-group{margin-bottom:1.5rem;}
-.form-group label{
-  display:block;
-  font-weight:600;
-  margin-bottom:.5rem;
-  color:var(--text-primary);
-}
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:.875rem 1rem;
-  border:1px solid var(--border);
-  border-radius:10px;
-  font-family:inherit;
-  font-size:1rem;
-  color:var(--text-primary);
-  background:var(--bg);
-  transition:border-color .2s;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  outline:none;
-  border-color:var(--oneil);
-}
-.form-group textarea{resize:vertical;min-height:100px;}
-.form-group small{display:block;margin-top:.5rem;color:var(--text-muted);font-size:.875rem;}
-
-.checkbox-group{
-  display:flex;
-  align-items:flex-start;
-  gap:.75rem;
-  margin-bottom:1.5rem;
-}
-.checkbox-group input[type="checkbox"]{
-  width:18px;
-  height:18px;
-  margin-top:.2rem;
-  flex-shrink:0;
-}
-.checkbox-group label{
-  font-size:.95rem;
-  color:var(--text-secondary);
-  font-weight:400;
-}
-.checkbox-group a{color:var(--oneil);}
-
-.submit-btn{
-  width:100%;
-  padding:1rem;
-  background:var(--primary);
-  color:#fff;
-  border:none;
-  border-radius:12px;
-  font-size:1rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:background .2s;
-}
-.submit-btn:hover{background:#1e40af;}
-
-.note{
-  margin-top:2rem;
-  padding:1.25rem;
-  background:var(--bg-subtle);
-  border-radius:12px;
-  font-size:.9rem;
-  color:var(--text-secondary);
-  text-align:center;
-}
-
 footer{
-  background:#0f172a;
-  color:#94a3b8;
-  padding:2rem;
-  text-align:center;
-  font-size:.875rem;
+  background:#0f172a;color:#cbd5e1;border-top:1px solid rgba(148,163,184,.12);
+  margin-top:4rem;padding:2rem 0;
 }
-footer a{color:#cbd5e1;text-decoration:none;margin:0 .5rem;}
-footer a:hover{color:#fff;}
-
-@media(max-width:600px){
-  main{padding:2rem 1rem;}
-  .form-card{padding:1.5rem;}
+.footer-content{
+  max-width:1100px;margin:0 auto;padding:0 2rem;
+  text-align:center;font-size:0.875rem;color:#64748b;
 }
+.footer-content a{color:#94a3b8;text-decoration:none;margin:0 0.5rem;}
+.footer-content a:hover{color:#cbd5e1;}
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
   <nav>
-    <a href="index.html" class="brand" aria-label="Indicium Signals">
-      <svg width="40" height="40" viewBox="0 0 48 48" fill="none" style="margin-right:0.65rem;flex-shrink:0;">
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color: #1e3a8a" />
-            <stop offset="100%" style="stop-color: #10b981" />
-          </linearGradient>
-        </defs>
-        <path d="M6 36 L14 28 L22 32 L30 16 L38 20 L46 8"
-              stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <circle cx="14" cy="28" r="3" fill="#1e3a8a"/>
-        <circle cx="22" cy="32" r="3" fill="#1e3a8a"/>
-        <circle cx="30" cy="16" r="3" fill="#10b981"/>
-        <circle cx="38" cy="20" r="3" fill="#10b981"/>
-        <path d="M42 12 L46 8 L46 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
-      <div style="display:flex;flex-direction:column;">
+    <a href="index.html" class="brand">
+      <div>
         <div class="brand-name">INDICIUM</div>
-        <span class="brand-sub">SIGNALS</span>
+        <div class="brand-sub">SIGNALS</div>
       </div>
     </a>
-    <a href="index.html" style="color:var(--text-secondary);text-decoration:none;font-weight:600;">Volver al inicio</a>
   </nav>
 </header>
 
-<main>
-  <div class="container">
-    <h1>Solicitar Acceso</h1>
-    <p class="subtitle">Completa el formulario para recibir acceso a Indicium Signals</p>
+<!-- CONTENIDO -->
+<main class="container">
+  <h1>Solicitar Acceso</h1>
+  <p>Completa el formulario para solicitar acceso a Código Trinity. Nos pondremos en contacto contigo pronto.</p>
 
-    <div class="form-card">
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-group">
-          <label for="name">Nombre completo</label>
-          <input type="text" id="name" name="name" required placeholder="Tu nombre">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="tu@email.com">
-        </div>
-
-        <div class="form-group">
-          <label for="experience">Experiencia en inversiones</label>
-          <select id="experience" name="experience" required>
-            <option value="">Selecciona una opcion</option>
-            <option value="principiante">Principiante (menos de 1 ano)</option>
-            <option value="intermedio">Intermedio (1-5 anos)</option>
-            <option value="avanzado">Avanzado (5+ anos)</option>
-            <option value="profesional">Profesional / Institucional</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="broker">Broker actual (opcional)</label>
-          <input type="text" id="broker" name="broker" placeholder="Interactive Brokers, Fidelity, etc.">
-        </div>
-
-        <div class="form-group">
-          <label for="message">Que esperas de Indicium Signals? (opcional)</label>
-          <textarea id="message" name="message" placeholder="Cuentanos tu objetivo principal..."></textarea>
-        </div>
-
-        <div class="checkbox-group">
-          <input type="checkbox" id="terms" name="terms" required>
-          <label for="terms">
-            He leido y acepto los <a href="terminos.html">Terminos de uso</a>,
-            la <a href="privacidad.html">Politica de privacidad</a> y el
-            <a href="disclaimer.html">Disclaimer</a>.
-          </label>
-        </div>
-
-        <button type="submit" class="submit-btn">Enviar solicitud</button>
-      </form>
-
-      <div class="note">
-        <strong>Nota:</strong> Indicium Signals es una herramienta de analisis, no de asesoria financiera.
-        Las decisiones de inversion son responsabilidad exclusiva del usuario.
-      </div>
+  <!-- EDITABLE: Cambiar action cuando tengas formulario real -->
+  <form action="#" method="POST" style="max-width:500px;margin:2rem auto 0;">
+    <div class="form-group">
+      <label>Nombre completo</label>
+      <input type="text" name="nombre" required placeholder="Tu nombre">
     </div>
-  </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" required placeholder="tu@email.com">
+    </div>
+
+    <div class="form-group">
+      <label>País</label>
+      <select name="pais" required>
+        <option value="">Selecciona tu país</option>
+        <option value="MX">México</option>
+        <option value="AR">Argentina</option>
+        <option value="CL">Chile</option>
+        <option value="CO">Colombia</option>
+        <option value="ES">España</option>
+        <option value="US">Estados Unidos</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn" style="width:100%;">Enviar Solicitud</button>
+
+    <p style="margin-top:1.5rem;font-size:0.875rem;text-align:center;">
+      Te responderemos en las próximas 24-48 horas.
+    </p>
+  </form>
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <div>2025 Indicium Signals</div>
-  <div style="margin-top:.5rem;">
-    <a href="disclaimer.html">Disclaimer</a>
-    <a href="privacidad.html">Privacidad</a>
-    <a href="terminos.html">Terminos</a>
+  <div class="footer-content">
+    <p>© 2025 Indicium Signals. Todos los derechos reservados.</p>
+    <p style="margin-top:0.5rem;">
+      <a href="index.html">Inicio</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos</a>
+    </p>
   </div>
 </footer>
 
