@@ -1,14 +1,871 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indicium Signals - Trinity Method Trading Signals</title>
-    <meta name="description" content="Professional trading signals based on the Trinity Method combining strategies from Peter Lynch, William O'Neil, and Benjamin Graham" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indicium Signals · Código Trinity</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --text-primary:#0f172a;
+  --text-secondary:#334155;
+  --text-muted:#64748b;
+  --border:#e2e8f0;
+  --bg:#ffffff;
+  --bg-subtle:#f8fafc;
+
+  --lynch:#10b981;
+  --oneil:#3b82f6;
+  --graham:#8b5cf6;
+
+  --buy-bg: rgba(16,185,129,.12);
+  --buy-tx: #059669;
+  --wait-bg: rgba(245,158,11,.14);
+  --wait-tx: #b45309;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,system-ui,sans-serif;
+  color:var(--text-primary);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* ===== HEADER ===== */
+header{border-bottom:1px solid var(--border);}
+nav{
+  max-width:1200px;margin:0 auto;padding:1rem 2rem;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:2rem;
+}
+.brand{text-decoration:none;color:inherit;display:flex;align-items:center;}
+.brand-name{font-size:1.3rem;font-weight:800;letter-spacing:.05em;}
+.brand-sub{
+  font-size:.7rem;font-weight:700;letter-spacing:.25em;
+  color:var(--text-muted);display:block;margin-top:.15rem;
+}
+.principle{text-align:center;font-size:.85rem;font-weight:500;color:var(--text-secondary);}
+.principle strong{font-weight:600;color:var(--text-primary);}
+.nav-links{list-style:none;display:flex;gap:2rem;}
+.nav-links a{text-decoration:none;color:var(--text-secondary);font-weight:600;}
+.nav-links a:hover{color:var(--text-primary);}
+
+/* ===== HERO ===== */
+.hero{
+  max-width:900px;margin:5.5rem auto 5.25rem;padding:0 2rem;text-align:center;
+}
+.hero h1{font-size:2.35rem;margin-bottom:1.2rem;font-weight:700;}
+.hero .basis{font-size:1rem;color:var(--text-secondary);margin-bottom:2.2rem;}
+.hero .basis strong{font-weight:600;color:var(--text-primary);}
+.hero .decision{
+  font-size:1.05rem;font-weight:600;color:var(--text-primary);
+  margin-bottom:2.8rem;letter-spacing:.02em;
+}
+.hero .cta{
+  display:inline-block;padding:.95rem 2.2rem;border:1px solid var(--text-primary);
+  background:var(--text-primary);color:#fff;text-decoration:none;font-weight:600;
+  border-radius:12px;
+}
+
+/* ===== SECTION BASE ===== */
+.section{padding:5.75rem 2rem 6.25rem;border-top:1px solid var(--border);}
+.section.bg-subtle{background:var(--bg-subtle);}
+.container{max-width:1100px;margin:0 auto;}
+
+/* ===== TRINITY (Conceptual) ===== */
+.section-header{text-align:center;margin-bottom:4.25rem;}
+.section-header h2{font-size:2.35rem;font-weight:700;margin-bottom:.9rem;}
+.section-header p{font-size:1.02rem;color:var(--text-secondary);max-width:760px;margin:0 auto;}
+
+.trinity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.25rem;}
+.trinity-card{
+  border:1px solid var(--border);border-radius:18px;
+  padding:2.4rem 2.4rem 2.7rem;background:#fff;
+}
+.trinity-icon{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.7rem;font-weight:700;
+}
+.trinity-icon.lynch{background:rgba(16,185,129,.12);color:var(--lynch);}
+.trinity-icon.oneil{background:rgba(59,130,246,.12);color:var(--oneil);}
+.trinity-icon.graham{background:rgba(139,92,246,.12);color:var(--graham);}
+.trinity-author{font-size:1.25rem;font-weight:600;margin-bottom:.6rem;}
+.trinity-question{font-size:1.05rem;font-weight:600;margin-bottom:1.05rem;}
+.trinity-description{font-size:.98rem;color:var(--text-secondary);line-height:1.7;}
+
+/* ===== TOP 5 ===== */
+.top5-header{text-align:center;margin-bottom:2.75rem;}
+.top5-header h2{font-size:2.4rem;font-weight:700;margin-bottom:.65rem;}
+.top5-header p{color:var(--text-secondary);font-size:1.05rem;}
+
+/* global context */
+.meta{
+  display:flex;justify-content:flex-start;align-items:center;gap:1rem;
+  padding:1rem 1.25rem;border:1px solid var(--border);border-radius:14px;
+  background:var(--bg-subtle);margin:0 auto 1.25rem;
+}
+.meta-left{font-size:.95rem;color:var(--text-secondary);}
+.meta strong{color:var(--text-primary);font-weight:600;}
+.meta .pill{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .65rem;
+  border:1px solid var(--border);border-radius:999px;background:#fff;
+  font-size:.9rem;color:var(--text-secondary);
+}
+.dot{width:.4rem;height:.4rem;border-radius:999px;background:var(--text-primary);}
+
+.table-wrap{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;}
+table{width:100%;border-collapse:separate;border-spacing:0;}
+thead th{
+  text-align:left;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-muted);background:#fff;padding:1.05rem 1.25rem;
+  border-bottom:1px solid var(--border);
+}
+tbody td{
+  padding:1.25rem 1.25rem;border-bottom:1px solid var(--border);
+  color:var(--text-secondary);font-size:1rem;vertical-align:middle;
+}
+tbody tr:last-child td{border-bottom:none;}
+td.rank{width:64px;color:var(--text-muted);font-variant-numeric:tabular-nums;}
+td.ticker{font-weight:700;color:var(--text-primary);width:110px;}
+td.company{color:var(--text-primary);}
+td.price,td.score{font-variant-numeric:tabular-nums;white-space:nowrap;}
+td.signal{width:120px;}
+.badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.35rem .8rem;border-radius:999px;font-weight:700;
+  font-size:.78rem;letter-spacing:.06em;
+}
+.badge.buy{background:var(--buy-bg);color:var(--buy-tx);}
+.badge.wait{background:var(--wait-bg);color:var(--wait-tx);}
+
+.note{
+  margin-top:1rem;display:flex;justify-content:space-between;gap:1rem;
+  color:var(--text-muted);font-size:.9rem;flex-wrap:wrap;
+}
+.note .mono{font-variant-numeric:tabular-nums;}
+
+.cta-wrap{text-align:center;margin-top:2.5rem;}
+.cta{
+  display:inline-block;padding:1rem 2.6rem;border:1px solid var(--text-primary);
+  background:var(--text-primary);color:#fff;text-decoration:none;font-weight:600;
+  border-radius:12px;
+}
+
+/* ===== PARA QUIÉN ES ===== */
+.pqe-header{text-align:center;margin-bottom:4.5rem;}
+.pqe-header h2{font-size:2.4rem;font-weight:700;}
+
+.pqe-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-bottom:4rem;}
+.pqe-card{
+  background:#fff;border:1px solid var(--border);border-radius:18px;
+  padding:2.6rem 2.6rem 2.8rem;
+}
+.pqe-card h3{font-size:1.25rem;font-weight:600;margin-bottom:1.6rem;}
+.pqe-list{list-style:none;display:flex;flex-direction:column;gap:1.25rem;}
+.pqe-list li{
+  font-size:1rem;color:var(--text-secondary);
+  padding-left:1.2rem;position:relative;
+}
+.pqe-list li::before{
+  content:"→";position:absolute;left:0;color:var(--text-primary);font-weight:600;
+}
+
+/* ===== PLACEHOLDERS ===== */
+.placeholder h2{font-size:1.6rem;font-weight:700;margin-bottom:.6rem;}
+.placeholder p{color:var(--text-secondary);max-width:760px;margin:0 auto;text-align:center;}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  nav{grid-template-columns:auto 1fr;row-gap:1rem;}
+  .principle{grid-column:1 / -1;}
+  .nav-links{display:none;}
+
+  .trinity-grid{grid-template-columns:1fr;gap:2rem;}
+  .pqe-grid{grid-template-columns:1fr;}
+  .section-header h2, .top5-header h2, .pqe-header h2{font-size:2.05rem;}
+
+  /* TABLE MOBILE: Card Layout Mejorado */
+  thead{display:none;}
+  table{display:block;}
+  tbody{display:grid;grid-template-columns:1fr;gap:1rem;}
+
+  tbody tr{
+    display:block;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1.25rem;
+    box-shadow:0 2px 8px rgba(15,23,42,0.04);
+  }
+
+  tbody td{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0.5rem 0;
+    border:none;
+  }
+
+  tbody td::before{
+    content:attr(data-label);
+    font-weight:600;
+    color:var(--text-muted);
+    font-size:0.8125rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+
+  /* Ticker destacado en mobile */
+  td.ticker{
+    font-size:1.25rem;
+    font-weight:700;
+    padding:0.75rem 0;
+    border-bottom:1px solid var(--border);
+    margin-bottom:0.5rem;
+  }
+
+  td.ticker::before{
+    display:none;
+  }
+
+  /* Signal badge en mobile */
+  td.signal{
+    padding-top:0.75rem;
+    border-top:1px solid var(--border);
+    margin-top:0.5rem;
+  }
+}
+@media(max-width:768px){
+  .hero h1{font-size:1.9rem}
+}
+</style>
+
+<style>
+@media(max-width:900px){
+  #brokers [style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr !important;}
+  #brokers [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr !important;}
+}
+</style>
+
+
+<style>
+@media(max-width:900px){
+  #brokers [style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr !important;}
+}
+</style>
+
+
+<style>
+@media(max-width:900px){
+  #brokers [style*="grid-template-columns:1.2fr .8fr"]{grid-template-columns:1fr !important;}
+}
+</style>
+
+
+<!-- Brand System (Indicium v1) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#1e3a8a;
+  --lynch:#10b981;
+  --oneil:#3b82f6;
+  --graham:#8b5cf6;
+
+  --buy:#10b981;
+  --sell:#ef4444;
+  --hold:#f59e0b;
+
+  --slate-50:#f8fafc;
+  --slate-100:#f1f5f9;
+  --slate-200:#e2e8f0;
+  --slate-300:#cbd5e1;
+  --slate-400:#94a3b8;
+  --slate-500:#64748b;
+  --slate-600:#475569;
+  --slate-700:#334155;
+  --slate-800:#1e293b;
+  --slate-900:#0f172a;
+
+  --bg-trinity-gradient: linear-gradient(135deg, var(--lynch) 0%, var(--oneil) 50%, var(--graham) 100%);
+  --bg-primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--oneil) 100%);
+  --bg-success-gradient: linear-gradient(135deg, var(--lynch) 0%, #059669 100%);
+  --bg-warning-gradient: linear-gradient(135deg, var(--hold) 0%, #d97706 100%);
+  --bg-danger-gradient:  linear-gradient(135deg, var(--sell) 0%, #dc2626 100%);
+
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --shadow-glass-lg: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  --shadow-trinity: 0 4px 20px 0 rgba(30, 58, 138, 0.15);
+
+  --radius-sm: .375rem;
+  --radius: .5rem;
+  --radius-md: .75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--slate-900);
+  background: linear-gradient(to bottom right, var(--slate-50), #ffffff);
+}
+.mono{font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-variant-numeric: tabular-nums;}
+
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+.section{padding:4.5rem 0;}
+.section.alt{background:var(--slate-50); border-top:1px solid rgba(148,163,184,.18); border-bottom:1px solid rgba(148,163,184,.18);}
+.h1{font-size:3rem;line-height:1;letter-spacing:-.03em;font-weight:900;color:var(--slate-900);}
+.h2{font-size:2.25rem;line-height:1.1;letter-spacing:-.03em;font-weight:800;color:var(--slate-900);}
+.lead{font-size:1.25rem;line-height:1.6;color:var(--slate-600);}
+
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:var(--radius-full);font-weight:700;font-size:.9rem;}
+.badge.primary{background:rgba(30,58,138,.10);color:var(--primary);}
+.badge.lynch{background:rgba(16,185,129,.10);color:var(--lynch);}
+.badge.oneil{background:rgba(59,130,246,.10);color:var(--oneil);}
+.badge.graham{background:rgba(139,92,246,.10);color:var(--graham);}
+.badge.buy{background:rgba(16,185,129,.10);color:var(--buy);}
+.badge.hold{background:rgba(245,158,11,.12);color:var(--hold);}
+.badge.sell{background:rgba(239,68,68,.10);color:var(--sell);}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.25rem;border-radius:var(--radius-full);font-weight:700;text-decoration:none;border:1px solid transparent;transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;}
+.btn.primary{background:var(--bg-primary-gradient);color:#fff;box-shadow:var(--shadow-trinity);}
+.btn.primary:hover{transform:translateY(-1px);filter:brightness(1.02);box-shadow:0 18px 40px rgba(15,23,42,.18);}
+.btn.secondary{background:var(--slate-100);color:var(--slate-700);border-color:rgba(148,163,184,.35);}
+.btn.secondary:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(15,23,42,.10);}
+.btn.ghost{background:transparent;color:var(--slate-600);border-color:transparent;}
+.btn.ghost:hover{background:rgba(148,163,184,.12);color:var(--slate-700);}
+
+.card{background:#fff;border:1px solid rgba(148,163,184,.28);border-radius:var(--radius-xl);box-shadow:0 6px 18px rgba(15,23,42,.06);}
+.card.pad-sm{padding:1rem}
+.card.pad-md{padding:1.5rem}
+.card.pad-lg{padding:2rem}
+.card.hover{transition:transform .15s ease, box-shadow .15s ease;}
+.card.hover:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(15,23,42,.10);}
+
+.gradient-text{
+  background: var(--bg-trinity-gradient);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+.table-wrap{border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 16px 45px rgba(15,23,42,.08);border:1px solid rgba(148,163,184,.25);background:#fff;}
+table{width:100%;border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums;}
+thead th{background:var(--slate-50);color:var(--slate-500);text-transform:uppercase;letter-spacing:.10em;font-size:.75rem;padding:1rem;border-bottom:1px solid rgba(148,163,184,.22);}
+tbody td{padding:1rem;border-bottom:1px solid rgba(148,163,184,.18);color:var(--slate-700);}
+tbody tr:hover{background:rgba(248,250,252,.9);}
+tbody tr:last-child td{border-bottom:none;}
+
+@media (max-width: 900px){
+  .h1{font-size:2.25rem}
+  .h2{font-size:1.9rem}
+  .lead{font-size:1.05rem}
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="brand" aria-label="Indicium Signals">
+      <svg width="40" height="40" viewBox="0 0 48 48" fill="none" style="margin-right:0.65rem;flex-shrink:0;">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color: #1e3a8a" />
+            <stop offset="100%" style="stop-color: #10b981" />
+          </linearGradient>
+        </defs>
+        <path d="M6 36 L14 28 L22 32 L30 16 L38 20 L46 8"
+              stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="14" cy="28" r="3" fill="#1e3a8a"/>
+        <circle cx="22" cy="32" r="3" fill="#1e3a8a"/>
+        <circle cx="30" cy="16" r="3" fill="#10b981"/>
+        <circle cx="38" cy="20" r="3" fill="#10b981"/>
+        <path d="M42 12 L46 8 L46 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div style="display:flex;flex-direction:column;">
+        <div class="brand-name">INDICIUM</div>
+        <span class="brand-sub">SIGNALS</span>
+      </div>
+    </a>
+
+    <div class="principle">
+      <strong>Código Trinity</strong> · Menos ruido. Más criterio.
+    </div>
+
+    <ul class="nav-links" aria-label="Navegación">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#top5">Top 5</a></li>
+      <li><a href="#trinity">Trinity</a></li>
+      <li><a href="#para-quien">Para quién</a></li>
+      <li><a href="#brokers">Brokers</a></li>
+      <li><a href="#soporte">Soporte</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Criterio probado aplicado a miles de empresas</h1>
+
+  <div class="basis">
+    Basado en <strong>marcos de inversión</strong> desarrollados por
+    <strong>Benjamin Graham</strong>, <strong>Peter Lynch</strong> y <strong>William O'Neil</strong>,
+    integrados en un sistema único.
+  </div>
+
+  <div class="decision">Tú analizas · Tú decides</div>
+
+  <a href="#top5" class="cta">Solicitar acceso</a>
+</section>
+
+<section id="trinity" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Tres marcos. Un sistema.</h2>
+      <p>El Código Trinity integra tres formas complementarias de analizar una empresa.</p>
+    </div>
+
+    <div class="trinity-grid">
+      <div class="trinity-card">
+        <div class="trinity-icon lynch">↗</div>
+        <div class="trinity-author">Peter Lynch</div>
+        <div class="trinity-question">¿Está creciendo de forma comprensible y sostenible?</div>
+        <div class="trinity-description">
+          Empresas cuyo crecimiento puede explicarse, entenderse y sostenerse en el tiempo,
+          sin depender de supuestos frágiles o modas pasajeras.
+        </div>
+      </div>
+
+      <div class="trinity-card">
+        <div class="trinity-icon oneil">≈</div>
+        <div class="trinity-author">William O'Neil</div>
+        <div class="trinity-question">¿El mercado confirma ese crecimiento?</div>
+        <div class="trinity-description">
+          Acciones donde el comportamiento del precio y la participación institucional
+          respaldan los fundamentos del negocio.
+        </div>
+      </div>
+
+      <div class="trinity-card">
+        <div class="trinity-icon graham">◼</div>
+        <div class="trinity-author">Benjamin Graham</div>
+        <div class="trinity-question">¿Existe un margen de seguridad real?</div>
+        <div class="trinity-description">
+          Negocios sólidos adquiridos a precios que protegen al inversor frente a errores,
+          ciclos adversos y escenarios inesperados.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="top5" class="section">
+  <div class="container">
+    <div class="top5-header">
+      <h2>Top 5 Signals</h2>
+      <p>Acceso gratuito · Actualización EOD</p>
+    </div>
+
+    <div class="meta" aria-label="Contexto global">
+      <div class="meta-left">
+        <span class="pill"><span class="dot"></span><strong>Market regime:</strong>&nbsp;Bull</span>
+      </div>
+    </div>
+
+    <div class="table-wrap" role="table" aria-label="Top 5 Signals">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>Sector</th>
+            <th>Price</th>
+            <th>Trinity score</th>
+            <th>Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank" data-label="Rank">1</td>
+            <td class="ticker" data-label="Ticker">SEB</td>
+            <td class="company" data-label="Company">Seaboard Corp</td>
+            <td class="sector" data-label="Sector">Consumer Cyclical</td>
+            <td class="price" data-label="Price">$4,385.0</td>
+            <td class="score" data-label="Trinity Score">84.2</td>
+            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
+          </tr>
+          <tr>
+            <td class="rank" data-label="Rank">2</td>
+            <td class="ticker" data-label="Ticker">DVAX</td>
+            <td class="company" data-label="Company">Dynavax Technologies</td>
+            <td class="sector" data-label="Sector">Healthcare</td>
+            <td class="price" data-label="Price">$15.4</td>
+            <td class="score" data-label="Trinity Score">83.1</td>
+            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
+          </tr>
+          <tr>
+            <td class="rank" data-label="Rank">3</td>
+            <td class="ticker" data-label="Ticker">INVX</td>
+            <td class="company" data-label="Company">Innovex International</td>
+            <td class="sector" data-label="Sector">Other</td>
+            <td class="price" data-label="Price">$22.0</td>
+            <td class="score" data-label="Trinity Score">82.8</td>
+            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
+          </tr>
+          <tr>
+            <td class="rank" data-label="Rank">4</td>
+            <td class="ticker" data-label="Ticker">KE</td>
+            <td class="company" data-label="Company">Kimball Electronics</td>
+            <td class="sector" data-label="Sector">Technology</td>
+            <td class="price" data-label="Price">$29.0</td>
+            <td class="score" data-label="Trinity Score">82.1</td>
+            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
+          </tr>
+          <tr>
+            <td class="rank" data-label="Rank">5</td>
+            <td class="ticker" data-label="Ticker">ECPG</td>
+            <td class="company" data-label="Company">Encore Capital Group</td>
+            <td class="sector" data-label="Sector">Financial Services</td>
+            <td class="price" data-label="Price">$55.0</td>
+            <td class="score" data-label="Trinity Score">80.8</td>
+            <td class="signal" data-label="Signal"><span class="badge wait">WAIT</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" aria-label="Notas">
+      <div><strong>Fuentes:</strong> Precios NYSE/NASDAQ (Polygon.io) · Fundamentales (SEC EDGAR)</div>
+      <div class="mono">Corte de datos (EOD): 2025-12-25</div>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="cta" href="#">Solicitar acceso</a>
+    </div>
+  </div>
+</section>
+
+<section id="para-quien" class="section bg-subtle">
+  <div class="container">
+    <div class="pqe-header">
+      <h2>Para quién es</h2>
+    </div>
+
+    <div class="pqe-grid">
+      <div class="pqe-card">
+        <h3>Es para ti si</h3>
+        <ul class="pqe-list">
+          <li>Inviertes con horizonte de meses o años, no de días</li>
+          <li>Prefieres esperar antes que operar sin convicción</li>
+          <li>Entiendes que el análisis requiere contexto y paciencia</li>
+          <li>Aceptas el error como parte natural del proceso</li>
+        </ul>
+      </div>
+
+      <div class="pqe-card">
+        <h3>No es para ti si</h3>
+        <ul class="pqe-list">
+          <li>Buscas operar intradía o reaccionar a cada movimiento</li>
+          <li>Necesitas señales frecuentes para sentir progreso</li>
+          <li>Esperas que un sistema decida qué comprar por ti</li>
+          <li>Mides el éxito únicamente en resultados de corto plazo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="cta" href="#">Solicitar acceso</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="videos" class="section bg-subtle">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Antes de usar Código Trinity</h2>
+      <p>Tres videos para entender el sistema, gestionar el riesgo y usarlo correctamente.</p>
+    </div>
+
+    <!-- Video principal -->
+    <div style="max-width:520px;margin:0 auto 4.5rem;">
+      <div style="border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;">
+        <div style="background:#1e3a8a;height:220px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2rem;">
+          ▶
+        </div>
+        <div style="padding:1.8rem 2rem;">
+          <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:.6rem;">Qué es Código Trinity</h3>
+          <p style="color:var(--text-secondary);margin-bottom:1.1rem;">
+            El marco detrás del sistema. Qué es, qué no es y para quién fue diseñado.
+          </p>
+          <span style="font-size:.9rem;color:var(--text-muted);">Duración estimada: 10–12 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Videos secundarios -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:900px;margin:0 auto;">
+
+      <div style="border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;">
+        <div style="background:#1e40af;height:180px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;">
+          ▶
+        </div>
+        <div style="padding:1.7rem 2rem;">
+          <h3 style="font-size:1.15rem;font-weight:600;margin-bottom:.5rem;">Cómo invertir sin ruido</h3>
+          <p style="color:var(--text-secondary);margin-bottom:1rem;">
+            Riesgo, disciplina, horizonte y cuándo no actuar aunque exista señal.
+          </p>
+          <span style="font-size:.9rem;color:var(--text-muted);">Duración estimada: 6–8 min</span>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;">
+        <div style="background:#1e40af;height:180px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;">
+          ▶
+        </div>
+        <div style="padding:1.7rem 2rem;">
+          <h3 style="font-size:1.15rem;font-weight:600;margin-bottom:.5rem;">Cómo usar Código Trinity</h3>
+          <p style="color:var(--text-secondary);margin-bottom:1rem;">
+            Cómo leer el Top&nbsp;5, interpretar señales y decidir con criterio.
+          </p>
+          <span style="font-size:.9rem;color:var(--text-muted);">Duración estimada: 4–6 min</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-wrap" style="margin-top:3.5rem;">
+      <a class="cta" href="#">Solicitar acceso</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<section id="brokers" class="section">
+  <div class="container">
+
+    <div class="section-header" style="margin-bottom:2.75rem;">
+      <h2>Brokers recomendados</h2>
+      <p>
+        Código Trinity te ayuda a decidir <strong>qué</strong> comprar.<br/>
+        El broker te permite <strong>ejecutar la operación</strong>.
+      </p>
+      <p style="margin-top:.75rem;color:var(--text-muted);font-size:.95rem;max-width:760px;margin-left:auto;margin-right:auto;">
+        Comparativa basada en rankings independientes de <strong>Barron's</strong> (publicación financiera de referencia, parte de Dow Jones) y criterios operativos relevantes para usuarios de Código Trinity.
+      </p>
+<!-- Profiles Option 2 -->
+<section id="broker-profiles" style="max-width:980px;margin:2.5rem auto;">
+  <h3 style="text-align:center;margin-bottom:1.5rem;">Perfiles habituales</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;">
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.25rem;">
+      <strong>Bajo capital / Simple</strong>
+      <p style="color:#64748b;margin:.5rem 0 1rem 0;">
+        Primeros pasos, poco capital, operativa sencilla.
+      </p>
+      <span style="display:inline-block;background:#eef2ff;color:#1e3a8a;
+                   border-radius:999px;padding:6px 12px;font-weight:600;">
+        Webull
+      </span>
+    </div>
+
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.25rem;">
+      <strong>Principiante con research</strong>
+      <p style="color:#64748b;margin:.5rem 0 1rem 0;">
+        Inversión a largo plazo, análisis y educación.
+      </p>
+      <span style="display:inline-block;background:#eef2ff;color:#1e3a8a;
+                   border-radius:999px;padding:6px 12px;font-weight:600;">
+        Fidelity
+      </span>
+    </div>
+
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.25rem;">
+      <strong>Avanzado / Internacional</strong>
+      <p style="color:#64748b;margin:.5rem 0 1rem 0;">
+        Plataforma completa, acceso global y LATAM.
+      </p>
+      <span style="display:inline-block;background:#eef2ff;color:#1e3a8a;
+                   border-radius:999px;padding:6px 12px;font-weight:600;">
+        Interactive Brokers
+      </span>
+    </div>
+  </div>
+</section>
+
+    </div>
+
+
+<div style="max-width:1100px;margin:0 auto;">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Broker</th>
+              <th>Perfil típico</th>
+              <th>Depósito mín.</th>
+              <th>Costos</th>
+              <th>Ranking Barron's</th>
+              <th>Nota clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="company"><strong>Interactive Brokers</strong></td>
+              <td>Avanzados / Internacional</td>
+              <td>$0</td>
+              <td>Desde $0.005/acción</td>
+              <td>#1–#2 recurrente</td>
+              <td>Mejor acceso global y costos bajos</td>
+            </tr>
+            <tr>
+              <td class="company"><strong>Fidelity</strong></td>
+              <td>Inversores largo plazo (USA)</td>
+              <td>$0</td>
+              <td>$0 stocks/ETFs</td>
+              <td>Top 3</td>
+              <td>Research sólido, solo USA</td>
+            </tr>
+            <tr>
+              <td class="company"><strong>Charles Schwab</strong></td>
+              <td>Profesionales / Patrimonios</td>
+              <td>$0 (USA) / $25K Intl.</td>
+              <td>$0 stocks/ETFs</td>
+              <td>#1–#3</td>
+              <td>Plataforma robusta, requisitos intl.</td>
+            </tr>
+            <tr>
+              <td class="company"><strong>E*TRADE</strong></td>
+              <td>Traders activos USA</td>
+              <td>$0</td>
+              <td>$0 stocks/ETFs</td>
+              <td>Top 5</td>
+              <td>Herramientas activas, fees opciones</td>
+            </tr>
+            <tr>
+              <td class="company"><strong>Webull</strong></td>
+              <td>Principiantes / Bajo capital</td>
+              <td>$0</td>
+              <td>$0</td>
+              <td>Top 5</td>
+              <td>Simplicidad, restricciones geográficas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!-- Closing Section -->
+
+<!-- Closing Section -->
+<section id="closing" style="background:linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);padding:5rem 2rem;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);"></div>
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+    <div style="max-width:980px;margin:0 auto;">
+      <span class="badge" style="display:inline-block;background:rgba(255,255,255,0.2);color:#ffffff;padding:0.5rem 1.25rem;border-radius:100px;margin-bottom:1.5rem;font-weight:700;font-size:0.875rem;backdrop-filter:blur(10px);">Código Trinity · Menos ruido. Más criterio.</span>
+      <h2 class="h2" style="margin:0 auto 1.5rem auto;max-width:760px;color:#ffffff;font-size:2.5rem;font-weight:800;">
+        Código Trinity no predice el mercado.<br/>
+        Te ayuda a decidir mejor.
+      </h2>
+      <p class="lead" style="max-width:760px;margin:0 auto 2.5rem auto;color:rgba(255,255,255,0.9);font-size:1.125rem;line-height:1.7;">
+        Código Trinity es un sistema de análisis y priorización basado en marcos probados.
+        Reduce ruido, ordena información y devuelve el control al inversor.<br/><br/>
+        <strong style="color:#ffffff;">El sistema no decide. Tú decides.</strong>
+      </p>
+      <a href="#access" class="btn primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2.5rem;background:#ffffff;color:#1e40af;text-decoration:none;font-weight:700;border-radius:100px;box-shadow:0 20px 40px rgba(0,0,0,0.2);border:none;">Solicitar acceso</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer (refinado) -->
+<footer style="background:#0f172a;color:#cbd5e1;border-top:1px solid rgba(148,163,184,.12);">
+  <div style="max-width:1100px;margin:0 auto;padding:4rem 2rem 2rem;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+            <defs>
+              <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #10b981" />
+                <stop offset="100%" style="stop-color: #3b82f6" />
+              </linearGradient>
+            </defs>
+            <path d="M6 36 L14 28 L22 32 L30 16 L38 20 L46 8"
+                  stroke="url(#footerLogoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="14" cy="28" r="3" fill="#10b981"/>
+            <circle cx="22" cy="32" r="3" fill="#10b981"/>
+            <circle cx="30" cy="16" r="3" fill="#3b82f6"/>
+            <circle cx="38" cy="20" r="3" fill="#3b82f6"/>
+            <path d="M42 12 L46 8 L46 12" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div style="line-height:1;">
+            <div style="font-weight:900;letter-spacing:.05em;color:#e2e8f0;font-size:1.125rem;">INDICIUM</div>
+            <div style="font-size:.7rem;letter-spacing:.2em;color:#94a3b8;margin-top:.25rem;">SIGNALS</div>
+          </div>
+        </div>
+        <p style="margin:0;color:#94a3b8;max-width:36ch;line-height:1.7;font-size:0.9375rem;">
+          Menos ruido. Más criterio. Un sistema para priorizar oportunidades y decidir con disciplina.
+        </p>
+      </div>
+
+      <div>
+        <div style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:1rem;font-weight:700;">Producto</div>
+        <div style="display:grid;gap:.75rem;">
+          <a href="#top5" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Top 5 (demo)</a>
+          <a href="#trinity" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Código Trinity</a>
+          <a href="#brokers" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Brokers</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:1rem;font-weight:700;">Legal</div>
+        <div style="display:grid;gap:.75rem;">
+          <a href="#disclaimer" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Disclaimer</a>
+          <a href="#privacy" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Privacidad</a>
+          <a href="#terms" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Términos</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(148,163,184,.12);
+                display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;">
+      <div style="color:#64748b;font-size:.875rem;">© 2025 Indicium Signals. Todos los derechos reservados.</div>
+      <div style="color:#94a3b8;font-size:.9375rem;">
+        <strong style="color:#cbd5e1;">Código Trinity:</strong>
+        <span style="color:#10b981;font-weight:600;margin-left:0.5rem;">Lynch</span>
+        <span style="color:#64748b;margin:0 0.25rem;">•</span>
+        <span style="color:#3b82f6;font-weight:600;">O'Neil</span>
+        <span style="color:#64748b;margin:0 0.25rem;">•</span>
+        <span style="color:#8b5cf6;font-weight:600;">Graham</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 820px) {
+    footer > div > div { grid-template-columns: 1fr !important; }
+  }
+  footer a:hover { color:#ffffff !important; }
+</style>
+
+</body>
 </html>
