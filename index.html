@@ -410,7 +410,6 @@ tbody tr:last-child td{border-bottom:none;}
       <li><a href="#trinity">Trinity</a></li>
       <li><a href="#para-quien">Para quién</a></li>
       <li><a href="#brokers">Brokers</a></li>
-      <li><a href="#soporte">Soporte</a></li>
     </ul>
   </nav>
 </header>
@@ -426,7 +425,7 @@ tbody tr:last-child td{border-bottom:none;}
 
   <div class="decision">Tú analizas · Tú decides</div>
 
-  <a href="#top5" class="cta">Solicitar acceso</a>
+  <a href="acceso.html" class="cta">Solicitar acceso</a>
 </section>
 
 <section id="trinity" class="section">
@@ -496,51 +495,13 @@ tbody tr:last-child td{border-bottom:none;}
             <th>Signal</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td class="rank" data-label="Rank">1</td>
-            <td class="ticker" data-label="Ticker">SEB</td>
-            <td class="company" data-label="Company">Seaboard Corp</td>
-            <td class="sector" data-label="Sector">Consumer Cyclical</td>
-            <td class="price" data-label="Price">$4,385.0</td>
-            <td class="score" data-label="Trinity Score">84.2</td>
-            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
-          </tr>
-          <tr>
-            <td class="rank" data-label="Rank">2</td>
-            <td class="ticker" data-label="Ticker">DVAX</td>
-            <td class="company" data-label="Company">Dynavax Technologies</td>
-            <td class="sector" data-label="Sector">Healthcare</td>
-            <td class="price" data-label="Price">$15.4</td>
-            <td class="score" data-label="Trinity Score">83.1</td>
-            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
-          </tr>
-          <tr>
-            <td class="rank" data-label="Rank">3</td>
-            <td class="ticker" data-label="Ticker">INVX</td>
-            <td class="company" data-label="Company">Innovex International</td>
-            <td class="sector" data-label="Sector">Other</td>
-            <td class="price" data-label="Price">$22.0</td>
-            <td class="score" data-label="Trinity Score">82.8</td>
-            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
-          </tr>
-          <tr>
-            <td class="rank" data-label="Rank">4</td>
-            <td class="ticker" data-label="Ticker">KE</td>
-            <td class="company" data-label="Company">Kimball Electronics</td>
-            <td class="sector" data-label="Sector">Technology</td>
-            <td class="price" data-label="Price">$29.0</td>
-            <td class="score" data-label="Trinity Score">82.1</td>
-            <td class="signal" data-label="Signal"><span class="badge buy">BUY</span></td>
-          </tr>
-          <tr>
-            <td class="rank" data-label="Rank">5</td>
-            <td class="ticker" data-label="Ticker">ECPG</td>
-            <td class="company" data-label="Company">Encore Capital Group</td>
-            <td class="sector" data-label="Sector">Financial Services</td>
-            <td class="price" data-label="Price">$55.0</td>
-            <td class="score" data-label="Trinity Score">80.8</td>
-            <td class="signal" data-label="Signal"><span class="badge wait">WAIT</span></td>
+        <tbody id="signals-tbody">
+          <!-- Loading state -->
+          <tr id="loading-row">
+            <td colspan="7" style="text-align:center;padding:3rem;color:var(--text-muted);">
+              <div style="display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--oneil);border-radius:50%;animation:spin 1s linear infinite;"></div>
+              <div style="margin-top:0.75rem;">Cargando señales...</div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -548,11 +509,11 @@ tbody tr:last-child td{border-bottom:none;}
 
     <div class="note" aria-label="Notas">
       <div><strong>Fuentes:</strong> Precios NYSE/NASDAQ (Polygon.io) · Fundamentales (SEC EDGAR)</div>
-      <div class="mono">Corte de datos (EOD): 2025-12-25</div>
+      <div class="mono" id="data-timestamp">Cargando fecha...</div>
     </div>
 
     <div class="cta-wrap">
-      <a class="cta" href="#">Solicitar acceso</a>
+      <a class="cta" href="acceso.html">Solicitar acceso</a>
     </div>
   </div>
 </section>
@@ -586,7 +547,7 @@ tbody tr:last-child td{border-bottom:none;}
     </div>
 
     <div class="cta-wrap">
-      <a class="cta" href="#">Solicitar acceso</a>
+      <a class="cta" href="acceso.html">Solicitar acceso</a>
     </div>
   </div>
 </section>
@@ -648,7 +609,7 @@ tbody tr:last-child td{border-bottom:none;}
     </div>
 
     <div class="cta-wrap" style="margin-top:3.5rem;">
-      <a class="cta" href="#">Solicitar acceso</a>
+      <a class="cta" href="acceso.html">Solicitar acceso</a>
     </div>
 
   </div>
@@ -788,7 +749,7 @@ tbody tr:last-child td{border-bottom:none;}
         Reduce ruido, ordena información y devuelve el control al inversor.<br/><br/>
         <strong style="color:#ffffff;">El sistema no decide. Tú decides.</strong>
       </p>
-      <a href="#access" class="btn primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2.5rem;background:#ffffff;color:#1e40af;text-decoration:none;font-weight:700;border-radius:100px;box-shadow:0 20px 40px rgba(0,0,0,0.2);border:none;">Solicitar acceso</a>
+      <a href="acceso.html" class="btn primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2.5rem;background:#ffffff;color:#1e40af;text-decoration:none;font-weight:700;border-radius:100px;box-shadow:0 20px 40px rgba(0,0,0,0.2);border:none;">Solicitar acceso</a>
     </div>
   </div>
 </section>
@@ -838,9 +799,9 @@ tbody tr:last-child td{border-bottom:none;}
       <div>
         <div style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#64748b;margin-bottom:1rem;font-weight:700;">Legal</div>
         <div style="display:grid;gap:.75rem;">
-          <a href="#disclaimer" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Disclaimer</a>
-          <a href="#privacy" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Privacidad</a>
-          <a href="#terms" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Términos</a>
+          <a href="disclaimer.html" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Disclaimer</a>
+          <a href="privacidad.html" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Privacidad</a>
+          <a href="terminos.html" style="color:#cbd5e1;text-decoration:none;font-size:0.9375rem;transition:color 0.2s;">Términos</a>
         </div>
       </div>
     </div>
@@ -865,7 +826,86 @@ tbody tr:last-child td{border-bottom:none;}
     footer > div > div { grid-template-columns: 1fr !important; }
   }
   footer a:hover { color:#ffffff !important; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
+
+<script>
+(function() {
+  const API_ENDPOINT = 'https://indicium-signals-api.ob-acc23.workers.dev/api/v1/signals/top5';
+
+  // Fallback data in case API is unavailable
+  const FALLBACK_DATA = {
+    date: '2025-12-28',
+    market_regime: 'BULLISH',
+    signals: [
+      { rank: 1, ticker: 'SEB', company_name: 'Seaboard Corp', sector: 'Consumer Cyclical', price: 4385.0, trinity_score: 84.2, signal: 'BUY' },
+      { rank: 2, ticker: 'DVAX', company_name: 'Dynavax Technologies', sector: 'Healthcare', price: 15.4, trinity_score: 83.1, signal: 'BUY' },
+      { rank: 3, ticker: 'INVX', company_name: 'Innovex International', sector: 'Other', price: 22.0, trinity_score: 82.8, signal: 'BUY' },
+      { rank: 4, ticker: 'KE', company_name: 'Kimball Electronics', sector: 'Technology', price: 29.0, trinity_score: 82.1, signal: 'BUY' },
+      { rank: 5, ticker: 'ECPG', company_name: 'Encore Capital Group', sector: 'Financial Services', price: 55.0, trinity_score: 80.8, signal: 'WAIT' }
+    ]
+  };
+
+  function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+  }
+
+  function renderSignals(data) {
+    const tbody = document.getElementById('signals-tbody');
+    const timestamp = document.getElementById('data-timestamp');
+    const signals = data.signals || data.data?.signals || FALLBACK_DATA.signals;
+    const date = data.date || data.data?.date || FALLBACK_DATA.date;
+
+    // Update timestamp
+    timestamp.textContent = 'Corte de datos (EOD): ' + date;
+
+    // Clear loading and render signals
+    tbody.innerHTML = signals.slice(0, 5).map((s, i) => {
+      const rank = s.rank || (i + 1);
+      const signal = (s.signal || 'BUY').toUpperCase();
+      const badgeClass = signal === 'BUY' ? 'buy' : (signal === 'WAIT' || signal === 'HOLD') ? 'wait' : 'buy';
+
+      return `
+        <tr>
+          <td class="rank" data-label="Rank">${rank}</td>
+          <td class="ticker" data-label="Ticker">${s.ticker}</td>
+          <td class="company" data-label="Company">${s.company_name || s.company}</td>
+          <td class="sector" data-label="Sector">${s.sector || 'N/A'}</td>
+          <td class="price" data-label="Price">${formatPrice(s.price || s.entry_price || 0)}</td>
+          <td class="score" data-label="Trinity Score">${(s.trinity_score || 0).toFixed(1)}</td>
+          <td class="signal" data-label="Signal"><span class="badge ${badgeClass}">${signal}</span></td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  async function loadTop5Signals() {
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) {
+        throw new Error('API returned ' + response.status);
+      }
+
+      const data = await response.json();
+      renderSignals(data);
+    } catch (error) {
+      console.warn('API unavailable, using fallback data:', error.message);
+      renderSignals(FALLBACK_DATA);
+    }
+  }
+
+  // Load on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadTop5Signals);
+  } else {
+    loadTop5Signals();
+  }
+})();
+</script>
 
 </body>
 </html>

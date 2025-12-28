@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Indicium Signals - Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Sitio oficial:** https://indiciumsignals.com
 
-Currently, two official plugins are available:
+## Estructura del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Ramas
 
-## React Compiler
+- **`main`**: Código React/Vite (preservado, no desplegado)
+- **`static-landing`**: HTML estático (DESPLEGADO a producción) ← **ESTA RAMA**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Stack (static-landing)
 
-## Expanding the ESLint configuration
+- HTML/CSS vanilla
+- JavaScript nativo (API fetch)
+- Cloudflare Pages
+- Deploy automático on push
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Archivos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `index.html`: Landing page completa
+- `build.sh`: Script condicional para Cloudflare
+- `README.md`: Este archivo
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Deploy
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Cloudflare Pages está configurado para:**
+- **Production branch:** `static-landing`
+- **Build command:** `bash build.sh`
+- **Build output directory:** `/`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Cualquier push a `static-landing` despliega automáticamente.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Pendientes (Roadmap)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Fase 2: API Integration
+- [ ] Conectar endpoint: `https://indicium-signals-api.ob-acc23.workers.dev/api/v1/signals/top5`
+- [ ] Reemplazar mock data con datos reales
+- [ ] Actualización automática cada 3AM CT
+
+### Fase Videos
+- [ ] Subir videos a YouTube
+- [ ] Actualizar placeholders con URLs reales
+
+## Datos Mock Actuales
+
+Tabla Top 5 tiene datos estáticos:
+- SEB (Seaboard Corp)
+- DVAX (Dynavax Technologies)
+- INVX (Innovex International)
+- KE (Kimball Electronics)
+- ECPG (Encore Capital Group)
+
+Estos serán reemplazados por API en Fase 2.
+
+---
+
+**Última actualización:** Diciembre 2024
+**Código Trinity:** Graham · Lynch · O'Neil
