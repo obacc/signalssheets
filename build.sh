@@ -11,6 +11,9 @@ if [ "$CF_PAGES_BRANCH" == "static-landing" ]; then
   # Crear directorio dist y copiar archivos HTML
   mkdir -p dist
   cp *.html dist/ 2>/dev/null || true
+  cp *.png dist/ 2>/dev/null || true
+  cp *.ico dist/ 2>/dev/null || true
+  cp *.webmanifest dist/ 2>/dev/null || true
   
   echo "✅ Archivos HTML copiados a dist/"
   exit 0
@@ -18,4 +21,3 @@ else
   echo "🔨 Compilando React/Vite..."
   npm run build
 fi
-
