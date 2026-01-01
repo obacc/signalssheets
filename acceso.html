@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar Acceso Beta · Código Trinity</title>
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png">
+<link rel="apple-touch-icon" sizes="256x256" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#3b82f6;
+  --secondary:#10b981;
+  --text:#0f172a;
+  --text-secondary:#334155;
+  --text-muted:#64748b;
+  --bg:#ffffff;
+  --bg-subtle:#f8fafc;
+  --border:#e2e8f0;
+  --gradient-trinity: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Inter,system-ui,sans-serif;
+  color:var(--text);
+  background:var(--bg-subtle);
+  line-height:1.6;
+}
+
+/* ===== HEADER ===== */
+header{border-bottom:1px solid var(--border);background:#fff;}
+nav{
+  max-width:1200px;margin:0 auto;padding:1rem 2rem;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:2rem;
+}
+.brand{text-decoration:none;color:inherit;display:flex;align-items:center;}
+.brand-name{font-size:1.3rem;font-weight:800;letter-spacing:.05em;}
+.brand-sub{
+  font-size:.7rem;font-weight:700;letter-spacing:.25em;
+  color:var(--text-muted);display:block;margin-top:.15rem;
+}
+.principle{text-align:center;font-size:.85rem;font-weight:500;color:var(--text-secondary);}
+.principle strong{font-weight:600;color:var(--text);}
+.nav-links{list-style:none;display:flex;gap:2rem;}
+.nav-links a{text-decoration:none;color:var(--text-secondary);font-weight:600;font-size:0.9rem;}
+.nav-links a:hover{color:var(--text);}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:3rem 2rem 5rem;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section{
+  text-align:center;
+  margin-bottom:3.5rem;
+}
+.beta-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.5rem 1.25rem;
+  background:var(--gradient-trinity);
+  color:#fff;
+  border-radius:100px;
+  font-weight:700;
+  font-size:0.875rem;
+  margin-bottom:1.5rem;
+  box-shadow:0 4px 12px rgba(59,130,246,0.3);
+}
+.hero-title{
+  font-size:2.5rem;
+  font-weight:900;
+  margin-bottom:1rem;
+  color:var(--text);
+  line-height:1.2;
+}
+.hero-subtitle{
+  font-size:1.125rem;
+  color:var(--text-secondary);
+  max-width:640px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* ===== WHAT'S INCLUDED ===== */
+.included-section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+  margin-bottom:2.5rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.included-title{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:1.5rem;
+  color:var(--text);
+}
+.included-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.included-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:1rem;
+}
+.included-list li::before{
+  content:"✓";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  background:var(--gradient-trinity);
+  color:#fff;
+  border-radius:50%;
+  font-weight:700;
+  flex-shrink:0;
+  font-size:1.125rem;
+}
+.included-list strong{
+  color:var(--text);
+  font-weight:600;
+}
+.included-list span{
+  color:var(--text-secondary);
+}
+
+/* ===== WARNING BOX ===== */
+.warning-box{
+  background:rgba(245,158,11,0.08);
+  border-left:4px solid #f59e0b;
+  padding:1.25rem 1.5rem;
+  border-radius:8px;
+  margin-bottom:2.5rem;
+}
+.warning-box p{
+  margin:0;
+  color:var(--text-secondary);
+  font-size:0.9375rem;
+  line-height:1.7;
+}
+.warning-box strong{
+  color:#b45309;
+  font-weight:600;
+}
+
+/* ===== FORM SECTION ===== */
+.form-section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.form-header{
+  margin-bottom:2rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.form-header h2{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:0.5rem;
+  color:var(--text);
+}
+.form-header p{
+  color:var(--text-muted);
+  font-size:0.9375rem;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group{
+  margin-bottom:1.5rem;
+}
+.form-group label{
+  display:block;
+  margin-bottom:0.5rem;
+  font-weight:600;
+  color:var(--text);
+  font-size:0.9375rem;
+}
+.form-group label .required{
+  color:#ef4444;
+  margin-left:0.25rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:0.875rem 1rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:1rem;
+  font-family:inherit;
+  transition:all 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+}
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+/* ===== CHECKBOX ===== */
+.checkbox-group{
+  margin-bottom:2rem;
+}
+.checkbox-wrapper{
+  display:flex;
+  gap:0.75rem;
+  align-items:flex-start;
+}
+.checkbox-wrapper input[type="checkbox"]{
+  width:20px;
+  height:20px;
+  margin-top:0.25rem;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.checkbox-wrapper label{
+  font-weight:400;
+  font-size:0.9375rem;
+  color:var(--text-secondary);
+  line-height:1.6;
+  cursor:pointer;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  width:100%;
+  padding:1rem 2rem;
+  background:var(--gradient-trinity);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  font-size:1.0625rem;
+  transition:all 0.2s ease;
+  box-shadow:0 4px 12px rgba(59,130,246,0.3);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(59,130,246,0.4);
+}
+
+/* ===== FOOTER NOTE ===== */
+.footer-note{
+  margin-top:1.5rem;
+  text-align:center;
+  color:var(--text-muted);
+  font-size:0.875rem;
+  line-height:1.6;
+}
+
+/* ===== PAGE FOOTER ===== */
+footer{
+  background:#0f172a;
+  color:#cbd5e1;
+  border-top:1px solid rgba(148,163,184,.12);
+  margin-top:4rem;
+  padding:2rem 0;
+}
+.footer-content{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 2rem;
+  text-align:center;
+  font-size:0.875rem;
+  color:#64748b;
+}
+.footer-content a{
+  color:#94a3b8;
+  text-decoration:none;
+  margin:0 0.5rem;
+}
+.footer-content a:hover{
+  color:#cbd5e1;
+}
+
+/* ===== DISCLAIMER ===== */
+.disclaimer{
+  background:rgba(148,163,184,0.08);
+  padding:1.5rem;
+  border-radius:8px;
+  margin-top:2rem;
+  font-size:0.875rem;
+  color:var(--text-muted);
+  line-height:1.7;
+  text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    row-gap:1rem;
+  }
+  .principle{display:none;}
+  .nav-links{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1rem;
+  }
+  .hero-title{
+    font-size:2rem;
+  }
+  .included-section,
+  .form-section{
+    padding:1.75rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a href="index.html" class="brand">
+      <svg width="40" height="40" viewBox="0 0 48 48" fill="none" style="margin-right:0.65rem;flex-shrink:0;">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color: #1e3a8a" />
+            <stop offset="100%" style="stop-color: #10b981" />
+          </linearGradient>
+        </defs>
+        <path d="M6 36 L14 28 L22 32 L30 16 L38 20 L46 8" 
+              stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="14" cy="28" r="3" fill="#1e3a8a"/>
+        <circle cx="22" cy="32" r="3" fill="#1e3a8a"/>
+        <circle cx="30" cy="16" r="3" fill="#10b981"/>
+        <circle cx="38" cy="20" r="3" fill="#10b981"/>
+        <path d="M42 12 L46 8 L46 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div style="display:flex;flex-direction:column;">
+        <div class="brand-name">INDICIUM</div>
+        <span class="brand-sub">SIGNALS</span>
+      </div>
+    </a>
+
+    <div class="principle">
+      <strong>Código Trinity</strong> · Menos ruido. Más criterio.
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#top5">Top 5</a></li>
+      <li><a href="index.html#trinity">Trinity</a></li>
+      <li><a href="index.html#para-quien">Para quién</a></li>
+      <li><a href="index.html#brokers">Brokers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+  
+  <!-- HERO SECTION -->
+  <div class="hero-section">
+    <div class="beta-badge">
+      <span>🚀</span>
+      <span>Beta exclusiva · Cupos limitados</span>
+    </div>
+    <h1 class="hero-title">Acceso Beta de Evaluación</h1>
+    <p class="hero-subtitle">
+      Estamos lanzando la versión beta de <strong>Código Trinity</strong> en modalidad Excel para recibir feedback y perfeccionar el sistema junto a inversores disciplinados.
+    </p>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="included-section">
+    <h2 class="included-title">Qué incluye esta beta</h2>
+    <ul class="included-list">
+      <li>
+        <div>
+          <strong>Top 10 señales EOD</strong><br>
+          <span>Ranking diario con señal resumida (BUY / HOLD / SELL) al cierre de mercado.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Watchlist personal</strong><br>
+          <span>Seguimiento de hasta 10 empresas seleccionadas por ti.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Actualización EOD</strong><br>
+          <span>Datos actualizados diariamente al cierre del mercado.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- WARNING BOX -->
+  <div class="warning-box">
+    <p>
+      <strong>⚠️ Cupos limitados:</strong> Esta beta se libera de forma controlada, con un máximo de <strong>45 accesos activos</strong>, para asegurar soporte adecuado y una evaluación de calidad. Revisamos solicitudes manualmente.
+    </p>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="form-section">
+    <div class="form-header">
+      <h2>Solicita tu acceso</h2>
+      <p>Completa el formulario y nos pondremos en contacto en las próximas 24 horas hábiles.</p>
+    </div>
+
+    <form action="https://formsubmit.co/comentarios@indiciumsignals.com" method="POST">
+      
+      <!-- FormSubmit Configuration -->
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_next" value="https://indiciumsignals.com/gracias.html">
+      <input type="hidden" name="_subject" value="🚀 Nueva solicitud Beta - Código Trinity">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="Gracias por tu solicitud de acceso a Código Trinity Beta. Revisaremos tu información y te contactaremos en las próximas 24 horas hábiles.">
+      
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required placeholder="Tu nombre completo">
+      </div>
+
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" name="email" required placeholder="tu@email.com">
+      </div>
+
+      <div class="form-group">
+        <label>País <span class="required">*</span></label>
+        <select name="pais" required>
+          <option value="">Selecciona tu país</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Brasil">Brasil</option>
+          <option value="Canadá">Canadá</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Costa Rica">Costa Rica</option>
+          <option value="Cuba">Cuba</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="El Salvador">El Salvador</option>
+          <option value="España">España</option>
+          <option value="Estados Unidos">Estados Unidos</option>
+          <option value="Guatemala">Guatemala</option>
+          <option value="Honduras">Honduras</option>
+          <option value="México">México</option>
+          <option value="Nicaragua">Nicaragua</option>
+          <option value="Panamá">Panamá</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Perú">Perú</option>
+          <option value="Puerto Rico">Puerto Rico</option>
+          <option value="República Dominicana">República Dominicana</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Venezuela">Venezuela</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Por qué te interesa evaluar Código Trinity en esta etapa beta? <span class="required">*</span></label>
+        <textarea name="motivacion" required placeholder="Cuéntanos brevemente qué te llevó a solicitar acceso y cómo planeas usar la herramienta..."></textarea>
+      </div>
+
+      <div class="checkbox-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="disclaimer" name="disclaimer" required value="Acepto">
+          <label for="disclaimer">
+            Confirmo que entiendo que esta beta es una herramienta de análisis (no asesoría financiera) y que las señales no son órdenes de compra o venta.
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Enviar Solicitud</button>
+
+      <div class="footer-note">
+        Te responderemos en las próximas <strong>24 horas hábiles</strong>.
+      </div>
+    </form>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Indicium Signals</strong> es una herramienta educativa y de análisis.<br>
+    No constituye asesoría financiera ni recomendaciones de inversión.
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 Indicium Signals. Todos los derechos reservados.</p>
+    <p style="margin-top:0.5rem;">
+      <a href="index.html">Inicio</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
