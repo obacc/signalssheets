@@ -77,6 +77,12 @@ nav{
   background:var(--text-primary);color:#fff;text-decoration:none;font-weight:600;
   border-radius:12px;
 }
+.hero .cta:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+  transition: all 0.2s ease;
+}
 
 /* ===== SECTION BASE ===== */
 .section{padding:5.75rem 2rem 6.25rem;border-top:1px solid var(--border);}
@@ -161,6 +167,12 @@ td.signal{width:120px;}
   display:inline-block;padding:1rem 2.6rem;border:1px solid var(--text-primary);
   background:var(--text-primary);color:#fff;text-decoration:none;font-weight:600;
   border-radius:12px;
+}
+.cta:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+  transition: all 0.2s ease;
 }
 
 /* ===== PARA QUIÉN ES ===== */
@@ -421,12 +433,16 @@ tbody tr:last-child td{border-bottom:none;}
 </header>
 
 <section id="home" class="hero">
-  <h1>Criterio probado aplicado a miles de empresas</h1>
+  <h1 style="font-weight:900;">Criterio probado aplicado a miles de empresas</h1>
 
-  <div class="basis">
-    Basado en <strong>marcos de inversión</strong> desarrollados por
-    <strong>Benjamin Graham</strong>, <strong>Peter Lynch</strong> y <strong>William O’Neil</strong>,
-    integrados en un sistema único.
+  <div class="basis" style="max-width:680px;margin:0 auto;">
+    Sistema de análisis que integra las metodologías de 
+    <span style="background:linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+                -webkit-background-clip:text;background-clip:text;color:transparent;
+                font-weight:700;">
+      Graham, Lynch y O'Neil
+    </span>
+    para identificar oportunidades de inversión con criterio probado.
   </div>
 
   <div class="decision">Tú analizas · Tú decides</div>
@@ -471,6 +487,109 @@ tbody tr:last-child td{border-bottom:none;}
           ciclos adversos y escenarios inesperados.
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN VIDEOS SHORTS -->
+<section id="videos" class="section bg-subtle">
+  <div class="container">
+    <div class="section-header">
+      <h2>Antes de usar Código Trinity</h2>
+      <p>Tres videos cortos para entender el sistema y usarlo correctamente.</p>
+    </div>
+
+    <!-- Carrusel de Shorts -->
+    <div style="position:relative;max-width:1000px;margin:0 auto;">
+      <div class="shorts-carousel" style="display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1rem 0 2rem;-webkit-overflow-scrolling:touch;">
+        
+        <!-- Short 1 -->
+        <div class="short-card-wrapper" style="flex:0 0 300px;scroll-snap-align:center;">
+          <div style="position:relative;background:#000;border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+            <iframe 
+              src="https://www.youtube.com/embed/8-SmHXeEZlU" 
+              title="Qué es Código Trinity"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="text-align:center;margin-top:1rem;">
+            <h4 style="font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:0.35rem;">
+              Qué es Código Trinity
+            </h4>
+            <p style="font-size:0.875rem;color:var(--text-muted);">
+              El marco detrás del sistema
+            </p>
+          </div>
+        </div>
+
+        <!-- Short 2 -->
+        <div class="short-card-wrapper" style="flex:0 0 300px;scroll-snap-align:center;">
+          <div style="position:relative;background:#000;border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+            <iframe 
+              src="https://www.youtube.com/embed/E8VcKhzB66s" 
+              title="Gestión de riesgo"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="text-align:center;margin-top:1rem;">
+            <h4 style="font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:0.35rem;">
+              Gestión de riesgo
+            </h4>
+            <p style="font-size:0.875rem;color:var(--text-muted);">
+              Disciplina y horizonte temporal
+            </p>
+          </div>
+        </div>
+
+        <!-- Short 3 -->
+        <div class="short-card-wrapper" style="flex:0 0 300px;scroll-snap-align:center;">
+          <div style="position:relative;background:#000;border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+            <iframe 
+              src="https://www.youtube.com/embed/C2J83KHkZ4A" 
+              title="Cómo usar las señales"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="text-align:center;margin-top:1rem;">
+            <h4 style="font-size:1.05rem;font-weight:600;color:var(--text-primary);margin-bottom:0.35rem;">
+              Cómo usar las señales
+            </h4>
+            <p style="font-size:0.875rem;color:var(--text-muted);">
+              Lectura e interpretación
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scrollbar custom styling -->
+      <style>
+        .shorts-carousel::-webkit-scrollbar {
+          height: 8px;
+          margin-top: 12px;
+        }
+        .shorts-carousel::-webkit-scrollbar-track {
+          background: #e2e8f0;
+          border-radius: 4px;
+        }
+        .shorts-carousel::-webkit-scrollbar-thumb {
+          background: #3b82f6;
+          border-radius: 4px;
+        }
+        .shorts-carousel::-webkit-scrollbar-thumb:hover {
+          background: #2563eb;
+        }
+      </style>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="acceso.html" class="cta">Solicitar acceso</a>
     </div>
   </div>
 </section>
@@ -747,6 +866,13 @@ tbody tr:last-child td{border-bottom:none;}
           </tbody>
         </table>
       </div>
+
+      <!-- Espaciado adicional -->
+      <div style="height:4rem;"></div>
+    </div>
+  </div>
+</section>
+
 <!-- Closing Section -->
 
 <!-- Closing Section -->
