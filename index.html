@@ -261,6 +261,11 @@ td.signal{width:120px;}
 }
 @media(max-width:768px){
   .hero h1{font-size:1.9rem}
+  
+  /* Ajustar branding en mobile */
+  .hero > div:first-child {
+    font-size: 1.75rem !important;
+  }
 }
 </style>
 
@@ -433,10 +438,14 @@ tbody tr:last-child td{border-bottom:none;}
 </header>
 
 <section id="home" class="hero">
-  <div style="text-transform:uppercase;letter-spacing:0.15em;font-size:0.875rem;font-weight:700;color:#3b82f6;margin-bottom:1.5rem;">
-    Código Trinity
+  <div style="font-size:2.5rem;font-weight:900;letter-spacing:0.05em;margin-bottom:1rem;
+            background:linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
+            -webkit-background-clip:text;background-clip:text;color:transparent;">
+    CÓDIGO TRINITY
   </div>
-  <h1 style="font-weight:900;">Criterio probado aplicado a miles de empresas</h1>
+  <h1 style="font-weight:900;font-size:2rem;line-height:1.3;">
+    Criterio probado aplicado a miles de empresas
+  </h1>
 
   <div class="basis" style="max-width:680px;margin:0 auto;">
     Sistema de análisis que integra las metodologías de 
