@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solicitar Acceso · Indicium Signals</title>
+<title>Solicitar Acceso Beta · Código Trinity</title>
 
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -14,7 +14,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -24,13 +24,15 @@
   --text-secondary:#334155;
   --text-muted:#64748b;
   --bg:#ffffff;
+  --bg-subtle:#f8fafc;
   --border:#e2e8f0;
+  --gradient-trinity: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:Inter,system-ui,sans-serif;
   color:var(--text);
-  background:var(--bg);
+  background:var(--bg-subtle);
   line-height:1.6;
 }
 
@@ -49,36 +51,270 @@ nav{
 .principle{text-align:center;font-size:.85rem;font-weight:500;color:var(--text-secondary);}
 .principle strong{font-weight:600;color:var(--text);}
 .nav-links{list-style:none;display:flex;gap:2rem;}
-.nav-links a{text-decoration:none;color:var(--text-secondary);font-weight:600;}
+.nav-links a{text-decoration:none;color:var(--text-secondary);font-weight:600;font-size:0.9rem;}
 .nav-links a:hover{color:var(--text);}
 
-.container{max-width:700px;margin:0 auto;padding:4rem 2rem;}
-h1{font-size:2.5rem;font-weight:800;color:var(--text);margin-bottom:1rem;}
-p{margin-bottom:1.5rem;color:var(--text-muted);line-height:1.7;font-size:1.05rem;}
+/* ===== CONTAINER ===== */
+.container{
+  max-width:900px;
+  margin:0 auto;
+  padding:3rem 2rem 5rem;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section{
+  text-align:center;
+  margin-bottom:3.5rem;
+}
+.beta-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.5rem 1.25rem;
+  background:var(--gradient-trinity);
+  color:#fff;
+  border-radius:100px;
+  font-weight:700;
+  font-size:0.875rem;
+  margin-bottom:1.5rem;
+  box-shadow:0 4px 12px rgba(59,130,246,0.3);
+}
+.hero-title{
+  font-size:2.5rem;
+  font-weight:900;
+  margin-bottom:1rem;
+  color:var(--text);
+  line-height:1.2;
+}
+.hero-subtitle{
+  font-size:1.125rem;
+  color:var(--text-secondary);
+  max-width:640px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+/* ===== WHAT'S INCLUDED ===== */
+.included-section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+  margin-bottom:2.5rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.included-title{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:1.5rem;
+  color:var(--text);
+}
+.included-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.included-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:1rem;
+}
+.included-list li::before{
+  content:"✓";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  background:var(--gradient-trinity);
+  color:#fff;
+  border-radius:50%;
+  font-weight:700;
+  flex-shrink:0;
+  font-size:1.125rem;
+}
+.included-list strong{
+  color:var(--text);
+  font-weight:600;
+}
+.included-list span{
+  color:var(--text-secondary);
+}
+
+/* ===== WARNING BOX ===== */
+.warning-box{
+  background:rgba(245,158,11,0.08);
+  border-left:4px solid #f59e0b;
+  padding:1.25rem 1.5rem;
+  border-radius:8px;
+  margin-bottom:2.5rem;
+}
+.warning-box p{
+  margin:0;
+  color:var(--text-secondary);
+  font-size:0.9375rem;
+  line-height:1.7;
+}
+.warning-box strong{
+  color:#b45309;
+  font-weight:600;
+}
+
+/* ===== FORM SECTION ===== */
+.form-section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.form-header{
+  margin-bottom:2rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.form-header h2{
+  font-size:1.5rem;
+  font-weight:700;
+  margin-bottom:0.5rem;
+  color:var(--text);
+}
+.form-header p{
+  color:var(--text-muted);
+  font-size:0.9375rem;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group{
+  margin-bottom:1.5rem;
+}
+.form-group label{
+  display:block;
+  margin-bottom:0.5rem;
+  font-weight:600;
+  color:var(--text);
+  font-size:0.9375rem;
+}
+.form-group label .required{
+  color:#ef4444;
+  margin-left:0.25rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:0.875rem 1rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:1rem;
+  font-family:inherit;
+  transition:all 0.2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+}
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+/* ===== CHECKBOX ===== */
+.checkbox-group{
+  margin-bottom:2rem;
+}
+.checkbox-wrapper{
+  display:flex;
+  gap:0.75rem;
+  align-items:flex-start;
+}
+.checkbox-wrapper input[type="checkbox"]{
+  width:20px;
+  height:20px;
+  margin-top:0.25rem;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.checkbox-wrapper label{
+  font-weight:400;
+  font-size:0.9375rem;
+  color:var(--text-secondary);
+  line-height:1.6;
+  cursor:pointer;
+}
+
+/* ===== BUTTON ===== */
 .btn{
-  display:inline-block;padding:0.875rem 2rem;background:var(--primary);
-  color:#fff;text-decoration:none;border-radius:100px;font-weight:600;
-  transition:all 0.2s;border:none;cursor:pointer;font-size:1rem;
+  display:block;
+  width:100%;
+  padding:1rem 2rem;
+  background:var(--gradient-trinity);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  font-size:1.0625rem;
+  transition:all 0.2s ease;
+  box-shadow:0 4px 12px rgba(59,130,246,0.3);
 }
-.btn:hover{background:#2563eb;transform:translateY(-2px);}
-input,select{
-  width:100%;padding:0.875rem 1rem;border:1px solid var(--border);
-  border-radius:8px;font-size:1rem;font-family:inherit;
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(59,130,246,0.4);
 }
-input:focus,select:focus{outline:none;border-color:var(--primary);}
-label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--text);}
-.form-group{margin-bottom:1.5rem;}
+
+/* ===== FOOTER NOTE ===== */
+.footer-note{
+  margin-top:1.5rem;
+  text-align:center;
+  color:var(--text-muted);
+  font-size:0.875rem;
+  line-height:1.6;
+}
+
+/* ===== PAGE FOOTER ===== */
 footer{
-  background:#0f172a;color:#cbd5e1;border-top:1px solid rgba(148,163,184,.12);
-  margin-top:4rem;padding:2rem 0;
+  background:#0f172a;
+  color:#cbd5e1;
+  border-top:1px solid rgba(148,163,184,.12);
+  margin-top:4rem;
+  padding:2rem 0;
 }
 .footer-content{
-  max-width:1100px;margin:0 auto;padding:0 2rem;
-  text-align:center;font-size:0.875rem;color:#64748b;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 2rem;
+  text-align:center;
+  font-size:0.875rem;
+  color:#64748b;
 }
-.footer-content a{color:#94a3b8;text-decoration:none;margin:0 0.5rem;}
-.footer-content a:hover{color:#cbd5e1;}
+.footer-content a{
+  color:#94a3b8;
+  text-decoration:none;
+  margin:0 0.5rem;
+}
+.footer-content a:hover{
+  color:#cbd5e1;
+}
 
+/* ===== DISCLAIMER ===== */
+.disclaimer{
+  background:rgba(148,163,184,0.08);
+  padding:1.5rem;
+  border-radius:8px;
+  margin-top:2rem;
+  font-size:0.875rem;
+  color:var(--text-muted);
+  line-height:1.7;
+  text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   nav{
     grid-template-columns:1fr;
@@ -90,6 +326,13 @@ footer{
     justify-content:center;
     flex-wrap:wrap;
     gap:1rem;
+  }
+  .hero-title{
+    font-size:2rem;
+  }
+  .included-section,
+  .form-section{
+    padding:1.75rem;
   }
 }
 </style>
@@ -135,42 +378,122 @@ footer{
   </nav>
 </header>
 
-<!-- CONTENIDO -->
+<!-- MAIN CONTENT -->
 <main class="container">
-  <h1>Solicitar Acceso</h1>
-  <p>Completa el formulario para solicitar acceso a Código Trinity. Nos pondremos en contacto contigo pronto.</p>
-
-  <form action="#" method="POST" style="max-width:500px;margin:2rem auto 0;">
-    <div class="form-group">
-      <label>Nombre completo</label>
-      <input type="text" name="nombre" required placeholder="Tu nombre">
+  
+  <!-- HERO SECTION -->
+  <div class="hero-section">
+    <div class="beta-badge">
+      <span>🚀</span>
+      <span>Beta exclusiva · Cupos limitados</span>
     </div>
-    
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" required placeholder="tu@email.com">
-    </div>
-    
-    <div class="form-group">
-      <label>País</label>
-      <select name="pais" required>
-        <option value="">Selecciona tu país</option>
-        <option value="MX">México</option>
-        <option value="AR">Argentina</option>
-        <option value="CL">Chile</option>
-        <option value="CO">Colombia</option>
-        <option value="ES">España</option>
-        <option value="US">Estados Unidos</option>
-        <option value="otro">Otro</option>
-      </select>
-    </div>
-    
-    <button type="submit" class="btn" style="width:100%;">Enviar Solicitud</button>
-    
-    <p style="margin-top:1.5rem;font-size:0.875rem;text-align:center;">
-      Te responderemos en las próximas 24-48 horas.
+    <h1 class="hero-title">Acceso Beta de Evaluación</h1>
+    <p class="hero-subtitle">
+      Estamos lanzando la versión beta de <strong>Código Trinity</strong> en modalidad Excel para recibir feedback y perfeccionar el sistema junto a inversores disciplinados.
     </p>
-  </form>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="included-section">
+    <h2 class="included-title">Qué incluye esta beta</h2>
+    <ul class="included-list">
+      <li>
+        <div>
+          <strong>Top 10 señales EOD</strong><br>
+          <span>Ranking diario con señal resumida (BUY / HOLD / SELL) al cierre de mercado.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Watchlist personal</strong><br>
+          <span>Seguimiento de hasta 10 empresas seleccionadas por ti.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Actualización EOD</strong><br>
+          <span>Datos actualizados diariamente al cierre del mercado.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- WARNING BOX -->
+  <div class="warning-box">
+    <p>
+      <strong>⚠️ Cupos limitados:</strong> Esta beta se libera de forma controlada, con un máximo de <strong>45 accesos activos</strong>, para asegurar soporte adecuado y una evaluación de calidad. Revisamos solicitudes manualmente.
+    </p>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="form-section">
+    <div class="form-header">
+      <h2>Solicita tu acceso</h2>
+      <p>Completa el formulario y nos pondremos en contacto en las próximas 24 horas hábiles.</p>
+    </div>
+
+    <form action="https://formsubmit.co/comentarios@indiciumsignals.com" method="POST">
+      
+      <!-- FormSubmit Configuration -->
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_next" value="https://indiciumsignals.com/gracias.html">
+      <input type="hidden" name="_subject" value="🚀 Nueva solicitud Beta - Código Trinity">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="Gracias por tu solicitud de acceso a Código Trinity Beta. Revisaremos tu información y te contactaremos en las próximas 24 horas hábiles.">
+      
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required placeholder="Tu nombre completo">
+      </div>
+
+      <div class="form-group">
+        <label>Email <span class="required">*</span></label>
+        <input type="email" name="email" required placeholder="tu@email.com">
+      </div>
+
+      <div class="form-group">
+        <label>País <span class="required">*</span></label>
+        <select name="pais" required>
+          <option value="">Selecciona tu país</option>
+          <option value="México">México</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="España">España</option>
+          <option value="Estados Unidos">Estados Unidos</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Por qué te interesa evaluar Código Trinity en esta etapa beta? <span class="required">*</span></label>
+        <textarea name="motivacion" required placeholder="Cuéntanos brevemente qué te llevó a solicitar acceso y cómo planeas usar la herramienta..."></textarea>
+      </div>
+
+      <div class="checkbox-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="disclaimer" name="disclaimer" required value="Acepto">
+          <label for="disclaimer">
+            Confirmo que entiendo que esta beta es una herramienta de análisis (no asesoría financiera) y que las señales no son órdenes de compra o venta.
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Enviar Solicitud</button>
+
+      <div class="footer-note">
+        Te responderemos en las próximas <strong>24 horas hábiles</strong>.
+      </div>
+    </form>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Indicium Signals</strong> es una herramienta educativa y de análisis.<br>
+    No constituye asesoría financiera ni recomendaciones de inversión.
+  </div>
+
 </main>
 
 <!-- FOOTER -->
