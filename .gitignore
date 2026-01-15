@@ -1,3 +1,14 @@
+# Credentials (NEVER commit these)
+credentials/
+*.json.local
+.env
+.env.*
+
+# Virtual environments
+.venv/
+venv/
+env/
+
 # Logs
 logs
 *.log
